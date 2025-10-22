@@ -18,8 +18,8 @@
 </div>
 
 <script>
-    const dbName = "care_app";
-    const storeName = "tbl_goesoft_carers_account";
+    const dbName = "stafflinks";
+    const storeName = "tbl_team_account";
 
     // Open or create IndexedDB
     function openIndexedDB() {

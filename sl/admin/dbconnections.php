@@ -11,7 +11,7 @@ date_default_timezone_set("Europe/London");
 $dbHost = getenv('DB_HOST') ?: 'localhost';
 $dbUser = getenv('DB_USER') ?: 'root';
 $dbPass = getenv('DB_PASS') ?: '';
-$dbName = getenv('DB_NAME') ?: 'worksphere';
+$dbName = getenv('DB_NAME') ?: 'stafflinks';
 
 $conn = @new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 

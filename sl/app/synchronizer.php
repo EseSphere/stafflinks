@@ -27,7 +27,7 @@
     (async function() {
         const startTime = Date.now();
         const MIN_SYNC_TIME = 5000;
-        const dbName = "care_app";
+        const dbName = "stafflinks";
         const DB_VERSION = 2;
 
         const progressBar = document.getElementById('progress-bar');

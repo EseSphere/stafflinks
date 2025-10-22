@@ -9,7 +9,7 @@ class Database
         $host = getenv("DB_HOST") ?: "localhost";
         $user = getenv("DB_USER") ?: "root";
         $pass = getenv("DB_PASS") ?: "";
-        $db   = getenv("DB_NAME") ?: "care_app";
+        $db   = getenv("DB_NAME") ?: "stafflinks";
 
         $this->conn = new mysqli($host, $user, $pass, $db);
 

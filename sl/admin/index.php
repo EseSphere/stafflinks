@@ -7,9 +7,11 @@
 				<div class="row align-items-center ">
 					<div class="col-md-12">
 						<div class="card-body">
-							<h4 class="mb-3 f-w-400">Sign in</h4>
+							<a href="https://stafflinks.co.uk" class="text-decoration-none" rel="noopener noreferrer" title="Visit StaffLinks official website">
+								<img src="./assets/images/logo.png" alt="" class="img-fluid mb-0" style="width:230px; height:70px;">
+							</a>
 							<hr>
-
+							<h5 class="mb-3 f-w-400">Sign In to Your Account</h5>
 							<?php if (!empty($loginError) || !empty($emailError) || !empty($passError)) : ?>
 								<div id="popupAlert" style="width:100%; height:auto; margin-bottom:5px; padding:22px; background-color:rgba(192,57,43,1.0); color:white; border-radius:6px;">
 									<?php
@@ -19,7 +21,6 @@
 									?>
 								</div>
 							<?php endif; ?>
-
 							<div class="form-group mb-3">
 								<input type="text" name="myEmail" required class="form-control" id="Email" placeholder="Email address">
 							</div>
@@ -30,7 +31,7 @@
 								<input type="checkbox" class="custom-control-input" id="customCheck1">
 								<label class="custom-control-label" for="customCheck1">Save credentials.</label>
 							</div>
-							<button type="submit" name="btnSubmitform" class="btn btn-primary btn-block mb-4">Log in</button>
+							<button type="submit" name="btnSubmitform" class="btn btn-primary btn-block mb-4">Sign In</button>
 							<hr>
 							<p class="mb-2 text-muted">Forgot password? <a href="./reset-password" class="f-w-400">Reset</a></p>
 						</div>

@@ -152,7 +152,7 @@
         }
 
         const enteredHash = await hashPin(actualPin);
-        const dbRequest = indexedDB.open("care_app");
+        const dbRequest = indexedDB.open("stafflinks");
 
         dbRequest.onerror = (e) => {
             console.error("IndexedDB error:", e.target.error);
@@ -162,14 +162,14 @@
         dbRequest.onsuccess = (event) => {
             const db = event.target.result;
 
-            if (!db.objectStoreNames.contains("tbl_goesoft_carers_account")) {
+            if (!db.objectStoreNames.contains("tbl_team_account")) {
                 alert("No user data found. Please create a PIN first.");
                 window.location.href = "create-pin.php";
                 return;
             }
 
-            const transaction = db.transaction("tbl_goesoft_carers_account", "readonly");
-            const store = transaction.objectStore("tbl_goesoft_carers_account");
+            const transaction = db.transaction("tbl_team_account", "readonly");
+            const store = transaction.objectStore("tbl_team_account");
             const getAllRequest = store.getAll();
 
             getAllRequest.onerror = () => alert("Failed to read user data from IndexedDB");

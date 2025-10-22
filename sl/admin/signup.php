@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	<title>StaffLinks | Simplify. Organize. Thrive.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="robots" content="index, follow" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />

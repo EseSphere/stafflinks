@@ -29,7 +29,7 @@
 </div>
 
 <script>
-    const dbName = "care_app";
+    const dbName = "stafflinks";
     const clientStoreName = "tbl_general_client_form";
     const visitsStoreName = "tbl_daily_shift_records";
 

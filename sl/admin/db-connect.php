@@ -3,7 +3,7 @@
 $host     = getenv('DB_HOST') ?: 'localhost';
 $username = getenv('DB_USER') ?: 'root';
 $password = getenv('DB_PASS') ?: '';
-$dbname   = getenv('DB_NAME') ?: 'worksphere';
+$dbname   = getenv('DB_NAME') ?: 'stafflinks';
 
 $conn = @new mysqli($host, $username, $password, $dbname);
 

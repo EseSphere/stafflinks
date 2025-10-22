@@ -67,7 +67,7 @@
         // Open existing IndexedDB safely
         function openDB() {
             return new Promise((resolve, reject) => {
-                const request = indexedDB.open('care_app'); // no version
+                const request = indexedDB.open('stafflinks'); // no version
                 request.onsuccess = () => resolve(request.result);
                 request.onerror = () => reject('IndexedDB open error');
                 request.onupgradeneeded = (event) => {

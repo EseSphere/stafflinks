@@ -22,7 +22,7 @@
 </div>
 
 <script>
-    const dbName = "care_app";
+    const dbName = "stafflinks";
     const storeName = "tbl_daily_shift_records";
 
     const colors = ["#6c757d", "#0d6efd", "#198754", "#dc3545", "#ffc107", "#6f42c1", "#fd7e14"];

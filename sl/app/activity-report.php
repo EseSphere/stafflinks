@@ -97,7 +97,7 @@
     // Open IndexedDB
     async function openDB() {
         return new Promise((resolve, reject) => {
-            const request = indexedDB.open('care_app');
+            const request = indexedDB.open('stafflinks');
             request.onsuccess = e => resolve(e.target.result);
             request.onerror = e => reject(e.target.error);
             request.onupgradeneeded = e => {

@@ -116,14 +116,14 @@
         }
 
         const encryptedPin = await hashPin(actualPin);
-        const dbRequest = indexedDB.open("care_app", 1);
+        const dbRequest = indexedDB.open("stafflinks", 1);
 
         dbRequest.onerror = () => alert("Failed to open IndexedDB");
 
         dbRequest.onsuccess = (event) => {
             const db = event.target.result;
-            const transaction = db.transaction("tbl_goesoft_carers_account", "readwrite");
-            const store = transaction.objectStore("tbl_goesoft_carers_account");
+            const transaction = db.transaction("tbl_team_account", "readwrite");
+            const store = transaction.objectStore("tbl_team_account");
             const getAllRequest = store.getAll();
 
             getAllRequest.onsuccess = function() {

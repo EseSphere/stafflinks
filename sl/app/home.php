@@ -147,7 +147,7 @@
     // --- IndexedDB helper ---
     function openDB() {
         return new Promise((res, rej) => {
-            const req = indexedDB.open('care_app');
+            const req = indexedDB.open('stafflinks');
             req.onsuccess = e => res(e.target.result);
             req.onerror = e => rej(e.target.error);
         });

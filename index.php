@@ -13,13 +13,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta property="og:title" content="StaffLinks | Simplify. Organize. Thrive." />
     <meta property="og:description" content="Manage staff, clients, schedules, and finances in one unified platform. StaffLinks makes team and operations management simple and efficient." />
-    <meta property="og:image" content="img/stafflinksLogo.png" />
+    <meta property="og:image" content="./logo.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.stafflinks.co.uk" />
     <meta name="twitter:title" content="StaffLinks | Simplify. Organize. Thrive." />
     <meta name="twitter:description" content="StaffLinks centralizes staff, client, schedule, and finance management in one platform for maximum efficiency." />
-    <meta name="twitter:image" content="img/stafflinksLogo.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="./logo.png" />
+    <meta name="twitter:card" content="./logo.png" />
     <meta name="theme-color" content="#4CAF50" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -30,9 +30,9 @@
     <meta http-equiv="Expires" content="0" />
     <link rel="canonical" href="https://www.stafflinks.co.uk" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="img/stafflinksLogo.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="img/stafflinksLogo.png">
-    <link rel="shortcut icon" href="img/stafflinksLogo.png" type="image/x-icon">
+    <link rel="icon" href="./favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon.png">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
 </head>
 
 <body>

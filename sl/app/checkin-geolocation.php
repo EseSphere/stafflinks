@@ -2,7 +2,7 @@
     // Open IndexedDB safely
     function openDB() {
         return new Promise((resolve, reject) => {
-            const request = indexedDB.open('care_app');
+            const request = indexedDB.open('stafflinks');
             request.onupgradeneeded = e => {
                 const db = e.target.result;
                 if (!db.objectStoreNames.contains('tbl_daily_shift_records')) {
