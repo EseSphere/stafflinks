@@ -11,12 +11,11 @@
 </footer>
 <!-- Footer End -->
 
-
 <script>
     let names = [
         <?php
-        include('dbconnect.php');
-        $result = mysqli_query($myConnection, "SELECT * FROM tbl_medication_list ");
+        include('dbconnections.php');
+        $result = mysqli_query($conn, "SELECT * FROM tbl_medication_list");
         while ($trans = mysqli_fetch_array($result)) {
             echo "
                 '" . $trans['med_name'] . "',

@@ -1,0 +1,19 @@
+[22-Oct-2025 16:15:09 Europe/London] Uncaught exception: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, PDO given in C:\xampp\htdocs\stafflinks\sl\admin\header-contents.php:4
+[22-Oct-2025 16:15:09 Europe/London] #0 C:\xampp\htdocs\stafflinks\sl\admin\header-contents.php(4): mysqli_query(Object(PDO), 'SELECT * FROM t...')
+#1 C:\xampp\htdocs\stafflinks\sl\admin\dashboard.php(1): include('C:\\xampp\\htdocs...')
+#2 {main}
+[22-Oct-2025 16:15:19 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined method PDOStatement::bind_param() in C:\xampp\htdocs\stafflinks\sl\admin\processing-user-signin.php:38
+Stack trace:
+#0 C:\xampp\htdocs\stafflinks\sl\admin\index.php(2): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\stafflinks\sl\admin\processing-user-signin.php on line 38
+[22-Oct-2025 16:18:49 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined method PDOStatement::bind_param() in C:\xampp\htdocs\stafflinks\sl\admin\processing-user-signin.php:38
+Stack trace:
+#0 C:\xampp\htdocs\stafflinks\sl\admin\index.php(2): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\stafflinks\sl\admin\processing-user-signin.php on line 38
+[22-Oct-2025 16:18:52 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined method PDOStatement::bind_param() in C:\xampp\htdocs\stafflinks\sl\admin\processing-user-signin.php:38
+Stack trace:
+#0 C:\xampp\htdocs\stafflinks\sl\admin\index.php(2): include()
+#1 {main}
+  thrown in C:\xampp\htdocs\stafflinks\sl\admin\processing-user-signin.php on line 38
