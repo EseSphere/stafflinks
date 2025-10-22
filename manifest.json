@@ -1,7 +1,7 @@
 {
-  "name": "WorkSphere",
-  "short_name": "WorkSphere",
-  "description": "WorkSphere is a professional, all-in-one platform designed to streamline staff, client, scheduling, and financial management for organizations and businesses.",
+  "name": "StaffLinks",
+  "short_name": "StaffLinks",
+  "description": "StaffLinks is a professional, all-in-one platform designed to streamline staff, client, scheduling, and financial management for organizations and businesses.",
   "start_url": "/ws/",
   "scope": "/ws/",
   "display": "standalone",

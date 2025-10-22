@@ -2,11 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>StaffLinks | Simplify. Organize. Thrive.</title>
-    <meta name="description" content="StaffLinks is an all-in-one platform to manage staff, clients, schedules, and finances efficiently. Streamline operations and empower your team with a centralized web app." />
-    <meta name="keywords" content="StaffLinks, staff management, client management, scheduling, finance portal, web app, team management, productivity, operations" />
-    <meta name="author" content="StaffLinks Team" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,17 +23,16 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="canonical" href="https://www.stafflinks.co.uk" />
+    <link rel="icon" href="assets/images/wsLogo.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/wsLogo.png">
+    <link rel="shortcut icon" href="assets/images/wsLogo.png" type="image/x-icon">
     <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="img/stafflinksLogo.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="img/stafflinksLogo.png">
-    <link rel="shortcut icon" href="img/stafflinksLogo.png" type="image/x-icon">
+    <link rel="canonical" href="https://www.worksphere.co.uk" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <?php include('processing-user-signin.php'); ?>
+    <?php include('processing-reset-password.php'); ?>
 </head>
 
 <body>
-    <script>
-        window.location.href = './sl/';
-    </script>
-</body>
-
-</html>
