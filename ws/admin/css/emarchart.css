@@ -1,0 +1,112 @@
+ul {
+    list-style: none;
+}
+
+.list {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
+}
+
+.list-items {
+    padding: 10px 5px;
+}
+
+.list-items:hover {
+    background-color: #dddddd;
+}
+
+.multipleSelection {
+    width: 200px;
+    background-color: rgba(189, 195, 199, 1.0);
+    font-size: 16px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkBoxes {
+    display: none;
+    border: 1px #8DF5E4 solid;
+    height: auto;
+    padding: 8px;
+}
+
+#checkBoxes label {
+    display: block;
+    padding: 5px;
+}
+
+#checkBoxes label:hover {
+    background-color: #4F615E;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.green-circle,
+.red-circle {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.green-circle {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.red-circle {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.grey-circle {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: grey;
+    border-radius: 50%;
+}

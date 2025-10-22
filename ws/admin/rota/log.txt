@@ -1,0 +1,7 @@
+Raw input:
+{"updates":[{}]}
+
+Skipping invalid update entry: Array
+(
+)
+

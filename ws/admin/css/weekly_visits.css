@@ -1,0 +1,142 @@
+body {
+    background: #f5f7fa;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1100px;
+}
+
+table {
+    border-collapse: separate !important;
+    border-spacing: 0 10px !important;
+    background: #fff;
+    box-shadow: 0 4px 15px rgb(44 62 80 / 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+thead th {
+    background: #2c3e50;
+    /* Changed */
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px 10px;
+    user-select: none;
+    letter-spacing: 0.03em;
+}
+
+tbody th.time-label {
+    background: #e9f0fb;
+    font-weight: 700;
+    width: 140px;
+    vertical-align: middle;
+    padding: 15px 10px;
+    color: #2c3e50;
+    /* Changed */
+    border-left: 6px solid #2c3e50;
+    /* Changed */
+    user-select: none;
+}
+
+td {
+    vertical-align: middle !important;
+    min-width: 130px;
+    background: #fefefe;
+    padding: 10px 8px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    cursor: default;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+/* Hover effect on cells */
+td:hover {
+    background-color: #e6f0ff;
+    border-color: #7f8c8d;
+    /* subtle grey to complement new color */
+}
+
+/* Visit boxes with fade-in */
+.visit-box {
+    border: 1.5px solid #2c3e50;
+    /* Changed */
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 6px 0;
+    background: #d9e8ff;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 6px rgb(44 62 80 / 0.2);
+    /* Changed */
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    transition: box-shadow 0.3s ease;
+    user-select: none;
+}
+
+/* Slight elevation on hover over visits */
+.visit-box:hover {
+    box-shadow: 0 6px 15px rgb(44 62 80 / 0.4);
+    /* Changed */
+    background: #c0d8ff;
+}
+
+/* Status colors */
+.completed {
+    color: #198754;
+    font-weight: 600;
+    margin-top: 6px;
+    user-select: none;
+}
+
+.not-completed {
+    color: #dc3545;
+    font-weight: 600;
+    margin-top: 6px;
+    user-select: none;
+}
+
+/* Extra rows hidden by default */
+.extra-row {
+    transition: all 0.4s ease;
+}
+
+/* FadeInUp animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .time-label {
+        width: 100px;
+        font-size: 0.9rem;
+    }
+
+    td,
+    th {
+        min-width: 100px;
+        font-size: 0.85rem;
+    }
+
+    .visit-box {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    table {
+        font-size: 0.75rem;
+    }
+}
