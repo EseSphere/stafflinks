@@ -1,6 +1,6 @@
    :root {
-       --accent: #4A90E2;
-       --accent2: #50C9C3;
+       --accent: #EB6F46;
+       --accent2: #A72218;
        --card-bg: #ffffff;
        --muted: #6c757d;
        --bg1: #f7faff;
@@ -10,15 +10,16 @@
    body {
        margin: 0;
        padding: 0;
-    font-size: 18px;
+       font-size: 18px;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       background-color: rgba(220, 221, 225, 1.0);
+       background-color: #fff !important;
        overscroll-behavior: none;
        /* footer space */
    }
 
    html {
        overscroll-behavior: none;
+       background-color: #fff !important;
        /* footer space */
    }
 
@@ -26,8 +27,9 @@
        z-index: 20;
        background: linear-gradient(90deg, var(--accent), var(--accent2));
        padding: 12px 0;
-       border-bottom-right-radius: 12px;
-       border-bottom-left-radius: 12px;
+       border-bottom-right-radius: 15px;
+       border-bottom-left-radius: 15px;
+       border-bottom: 5px solid #E3C5B2;
        color: white;
        width: 100%;
        height: 200px;

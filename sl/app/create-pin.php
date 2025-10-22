@@ -1,6 +1,13 @@
 <?php require_once('header-log.php'); ?>
+<style>
+    /* Button pop animation */
+    .btn-pop {
+        transform: scale(1.2);
+        transition: transform 0.15s ease;
+    }
+</style>
 
-<div class="mt-5" data-aos="zoom-in" data-aos-duration="1000" style="z-index:1;">
+<div class="mt-4" data-aos="zoom-in" data-aos-duration="1000" style="z-index:1;">
     <div style="border: none; height:100vh;" class="card p-4 text-center mt-3">
         <h3 class="mb-3 fw-bold">Create PIN</h3>
         <input
@@ -33,14 +40,6 @@
         </div>
     </div>
 </div>
-
-<style>
-    /* Button pop animation */
-    .btn-pop {
-        transform: scale(1.2);
-        transition: transform 0.15s ease;
-    }
-</style>
 
 <script>
     const pinInput = document.getElementById("pin");

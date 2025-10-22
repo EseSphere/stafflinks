@@ -79,13 +79,13 @@
         try {
             const db = await openDB(dbName, DB_VERSION);
 
-            if (!db.objectStoreNames.contains('tbl_goesoft_carers_account')) {
+            if (!db.objectStoreNames.contains('tbl_team_account')) {
                 alert("User account data not found in IndexedDB!");
                 window.location.href = "./login";
                 return;
             }
 
-            const users = await getAllFromStore(db, 'tbl_goesoft_carers_account');
+            const users = await getAllFromStore(db, 'tbl_team_account');
             if (!users || users.length === 0) {
                 alert("No user found in local IndexedDB!");
                 window.location.href = "./login";

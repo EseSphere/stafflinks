@@ -21,7 +21,7 @@ if (!$email) {
 }
 
 try {
-    $stmt = $conn->prepare("SELECT * FROM tbl_goesoft_carers_account WHERE user_email_address = ?");
+    $stmt = $conn->prepare("SELECT * FROM tbl_team_account WHERE user_email_address = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();

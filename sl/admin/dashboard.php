@@ -203,7 +203,6 @@
                 // Fetch client data
                 $sql = "SELECT client_first_name, client_last_name, client_address_line_1, client_address_line_2, client_city, client_county, client_poster_code, client_country FROM tbl_general_client_form";
                 $result = $conn->query($sql);
-
                 $clients = [];
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {

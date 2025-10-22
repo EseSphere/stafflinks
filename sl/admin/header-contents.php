@@ -10,7 +10,6 @@ WHERE user_email_address = '" . $_SESSION['usr_email'] . "'
 AND col_company_id = '" . $_SESSION['usr_compId'] . "' ");
 $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
 ?>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -41,7 +40,6 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./fullcalendar/lib/main.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="./css/style2.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
@@ -88,19 +86,10 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                     </div>
                     <div class="collapse" id="nav-user-link">
                         <ul class="list-unstyled">
-                            <li class="list-group-item"><a href="./checking-administrator-access"
-                                    style="text-decoration: none; color:#fff;"><i
-                                        class="feather icon-user m-r-5"></i>View admin</a></li>
-                            <li class="list-group-item"><a
-                                    href="./share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>"
-                                    style="text-decoration: none; color:#fff;"><i
-                                        class="feather icon-share-2 m-r-5"></i>Share access</a></li>
-                            <li class="list-group-item"><a href="./qrcodes"
-                                    style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR
-                                    Codes</a></li>
-                            <li class="list-group-item"><a href="./auth-normal-logout?auth-normal-logout"
-                                    style="text-decoration: none; color:#fff;"><i
-                                        class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                            <li class="list-group-item"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
+                            <li class="list-group-item"><a href="./share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
+                            <li class="list-group-item"><a href="./qrcodes" style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR Codes</a></li>
+                            <li class="list-group-item"><a href="./auth-normal-logout?auth-normal-logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -109,56 +98,40 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                         <label>Navigation</label>
                     </li>
                     <li class="nav-item">
-                        <a href="./dashboard" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                        <a href="./dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./roster/" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-layout"></i></span><span class="pcoded-mtext">Roster</span></a>
+                        <a href="./rota/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Roster</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./manage-runs" class="nav-link"><span class="pcoded-micon"><i
-                                    class="feather icon-map"></i></span><span class="pcoded-mtext">Runs</span></a>
+                        <a href="./manage-runs" class="nav-link"><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Runs</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./active-clients" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-user"></i></span><span class="pcoded-mtext">Clients</span></a>
+                        <a href="./active-clients" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Clients</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./active-team" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-user-plus"></i></span><span class="pcoded-mtext">Team</span></a>
+                        <a href="./active-team" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span><span class="pcoded-mtext">Team</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./reports" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-align-justify"></i></span><span
-                                class="pcoded-mtext">Reports</span></a>
+                        <a href="./reports" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Reports</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./ratings" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-star"></i></span><span class="pcoded-mtext">Ratings</span></a>
+                        <a href="./ratings" class="nav-link "><span class="pcoded-micon"><i class="feather icon-star"></i></span><span class="pcoded-mtext">Ratings</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./tasks" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-box"></i></span><span class="pcoded-mtext">Tasks</span></a>
+                        <a href="./tasks" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Tasks</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./medication" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-heart"></i></span><span
-                                class="pcoded-mtext">Medication</span></a>
+                        <a href="./medication" class="nav-link "><span class="pcoded-micon"><i class="feather icon-heart"></i></span><span class="pcoded-mtext">Medication</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./group" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-pie-chart"></i></span><span
-                                class="pcoded-mtext">Groups</span></a>
+                        <a href="./group" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Groups</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./position" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-briefcase"></i></span><span
-                                class="pcoded-mtext">Position</span></a>
+                        <a href="./position" class="nav-link "><span class="pcoded-micon"><i class="feather icon-briefcase"></i></span><span class="pcoded-mtext">Position</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./auth-normal-logout" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
+                        <a href="./auth-normal-logout" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
                     </li>
                 </ul>
                 <div class="card text-center">
@@ -167,8 +140,7 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                         <i class="feather icon-sunset f-40"></i>
                         <h6 class="mt-3">StaffLinks</h6>
                         <p>Complete the following steps to learn how StaffLinks works and hit the ground running.</p>
-                        <a href="https://StaffLinkscare.co.uk/page/help-center" target="_blank"
-                            class="btn btn-primary btn-sm text-white m-0">Help center</a>
+                        <a href="https://StaffLinkscare.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
                     </div>
                 </div>
             </div>
@@ -219,8 +191,7 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                 <li>
                     <div class="dropdown drp-user">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo "" . $display_admin_data_row['company_name'] . ""; ?> <i
-                                class="feather icon-user"></i>
+                            <?php echo "" . $display_admin_data_row['company_name'] . ""; ?> <i class="feather icon-user"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">

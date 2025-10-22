@@ -20,7 +20,8 @@
                     <div class="col-sm-8 text-md-center">
                         <h5>
                             <?php
-                            $sql_total_team = "SELECT * FROM tbl_general_team_form WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
+                            $sql_total_team = "SELECT * FROM tbl_general_team_form 
+                            WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
                             if ($result_total_team = mysqli_query($conn, $sql_total_team)) {
                                 $rowcount = mysqli_num_rows($result_total_team);
                                 printf($rowcount);
@@ -64,7 +65,7 @@
                         <h5>
                             <?php
                             $sql_position = "SELECT * FROM tbl_position 
-                                        WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "')";
+                            WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "')";
                             if ($result_position = mysqli_query($conn, $sql_position)) {
                                 $rowcount = mysqli_num_rows($result_position);
                                 printf($rowcount);
@@ -87,7 +88,7 @@
                 <h4>
                     <?php
                     $sql_total_area = "SELECT client_area FROM tbl_general_client_form 
-                                WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY client_area";
+                    WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY client_area";
                     if ($result_total_area = mysqli_query($conn, $sql_total_area)) {
                         $rowcount = mysqli_num_rows($result_total_area);
                         printf($rowcount);
@@ -113,7 +114,7 @@
                         <h5>
                             <?php
                             $sql_total_task = "SELECT * FROM tbl_clients_task_records 
-                                        WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
+                            WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
                             if ($result_total_task = mysqli_query($conn, $sql_total_task)) {
                                 $rowcount = mysqli_num_rows($result_total_task);
                                 printf($rowcount);
@@ -134,7 +135,7 @@
                         <h5>
                             <?php
                             $sql_total_meds = "SELECT * FROM tbl_clients_medication_records 
-                                        WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "')";
+                            WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "')";
                             if ($result_total_meds = mysqli_query($conn, $sql_total_meds)) {
                                 $rowcount = mysqli_num_rows($result_total_meds);
                                 printf($rowcount);
@@ -157,7 +158,7 @@
                         <h5>
                             <?php
                             $sql_total_areas = "SELECT client_area FROM tbl_general_client_form 
-                                        WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY client_area";
+                            WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY client_area";
                             if ($result_total_areas = mysqli_query($conn, $sql_total_areas)) {
                                 $rowcount = mysqli_num_rows($result_total_areas);
                                 printf($rowcount);
@@ -177,7 +178,7 @@
                     <div class="col-sm-8 text-md-center">
                         <h5><?php
                             $sql_total_report = "SELECT COUNT(*) AS total_rows FROM tbl_raise_concern 
-                                        WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
+                            WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
                             $result = $conn->query($sql_total_report);
                             if ($result) {
                                 $row = $result->fetch_assoc();
@@ -202,8 +203,7 @@
                 <h4>
                     <?php
                     $sql_total_team = "SELECT * FROM tbl_ratings 
-                                WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'
-                                GROUP BY uryyToeSS4";
+                    WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "' GROUP BY uryyToeSS4";
                     if ($result_total_team = mysqli_query($conn, $sql_total_team)) {
                         $rowcount = mysqli_num_rows($result_total_team);
                         printf($rowcount);
@@ -223,7 +223,7 @@
             <h2 class="m-0">
                 <?php
                 $sql_total_report = "SELECT COUNT(*) AS total_rows FROM tbl_raise_concern 
-                            WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
+                WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
                 $result = $conn->query($sql_total_report);
                 if ($result) {
                     $row = $result->fetch_assoc();

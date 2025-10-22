@@ -8,16 +8,16 @@
 </script>
 
 <!-- Splash Screen Container -->
-<div class="container-fluid" id="splash-screen" style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #ddd;">
+<div class="container-fluid" id="splash-screen" style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color:#fff;">
     <div id="splash-logo" class="img-logo">
-        <img id="geosoft-logo" src="./images/logo.png" alt="Geosoft Care Logo" style="width: 260px; height: 100px; opacity: 0; transform: translateY(50px); transition: all 1s ease;">
+        <img id="logoAnime" src="./images/log-anime.gif" alt="StaffLinks Logo" style="width: 100%; height: 100%; opacity: 0; transform: translateY(50px); transition: all 1s ease;">
     </div>
 </div>
 
 <script>
     // Slide-in animation for logo
     document.addEventListener("DOMContentLoaded", () => {
-        const logo = document.getElementById("geosoft-logo");
+        const logo = document.getElementById("logoAnime");
         setTimeout(() => {
             logo.style.opacity = "1";
             logo.style.transform = "translateY(0)";
