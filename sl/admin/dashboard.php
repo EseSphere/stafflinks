@@ -21,7 +21,6 @@
 
         <div class="row">
             <?php require_once 'statistics.php'; ?>
-
             <!-- Clients ,team member start -->
             <div class="col-xl-6 col-md-6">
                 <div class="card table-card">

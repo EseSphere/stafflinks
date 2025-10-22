@@ -20,8 +20,7 @@
                     <div class="col-sm-8 text-md-center">
                         <h5>
                             <?php
-                            $sql_total_team = "SELECT * FROM tbl_general_team_form 
-                                        WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
+                            $sql_total_team = "SELECT * FROM tbl_general_team_form WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'";
                             if ($result_total_team = mysqli_query($conn, $sql_total_team)) {
                                 $rowcount = mysqli_num_rows($result_total_team);
                                 printf($rowcount);
