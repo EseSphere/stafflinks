@@ -5,13 +5,13 @@ include('db-connect.php');
 $error = false;
 
 //check if form is submitted
-if (isset($_POST['btnCheckForEmail'])) {
+if (isset($_POST['btnResetPassword'])) {
 
     $email = mysqli_real_escape_string($conn, $_REQUEST['myEmail']);
     $email = strip_tags($email);
     $email = htmlspecialchars($email);
 
-    $res = mysqli_query($conn, "SELECT user_email_address FROM tbl_goesoft_users WHERE user_email_address='$email' ");
+    $res = mysqli_query($conn, "SELECT user_email_address FROM tbl_admin WHERE user_email_address='$email' ");
     $row = mysqli_fetch_array($res);
     $count = mysqli_num_rows($res);
 

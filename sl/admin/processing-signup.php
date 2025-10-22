@@ -2,7 +2,7 @@
 include('db-connect.php');
 
 // Check if form is submitted
-if (isset($_POST['btnSubmitform'])) {
+if (isset($_POST['btnSignUp'])) {
 
   // Sanitize and validate inputs
   $fullName = htmlspecialchars(strip_tags(mysqli_real_escape_string($conn, $_POST['fullName'])));
@@ -80,12 +80,12 @@ if (isset($_POST['btnSubmitform'])) {
   $finance_access2 = 'Denied';
   $lastLogin = date("Y-m-d H:i:s");
 
-  $checkUser = mysqli_query($conn, "SELECT * FROM tbl_goesoft_users WHERE user_email_address = '$email'");
+  $checkUser = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE user_email_address = '$email'");
   $userExists = mysqli_num_rows($checkUser);
 
   if ($userExists > 0) {
     $updateUser = mysqli_query($conn, "
-      UPDATE tbl_goesoft_users 
+      UPDATE tbl_admin 
       SET 
         user_fullname = '$fullName',
         user_password = '$myPass',
@@ -146,7 +146,7 @@ if (isset($_POST['btnSubmitform'])) {
       exit();
     }
   } else {
-    $insertUser = mysqli_query($conn, "INSERT INTO tbl_goesoft_users (
+    $insertUser = mysqli_query($conn, "INSERT INTO tbl_admin (
             user_fullname,
             user_email_address,
             user_password,

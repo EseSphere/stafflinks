@@ -2,14 +2,16 @@
 session_start();
 include('db-connect.php');
 
-$error = false;
-$emailError = $passError = $loginError = "";
+$loginError = $emailError = $passError = "";
 
-if (isset($_POST['btnSubmitform'])) {
+if (isset($_POST['btnLogin'])) {
+  $error = false;
+
   $email = trim($_POST['myEmail']);
   $email = filter_var($email, FILTER_SANITIZE_EMAIL);
   $pass = trim($_POST['myPassword']);
 
+  // Validate email
   if (empty($email)) {
     $error = true;
     $emailError = "Please enter your email address.";
@@ -18,35 +20,34 @@ if (isset($_POST['btnSubmitform'])) {
     $emailError = "Please enter a valid email address.";
   }
 
+  // Validate password
   if (empty($pass)) {
     $error = true;
     $passError = "Please enter your password.";
   }
 
-  date_default_timezone_set('Europe/London');
-  $currentDateTime = date('Y-m-d H:i');
-
   if (!$error) {
+    date_default_timezone_set('Europe/London');
+    $currentDateTime = date('Y-m-d H:i');
     $password = hash('sha256', $pass);
+
     $status = "Verified";
     $adminAccess = "Granted";
 
-    // First, check if the email exists
-    $stmt = $conn->prepare("SELECT * FROM tbl_goesoft_users WHERE user_email_address = ?");
+    $stmt = $conn->prepare("SELECT * FROM tbl_admin WHERE user_email_address = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $res = $stmt->get_result();
 
     if ($res->num_rows === 0) {
-      $loginError = "Email not found!";
+      $loginError = "Incorrect email or password.";
     } else {
       $row = $res->fetch_assoc();
 
-      // Check if verification and admin access match
       if ($row['status'] !== $status || $row['admin_access'] !== $adminAccess) {
-        $loginError = "Access not granted or account not verified.";
+        $loginError = "Your account is not verified or access is restricted.";
       } elseif ($row['user_password'] !== $password) {
-        $loginError = "Incorrect password!";
+        $loginError = "Incorrect email or password.";
       } else {
         // Successful login
         session_regenerate_id(true);
@@ -57,8 +58,8 @@ if (isset($_POST['btnSubmitform'])) {
         $_SESSION['usr_city'] = $row['my_city'];
         $_SESSION['usr_specId'] = $row['user_special_Id'];
 
-        // Update last login
-        $updateStmt = $conn->prepare("UPDATE tbl_goesoft_users SET last_login = ? WHERE user_email_address = ?");
+        // Update last login timestamp
+        $updateStmt = $conn->prepare("UPDATE tbl_admin SET last_login = ? WHERE user_email_address = ?");
         $updateStmt->bind_param("ss", $currentDateTime, $email);
         $updateStmt->execute();
         $updateStmt->close();

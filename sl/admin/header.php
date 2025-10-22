@@ -29,11 +29,49 @@
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
     <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href="https://www.stafflinks.co.uk" />
-
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <?php include('processing-user-signin.php'); ?>
-    <?php include('processing-reset-password.php'); ?>
+
+    <style>
+        #passwordHelp {
+            text-align: left;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        #passwordHelp span {
+            display: block;
+            color: #999;
+        }
+
+        #passwordHelp span.valid {
+            color: green;
+            font-weight: bold;
+        }
+
+        #passwordHelp span.invalid {
+            color: red;
+            font-weight: bold;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #888;
+            font-size: 16px;
+        }
+
+        .toggle-password:hover {
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>

@@ -31,7 +31,7 @@ if (isset($_POST['btnAccessurlform'])) {
   }
   $varCompanyId = generateFormattedId();
 
-  $myCheck = "SELECT * FROM tbl_goesoft_users WHERE user_email_address = '" . $email . "'";
+  $myCheck = "SELECT * FROM tbl_admin WHERE user_email_address = '" . $email . "'";
   $myCheckres = mysqli_query($conn, $myCheck);
   $countRes = mysqli_num_rows($myCheckres);
   if ($countRes != 0) {
@@ -42,7 +42,7 @@ if (isset($_POST['btnAccessurlform'])) {
       });
     </script>";
   } else {
-    $queryIns = mysqli_query($conn, "INSERT INTO tbl_goesoft_users (user_email_address,company_name,user_password,finance_access,admin_access,col_company_Id) 
+    $queryIns = mysqli_query($conn, "INSERT INTO tbl_admin (user_email_address,company_name,user_password,finance_access,admin_access,col_company_Id) 
       VALUES('" . $email . "', '" . $fullName . "', '" . $myPass . "', '" . $txtFinanceAccess . "', '" . $txtAdminAccess . "', '" . $varCompanyId . "')");
     if ($queryIns) {
       $mail = new PHPMailer(true);

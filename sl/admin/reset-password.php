@@ -1,4 +1,6 @@
 <?php require_once "./header.php"; ?>
+<?php include('processing-reset-password.php'); ?>
+
 <div class="auth-wrapper">
     <div class="auth-content text-center">
         <form action="./reset-password" method="POST" enctype="multipart/form-data" name="signupForm" autocomplete="off">
@@ -15,7 +17,7 @@
                                 <label style="text-align: left;" for="Company name">Enter email</label>
                                 <input type="email" name="myEmail" class="form-control" id="myEmail" placeholder="Email address" required />
                             </div>
-                            <button type="submit" id="save-btn" name="btnCheckForEmail" class="btn btn-primary btn-block mb-4">Reset password</button>
+                            <button type="submit" id="save-btn" name="btnResetPassword" class="btn btn-primary btn-block mb-4">Reset password</button>
                             <hr>
                             <p class="mb-2">Already have an account? <a href="./index" class="f-w-400">Sign in</a></p>
                         </div>
