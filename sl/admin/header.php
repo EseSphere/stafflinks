@@ -29,10 +29,39 @@
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
     <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href="https://www.stafflinks.co.uk" />
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
+        /* Persistent Loader Overlay */
+        #pageLoader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #pageLoader img.logo-icon {
+            width: 130px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        #pageLoader img.loader-gif {
+            width: 70px;
+            height: 70px;
+        }
+
+        /* Password help text styles */
         #passwordHelp {
             text-align: left;
             font-size: 13px;
