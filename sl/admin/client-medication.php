@@ -42,7 +42,6 @@
                                     </div>
                                     <ul class="list"></ul>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-7 col-7">
@@ -369,7 +368,6 @@
                     </div>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>

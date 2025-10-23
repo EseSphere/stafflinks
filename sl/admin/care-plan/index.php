@@ -20,9 +20,7 @@ if ($row = $result->fetch_assoc()) {
         <div class="row">
             <div class="w-100 p-3 mb-0">
                 <h5>About <?php echo $client_first_name . ' ' . $client_last_name; ?></h5>
-                <p style="font-size: 18px;">
-                    Capture basic information about <?php echo $client_first_name . ' ' . $client_last_name; ?>, including their likes and preferences.
-                </p>
+                <p style="font-size: 18px;">Capture basic information about <?php echo $client_first_name . ' ' . $client_last_name; ?>, including their likes and preferences.</p>
                 <div class="col-xl-4 mt-5">
                     <a href='../client-details?<?php echo "uryyToeSS4=" . $uryyToeSS4 . "" ?>' style='text-decoration:none; color:#000;'>
                         <div id="card-effects" class='card table-card'>
@@ -111,12 +109,9 @@ if ($row = $result->fetch_assoc()) {
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
-
 
 
 <?php include('footer-contents.php'); ?>

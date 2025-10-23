@@ -12,20 +12,31 @@ if (isset($_GET['id'], $_GET['spec'])) {
 <html lang="en">
 
 <head>
-    <title><?php echo "$CompanyName"; ?></title>
-    <meta charset="utf-8" />
-    <meta name="description" content="Geosoft care - Software for care settings is a dynamic nursing, domiciliary, 
-    support and agency App based in the UK. It is built on solid partnership and experience spanning almost two decades 
-    within its management team." />
-    <meta name="keywords" content="HTML, CSS, JavaScript, AJAX, PHP mySQL" />
-    <meta name="author" content="Ese Sphere IT Solution" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="assets/images/gsLogo.png" />
-    <meta name="twitter:image" content="assets/images/gsLogo.png" />
-    <link rel="icon" href="assets/images/gsLogo.png" />
-    <link rel="icon" href="assets/images/gsLogo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>StaffLinks | Simplify. Organize. Thrive.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta property="og:description" content="Manage staff, clients, schedules, and finances in one unified platform. StaffLinks makes team and operations management simple and efficient." />
+    <meta property="og:image" content="./assets/images/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.stafflinks.co.uk" />
+    <meta name="twitter:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta name="twitter:description" content="StaffLinks centralizes staff, client, schedule, and finance management in one platform for maximum efficiency." />
+    <meta name="twitter:image" content="./assets/images/favicon.png" />
+    <meta name="twitter:card" content="./assets/images/favicon.png" />
+    <meta name="theme-color" content="#4CAF50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="rating" content="General" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+    <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -38,7 +49,6 @@ if (isset($_GET['id'], $_GET['spec'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./assets/js/scripts.js"></script>
-    <?php include('processing-client-medicine.php'); ?>
 </head>
 
 <body class="">
@@ -53,16 +63,16 @@ if (isset($_GET['id'], $_GET['spec'])) {
             <div class="navbar-content scroll-div ">
                 <div class="">
                     <div class="main-menu-header">
-                        <img class="img-radius" src="assets/images/gsLogo.png" alt="User-Profile-Image">
                         <div class="user-details">
-                            <span>Geosoft</span>
+                            <span>StaffLinks</span>
                             <div id="more-details">Admin panel<i class="fa fa-chevron-down m-l-5"></i></div>
                         </div>
                     </div>
                     <div class="collapse" id="nav-user-link">
                         <ul class="list-unstyled">
                             <li class="list-group-item"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
-                            <li class="list-group-item"><a href="./share-access-code?col_company_Id=<?php echo "" . $_SESSION['usr_compId'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
+                            <li class="list-group-item"><a href="./share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
+                            <li class="list-group-item"><a href="./qrcodes" style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR Codes</a></li>
                             <li class="list-group-item"><a href="./logout?logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                         </ul>
                     </div>
@@ -125,31 +135,20 @@ if (isset($_GET['id'], $_GET['spec'])) {
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
             <a href="#!" class="b-brand">
-                <h3 style="color: rgba(189, 195, 199,1.0);">Geosoft</h3>
+                <img src="./assets/images/logo.png" style="width: 200px; height:60px; margin-left:-50px;" alt="stafflinks logo" class="logo images">
             </a>
-            <a href="#!" class="mob-toggler">
-                <i class="feather icon-more-vertical"></i>
-            </a>
+            <a href="#!" class="mob-toggler"><i class="feather icon-more-vertical"></i></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
-                    <div class="search-bar">
-                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </li>
-                <li class="nav-item">
                     <div class="dropdown">
                         <a class="dropdown-toggle h-drop" href="./roster/index?txtDate==<?php echo $today; ?>">
-                            <i class="feather icon-layout"></i> Roster
+                            <i class="feather icon-layout"></i> Rota
                         </a>
                         &nbsp;&nbsp;
                         <a class="dropdown-toggle h-drop" href="./manage-runs">
-                            <i class="feather icon-map"></i> Manage run
+                            <i class="feather icon-map"></i> Run
                         </a>
                         &nbsp;&nbsp;
                         <a class="dropdown-toggle h-drop" href="./active-clients">

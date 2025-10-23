@@ -3,7 +3,7 @@ include('dbconnections.php');
 if (isset($_GET['uryyToeSS4'])) {
     $uryyToeSS4 = $_GET['uryyToeSS4'];
 }
-$stmt = $conn->prepare("SELECT * FROM tbl_goesoft_users 
+$stmt = $conn->prepare("SELECT * FROM tbl_admin 
 WHERE user_email_address = ? AND col_company_id = ?");
 $stmt->bind_param("ss", $_SESSION['usr_email'], $_SESSION['usr_compId']);
 $stmt->execute();
@@ -15,18 +15,30 @@ $user = $result->fetch_assoc();
 <html lang="en">
 
 <head>
-    <title><?php echo "$CompanyName"; ?></title>
-    <meta charset="utf-8" />
-    <meta name="description" content="Geosoft care - Software for care settings is a dynamic nursing, domiciliary, 
-    support and agency App based in the UK. It is built on solid partnership and experience spanning almost two decades 
-    within its management team." />
-    <meta name="keywords" content="HTML, CSS, JavaScript, AJAX, PHP mySQL" />
-    <meta name="author" content="Ese Sphere IT Solution" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="assets/images/gsLogo.png" />
-    <meta name="twitter:image" content="assets/images/gsLogo.png" />
-    <link rel="icon" href="assets/images/gsLogo.png" />
-    <link rel="icon" href="assets/images/gsLogo.png" type="image/x-icon" />
+    <title>StaffLinks | Simplify. Organize. Thrive.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta property="og:description" content="Manage staff, clients, schedules, and finances in one unified platform. StaffLinks makes team and operations management simple and efficient." />
+    <meta property="og:image" content="../assets/images/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.stafflinks.co.uk" />
+    <meta name="twitter:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta name="twitter:description" content="StaffLinks centralizes staff, client, schedule, and finance management in one platform for maximum efficiency." />
+    <meta name="twitter:image" content="../assets/images/favicon.png" />
+    <meta name="twitter:card" content="../assets/images/favicon.png" />
+    <meta name="theme-color" content="#4CAF50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="rating" content="General" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="../assets/images/favicon.png" />
+    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -74,17 +86,17 @@ $user = $result->fetch_assoc();
             <div class="navbar-content scroll-div ">
                 <div class="">
                     <div class="main-menu-header">
-                        <img class="img-radius" src="assets/images/gsLogo.png" alt="User-Profile-Image">
                         <div class="user-details">
-                            <span>Geosoft</span>
+                            <span>StaffLinks</span>
                             <div id="more-details">Admin panel<i class="fa fa-chevron-down m-l-5"></i></div>
                         </div>
                     </div>
                     <div class="collapse" id="nav-user-link">
                         <ul class="list-unstyled">
-                            <li class="list-group-item"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
-                            <li class="list-group-item"><a href="./share-access-code?col_company_Id=<?php echo "" . $user['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
-                            <li class="list-group-item"><a href="./auth-normal-logout?auth-normal-logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                            <li class="list-group-item"><a href="../checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
+                            <li class="list-group-item"><a href="../share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
+                            <li class="list-group-item"><a href="../qrcodes" style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR Codes</a></li>
+                            <li class="list-group-item"><a href="../logout?logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -134,9 +146,9 @@ $user = $result->fetch_assoc();
                     <div class="card-block">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <i class="feather icon-sunset f-40"></i>
-                        <h6 class="mt-3">Hello, Geosoft!</h6>
+                        <h6 class="mt-3">Hello, StaffLinks!</h6>
                         <p>Complete the following steps to learn how Geosoft works and hit the ground running.</p>
-                        <a href="https://geosoftcare.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
+                        <a href="https://stafflinks.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
                     </div>
                 </div>
             </div>
@@ -145,12 +157,10 @@ $user = $result->fetch_assoc();
     <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-            <a href="#!" class="b-brand">
-                <h3 style="color: rgba(189, 195, 199,1.0);">Geosoft</h3>
+            <a href="https://stafflinks.co.uk" class="b-brand">
+                <img src="../assets/images/logo.png" style="width: 200px; height:60px; margin-left:-50px;" alt="stafflinks logo" class="logo images">
             </a>
-            <a href="#!" class="mob-toggler">
-                <i class="feather icon-more-vertical"></i>
-            </a>
+            <a href="#!" class="mob-toggler"><i class="feather icon-more-vertical"></i></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">

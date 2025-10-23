@@ -1,70 +1,5 @@
 <?php include('header-contents.php'); ?>
 
-
-<style>
-    ul {
-        list-style: none;
-    }
-
-    .list {
-        width: 100%;
-        background-color: #ffffff;
-        border-radius: 0 0 5px 5px;
-    }
-
-    .list-items {
-        padding: 10px 5px;
-    }
-
-    .list-items:hover {
-        background-color: #dddddd;
-    }
-
-    .multipleSelection {
-        width: 200px;
-        background-color: rgba(189, 195, 199, 1.0);
-        font-size: 16px;
-        position: absolute;
-        z-index: 1000;
-    }
-
-    .selectBox {
-        position: relative;
-    }
-
-    .selectBox select {
-        width: 100%;
-        padding: 5px;
-        font-weight: bold;
-        font-size: 16px;
-    }
-
-    .overSelect {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
-
-    #checkBoxes {
-        display: none;
-        border: 1px #8DF5E4 solid;
-        height: auto;
-        padding: 8px;
-    }
-
-    #checkBoxes label {
-        display: block;
-        padding: 5px;
-    }
-
-    #checkBoxes label:hover {
-        background-color: #4F615E;
-        color: white;
-    }
-</style>
-
 <div class="pcoded-main-container">
     <div class="pcoded-content">
         <div class="page-header">
@@ -83,7 +18,6 @@
             </div>
         </div>
         <div class="row">
-            <?php include_once('team-mid-panel.php'); ?>
             <div class="col-xl-12 col-md-12">
                 <div class="card table-card">
                     <div class="card-header">

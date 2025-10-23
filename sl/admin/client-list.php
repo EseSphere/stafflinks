@@ -81,7 +81,6 @@
             </div>
         </div>
         <div class="row">
-            <?php require_once('client-sub-header.php'); ?>
             <!-- prject ,team member start -->
             <div class="col-xl-12 col-md-12">
                 <div class="card table-card">
@@ -99,13 +98,12 @@
                                 </ul>
                             </div>
                         </div>
-                        <div style="margin-top: 60px;" class="row">
-                            <div class="col-sm-4 col-4">
-                                <div>
-                                    <input type="search" class="form-control" name="search_text" id="search_text" placeholder="Search client here..." />
-                                </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="search" class="form-control" name="search_text" id="search_text" placeholder="Search client here..." />
                             </div>
-                            <div class="col-sm-2 col-4">
+                            <div class="col-md-2">
                                 <form action="./cookie-cities" method="POST" enctype="multipart/form-data" autocomplete="off">
                                     <select onchange="this.form.submit()" name="clientView" id="select_page" style="width:200px; height:50px;" class="form-control">
                                         <option style="height: 40px; padding:12px; background-color:rgba(39, 174, 96,1.0); color:white;" value="">
@@ -118,11 +116,8 @@
                                         </option>
                                         <option value="Select all">Select all</option>
                                         <?php
-                                        $stmt = $conn->prepare("SELECT * FROM tbl_general_client_form WHERE col_company_Id = ? GROUP BY col_Office_Incharge");
-                                        $stmt->bind_param("s", $_SESSION['usr_compId']);
-                                        $stmt->execute();
-                                        $result = $stmt->get_result();
-                                        while ($row_get_client_cities = $result->fetch_assoc()) {
+                                        $sql_get_client_cities = mysqli_query($conn, "SELECT * FROM tbl_general_client_form WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY col_Office_Incharge");
+                                        while ($row_get_client_cities = mysqli_fetch_array($sql_get_client_cities)) {
                                             echo "
                                             <option value='" . $row_get_client_cities['col_Office_Incharge'] . "'>" . $row_get_client_cities['col_Office_Incharge'] . "</option>
                                             ";
@@ -131,10 +126,9 @@
                                     </select>
                                 </form>
                             </div>
-                            <div style="text-align: right;" class="col-sm-5 col-4">
-                                <a href="./add-new-client" style="text-decoration:none;">
-                                    <button style="height: 48px;" type="button" class="btn btn-outline-info"><i class="feather mr-2 icon-plus"></i>Add client</button>
-                                </a>
+                            <div style="text-align: right;" class="col-md-2"></div>
+                            <div style="text-align: right;" class="col-md-4">
+                                <?php require_once('client-sub-header.php'); ?>
                             </div>
                         </div>
                     </div>

@@ -1,16 +1,12 @@
 <div style="overflow-x:auto;">
-    <a style="text-decoration: none;" target="_blank"
-        href="https://www.nhsbsa.nhs.uk/pharmacies-gp-practices-and-appliance-contractors/dictionary-medicines-and-devices-dmd"
-        type="button" class="btn btn-info">
-        <i class="feather mr-2 icon-help-circle"></i> NHS Meds Details
+    <a style="text-decoration: none;" target="_blank" href="https://www.nhsbsa.nhs.uk/pharmacies-gp-practices-and-appliance-contractors/dictionary-medicines-and-devices-dmd" type="button" class="btn btn-info">
+        <i class="feather mr-2 icon-help-circle"></i> NHS
     </a>
-    <a style="text-decoration: none;" href="./marchart?<?php echo "uryyToeSS4=" . $uryyToeSS4; ?>" type="button"
-        class="btn btn-primary">
-        <i class="feather mr-2 icon-eye"></i> View MAR Chart
+    <a style="text-decoration: none;" href="./marchart?<?php echo "uryyToeSS4=" . $uryyToeSS4; ?>" type="button" class="btn btn-primary">
+        <i class="feather mr-2 icon-eye"></i> MarChart
     </a>
-    <a style="text-decoration: none;" href="./medication-overview.php?<?php echo "uryyToeSS4=" . $uryyToeSS4; ?>"
-        type="button" class="btn btn-success">
-        <i class="feather mr-2 icon-activity"></i> Medication Overview
+    <a style="text-decoration: none;" href="./medication-overview.php?<?php echo "uryyToeSS4=" . $uryyToeSS4; ?>" type="button" class="btn btn-success">
+        <i class="feather mr-2 icon-activity"></i> Overview
     </a>
 </div>
 
@@ -25,7 +21,7 @@
     </div>
     <div class="card-body p-0" style="height: 100vh; overflow-y: auto;">
         <div class="table-responsive" id="draggable-table">
-            <table class="table table-striped table-hover mb-0">
+            <table class="table table-striped table-hover mb-0 text-left">
                 <thead>
                     <tr>
                         <th>Medicine</th>
@@ -38,7 +34,7 @@
                 <tbody>
                     <?php
                     $query = "SELECT 
-            med_name, med_dosage, med_type, med_Id, col_period_two, col_period_one, col_extra_visit, 
+            med_name, med_dosage, med_type, id, col_period_two, col_period_one, col_extra_visit, 
             client_startMed, client_endMed, col_occurence, 
             LEFT(monday, 1) AS MDay, LEFT(tuesday, 1) AS TDay, LEFT(wednesday, 1) AS WDay, 
             LEFT(thursday, 1) AS THDay, LEFT(friday, 1) AS FDay, LEFT(saturday, 1) AS SDay, 
@@ -96,7 +92,7 @@
                                 <span style='height:20px; width:20px; padding:3px; font-size:14px; font-weight:600;'>{$row['col_period_two']}</span>
                             </td>
                             <td class='text-right'>
-                                <a style='text-decoration:none;' href='./edit-client-medication?med_Id={$row['med_Id']}&uryyToeSS4={$uryyToeSS4}' title='Edit client medicine' type='button' class='btn btn-primary btn-sm'><i class='feather icon-edit'></i></a>
+                                <a style='text-decoration:none;' href='./edit-client-medication?id={$row['id']}&uryyToeSS4={$uryyToeSS4}' title='Edit client medicine' type='button' class='btn btn-primary btn-sm'><i class='feather icon-edit'></i></a>
                             </td>
                         </tr>";
                     }

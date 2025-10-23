@@ -138,7 +138,7 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
     <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-            <a href="#!" class="b-brand">
+            <a href="https://stafflinks.co.uk" class="b-brand">
                 <img src="./assets/images/logo.png" style="width: 200px; height:60px; margin-left:-50px;" alt="stafflinks logo" class="logo images">
             </a>
             <a href="#!" class="mob-toggler"><i class="feather icon-more-vertical"></i></a>
@@ -174,19 +174,16 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="assets/images/user/profile-image.jpg" class="img-radius"
-                                    alt="User-Profile-Image">
+                                <img src="assets/images/user/profile-image.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>
                                     <?php echo "" . $display_admin_data_row['user_fullname'] . ""; ?>
                                 </span>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="./checking-administrator-access" class="dropdown-item"><i
-                                            class="feather icon-user"></i> Admin list</a></li>
+                                <li><a href="./checking-administrator-access" class="dropdown-item"><i class="feather icon-user"></i> Admin list</a></li>
                                 <li><a href="#" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a>
                                 </li>
-                                <li><a href="./auth-normal-logout" class="dropdown-item"><i
-                                            class="feather icon-lock"></i> Lock Screen</a></li>
+                                <li><a href="./auth-normal-logout" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
                             </ul>
                         </div>
                     </div>

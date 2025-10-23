@@ -375,7 +375,6 @@
                     </div>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>
@@ -404,8 +403,7 @@
     });
     let names = [
         <?php
-        include('dbconnect.php');
-        $result = mysqli_query($myConnection, "SELECT * FROM tbl_medication_list ");
+        $result = mysqli_query($conn, "SELECT * FROM tbl_medication_list ");
         while ($trans = mysqli_fetch_array($result)) {
             echo "
                 '" . $trans['med_name'] . "',

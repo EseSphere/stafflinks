@@ -25,7 +25,7 @@ $stmt->close();
 
     <div class="card-body p-0">
         <div class="table-responsive" id="draggable-table">
-            <table class="table table-striped table-hover mb-0">
+            <table class="table table-striped table-hover mb-0 text-left">
                 <thead>
                     <tr>
                         <th>Tasks</th>

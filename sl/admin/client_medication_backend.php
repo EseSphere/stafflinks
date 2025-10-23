@@ -1,5 +1,6 @@
 <?php
 include('client-header-contents.php');
+include('processing-client-medicine.php');
 $stmt = $conn->prepare("SELECT * FROM tbl_general_client_form 
 WHERE uryyToeSS4 = ? AND col_company_Id = ?");
 $stmt->bind_param("ss", $uryyToeSS4, $_SESSION['usr_compId']);

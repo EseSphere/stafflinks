@@ -1,7 +1,7 @@
 <?php
 include('client-header-contents.php');
-if (isset($_GET['med_Id'])) {
-    $medId = $_GET['med_Id'];
+if (isset($_GET['id'])) {
+    $medId = $_GET['id'];
 }
 $stmt = $conn->prepare("SELECT * FROM tbl_general_client_form 
 WHERE uryyToeSS4 = ? AND col_company_Id = ?");
@@ -23,7 +23,7 @@ $call_map = [
 ];
 
 $sql = "SELECT * FROM tbl_clients_medication_records 
-WHERE med_Id = ? AND col_company_Id = ?";
+WHERE id = ? AND col_company_Id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("is", $medId, $_SESSION['usr_compId']);
 $stmt->execute();

@@ -16,7 +16,7 @@ error_reporting(~E_DEPRECATED & ~E_NOTICE);
 define('DBHOST', 'localhost');
 define('DBUSER', 'root');
 define('DBPASS', '');
-define('DBNAME', 'worksphere');
+define('DBNAME', 'stafflinks');
 
 
 $conn = mysqli_connect(DBHOST, DBUSER, DBPASS);

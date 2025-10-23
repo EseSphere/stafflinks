@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2025 at 02:40 PM
+-- Generation Time: Oct 23, 2025 at 05:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,7 +52,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`userId`, `user_fullname`, `user_email_address`, `company_name`, `user_password`, `user_special_Id`, `verification_code`, `status`, `my_city`, `my_ip`, `my_country`, `finance_access`, `finance_access2`, `admin_access`, `last_login`, `col_company_Id`, `dateTime`) VALUES
-(1, 'Samson Gift', 'osaretin4samson@gmail.com', 'Ese Sphere', 'a8f5dea10f7504a0305998adef3a9c8c2f769c475ad5a3baf23acf9be81cea33', 'USR-72C32DAB-A80E-454C-B1A2-6C382B5C8A1E', 'A86F00', 'Verified', 'Wolverhampton', '::1', 'Unknown', 'Granted', 'Denied', 'Granted', '2025-10-23 09:11', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 08:11:21');
+(1, 'Samson Gift', 'osaretin4samson@gmail.com', 'Ese Sphere', 'a8f5dea10f7504a0305998adef3a9c8c2f769c475ad5a3baf23acf9be81cea33', 'USR-72C32DAB-A80E-454C-B1A2-6C382B5C8A1E', 'A86F00', 'Verified', 'Wolverhampton', '::1', 'Unknown', 'Granted', 'Denied', 'Granted', '2025-10-23 14:08', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 13:08:19');
 
 -- --------------------------------------------------------
 
@@ -225,6 +225,13 @@ CREATE TABLE `tbl_clients_medication_records` (
   `col_company_Id` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_clients_medication_records`
+--
+
+INSERT INTO `tbl_clients_medication_records` (`id`, `uryyToeSS4`, `med_name`, `med_dosage`, `med_type`, `med_support_required`, `med_package`, `med_details`, `date_uploaded`, `time_uploaded`, `care_call1`, `care_call2`, `care_call3`, `care_call4`, `extra_call1`, `extra_call2`, `extra_call3`, `extra_call4`, `col_extra_visit`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `client_startMed`, `client_endMed`, `col_fifo`, `col_occurence`, `col_period_one`, `col_period_two`, `col_taskId`, `med_colours`, `visibility`, `col_path`, `col_company_Id`, `dateTime`) VALUES
+(1, '1023', 'Alprazolam', '20mg', 'Anxiolytic', 'Administer', 'Scheduled', 'The carer will see this note in the app each time they complete this task.', 'October 23, 2025', '03:18 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-23', '', '', '2025-10-23', '', 'Daily', '001', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 14:21:41');
 
 -- --------------------------------------------------------
 
@@ -672,7 +679,7 @@ CREATE TABLE `tbl_general_client_form` (
 --
 
 INSERT INTO `tbl_general_client_form` (`userId`, `client_title`, `client_first_name`, `client_last_name`, `client_middle_name`, `client_preferred_name`, `client_email_address`, `client_referred_to`, `client_date_of_birth`, `client_ailment`, `client_primary_phone`, `col_second_phone`, `client_culture_religion`, `client_sexuality`, `client_area`, `client_address_line_1`, `client_address_line_2`, `client_city`, `client_county`, `client_poster_code`, `client_country`, `client_access_details`, `client_highlights`, `col_Office_Incharge`, `clientStart_date`, `clientEnd_date`, `uryyToeSS4`, `client_service`, `what_is_important_to_me`, `my_likes_and_dislikes`, `my_current_condition`, `my_medical_history`, `my_physical_health`, `my_mental_health`, `how_i_communicate`, `assistive_equipment_i_use`, `client_latitude`, `client_longitude`, `col_pay_rate`, `col_swn_number`, `col_qrcode_path`, `geolocation`, `qrcode`, `col_company_Id`, `dateTime`) VALUES
-(1, 'Mr.', 'Curran', 'Dante', 'Slade', 'Moses', 'hycexab@mailinator.com', 'She/Her', '1971-12-17', 'Thane', '08977665447', '', 'Christianity', 'Male', 'Cannock', '1', 'Culwell Street', 'Wolverhampton', 'West Midlands', '', 'United Kingdom', 'None', 'can refer to a personal introduction, a self-reflection essay, or the premise of a game. In a personal introduction, you describe yourself with facts like your name, age, and location, along with your interests and goals. A self-reflection can delve deeper into your character, beliefs, and journey, while the game involves other people guessing your identity based on clues. ', 'Wolverhampton', '1992-09-26T23:40', '', '1023', 'Child care', '', '', '', '', '', '', '', '', '52.589199', '-2.1207331', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54');
+(1, 'Mr.', 'Curran', 'Dante', 'Slade', 'Moses', 'hycexab@mailinator.com', 'She/Her', '1971-12-17', 'Thane', '08977665447', '', 'Christianity', 'Male', 'Cannock', '1', 'Culwell Street', 'Wolverhampton', 'West Midlands', 'WV10 0JT', 'United Kingdom', 'None', 'can refer to a personal introduction, a self-reflection essay, or the premise of a game. In a personal introduction, you describe yourself with facts like your name, age, and location, along with your interests and goals. A self-reflection can delve deeper into your character, beliefs, and journey, while the game involves other people guessing your identity based on clues. ', 'Wolverhampton', '1992-09-26T23:40', '', '1023', 'Child care', '', '', '', '', '', '', '', '', '52.589199', '-2.1207331', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 14:54:33');
 
 -- --------------------------------------------------------
 
@@ -2237,7 +2244,7 @@ ALTER TABLE `tbl_chat_system`
 -- AUTO_INCREMENT for table `tbl_clients_medication_records`
 --
 ALTER TABLE `tbl_clients_medication_records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_clients_task_records`

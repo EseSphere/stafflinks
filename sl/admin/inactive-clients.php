@@ -19,36 +19,32 @@
             </div>
         </div>
         <div class="row">
-            <?php require_once('client-sub-header.php'); ?>
             <!-- Inactive Clients Table -->
             <div class="col-xl-12 col-md-12">
                 <div class="card table-card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5><i class="feather icon-alert-triangle text-danger mr-2"></i> Inactive Clients</h5>
-                        <div class="filter-buttons">
-                            <a href="./inactive-clients?type=temporary" class="btn btn-sm btn-outline-danger">
-                                Temporary
-                            </a>
-
-                            <a href="./inactive-clients?type=permanent" class="btn btn-sm btn-outline-dark">
-                                Permanent
-                            </a>
-                        </div>
-                    </div>
                     <div class="card-header">
-                        <div class="row">
-                            <div class="col-sm-4 col-4">
-                                <input type="search" class="form-control" name="search_text" id="search_text"
-                                    placeholder="Search client here..." />
+                        <div class="card-header-right">
+                            <div class="btn-group card-option">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="feather icon-more-horizontal"></i>
+                                </button>
+                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                                </ul>
                             </div>
-                            <div class="col-sm-2 col-4">
-                                <form action="./cookie-cities" method="POST" enctype="multipart/form-data"
-                                    autocomplete="off">
-                                    <select onchange="this.form.submit()" name="clientView" id="select_page"
-                                        style="width:200px; height:50px;" class="form-control">
-                                        <option
-                                            style="height:40px; padding:12px; background-color:rgba(39,174,96,1.0); color:white;"
-                                            value="">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="search" class="form-control" name="search_text" id="search_text" placeholder="Search client here..." />
+                            </div>
+                            <div class="col-md-2">
+                                <form action="./cookie-cities" method="POST" enctype="multipart/form-data" autocomplete="off">
+                                    <select onchange="this.form.submit()" name="clientView" id="select_page" style="width:200px; height:50px;" class="form-control">
+                                        <option style="height: 40px; padding:12px; background-color:rgba(39, 174, 96,1.0); color:white;" value="">
                                             <?php
                                             if (isset($_COOKIE['companyCity'])) {
                                                 echo $_COOKIE["companyCity"];
@@ -60,17 +56,17 @@
                                         <?php
                                         $sql_get_client_cities = mysqli_query($conn, "SELECT * FROM tbl_general_client_form WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY col_Office_Incharge");
                                         while ($row_get_client_cities = mysqli_fetch_array($sql_get_client_cities)) {
-                                            echo "<option value='" . $row_get_client_cities['col_Office_Incharge'] . "'>" . $row_get_client_cities['col_Office_Incharge'] . "</option>";
+                                            echo "
+                                            <option value='" . $row_get_client_cities['col_Office_Incharge'] . "'>" . $row_get_client_cities['col_Office_Incharge'] . "</option>
+                                            ";
                                         } ?>
+                                        ?>
                                     </select>
                                 </form>
                             </div>
-                            <div class="col-sm-5 col-4 text-right">
-                                <a href="./add-new-client" style="text-decoration:none;">
-                                    <button style="height: 48px;" type="button" class="btn btn-outline-info">
-                                        <i class="feather mr-2 icon-plus"></i>Add client
-                                    </button>
-                                </a>
+                            <div style="text-align: right;" class="col-md-2"></div>
+                            <div style="text-align: right;" class="col-md-4">
+                                <?php require_once('client-sub-header.php'); ?>
                             </div>
                         </div>
                     </div>

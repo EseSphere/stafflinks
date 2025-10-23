@@ -1,30 +1,28 @@
 <?php
 include('client-header-contents.php');
-if (isset($_GET['uryyToeSS4'])) {
-    $uryyToeSS4 = $_GET['uryyToeSS4'];
-    $sql_client_name = $conn->prepare("SELECT `client_first_name`, `geolocation`, `qrcode`, `client_last_name`, `col_qrcode_path` 
-    FROM `tbl_general_client_form` WHERE uryyToeSS4 = ? AND `col_company_Id` = ?");
-    $sql_client_name->bind_param('ss', $uryyToeSS4, $_SESSION['usr_compId']);
-    $sql_client_name->execute();
-    $sql_client_name->bind_result($varClientFirstName, $geolocation, $qrcode, $varClientLastName, $varQRcode);
-    if ($sql_client_name->fetch()) {
-    } else {
-        echo "No client data found.";
-    }
+$sql_client_name = $conn->prepare("SELECT `client_first_name`, `geolocation`, `qrcode`, `client_last_name`, `col_qrcode_path` 
+FROM `tbl_general_client_form` WHERE uryyToeSS4 = ? AND `col_company_Id` = ?");
+$sql_client_name->bind_param('ss', $uryyToeSS4, $_SESSION['usr_compId']);
+$sql_client_name->execute();
+$sql_client_name->bind_result($varClientFirstName, $geolocation, $qrcode, $varClientLastName, $varQRcode);
+if ($sql_client_name->fetch()) {
+} else {
+    echo "No client data found.";
 }
 ?>
 
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <h4>Settings
-            <br>
-            <small><?php echo $varClientFirstName . ' ' . $varClientLastName ?> settings</small>
-        </h4>
-        <div style="float: right;">
-            <a style="text-decoration: none;" href="./generate-qrcode?uryyToeSS4=<?php echo $uryyToeSS4; ?>">
-                <button class="btn btn-sm btn-info" style="margin-top:-50px;">Generate</button>
-            </a>
-            <button onclick="printDiv('printableDiv')" class="btn btn-sm btn-secondary" style="margin-top:-50px;">Print</button>
+        <div class="row">
+            <div class="col-md-9">
+                <h4>Settings <br> <small><?php echo $varClientFirstName . ' ' . $varClientLastName ?> settings</small></h4>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <a style="text-decoration: none;" href="./generate-qrcode?uryyToeSS4=<?php echo $uryyToeSS4; ?>" class="btn btn-info" style="margin-top:-50px;">Generate</button></a>
+                    <button onclick="printDiv('printableDiv')" class="btn btn-secondary">Print</button>
+                </div>
+            </div>
         </div>
         <hr>
         <div class="row">
@@ -72,11 +70,9 @@ if (isset($_GET['uryyToeSS4'])) {
             </div>
             <div class="col-md-4 col-xl-7">
                 <div class="form-cover" id="printableDiv" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding:25px 15px 25px 15px; border-radius:12px;">
-                    <h1><strong>Geosoft</strong></h1>
+                    <h1><strong>StaffLinks</strong></h1>
                     <br><br>
-                    <h3>
-                        <i class="fas fa-qrcode"></i> Check in with your QR code
-                    </h3>
+                    <h3><i class="fas fa-qrcode"></i> Check in with your QR code</h3>
                     <br>
                     <hr>
                     <br><br>
@@ -87,9 +83,7 @@ if (isset($_GET['uryyToeSS4'])) {
                         <img src="./qrcodes/<?php print $varQRcode; ?>" style="width: 450px; height:450px;" alt="">
                         <div style="margin-top: 150px; width:100%;line-height: 2.0;">
                             <h2><strong>How to scan a QR code</strong></h2>
-                            <h3>
-                                When the QR code scanner is open in the app, point your camera at the QR code. When the app recognizes the QR code the app will automatically scan the code and check you in.
-                            </h3>
+                            <h3>When the QR code scanner is open in the app, point your camera at the QR code. When the app recognizes the QR code the app will automatically scan the code and check you in.</h3>
                         </div>
                     </div>
                 </div>
