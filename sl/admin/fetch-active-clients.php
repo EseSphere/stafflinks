@@ -99,7 +99,6 @@ if ($result->num_rows > 0) {
                    <table class="table table-striped table-hover mb-0">
                    <thead>
                        <tr>
-                           <th><input type="checkbox" id="selectAllCheckbox"></th>
                            <th>Name</th>
                            <th>Primary phone</th>
                            <th>Groups</th>
@@ -114,11 +113,9 @@ if ($result->num_rows > 0) {
         $clientDOB = date('d M, Y', strtotime($trans['client_date_of_birth']));
         $output .= '
             <tr>
-                <td><input type="checkbox" class="checkboxes" name="txtSelectedId[]" value="' . htmlspecialchars($trans["userId"]) . '"></td>
                 <td>
                     <a style="cursor:pointer; text-decoration:none; color:#000;" href="./client-details?uryyToeSS4=' . urlencode($trans["uryyToeSS4"]) . '&u7ye=' . $crackEncryptedbinary . '">
                         <div class="d-inline-block align-middle">
-                            <img src="assets/images/profile/profile-icon.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
                             <div class="d-inline-block">
                                 <h6>' . htmlspecialchars($trans["client_first_name"]) . ' ' . htmlspecialchars($trans["client_last_name"]) . '</h6>
                             </div>

@@ -56,7 +56,7 @@ if (isset($_POST['btnSubmitClientTastForm'])) {
     </script>";
     } else {
       //Check if current client social id is already in the database.
-      $Client_special_Id_Check = mysqli_query($conn, "SELECT col_taskId FROM tbl_clients_task_records ORDER BY client_Id DESC LIMIT 1");
+      $Client_special_Id_Check = mysqli_query($conn, "SELECT col_taskId FROM tbl_clients_task_records ORDER BY id DESC LIMIT 1");
       $row_get_Id = mysqli_fetch_array($Client_special_Id_Check);
       $col_taskId = $row_get_Id['col_taskId'];
 
@@ -89,7 +89,7 @@ if (isset($_POST['btnSubmitClientTastForm'])) {
     </script>";
     } else {
       //Check if current client social id is already in the database.
-      $Client_special_Id_Check = mysqli_query($conn, "SELECT col_taskId FROM tbl_clients_task_records ORDER BY client_Id DESC LIMIT 1");
+      $Client_special_Id_Check = mysqli_query($conn, "SELECT col_taskId FROM tbl_clients_task_records ORDER BY id DESC LIMIT 1");
       $row_get_Id = mysqli_fetch_array($Client_special_Id_Check);
       $col_taskId = $row_get_Id['col_taskId'];
 
@@ -127,7 +127,7 @@ if (isset($_POST['btnSubmitClientTastForm'])) {
       $TotalTimeStamp = strtotime($occurrence, $Timestamp);
       $occurrenceDate = date('Y-d-m', $TotalTimeStamp);
       //Check if current client social id is already in the database.
-      $Client_special_Id_Check = mysqli_query($conn, "SELECT col_taskId FROM tbl_clients_task_records ORDER BY client_Id DESC LIMIT 1");
+      $Client_special_Id_Check = mysqli_query($conn, "SELECT col_taskId FROM tbl_clients_task_records ORDER BY id DESC LIMIT 1");
       $row_get_Id = mysqli_fetch_array($Client_special_Id_Check);
       $col_taskId = $row_get_Id['col_taskId'];
 

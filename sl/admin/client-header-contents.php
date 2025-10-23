@@ -1,7 +1,7 @@
 <?php
 include('dbconnections.php');
-if (isset($_GET['userId'], $_GET['spec'])) {
-    $userId = $_GET['userId'];
+if (isset($_GET['id'], $_GET['spec'])) {
+    $id = $_GET['id'];
     $uryyToeSS4 = $_GET['spec'];
 } else {
     $uryyToeSS4 = $_GET['uryyToeSS4'];
@@ -38,8 +38,6 @@ if (isset($_GET['userId'], $_GET['spec'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./assets/js/scripts.js"></script>
-    <?php include('processing-add-task-form.php'); ?>
-    <?php include('processing-client-task.php'); ?>
     <?php include('processing-client-medicine.php'); ?>
 </head>
 
@@ -65,7 +63,7 @@ if (isset($_GET['userId'], $_GET['spec'])) {
                         <ul class="list-unstyled">
                             <li class="list-group-item"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
                             <li class="list-group-item"><a href="./share-access-code?col_company_Id=<?php echo "" . $_SESSION['usr_compId'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
-                            <li class="list-group-item"><a href="./auth-normal-logout?auth-normal-logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                            <li class="list-group-item"><a href="./logout?logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,7 +115,7 @@ if (isset($_GET['userId'], $_GET['spec'])) {
                         <i class="feather icon-sunset f-40"></i>
                         <h6 class="mt-3">Hello, Geosoft!</h6>
                         <p>Complete the following steps to learn how Geosoft works and hit the ground running.</p>
-                        <a href="https://geosoftcare.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
+                        <a href="https://stafflinks.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
                     </div>
                 </div>
             </div>

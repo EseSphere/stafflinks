@@ -1,6 +1,6 @@
 <?php
 $stmt = $conn->prepare("SELECT * FROM tbl_clients_task_records 
-        WHERE uryyToeSS4 = ? AND col_company_Id = ? ORDER BY userId DESC LIMIT 1");
+        WHERE uryyToeSS4 = ? AND col_company_Id = ? ORDER BY id DESC LIMIT 1");
 $stmt->bind_param("si", $uryyToeSS4, $_SESSION['usr_compId']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -39,7 +39,7 @@ $stmt->close();
                     <?php
                     $stmt = $conn->prepare("
                            SELECT 
-    client_taskName, userId, col_period_two, col_period_one, col_extra_visit, 
+    client_taskName, id, col_period_two, col_period_one, col_extra_visit, 
     task_startDate, task_endDate, col_occurence,
     SUBSTRING(monday,1,1) AS MDay, SUBSTRING(tuesday,1,1) AS TDay,
     SUBSTRING(wednesday,1,1) AS WDay, SUBSTRING(thursday,1,1) AS THDay,
@@ -58,7 +58,7 @@ WHERE uryyToeSS4 = ?
         OR task_endDate = '' 
         OR task_endDate >= CURDATE()
       )
-ORDER BY userId ASC;
+ORDER BY id ASC;
                         ");
                     $stmt->bind_param("si", $uryyToeSS4, $_SESSION['usr_compId']);
                     $stmt->execute();
@@ -66,7 +66,7 @@ ORDER BY userId ASC;
 
                     while ($row = $result->fetch_assoc()) {
                         $taskName = htmlspecialchars($row['client_taskName']);
-                        $clientId = (int)$row['userId'];
+                        $clientId = (int)$row['id'];
                         $periodOne = htmlspecialchars($row['col_period_one']);
                         $periodTwo = htmlspecialchars($row['col_period_two']);
                         $extraVisit = htmlspecialchars($row['col_extra_visit']);
@@ -97,7 +97,7 @@ ORDER BY userId ASC;
                         echo "<td><span style='height:20px; width:20px; border-radius:50px; padding:3px; font-size:14px; font-weight:600;'>$periodOne</span>
                                   <span style='height:20px; width:20px; padding:3px;font-size:14px; font-weight:600;'>$periodTwo</span></td>";
                         echo "<td class='text-right'><div class='d-inline-block align-middle'>
-                                  <a style='text-decoration:none;' href='./edit-client-task?userId=$clientId&uryyToeSS4={$uryyToeSS4}' title='Edit client task' type='button' class='btn btn-primary btn-sm'><i class='feather icon-edit'></i></a>
+                                  <a style='text-decoration:none;' href='./edit-client-task?id=$clientId&uryyToeSS4={$uryyToeSS4}' title='Edit client task' type='button' class='btn btn-primary btn-sm'><i class='feather icon-edit'></i></a>
                                   </div></td>";
                         echo "</tr>";
                     }

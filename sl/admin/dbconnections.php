@@ -19,7 +19,7 @@ if ($debug) {
 }
 
 if (empty($_SESSION['usr_email'])) {
-    header("Location: https://admin.geosoftcare.co.uk/54655-476564-99iu955-4h4657/");
+    header("Location: https://stafflinks.co.uk/sl/admin/");
     exit();
 }
 
@@ -47,7 +47,7 @@ try {
 }
 
 $sTime = date("H:i");
-$CompanyName = 'WorkSphere | Simplify. Organize. Thrive.';
+$CompanyName = 'StaffLinks | Simplify. Organize. Thrive.';
 
 $today = date("Y-m-d");
 $tomorrow = (new DateTime('tomorrow'))->format('Y-m-d');

@@ -53,13 +53,6 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script type="text/javascript" src="./assets/js/scripts.js"></script>
-    <?php include('processing-client-task.php'); ?>
-    <?php include('processing-client-medicine.php'); ?>
-    <?php include('processing-add-team-form.php'); ?>
-    <?php include('processing-edit-medication.php'); ?>
-    <?php include('processing-schedule-roster.php'); ?>
-    <?php include('processing-add-new-run.php'); ?>
-    <?php include('processing-edit-morning-call.php'); ?>
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1027.0" data-gr-ext-installed="">
@@ -84,7 +77,7 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                             <li class="list-group-item"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
                             <li class="list-group-item"><a href="./share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
                             <li class="list-group-item"><a href="./qrcodes" style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR Codes</a></li>
-                            <li class="list-group-item"><a href="./auth-normal-logout?auth-normal-logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                            <li class="list-group-item"><a href="./logout?logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -126,7 +119,7 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                         <a href="./position" class="nav-link "><span class="pcoded-micon"><i class="feather icon-briefcase"></i></span><span class="pcoded-mtext">Position</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./auth-normal-logout" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
+                        <a href="./logout" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
                     </li>
                 </ul>
                 <div class="card text-center">
@@ -135,7 +128,7 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                         <i class="feather icon-sunset f-40"></i>
                         <h6 class="mt-3">StaffLinks</h6>
                         <p>Complete the following steps to learn how StaffLinks works and hit the ground running.</p>
-                        <a href="https://StaffLinkscare.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
+                        <a href="https://StaffLinks.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
                     </div>
                 </div>
             </div>

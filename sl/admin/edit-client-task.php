@@ -26,7 +26,7 @@
                                     <div class="col-md-5">
                                         <form method="POST" action="./processing-edit-client-task?client_Id=<?= $uryyToeSS4 ?>" enctype="multipart/form-data" name="addClient-form" autocomplete="off">
                                             <div class="form-group">
-                                                <input type="hidden" name="txtTaskId" value="<?= $client_Id ?>" />
+                                                <input type="hidden" name="txtTaskId" value="<?= $id ?>" />
                                                 <input type="hidden" name="txtClientSocialId" value="<?= $uryyToeSS4 ?>" />
                                             </div>
                                             <div class="form-group">
@@ -317,7 +317,6 @@
                     </div>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>
@@ -347,8 +346,7 @@
     });
     let names = [
         <?php
-        include('dbconnect.php');
-        $result = mysqli_query($myConnection, "SELECT * FROM tbl_task_list ");
+        $result = mysqli_query($conn, "SELECT * FROM tbl_task_list ");
         while ($trans = mysqli_fetch_array($result)) {
             echo "
                 '" . $trans['task_title'] . "',

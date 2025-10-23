@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2025 at 11:07 AM
+-- Generation Time: Oct 23, 2025 at 02:40 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,39 @@ SET time_zone = "+00:00";
 --
 -- Database: `stafflinks`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_admin`
+--
+
+CREATE TABLE `tbl_admin` (
+  `userId` int(11) NOT NULL,
+  `user_fullname` varchar(500) NOT NULL,
+  `user_email_address` varchar(500) NOT NULL,
+  `company_name` varchar(500) NOT NULL,
+  `user_password` varchar(500) NOT NULL,
+  `user_special_Id` varchar(500) NOT NULL,
+  `verification_code` varchar(500) NOT NULL,
+  `status` varchar(500) NOT NULL,
+  `my_city` varchar(500) NOT NULL,
+  `my_ip` varchar(500) NOT NULL,
+  `my_country` varchar(500) NOT NULL,
+  `finance_access` varchar(500) NOT NULL,
+  `finance_access2` varchar(500) NOT NULL,
+  `admin_access` varchar(500) NOT NULL,
+  `last_login` varchar(500) NOT NULL,
+  `col_company_Id` varchar(500) NOT NULL,
+  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`userId`, `user_fullname`, `user_email_address`, `company_name`, `user_password`, `user_special_Id`, `verification_code`, `status`, `my_city`, `my_ip`, `my_country`, `finance_access`, `finance_access2`, `admin_access`, `last_login`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Samson Gift', 'osaretin4samson@gmail.com', 'Ese Sphere', 'a8f5dea10f7504a0305998adef3a9c8c2f769c475ad5a3baf23acf9be81cea33', 'USR-72C32DAB-A80E-454C-B1A2-6C382B5C8A1E', 'A86F00', 'Verified', 'Wolverhampton', '::1', 'Unknown', 'Granted', 'Denied', 'Granted', '2025-10-23 09:11', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 08:11:21');
 
 -- --------------------------------------------------------
 
@@ -153,7 +186,7 @@ CREATE TABLE `tbl_chat_system` (
 --
 
 CREATE TABLE `tbl_clients_medication_records` (
-  `userId` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `uryyToeSS4` varchar(500) NOT NULL,
   `med_name` varchar(500) NOT NULL,
   `med_dosage` varchar(500) NOT NULL,
@@ -200,7 +233,7 @@ CREATE TABLE `tbl_clients_medication_records` (
 --
 
 CREATE TABLE `tbl_clients_task_records` (
-  `userId` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `uryyToeSS4` varchar(500) NOT NULL,
   `client_taskName` varchar(500) NOT NULL,
   `client_task_details` varchar(500) NOT NULL,
@@ -237,6 +270,13 @@ CREATE TABLE `tbl_clients_task_records` (
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_clients_task_records`
+--
+
+INSERT INTO `tbl_clients_task_records` (`id`, `uryyToeSS4`, `client_taskName`, `client_task_details`, `care_call1`, `care_call2`, `care_call3`, `care_call4`, `extra_call1`, `extra_call2`, `extra_call3`, `extra_call4`, `col_extra_visit`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `tast_anytimeSession`, `task_startDate`, `task_endDate`, `col_fifo`, `col_occurence`, `col_period_one`, `col_period_two`, `date_uploaded`, `time_uploaded`, `col_taskId`, `task_colours`, `visibility`, `col_path`, `col_company_Id`, `dateTime`) VALUES
+(1, '1023', 'Assist with admin tasks', 'The carer will see this note in the app each time they complete this task.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-23', '', '', '2025-10-23', '', 'Daily', '', '', '001', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 12:28:23');
+
 -- --------------------------------------------------------
 
 --
@@ -272,6 +312,16 @@ CREATE TABLE `tbl_clienttime_calls` (
   `col_company_Id` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_clienttime_calls`
+--
+
+INSERT INTO `tbl_clienttime_calls` (`userId`, `client_name`, `client_area`, `client_city`, `uryyToeSS4`, `care_calls`, `dateTime_in`, `dateTime_out`, `col_monday`, `col_tuesday`, `col_wednesday`, `col_thursday`, `col_friday`, `col_saturday`, `col_sunday`, `col_client_funding`, `col_funding_rate`, `col_required_carers`, `col_startDate`, `col_endDate`, `col_occurence`, `col_period_one`, `col_period_two`, `col_right_to_display`, `col_val_Id`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Morning', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54'),
+(2, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Lunch', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54'),
+(3, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Tea', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54'),
+(4, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Bed', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54');
 
 -- --------------------------------------------------------
 
@@ -358,6 +408,13 @@ CREATE TABLE `tbl_client_notes` (
   `col_company_Id` varchar(500) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_client_notes`
+--
+
+INSERT INTO `tbl_client_notes` (`userId`, `team_name`, `uryyToeSS4`, `client_note`, `dateof_note`, `timeof_note`, `col_company_Id`, `date`) VALUES
+(1, '', '1023', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54');
 
 -- --------------------------------------------------------
 
@@ -476,32 +533,11 @@ CREATE TABLE `tbl_documents` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_equipment_risk_assessment`
---
-
-CREATE TABLE `tbl_equipment_risk_assessment` (
-  `userId` int(11) NOT NULL,
-  `equipment_details` varchar(500) NOT NULL,
-  `to_be_use_to` varchar(500) NOT NULL,
-  `col_how` text NOT NULL,
-  `last_serviced` varchar(500) NOT NULL,
-  `next_service` varchar(500) NOT NULL,
-  `submitedDate` varchar(500) NOT NULL,
-  `assessorName` varchar(500) NOT NULL,
-  `assessorEmail` varchar(500) NOT NULL,
-  `help_tasks` varchar(500) NOT NULL,
-  `uryyToeSS4` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_finished_meds`
 --
 
 CREATE TABLE `tbl_finished_meds` (
-  `userId` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `meds` varchar(500) NOT NULL,
   `med_date` varchar(500) NOT NULL,
   `timeIn` varchar(500) NOT NULL,
@@ -523,7 +559,7 @@ CREATE TABLE `tbl_finished_meds` (
 --
 
 CREATE TABLE `tbl_finished_tasks` (
-  `userId` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `task` varchar(500) NOT NULL,
   `task_date` varchar(500) NOT NULL,
   `timeIn` varchar(500) NOT NULL,
@@ -535,22 +571,6 @@ CREATE TABLE `tbl_finished_tasks` (
   `care_calls` varchar(500) NOT NULL,
   `col_status` varchar(500) NOT NULL,
   `col_company_Id` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_fire_action_plan`
---
-
-CREATE TABLE `tbl_fire_action_plan` (
-  `userId` int(11) NOT NULL,
-  `emergency_exit1` varchar(500) NOT NULL,
-  `emergency_exit2` varchar(500) NOT NULL,
-  `refuge_room_details` varchar(500) NOT NULL,
-  `locality_of_window` varchar(500) NOT NULL,
-  `assessor` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -647,6 +667,13 @@ CREATE TABLE `tbl_general_client_form` (
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_general_client_form`
+--
+
+INSERT INTO `tbl_general_client_form` (`userId`, `client_title`, `client_first_name`, `client_last_name`, `client_middle_name`, `client_preferred_name`, `client_email_address`, `client_referred_to`, `client_date_of_birth`, `client_ailment`, `client_primary_phone`, `col_second_phone`, `client_culture_religion`, `client_sexuality`, `client_area`, `client_address_line_1`, `client_address_line_2`, `client_city`, `client_county`, `client_poster_code`, `client_country`, `client_access_details`, `client_highlights`, `col_Office_Incharge`, `clientStart_date`, `clientEnd_date`, `uryyToeSS4`, `client_service`, `what_is_important_to_me`, `my_likes_and_dislikes`, `my_current_condition`, `my_medical_history`, `my_physical_health`, `my_mental_health`, `how_i_communicate`, `assistive_equipment_i_use`, `client_latitude`, `client_longitude`, `col_pay_rate`, `col_swn_number`, `col_qrcode_path`, `geolocation`, `qrcode`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Mr.', 'Curran', 'Dante', 'Slade', 'Moses', 'hycexab@mailinator.com', 'She/Her', '1971-12-17', 'Thane', '08977665447', '', 'Christianity', 'Male', 'Cannock', '1', 'Culwell Street', 'Wolverhampton', 'West Midlands', '', 'United Kingdom', 'None', 'can refer to a personal introduction, a self-reflection essay, or the premise of a game. In a personal introduction, you describe yourself with facts like your name, age, and location, along with your interests and goals. A self-reflection can delve deeper into your character, beliefs, and journey, while the game involves other people guessing your identity based on clues. ', 'Wolverhampton', '1992-09-26T23:40', '', '1023', 'Child care', '', '', '', '', '', '', '', '', '52.589199', '-2.1207331', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54');
+
 -- --------------------------------------------------------
 
 --
@@ -693,71 +720,211 @@ CREATE TABLE `tbl_general_team_form` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_goesoft_carers_account`
---
-
-CREATE TABLE `tbl_goesoft_carers_account` (
-  `userId` int(11) NOT NULL,
-  `user_fullname` text NOT NULL,
-  `user_email_address` varchar(500) NOT NULL,
-  `user_phone_number` varchar(500) NOT NULL,
-  `user_password` varchar(500) NOT NULL,
-  `col_cookies_identifier` varchar(500) NOT NULL,
-  `user_special_Id` varchar(500) NOT NULL,
-  `status1` varchar(500) NOT NULL,
-  `status2` varchar(500) NOT NULL,
-  `carer_deviceId` varchar(500) NOT NULL,
-  `col_company_Id` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_goesoft_users`
---
-
-CREATE TABLE `tbl_goesoft_users` (
-  `userId` int(11) NOT NULL,
-  `user_fullname` varchar(500) NOT NULL,
-  `user_email_address` varchar(500) NOT NULL,
-  `company_name` varchar(500) NOT NULL,
-  `user_password` varchar(500) NOT NULL,
-  `date_registered` varchar(500) NOT NULL,
-  `time_registered` varchar(500) NOT NULL,
-  `user_special_Id` varchar(500) NOT NULL,
-  `VNumber` varchar(100) NOT NULL,
-  `verification_code` varchar(500) NOT NULL,
-  `status1` varchar(500) NOT NULL,
-  `status2` varchar(500) NOT NULL,
-  `myviewArea` varchar(500) NOT NULL,
-  `client_view` varchar(500) NOT NULL,
-  `team_view` varchar(500) NOT NULL,
-  `my_city` varchar(500) NOT NULL,
-  `my_ip` varchar(500) NOT NULL,
-  `my_country` varchar(500) NOT NULL,
-  `finance_access` varchar(500) NOT NULL,
-  `finance_access2` varchar(500) NOT NULL,
-  `admin_access` varchar(500) NOT NULL,
-  `col_finance_status_color` varchar(500) NOT NULL,
-  `col_company_compliment` varchar(500) NOT NULL,
-  `col_company_Id` varchar(500) NOT NULL,
-  `col_qrcode` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_group_list`
 --
 
 CREATE TABLE `tbl_group_list` (
-  `group_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `group_area` varchar(500) NOT NULL,
   `group_city` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_group_list`
+--
+
+INSERT INTO `tbl_group_list` (`id`, `group_area`, `group_city`, `dateTime`) VALUES
+(1, 'Pattingham', 'Wolverhampton', '2025-10-23 10:58:56'),
+(2, 'Codsall', 'Wolverhampton', '2025-10-23 10:58:56'),
+(3, 'Perton', 'Wolverhampton', '2025-10-23 10:58:56'),
+(4, 'Tettenhall', 'Wolverhampton', '2025-10-23 10:58:56'),
+(5, 'Penn', 'Wolverhampton', '2025-10-23 10:58:56'),
+(6, 'Wednesfield', 'Wolverhampton', '2025-10-23 10:58:56'),
+(7, 'Bilston', 'Wolverhampton', '2025-10-23 10:58:56'),
+(8, 'Whitmore Reans', 'Wolverhampton', '2025-10-23 10:58:56'),
+(9, 'Bushbury', 'Wolverhampton', '2025-10-23 10:58:56'),
+(10, 'Oxley', 'Wolverhampton', '2025-10-23 10:58:56'),
+(11, 'Cannock', 'Staffordshire', '2025-10-23 10:58:56'),
+(12, 'Hednesford', 'Staffordshire', '2025-10-23 10:58:56'),
+(13, 'Norton Canes', 'Staffordshire', '2025-10-23 10:58:56'),
+(14, 'Rugeley', 'Staffordshire', '2025-10-23 10:58:56'),
+(15, 'Lichfield', 'Staffordshire', '2025-10-23 10:58:56'),
+(16, 'Burntwood', 'Staffordshire', '2025-10-23 10:58:56'),
+(17, 'Tamworth', 'Staffordshire', '2025-10-23 10:58:56'),
+(18, 'Stafford', 'Staffordshire', '2025-10-23 10:58:56'),
+(19, 'Stone', 'Staffordshire', '2025-10-23 10:58:56'),
+(20, 'Eccleshall', 'Staffordshire', '2025-10-23 10:58:56'),
+(21, 'Birmingham City Centre', 'Birmingham', '2025-10-23 10:58:56'),
+(22, 'Selly Oak', 'Birmingham', '2025-10-23 10:58:56'),
+(23, 'Harborne', 'Birmingham', '2025-10-23 10:58:56'),
+(24, 'Edgbaston', 'Birmingham', '2025-10-23 10:58:56'),
+(25, 'Moseley', 'Birmingham', '2025-10-23 10:58:56'),
+(26, 'Kings Heath', 'Birmingham', '2025-10-23 10:58:56'),
+(27, 'Erdington', 'Birmingham', '2025-10-23 10:58:56'),
+(28, 'Sutton Coldfield', 'Birmingham', '2025-10-23 10:58:56'),
+(29, 'Handsworth', 'Birmingham', '2025-10-23 10:58:56'),
+(30, 'Perry Barr', 'Birmingham', '2025-10-23 10:58:56'),
+(31, 'Walsall', 'West Midlands', '2025-10-23 10:58:56'),
+(32, 'Bloxwich', 'West Midlands', '2025-10-23 10:58:56'),
+(33, 'Aldridge', 'West Midlands', '2025-10-23 10:58:56'),
+(34, 'Willenhall', 'West Midlands', '2025-10-23 10:58:56'),
+(35, 'Darlaston', 'West Midlands', '2025-10-23 10:58:56'),
+(36, 'Brownhills', 'West Midlands', '2025-10-23 10:58:56'),
+(37, 'Leamore', 'West Midlands', '2025-10-23 10:58:56'),
+(38, 'Short Heath', 'West Midlands', '2025-10-23 10:58:56'),
+(39, 'Shelfield', 'West Midlands', '2025-10-23 10:58:56'),
+(40, 'Pelsall', 'West Midlands', '2025-10-23 10:58:56'),
+(41, 'Dudley', 'West Midlands', '2025-10-23 10:58:56'),
+(42, 'Stourbridge', 'West Midlands', '2025-10-23 10:58:56'),
+(43, 'Halesowen', 'West Midlands', '2025-10-23 10:58:56'),
+(44, 'Brierley Hill', 'West Midlands', '2025-10-23 10:58:56'),
+(45, 'Kingswinford', 'West Midlands', '2025-10-23 10:58:56'),
+(46, 'Sedgley', 'West Midlands', '2025-10-23 10:58:56'),
+(47, 'Gornal', 'West Midlands', '2025-10-23 10:58:56'),
+(48, 'Coseley', 'West Midlands', '2025-10-23 10:58:56'),
+(49, 'Netherton', 'West Midlands', '2025-10-23 10:58:56'),
+(50, 'Wordsley', 'West Midlands', '2025-10-23 10:58:56'),
+(51, 'Telford', 'Shropshire', '2025-10-23 10:58:56'),
+(52, 'Wellington', 'Shropshire', '2025-10-23 10:58:56'),
+(53, 'Oakengates', 'Shropshire', '2025-10-23 10:58:56'),
+(54, 'Madeley', 'Shropshire', '2025-10-23 10:58:56'),
+(55, 'Newport', 'Shropshire', '2025-10-23 10:58:56'),
+(56, 'Ironbridge', 'Shropshire', '2025-10-23 10:58:56'),
+(57, 'Bridgnorth', 'Shropshire', '2025-10-23 10:58:56'),
+(58, 'Ludlow', 'Shropshire', '2025-10-23 10:58:56'),
+(59, 'Shrewsbury', 'Shropshire', '2025-10-23 10:58:56'),
+(60, 'Whitchurch', 'Shropshire', '2025-10-23 10:58:56'),
+(61, 'Coventry City Centre', 'Coventry', '2025-10-23 10:58:56'),
+(62, 'Tile Hill', 'Coventry', '2025-10-23 10:58:56'),
+(63, 'Earlsdon', 'Coventry', '2025-10-23 10:58:56'),
+(64, 'Canley', 'Coventry', '2025-10-23 10:58:56'),
+(65, 'Foleshill', 'Coventry', '2025-10-23 10:58:56'),
+(66, 'Stoke', 'Coventry', '2025-10-23 10:58:56'),
+(67, 'Radford', 'Coventry', '2025-10-23 10:58:56'),
+(68, 'Binley', 'Coventry', '2025-10-23 10:58:56'),
+(69, 'Wyken', 'Coventry', '2025-10-23 10:58:56'),
+(70, 'Cheylesmore', 'Coventry', '2025-10-23 10:58:56'),
+(71, 'Solihull', 'West Midlands', '2025-10-23 10:58:56'),
+(72, 'Shirley', 'West Midlands', '2025-10-23 10:58:56'),
+(73, 'Olton', 'West Midlands', '2025-10-23 10:58:56'),
+(74, 'Knowle', 'West Midlands', '2025-10-23 10:58:56'),
+(75, 'Dorridge', 'West Midlands', '2025-10-23 10:58:56'),
+(76, 'Balsall Common', 'West Midlands', '2025-10-23 10:58:56'),
+(77, 'Cheswick Green', 'West Midlands', '2025-10-23 10:58:56'),
+(78, 'Meriden', 'West Midlands', '2025-10-23 10:58:56'),
+(79, 'Monkspath', 'West Midlands', '2025-10-23 10:58:56'),
+(80, 'Elmdon', 'West Midlands', '2025-10-23 10:58:56'),
+(81, 'Worcester', 'Worcestershire', '2025-10-23 10:58:56'),
+(82, 'Droitwich Spa', 'Worcestershire', '2025-10-23 10:58:56'),
+(83, 'Malvern', 'Worcestershire', '2025-10-23 10:58:56'),
+(84, 'Evesham', 'Worcestershire', '2025-10-23 10:58:56'),
+(85, 'Pershore', 'Worcestershire', '2025-10-23 10:58:56'),
+(86, 'Bewdley', 'Worcestershire', '2025-10-23 10:58:56'),
+(87, 'Kidderminster', 'Worcestershire', '2025-10-23 10:58:56'),
+(88, 'Bromsgrove', 'Worcestershire', '2025-10-23 10:58:56'),
+(89, 'Stourport-on-Severn', 'Worcestershire', '2025-10-23 10:58:56'),
+(90, 'Tenbury Wells', 'Worcestershire', '2025-10-23 10:58:56'),
+(91, 'Burton upon Trent', 'Staffordshire', '2025-10-23 10:58:56'),
+(92, 'Uttoxeter', 'Staffordshire', '2025-10-23 10:58:56'),
+(93, 'Swadlincote', 'Derbyshire', '2025-10-23 10:58:56'),
+(94, 'Derby City Centre', 'Derbyshire', '2025-10-23 10:58:56'),
+(95, 'Mickleover', 'Derbyshire', '2025-10-23 10:58:56'),
+(96, 'Allestree', 'Derbyshire', '2025-10-23 10:58:56'),
+(97, 'Littleover', 'Derbyshire', '2025-10-23 10:58:56'),
+(98, 'Chesterfield', 'Derbyshire', '2025-10-23 10:58:56'),
+(99, 'Matlock', 'Derbyshire', '2025-10-23 10:58:56'),
+(100, 'Buxton', 'Derbyshire', '2025-10-23 10:58:56'),
+(101, 'Nottingham City Centre', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(102, 'Beeston', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(103, 'Arnold', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(104, 'Carlton', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(105, 'West Bridgford', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(106, 'Mansfield', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(107, 'Newark-on-Trent', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(108, 'Worksop', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(109, 'Retford', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(110, 'Hucknall', 'Nottinghamshire', '2025-10-23 10:58:56'),
+(111, 'Leicester City Centre', 'Leicestershire', '2025-10-23 10:58:56'),
+(112, 'Loughborough', 'Leicestershire', '2025-10-23 10:58:56'),
+(113, 'Hinckley', 'Leicestershire', '2025-10-23 10:58:56'),
+(114, 'Coalville', 'Leicestershire', '2025-10-23 10:58:56'),
+(115, 'Market Harborough', 'Leicestershire', '2025-10-23 10:58:56'),
+(116, 'Melton Mowbray', 'Leicestershire', '2025-10-23 10:58:56'),
+(117, 'Wigston', 'Leicestershire', '2025-10-23 10:58:56'),
+(118, 'Ashby-de-la-Zouch', 'Leicestershire', '2025-10-23 10:58:56'),
+(119, 'Oadby', 'Leicestershire', '2025-10-23 10:58:56'),
+(120, 'Shepshed', 'Leicestershire', '2025-10-23 10:58:56'),
+(121, 'London City Centre', 'London', '2025-10-23 10:58:56'),
+(122, 'Camden', 'London', '2025-10-23 10:58:56'),
+(123, 'Islington', 'London', '2025-10-23 10:58:56'),
+(124, 'Hackney', 'London', '2025-10-23 10:58:56'),
+(125, 'Kensington', 'London', '2025-10-23 10:58:56'),
+(126, 'Chelsea', 'London', '2025-10-23 10:58:56'),
+(127, 'Hammersmith', 'London', '2025-10-23 10:58:56'),
+(128, 'Fulham', 'London', '2025-10-23 10:58:56'),
+(129, 'Greenwich', 'London', '2025-10-23 10:58:56'),
+(130, 'Bromley', 'London', '2025-10-23 10:58:56'),
+(131, 'Kent', 'Kent', '2025-10-23 10:58:56'),
+(132, 'Maidstone', 'Kent', '2025-10-23 10:58:56'),
+(133, 'Dartford', 'Kent', '2025-10-23 10:58:56'),
+(134, 'Tunbridge Wells', 'Kent', '2025-10-23 10:58:56'),
+(135, 'Sevenoaks', 'Kent', '2025-10-23 10:58:56'),
+(136, 'Canterbury', 'Kent', '2025-10-23 10:58:56'),
+(137, 'Tonbridge', 'Kent', '2025-10-23 10:58:56'),
+(138, 'Ashford', 'Kent', '2025-10-23 10:58:56'),
+(139, 'Folkestone', 'Kent', '2025-10-23 10:58:56'),
+(140, 'Rochester', 'Kent', '2025-10-23 10:58:56'),
+(141, 'Lancashire', 'Lancashire', '2025-10-23 10:58:56'),
+(142, 'Blackburn', 'Lancashire', '2025-10-23 10:58:56'),
+(143, 'Blackpool', 'Lancashire', '2025-10-23 10:58:56'),
+(144, 'Preston', 'Lancashire', '2025-10-23 10:58:56'),
+(145, 'Burnley', 'Lancashire', '2025-10-23 10:58:56'),
+(146, 'Clitheroe', 'Lancashire', '2025-10-23 10:58:56'),
+(147, 'Lancaster', 'Lancashire', '2025-10-23 10:58:56'),
+(148, 'Morecambe', 'Lancashire', '2025-10-23 10:58:56'),
+(149, 'Ormskirk', 'Lancashire', '2025-10-23 10:58:56'),
+(150, 'Fleetwood', 'Lancashire', '2025-10-23 10:58:56'),
+(151, 'York', 'North Yorkshire', '2025-10-23 10:58:56'),
+(152, 'Harrogate', 'North Yorkshire', '2025-10-23 10:58:56'),
+(153, 'Scarborough', 'North Yorkshire', '2025-10-23 10:58:56'),
+(154, 'Whitby', 'North Yorkshire', '2025-10-23 10:58:56'),
+(155, 'Ripon', 'North Yorkshire', '2025-10-23 10:58:56'),
+(156, 'Selby', 'North Yorkshire', '2025-10-23 10:58:56'),
+(157, 'Knaresborough', 'North Yorkshire', '2025-10-23 10:58:56'),
+(158, 'Malton', 'North Yorkshire', '2025-10-23 10:58:56'),
+(159, 'Thirsk', 'North Yorkshire', '2025-10-23 10:58:56'),
+(160, 'Easingwold', 'North Yorkshire', '2025-10-23 10:58:56'),
+(161, 'Essex', 'Essex', '2025-10-23 10:58:56'),
+(162, 'Chelmsford', 'Essex', '2025-10-23 10:58:56'),
+(163, 'Colchester', 'Essex', '2025-10-23 10:58:56'),
+(164, 'Southend-on-Sea', 'Essex', '2025-10-23 10:58:56'),
+(165, 'Basildon', 'Essex', '2025-10-23 10:58:56'),
+(166, 'Harlow', 'Essex', '2025-10-23 10:58:56'),
+(167, 'Brentwood', 'Essex', '2025-10-23 10:58:56'),
+(168, 'Clacton-on-Sea', 'Essex', '2025-10-23 10:58:56'),
+(169, 'Braintree', 'Essex', '2025-10-23 10:58:56'),
+(170, 'Witham', 'Essex', '2025-10-23 10:58:56'),
+(171, 'Surrey', 'Surrey', '2025-10-23 10:58:56'),
+(172, 'Guildford', 'Surrey', '2025-10-23 10:58:56'),
+(173, 'Woking', 'Surrey', '2025-10-23 10:58:56'),
+(174, 'Epsom', 'Surrey', '2025-10-23 10:58:56'),
+(175, 'Reigate', 'Surrey', '2025-10-23 10:58:56'),
+(176, 'Redhill', 'Surrey', '2025-10-23 10:58:56'),
+(177, 'Farnham', 'Surrey', '2025-10-23 10:58:56'),
+(178, 'Camberley', 'Surrey', '2025-10-23 10:58:56'),
+(179, 'Godalming', 'Surrey', '2025-10-23 10:58:56'),
+(180, 'Leatherhead', 'Surrey', '2025-10-23 10:58:56'),
+(181, 'Hampshire', 'Hampshire', '2025-10-23 10:58:56'),
+(182, 'Winchester', 'Hampshire', '2025-10-23 10:58:56'),
+(183, 'Southampton', 'Hampshire', '2025-10-23 10:58:56'),
+(184, 'Portsmouth', 'Hampshire', '2025-10-23 10:58:56'),
+(185, 'Andover', 'Hampshire', '2025-10-23 10:58:56'),
+(186, 'Basingstoke', 'Hampshire', '2025-10-23 10:58:56'),
+(187, 'Farnborough', 'Hampshire', '2025-10-23 10:58:56'),
+(188, 'Fleet', 'Hampshire', '2025-10-23 10:58:56'),
+(189, 'Lymington', 'Hampshire', '2025-10-23 10:58:56'),
+(190, 'Ringwood', 'Hampshire', '2025-10-23 10:58:56');
 
 -- --------------------------------------------------------
 
@@ -869,98 +1036,152 @@ CREATE TABLE `tbl_manage_runs` (
 --
 
 CREATE TABLE `tbl_medication_list` (
-  `med_Id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `med_name` varchar(500) NOT NULL,
   `med_dosage` varchar(500) NOT NULL,
   `med_type` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `tbl_mental_health_assessment_tool`
+-- Dumping data for table `tbl_medication_list`
 --
 
-CREATE TABLE `tbl_mental_health_assessment_tool` (
-  `userId` int(11) NOT NULL,
-  `assess_name` varchar(500) NOT NULL,
-  `digit_zerro` varchar(500) NOT NULL,
-  `digit_one` varchar(500) NOT NULL,
-  `digit_two` varchar(500) NOT NULL,
-  `digit_three` varchar(500) NOT NULL,
-  `comments` varchar(500) NOT NULL,
-  `submitedDate` varchar(500) NOT NULL,
-  `assessorName` varchar(500) NOT NULL,
-  `assessorEmail` varchar(500) NOT NULL,
-  `help_tasks` varchar(500) NOT NULL,
-  `uryyToeSS4` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_moving_and_handling`
---
-
-CREATE TABLE `tbl_moving_and_handling` (
-  `userId` int(11) NOT NULL,
-  `actions` varchar(500) NOT NULL,
-  `assistance_required` varchar(500) NOT NULL,
-  `empty_col` varchar(500) NOT NULL,
-  `submitedDate` varchar(500) NOT NULL,
-  `assessorName` varchar(500) NOT NULL,
-  `assessorEmail` varchar(500) NOT NULL,
-  `help_tasks` varchar(500) NOT NULL,
-  `uryyToeSS4` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_needs_assessment`
---
-
-CREATE TABLE `tbl_needs_assessment` (
-  `userId` int(11) NOT NULL,
-  `my_needs` varchar(500) NOT NULL,
-  `outcome_i_want` text NOT NULL,
-  `wshthmat` text NOT NULL,
-  `crthmamdo` text NOT NULL,
-  `submitedDate` varchar(500) NOT NULL,
-  `assessorName` varchar(500) NOT NULL,
-  `assessorEmail` varchar(500) NOT NULL,
-  `help_tasks` text NOT NULL,
-  `uryyToeSS4` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_outcome_of_assessment`
---
-
-CREATE TABLE `tbl_outcome_of_assessment` (
-  `userId` int(11) NOT NULL,
-  `my_description` varchar(500) NOT NULL,
-  `col_yes` varchar(500) NOT NULL,
-  `col_no` varchar(500) NOT NULL,
-  `not_capable` varchar(500) NOT NULL,
-  `unable_to_assist` varchar(500) NOT NULL,
-  `able_to_assist` varchar(500) NOT NULL,
-  `fully_capable` varchar(500) NOT NULL,
-  `comments` text NOT NULL,
-  `submitedDate` varchar(500) NOT NULL,
-  `assessorName` varchar(500) NOT NULL,
-  `assessorEmail` varchar(500) NOT NULL,
-  `help_tasks` varchar(500) NOT NULL,
-  `assessment_type` varchar(500) NOT NULL,
-  `uryyToeSS4` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `tbl_medication_list` (`id`, `med_name`, `med_dosage`, `med_type`, `dateTime`) VALUES
+(1, 'Aciclovir', '200mg', 'Antiviral', '2025-10-23 10:37:58'),
+(2, 'Adenosine', '6mg', 'Antiarrhythmic', '2025-10-23 10:37:58'),
+(3, 'Alendronic acid', '70mg', 'Bisphosphonate', '2025-10-23 10:37:58'),
+(4, 'Allopurinol', '100mg', 'Gout Medication', '2025-10-23 10:37:58'),
+(5, 'Alprazolam', '0.5mg', 'Anxiolytic', '2025-10-23 10:37:58'),
+(6, 'Amiodarone', '200mg', 'Antiarrhythmic', '2025-10-23 10:37:58'),
+(7, 'Amitriptyline', '25mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(8, 'Amlodipine', '5mg', 'Calcium Channel Blocker', '2025-10-23 10:37:58'),
+(9, 'Amoxicillin', '500mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(10, 'Anastrozole', '1mg', 'Aromatase Inhibitor', '2025-10-23 10:37:58'),
+(11, 'Aripiprazole', '10mg', 'Antipsychotic', '2025-10-23 10:37:58'),
+(12, 'Aspirin', '75mg', 'Antiplatelet', '2025-10-23 10:37:58'),
+(13, 'Atorvastatin', '20mg', 'Statin', '2025-10-23 10:37:58'),
+(14, 'Azathioprine', '50mg', 'Immunosuppressant', '2025-10-23 10:37:58'),
+(15, 'Azithromycin', '250mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(16, 'Baclofen', '10mg', 'Muscle Relaxant', '2025-10-23 10:37:58'),
+(17, 'Benzylpenicillin', '1.2g', 'Antibiotic', '2025-10-23 10:37:58'),
+(18, 'Bisoprolol', '5mg', 'Beta Blocker', '2025-10-23 10:37:58'),
+(19, 'Budesonide', '200mcg', 'Corticosteroid', '2025-10-23 10:37:58'),
+(20, 'Bupropion', '150mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(21, 'Captopril', '25mg', 'ACE Inhibitor', '2025-10-23 10:37:58'),
+(22, 'Carbamazepine', '200mg', 'Anticonvulsant', '2025-10-23 10:37:58'),
+(23, 'Cefalexin', '500mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(24, 'Cefuroxime', '250mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(25, 'Cetirizine', '10mg', 'Antihistamine', '2025-10-23 10:37:58'),
+(26, 'Chlorpromazine', '25mg', 'Antipsychotic', '2025-10-23 10:37:58'),
+(27, 'Ciclosporin', '25mg', 'Immunosuppressant', '2025-10-23 10:37:58'),
+(28, 'Ciprofloxacin', '500mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(29, 'Citalopram', '20mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(30, 'Clarithromycin', '250mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(31, 'Clonazepam', '1mg', 'Anxiolytic', '2025-10-23 10:37:58'),
+(32, 'Clopidogrel', '75mg', 'Antiplatelet', '2025-10-23 10:37:58'),
+(33, 'Clozapine', '25mg', 'Antipsychotic', '2025-10-23 10:37:58'),
+(34, 'Codeine', '30mg', 'Opioid Analgesic', '2025-10-23 10:37:58'),
+(35, 'Colchicine', '0.5mg', 'Gout Medication', '2025-10-23 10:37:58'),
+(36, 'Cyclizine', '50mg', 'Antiemetic', '2025-10-23 10:37:58'),
+(37, 'Cyclobenzaprine', '10mg', 'Muscle Relaxant', '2025-10-23 10:37:58'),
+(38, 'Dantrolene', '25mg', 'Muscle Relaxant', '2025-10-23 10:37:58'),
+(39, 'Dexamethasone', '4mg', 'Corticosteroid', '2025-10-23 10:37:58'),
+(40, 'Diazepam', '5mg', 'Anxiolytic', '2025-10-23 10:37:58'),
+(41, 'Diltiazem', '120mg', 'Calcium Channel Blocker', '2025-10-23 10:37:58'),
+(42, 'Doxycycline', '100mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(43, 'Duloxetine', '60mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(44, 'Enalapril', '5mg', 'ACE Inhibitor', '2025-10-23 10:37:58'),
+(45, 'Enoxaparin', '40mg', 'Anticoagulant', '2025-10-23 10:37:58'),
+(46, 'Escitalopram', '10mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(47, 'Esomeprazole', '40mg', 'Proton Pump Inhibitor', '2025-10-23 10:37:58'),
+(48, 'Etoricoxib', '60mg', 'NSAID', '2025-10-23 10:37:58'),
+(49, 'Fentanyl', '25mcg', 'Opioid Analgesic', '2025-10-23 10:37:58'),
+(50, 'Ferrous sulfate', '200mg', 'Iron Supplement', '2025-10-23 10:37:58'),
+(51, 'Finasteride', '5mg', '5-Alpha Reductase Inhibitor', '2025-10-23 10:37:58'),
+(52, 'Fluoxetine', '20mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(53, 'Fluticasone', '50mcg', 'Corticosteroid', '2025-10-23 10:37:58'),
+(54, 'Furosemide', '40mg', 'Diuretic', '2025-10-23 10:37:58'),
+(55, 'Gabapentin', '300mg', 'Anticonvulsant', '2025-10-23 10:37:58'),
+(56, 'Gliclazide', '80mg', 'Antidiabetic', '2025-10-23 10:37:58'),
+(57, 'Glimepiride', '1mg', 'Antidiabetic', '2025-10-23 10:37:58'),
+(58, 'Glucagon', '1mg', 'Hypoglycaemia Treatment', '2025-10-23 10:37:58'),
+(59, 'Glyceryl trinitrate', '0.3mg', 'Vasodilator', '2025-10-23 10:37:58'),
+(60, 'Hydrochlorothiazide', '25mg', 'Diuretic', '2025-10-23 10:37:58'),
+(61, 'Hydrocortisone', '20mg', 'Corticosteroid', '2025-10-23 10:37:58'),
+(62, 'Ibuprofen', '200mg', 'NSAID', '2025-10-23 10:37:58'),
+(63, 'Imipramine', '25mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(64, 'Indapamide', '1.5mg', 'Diuretic', '2025-10-23 10:37:58'),
+(65, 'Insulin glargine', '10 units', 'Antidiabetic', '2025-10-23 10:37:58'),
+(66, 'Insulin lispro', '10 units', 'Antidiabetic', '2025-10-23 10:37:58'),
+(67, 'Isosorbide mononitrate', '20mg', 'Vasodilator', '2025-10-23 10:37:58'),
+(68, 'Lansoprazole', '30mg', 'Proton Pump Inhibitor', '2025-10-23 10:37:58'),
+(69, 'Latanoprost', '0.005%', 'Ophthalmic', '2025-10-23 10:37:58'),
+(70, 'Levetiracetam', '500mg', 'Anticonvulsant', '2025-10-23 10:37:58'),
+(71, 'Levomepromazine', '25mg', 'Antipsychotic', '2025-10-23 10:37:58'),
+(72, 'Levothyroxine', '50mcg', 'Thyroid Hormone', '2025-10-23 10:37:58'),
+(73, 'Lisinopril', '10mg', 'ACE Inhibitor', '2025-10-23 10:37:58'),
+(74, 'Lithium carbonate', '300mg', 'Mood Stabilizer', '2025-10-23 10:37:58'),
+(75, 'Lorazepam', '1mg', 'Anxiolytic', '2025-10-23 10:37:58'),
+(76, 'Losartan', '50mg', 'Angiotensin II Receptor Blocker', '2025-10-23 10:37:58'),
+(77, 'Loratadine', '10mg', 'Antihistamine', '2025-10-23 10:37:58'),
+(78, 'Loperamide', '2mg', 'Antidiarrheal', '2025-10-23 10:37:58'),
+(79, 'Lorazepam', '1mg', 'Anxiolytic', '2025-10-23 10:37:58'),
+(80, 'Loratadine', '10mg', 'Antihistamine', '2025-10-23 10:37:58'),
+(81, 'Loxapine', '10mg', 'Antipsychotic', '2025-10-23 10:37:58'),
+(82, 'Magnesium sulfate', '500mg', 'Supplement', '2025-10-23 10:37:58'),
+(83, 'Methylprednisolone', '4mg', 'Corticosteroid', '2025-10-23 10:37:58'),
+(84, 'Metformin', '500mg', 'Antidiabetic', '2025-10-23 10:37:58'),
+(85, 'Methadone', '10mg', 'Opioid Analgesic', '2025-10-23 10:37:58'),
+(86, 'Methotrexate', '10mg', 'Immunosuppressant', '2025-10-23 10:37:58'),
+(87, 'Methylphenidate', '10mg', 'Stimulant', '2025-10-23 10:37:58'),
+(88, 'Midazolam', '10mg', 'Benzodiazepine', '2025-10-23 10:37:58'),
+(89, 'Mirtazapine', '15mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(90, 'Morphine', '10mg', 'Opioid Analgesic', '2025-10-23 10:37:58'),
+(91, 'Mupirocin', '2%', 'Topical Antibiotic', '2025-10-23 10:37:58'),
+(92, 'Nabumetone', '500mg', 'NSAID', '2025-10-23 10:37:58'),
+(93, 'Naloxone', '400mcg', 'Opioid Antagonist', '2025-10-23 10:37:58'),
+(94, 'Naproxen', '250mg', 'NSAID', '2025-10-23 10:37:58'),
+(95, 'Nifedipine', '30mg', 'Calcium Channel Blocker', '2025-10-23 10:37:58'),
+(96, 'Nitrofurantoin', '50mg', 'Antibiotic', '2025-10-23 10:37:58'),
+(97, 'Nitroglycerin', '0.3mg', 'Vasodilator', '2025-10-23 10:37:58'),
+(98, 'Nortriptyline', '25mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(99, 'Olanzapine', '10mg', 'Antipsychotic', '2025-10-23 10:37:58'),
+(100, 'Omeprazole', '20mg', 'Proton Pump Inhibitor', '2025-10-23 10:37:58'),
+(101, 'Ondansetron', '4mg', 'Antiemetic', '2025-10-23 10:37:58'),
+(102, 'Oxycodone', '5mg', 'Opioid Analgesic', '2025-10-23 10:37:58'),
+(103, 'Pantoprazole', '40mg', 'Proton Pump Inhibitor', '2025-10-23 10:37:58'),
+(104, 'Paracetamol', '500mg', 'Analgesic', '2025-10-23 10:37:58'),
+(105, 'Paroxetine', '20mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(106, 'Perindopril', '5mg', 'ACE Inhibitor', '2025-10-23 10:37:58'),
+(107, 'Phenytoin', '100mg', 'Anticonvulsant', '2025-10-23 10:37:58'),
+(108, 'Pioglitazone', '15mg', 'Antidiabetic', '2025-10-23 10:37:58'),
+(109, 'Prednisolone', '5mg', 'Corticosteroid', '2025-10-23 10:37:58'),
+(110, 'Pregabalin', '75mg', 'Anticonvulsant', '2025-10-23 10:37:58'),
+(111, 'Propranolol', '40mg', 'Beta Blocker', '2025-10-23 10:37:58'),
+(112, 'Quetiapine', '25mg', 'Antipsychotic', '2025-10-23 10:37:58'),
+(113, 'Ramipril', '5mg', 'ACE Inhibitor', '2025-10-23 10:37:58'),
+(114, 'Ranitidine', '150mg', 'H2 Antagonist', '2025-10-23 10:37:58'),
+(115, 'Rivastigmine', '3mg', 'Dementia Medication', '2025-10-23 10:37:58'),
+(116, 'Rosuvastatin', '10mg', 'Statin', '2025-10-23 10:37:58'),
+(117, 'Salbutamol', '100mcg', 'Bronchodilator', '2025-10-23 10:37:58'),
+(118, 'Sertraline', '50mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(119, 'Simvastatin', '20mg', 'Statin', '2025-10-23 10:37:58'),
+(120, 'Sodium valproate', '200mg', 'Anticonvulsant', '2025-10-23 10:37:58'),
+(121, 'Spironolactone', '25mg', 'Diuretic', '2025-10-23 10:37:58'),
+(122, 'Temazepam', '10mg', 'Hypnotic', '2025-10-23 10:37:58'),
+(123, 'Terazosin', '1mg', 'Alpha Blocker', '2025-10-23 10:37:58'),
+(124, 'Theophylline', '100mg', 'Bronchodilator', '2025-10-23 10:37:58'),
+(125, 'Thiamine', '100mg', 'Vitamin B1 Supplement', '2025-10-23 10:37:58'),
+(126, 'Tizanidine', '4mg', 'Muscle Relaxant', '2025-10-23 10:37:58'),
+(127, 'Tolterodine', '2mg', 'Anticholinergic', '2025-10-23 10:37:58'),
+(128, 'Tramadol', '50mg', 'Opioid Analgesic', '2025-10-23 10:37:58'),
+(129, 'Trazodone', '50mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(130, 'Valproic acid', '500mg', 'Anticonvulsant', '2025-10-23 10:37:58'),
+(131, 'Venlafaxine', '75mg', 'Antidepressant', '2025-10-23 10:37:58'),
+(132, 'Warfarin', '5mg', 'Anticoagulant', '2025-10-23 10:37:58'),
+(133, 'Zolpidem', '10mg', 'Hypnotic', '2025-10-23 10:37:58'),
+(134, 'Zopiclone', '7.5mg', 'Hypnotic', '2025-10-23 10:37:58');
 
 -- --------------------------------------------------------
 
@@ -1031,37 +1252,102 @@ CREATE TABLE `tbl_pay_run` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_personalised_risk_assessment`
---
-
-CREATE TABLE `tbl_personalised_risk_assessment` (
-  `userId` int(11) NOT NULL,
-  `identified_hazard` varchar(500) NOT NULL,
-  `risk_level` varchar(500) NOT NULL,
-  `wiarahmtbh` text NOT NULL,
-  `hitrmom` text NOT NULL,
-  `wshwho` text NOT NULL,
-  `submitedDate` varchar(500) NOT NULL,
-  `assessorName` varchar(500) NOT NULL,
-  `assessorEmail` varchar(500) NOT NULL,
-  `help_tasks` varchar(500) NOT NULL,
-  `uryyToeSS4` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_position`
 --
 
 CREATE TABLE `tbl_position` (
-  `position_Id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `position_name` varchar(500) NOT NULL,
   `position_details` varchar(500) NOT NULL,
   `col_company_Id` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_position`
+--
+
+INSERT INTO `tbl_position` (`id`, `position_name`, `position_details`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Care Assistant', 'Provides personal care and support to clients in care homes or domiciliary settings', 'COMPANY123', '2025-10-23 11:08:00'),
+(2, 'Senior Care Assistant', 'Supervises care assistants and assists with complex care tasks', 'COMPANY123', '2025-10-23 11:08:00'),
+(3, 'Registered Nurse (RN)', 'Delivers professional nursing care and administers medication', 'COMPANY123', '2025-10-23 11:08:00'),
+(4, 'Senior Nurse', 'Leads nursing teams and manages clinical operations', 'COMPANY123', '2025-10-23 11:08:00'),
+(5, 'Healthcare Support Worker', 'Supports nurses and provides basic healthcare assistance', 'COMPANY123', '2025-10-23 11:08:00'),
+(6, 'Home Care Worker', 'Provides care to clients in their own homes', 'COMPANY123', '2025-10-23 11:08:00'),
+(7, 'Dementia Care Specialist', 'Specialized care for clients with dementia', 'COMPANY123', '2025-10-23 11:08:00'),
+(8, 'Palliative Care Nurse', 'Provides end-of-life and palliative care', 'COMPANY123', '2025-10-23 11:08:00'),
+(9, 'Mental Health Support Worker', 'Assists clients with mental health needs', 'COMPANY123', '2025-10-23 11:08:00'),
+(10, 'Disability Support Worker', 'Supports clients with physical or learning disabilities', 'COMPANY123', '2025-10-23 11:08:00'),
+(11, 'Nursing Assistant', 'Assists nurses in patient care and monitoring', 'COMPANY123', '2025-10-23 11:08:00'),
+(12, 'Companion Carer', 'Provides social support and companionship to clients', 'COMPANY123', '2025-10-23 11:08:00'),
+(13, 'Health Care Assistant', 'Supports nursing staff and provides personal care', 'COMPANY123', '2025-10-23 11:08:00'),
+(14, 'Night Care Assistant', 'Provides overnight care in care homes', 'COMPANY123', '2025-10-23 11:08:00'),
+(15, 'Team Leader – Care', 'Leads a team of care staff and ensures quality standards', 'COMPANY123', '2025-10-23 11:08:00'),
+(16, 'Care Coordinator', 'Organizes and manages client care plans', 'COMPANY123', '2025-10-23 11:08:00'),
+(17, 'Respite Care Worker', 'Provides temporary relief for primary carers', 'COMPANY123', '2025-10-23 11:08:00'),
+(18, 'Live-in Carer', 'Provides 24-hour care and support in client homes', 'COMPANY123', '2025-10-23 11:08:00'),
+(19, 'Personal Support Worker', 'Assists with personal hygiene, mobility, and daily tasks', 'COMPANY123', '2025-10-23 11:08:00'),
+(20, 'Senior Health Care Worker', 'Oversees care delivery and ensures compliance', 'COMPANY123', '2025-10-23 11:08:00'),
+(21, 'Cleaning Operative', 'Performs cleaning and maintenance tasks', 'COMPANY123', '2025-10-23 11:08:00'),
+(22, 'Housekeeper', 'Maintains hygiene and cleanliness in facilities', 'COMPANY123', '2025-10-23 11:08:00'),
+(23, 'Laundry Operative', 'Handles laundry services and linen management', 'COMPANY123', '2025-10-23 11:08:00'),
+(24, 'Domestic Assistant', 'Supports cleaning, catering, and housekeeping tasks', 'COMPANY123', '2025-10-23 11:08:00'),
+(25, 'Janitor', 'Performs general cleaning and maintenance duties', 'COMPANY123', '2025-10-23 11:08:00'),
+(26, 'Facilities Assistant', 'Assists with general facilities management', 'COMPANY123', '2025-10-23 11:08:00'),
+(27, 'Catering Assistant', 'Prepares and serves food in care homes or hospitals', 'COMPANY123', '2025-10-23 11:08:00'),
+(28, 'Kitchen Assistant', 'Supports cooking and kitchen hygiene', 'COMPANY123', '2025-10-23 11:08:00'),
+(29, 'Chef', 'Prepares meals and manages kitchen operations', 'COMPANY123', '2025-10-23 11:08:00'),
+(30, 'Security Officer', 'Maintains safety and security in premises', 'COMPANY123', '2025-10-23 11:08:00'),
+(31, 'Security Supervisor', 'Oversees security staff and operations', 'COMPANY123', '2025-10-23 11:08:00'),
+(32, 'CCTV Operator', 'Monitors surveillance systems and reports incidents', 'COMPANY123', '2025-10-23 11:08:00'),
+(33, 'Door Supervisor', 'Controls access and ensures security compliance', 'COMPANY123', '2025-10-23 11:08:00'),
+(34, 'Patrol Officer', 'Performs security patrols and risk assessments', 'COMPANY123', '2025-10-23 11:08:00'),
+(35, 'Paramedic', 'Provides emergency medical services', 'COMPANY123', '2025-10-23 11:08:00'),
+(36, 'Physiotherapist', 'Assists clients with mobility and physical therapy', 'COMPANY123', '2025-10-23 11:08:00'),
+(37, 'Occupational Therapist', 'Supports clients to improve daily living skills', 'COMPANY123', '2025-10-23 11:08:00'),
+(38, 'Speech and Language Therapist', 'Provides therapy for speech and communication difficulties', 'COMPANY123', '2025-10-23 11:08:00'),
+(39, 'Dietitian', 'Develops nutrition plans for clients', 'COMPANY123', '2025-10-23 11:08:00'),
+(40, 'Phlebotomist', 'Collects blood samples for testing', 'COMPANY123', '2025-10-23 11:08:00'),
+(41, 'Clinical Lead', 'Oversees clinical operations and standards', 'COMPANY123', '2025-10-23 11:08:00'),
+(42, 'Pharmacy Technician', 'Assists in dispensing medication', 'COMPANY123', '2025-10-23 11:08:00'),
+(43, 'Medical Secretary', 'Provides administrative support in healthcare settings', 'COMPANY123', '2025-10-23 11:08:00'),
+(44, 'Care Manager', 'Manages care home operations and staff', 'COMPANY123', '2025-10-23 11:08:00'),
+(45, 'Health and Safety Officer', 'Ensures compliance with safety regulations', 'COMPANY123', '2025-10-23 11:08:00'),
+(46, 'Training Coordinator', 'Organizes staff training and professional development', 'COMPANY123', '2025-10-23 11:08:00'),
+(47, 'Volunteer Coordinator', 'Manages volunteers and community engagement', 'COMPANY123', '2025-10-23 11:08:00'),
+(48, 'Activity Coordinator', 'Plans and delivers activities for clients', 'COMPANY123', '2025-10-23 11:08:00'),
+(49, 'Wellbeing Officer', 'Promotes health and wellbeing programs', 'COMPANY123', '2025-10-23 11:08:00'),
+(50, 'Rehabilitation Therapist', 'Provides therapy for physical recovery', 'COMPANY123', '2025-10-23 11:08:00'),
+(51, 'Night Nurse', 'Provides overnight nursing care and monitoring', 'COMPANY123', '2025-10-23 11:08:00'),
+(52, 'Care Apprentice', 'Learns practical care skills under supervision', 'COMPANY123', '2025-10-23 11:08:00'),
+(53, 'Senior Care Coordinator', 'Manages complex care plans and staff allocation', 'COMPANY123', '2025-10-23 11:08:00'),
+(54, 'Medical Social Worker', 'Supports clients with social care needs', 'COMPANY123', '2025-10-23 11:08:00'),
+(55, 'Clinical Support Worker', 'Assists in clinical procedures and patient care', 'COMPANY123', '2025-10-23 11:08:00'),
+(56, 'Housekeeping Supervisor', 'Oversees cleaning and domestic staff', 'COMPANY123', '2025-10-23 11:08:00'),
+(57, 'Laundry Supervisor', 'Manages laundry services and quality control', 'COMPANY123', '2025-10-23 11:08:00'),
+(58, 'Facilities Manager', 'Oversees building maintenance and operations', 'COMPANY123', '2025-10-23 11:08:00'),
+(59, 'Catering Supervisor', 'Manages kitchen staff and meal provision', 'COMPANY123', '2025-10-23 11:08:00'),
+(60, 'Head of Security', 'Leads security operations and strategy', 'COMPANY123', '2025-10-23 11:08:00'),
+(61, 'Security Trainer', 'Trains security staff on procedures and compliance', 'COMPANY123', '2025-10-23 11:08:00'),
+(62, 'Health Care Trainer', 'Delivers training to care and health staff', 'COMPANY123', '2025-10-23 11:08:00'),
+(63, 'Infection Control Nurse', 'Implements infection control procedures', 'COMPANY123', '2025-10-23 11:08:00'),
+(64, 'Clinical Nurse Specialist', 'Provides expert nursing in specialized areas', 'COMPANY123', '2025-10-23 11:08:00'),
+(65, 'Community Nurse', 'Delivers care to clients in the community', 'COMPANY123', '2025-10-23 11:08:00'),
+(66, 'Wound Care Nurse', 'Manages complex wound care', 'COMPANY123', '2025-10-23 11:08:00'),
+(67, 'Mental Health Nurse', 'Supports clients with mental health needs', 'COMPANY123', '2025-10-23 11:08:00'),
+(68, 'Care Quality Officer', 'Monitors and audits care standards', 'COMPANY123', '2025-10-23 11:08:00'),
+(69, 'Compliance Officer', 'Ensures regulatory compliance in care services', 'COMPANY123', '2025-10-23 11:08:00'),
+(70, 'Patient Liaison Officer', 'Supports communication between patients and staff', 'COMPANY123', '2025-10-23 11:08:00'),
+(71, 'Health Assistant', 'Supports healthcare staff in day-to-day duties', 'COMPANY123', '2025-10-23 11:08:00'),
+(72, 'Medical Officer', 'Provides clinical oversight and advice', 'COMPANY123', '2025-10-23 11:08:00'),
+(73, 'Emergency Care Assistant', 'Supports emergency care provision', 'COMPANY123', '2025-10-23 11:08:00'),
+(74, 'Respite Care Coordinator', 'Organizes respite care services', 'COMPANY123', '2025-10-23 11:08:00'),
+(75, 'Care Administrator', 'Handles administrative tasks for care services', 'COMPANY123', '2025-10-23 11:08:00'),
+(76, 'Home Support Coordinator', 'Organizes home care visits and schedules', 'COMPANY123', '2025-10-23 11:08:00'),
+(77, 'Senior Domestic Operative', 'Leads domestic staff and operations', 'COMPANY123', '2025-10-23 11:08:00'),
+(78, 'Porter', 'Assists with moving clients and hospital logistics', 'COMPANY123', '2025-10-23 11:08:00'),
+(79, 'Laundry Assistant', 'Supports laundry operations and linen management', 'COMPANY123', '2025-10-23 11:08:00'),
+(80, 'Senior Security Officer', 'Leads security teams and incident response', 'COMPANY123', '2025-10-23 11:08:00');
 
 -- --------------------------------------------------------
 
@@ -1137,18 +1423,6 @@ CREATE TABLE `tbl_ratings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_recent_search`
---
-
-CREATE TABLE `tbl_recent_search` (
-  `search_id` int(11) NOT NULL,
-  `search_query` varchar(300) NOT NULL,
-  `ip_address` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_report_issues`
 --
 
@@ -1203,31 +1477,238 @@ CREATE TABLE `tbl_schedule_calls` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sensory_impairment_plan`
---
-
-CREATE TABLE `tbl_sensory_impairment_plan` (
-  `userId` int(11) NOT NULL,
-  `impairment_need` varchar(500) NOT NULL,
-  `interventions` text NOT NULL,
-  `submitedDate` varchar(500) NOT NULL,
-  `assessorName` varchar(500) NOT NULL,
-  `assessorEmail` varchar(500) NOT NULL,
-  `help_tasks` varchar(500) NOT NULL,
-  `uryyToeSS4` varchar(500) NOT NULL,
-  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_task_list`
 --
 
 CREATE TABLE `tbl_task_list` (
-  `task_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `task_title` varchar(500) NOT NULL,
   `task_category` varchar(500) NOT NULL,
+  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_task_list`
+--
+
+INSERT INTO `tbl_task_list` (`id`, `task_title`, `task_category`, `dateTime`) VALUES
+(1, 'Assist with personal care', 'Care Services', '2025-10-23 10:17:35'),
+(2, 'Assist with change of pad', 'Care Services', '2025-10-23 10:17:35'),
+(3, 'Monitor medication', 'Care Services', '2025-10-23 10:17:35'),
+(4, 'Assist with bathing', 'Care Services', '2025-10-23 10:17:35'),
+(5, 'Assist with dressing', 'Care Services', '2025-10-23 10:17:35'),
+(6, 'Support with mobility', 'Care Services', '2025-10-23 10:17:35'),
+(7, 'Companionship support', 'Care Services', '2025-10-23 10:17:35'),
+(8, 'Monitor mental health', 'Care Services', '2025-10-23 10:17:35'),
+(9, 'Support for dementia', 'Care Services', '2025-10-23 10:17:35'),
+(10, 'Provide palliative care', 'Care Services', '2025-10-23 10:17:35'),
+(11, 'Assist with assisted living tasks', 'Care Services', '2025-10-23 10:17:35'),
+(12, 'Support child care', 'Care Services', '2025-10-23 10:17:35'),
+(13, 'Residential care support', 'Care Services', '2025-10-23 10:17:35'),
+(14, 'Sit-in care', 'Care Services', '2025-10-23 10:17:35'),
+(15, 'Community health check', 'Care Services', '2025-10-23 10:17:35'),
+(16, 'Provide informal care', 'Care Services', '2025-10-23 10:17:35'),
+(17, 'Shared Lives support', 'Care Services', '2025-10-23 10:17:35'),
+(18, 'Health care monitoring', 'Care Services', '2025-10-23 10:17:35'),
+(19, 'Medical social services', 'Care Services', '2025-10-23 10:17:35'),
+(20, 'Help with meal feeding', 'Care Services', '2025-10-23 10:17:35'),
+(21, 'Assist with toileting', 'Care Services', '2025-10-23 10:17:35'),
+(22, 'Assist with grooming', 'Care Services', '2025-10-23 10:17:35'),
+(23, 'Monitor hydration', 'Care Services', '2025-10-23 10:17:35'),
+(24, 'Assist with transfers', 'Care Services', '2025-10-23 10:17:35'),
+(25, 'Assist with exercise routines', 'Care Services', '2025-10-23 10:17:35'),
+(26, 'Emotional support', 'Care Services', '2025-10-23 10:17:35'),
+(27, 'Supervise medication intake', 'Care Services', '2025-10-23 10:17:35'),
+(28, 'Check vitals', 'Care Services', '2025-10-23 10:17:35'),
+(29, 'Support with incontinence', 'Care Services', '2025-10-23 10:17:35'),
+(30, 'Monitor sleep patterns', 'Care Services', '2025-10-23 10:17:35'),
+(31, 'Assist with wound care', 'Care Services', '2025-10-23 10:17:35'),
+(32, 'Support with rehabilitation', 'Care Services', '2025-10-23 10:17:35'),
+(33, 'Assist with oxygen therapy', 'Care Services', '2025-10-23 10:17:35'),
+(34, 'Monitor blood pressure', 'Care Services', '2025-10-23 10:17:35'),
+(35, 'Assist with mobility aids', 'Care Services', '2025-10-23 10:17:35'),
+(36, 'Support with chronic conditions', 'Care Services', '2025-10-23 10:17:35'),
+(37, 'Assist with feeding tube', 'Care Services', '2025-10-23 10:17:35'),
+(38, 'Support for elderly care', 'Care Services', '2025-10-23 10:17:35'),
+(39, 'Supervise home exercises', 'Care Services', '2025-10-23 10:17:35'),
+(40, 'Assist with daily routine', 'Care Services', '2025-10-23 10:17:35'),
+(41, 'Support with hygiene', 'Care Services', '2025-10-23 10:17:35'),
+(42, 'Room cleaning', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(43, 'Laundry assistance', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(44, 'Meal preparation', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(45, 'Catering assistance', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(46, 'Housekeeping tasks', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(47, 'Maintenance and repairs', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(48, 'Organize living space', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(49, 'Grocery shopping and delivery', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(50, 'Dishwashing', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(51, 'Vacuuming', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(52, 'Dusting furniture', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(53, 'Window cleaning', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(54, 'Organize pantry', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(55, 'Garden care', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(56, 'Trash removal', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(57, 'Laundry folding', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(58, 'Laundry ironing', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(59, 'Pet care', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(60, 'Stock supplies', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(61, 'Prepare snacks', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(62, 'Assist with meal serving', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(63, 'Organize cupboards', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(64, 'Sanitize surfaces', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(65, 'Restock cleaning supplies', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(66, 'Kitchen cleaning', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(67, 'Bathroom sanitization', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(68, 'Organize closets', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(69, 'Prepare grocery list', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(70, 'Laundry sorting', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(71, 'Recycle management', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(72, 'Assist with shopping online', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(73, 'Assist with pantry inventory', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(74, 'Organize fridge', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(75, 'Floor mopping', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(76, 'Assist with dishwasher loading', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(77, 'Assist with ironing clothes', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(78, 'Laundry folding and storing', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(79, 'Change bed linens', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(80, 'Organize laundry area', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(81, 'Prepare special diet meals', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(82, 'Assist with kitchen inventory', 'Domestic & Support Services', '2025-10-23 10:17:35'),
+(83, 'Security patrol', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(84, 'Escort client to appointments', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(85, 'Provide transportation', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(86, 'Run errands', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(87, 'Personal assistant support', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(88, 'Administrative support', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(89, 'Emergency response', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(90, 'Monitor safety compliance', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(91, 'Supervise visitors', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(92, 'Check fire alarms', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(93, 'Monitor CCTV', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(94, 'Lock/unlock premises', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(95, 'Assist with evacuation', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(96, 'Check safety equipment', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(97, 'Escort to transport', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(98, 'Monitor hazard risks', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(99, 'Assist with legal forms', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(100, 'Report incidents', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(101, 'Assist with admin tasks', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(102, 'Ensure PPE compliance', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(103, 'Supervise property security', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(104, 'Monitor visitor log', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(105, 'Assist with compliance reporting', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(106, 'Support emergency drills', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(107, 'Safety checklist verification', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(108, 'Assist with safety audits', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(109, 'Supervise night shifts', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(110, 'Monitor staff adherence', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(111, 'Coordinate transport security', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(112, 'Report hazards', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(113, 'Monitor alarm systems', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(114, 'Assist with emergency planning', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(115, 'Coordinate security schedules', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(116, 'Assist with visitor registration', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(117, 'Inspect safety equipment', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(118, 'Supervise safety drills', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(119, 'Monitor access control', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(120, 'Assist with staff training', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(121, 'Support incident investigation', 'Professional & Safety Services', '2025-10-23 10:17:35'),
+(122, 'Physiotherapy session', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(123, 'Occupational therapy', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(124, 'Speech therapy session', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(125, 'Dentist appointment', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(126, 'GP visit', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(127, 'Hospital appointment', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(128, 'Medication management', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(129, 'Exercise therapy', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(130, 'Rehabilitation exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(131, 'Monitor therapy progress', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(132, 'Assist with mobility exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(133, 'Track therapy schedule', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(134, 'Provide therapy equipment', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(135, 'Guide therapy routines', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(136, 'Therapy progress notes', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(137, 'Assist with stretching exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(138, 'Monitor pain levels', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(139, 'Assist with cognitive exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(140, 'Support speech practice', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(141, 'Supervise rehabilitation', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(142, 'Assist with occupational activities', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(143, 'Monitor therapy compliance', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(144, 'Assist with range of motion exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(145, 'Support therapeutic routines', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(146, 'Document therapy progress', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(147, 'Assist with adaptive equipment', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(148, 'Provide therapy feedback', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(149, 'Support post-operative exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(150, 'Monitor rehabilitation outcomes', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(151, 'Assist with balance exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(152, 'Support cognitive rehabilitation', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(153, 'Provide therapy reminders', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(154, 'Supervise home exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(155, 'Assist with pain management', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(156, 'Monitor therapy adherence', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(157, 'Support mental exercises', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(158, 'Assist with daily therapy tasks', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(159, 'Provide therapy encouragement', 'Therapy & Health Appointments', '2025-10-23 10:17:35'),
+(160, 'Find help when needed', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(161, 'Rehabilitation services', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(162, 'Wellbeing programs', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(163, 'Community engagement activity', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(164, 'Volunteering support', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(165, 'Attend social events', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(166, 'Support group participation', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(167, 'Organize recreational activities', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(168, 'Provide transport for community events', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(169, 'Assist with outings', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(170, 'Monitor community participation', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(171, 'Arrange group meetings', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(172, 'Assist with workshops', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(173, 'Support local initiatives', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(174, 'Plan social gatherings', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(175, 'Coordinate community tasks', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(176, 'Support wellbeing workshops', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(177, 'Assist with hobby activities', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(178, 'Facilitate engagement sessions', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(179, 'Support recreational programs', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(180, 'Organize charity events', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(181, 'Support cultural programs', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(182, 'Assist with awareness campaigns', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(183, 'Coordinate volunteering activities', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(184, 'Support environmental projects', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(185, 'Assist with mentorship programs', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(186, 'Support educational workshops', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(187, 'Organize community drives', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(188, 'Provide information sessions', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(189, 'Support fundraising events', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(190, 'Assist with group fitness', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(191, 'Coordinate senior activities', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(192, 'Organize hobby clubs', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(193, 'Support peer groups', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(194, 'Assist with social campaigns', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(195, 'Monitor program outcomes', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(196, 'Support networking events', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(197, 'Coordinate public talks', 'Community & Miscellaneous', '2025-10-23 10:17:35'),
+(198, 'Assist with leisure activities', 'Community & Miscellaneous', '2025-10-23 10:17:35');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_team_account`
+--
+
+CREATE TABLE `tbl_team_account` (
+  `userId` int(11) NOT NULL,
+  `user_fullname` text NOT NULL,
+  `user_email_address` varchar(500) NOT NULL,
+  `user_phone_number` varchar(500) NOT NULL,
+  `user_password` varchar(500) NOT NULL,
+  `col_cookies_identifier` varchar(500) NOT NULL,
+  `user_special_Id` varchar(500) NOT NULL,
+  `status1` varchar(500) NOT NULL,
+  `status2` varchar(500) NOT NULL,
+  `carer_deviceId` varchar(500) NOT NULL,
+  `col_company_Id` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -1374,22 +1855,6 @@ CREATE TABLE `tbl_update_notice` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_users`
---
-
-CREATE TABLE `tbl_users` (
-  `userId` int(11) NOT NULL,
-  `fullName` varchar(500) DEFAULT NULL,
-  `email` varchar(500) DEFAULT NULL,
-  `password` varchar(500) DEFAULT NULL,
-  `verific_code` varchar(500) DEFAULT NULL,
-  `uYtey9U8` varchar(500) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_visit_tasks_plan`
 --
 
@@ -1409,6 +1874,12 @@ CREATE TABLE `tbl_visit_tasks_plan` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- Indexes for table `tbl_assessment_entries`
@@ -1450,13 +1921,13 @@ ALTER TABLE `tbl_chat_system`
 -- Indexes for table `tbl_clients_medication_records`
 --
 ALTER TABLE `tbl_clients_medication_records`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_clients_task_records`
 --
 ALTER TABLE `tbl_clients_task_records`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_clienttime_calls`
@@ -1519,28 +1990,16 @@ ALTER TABLE `tbl_documents`
   ADD PRIMARY KEY (`userId`);
 
 --
--- Indexes for table `tbl_equipment_risk_assessment`
---
-ALTER TABLE `tbl_equipment_risk_assessment`
-  ADD PRIMARY KEY (`userId`);
-
---
 -- Indexes for table `tbl_finished_meds`
 --
 ALTER TABLE `tbl_finished_meds`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_finished_tasks`
 --
 ALTER TABLE `tbl_finished_tasks`
-  ADD PRIMARY KEY (`userId`);
-
---
--- Indexes for table `tbl_fire_action_plan`
---
-ALTER TABLE `tbl_fire_action_plan`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_funding`
@@ -1567,22 +2026,10 @@ ALTER TABLE `tbl_general_team_form`
   ADD PRIMARY KEY (`userId`);
 
 --
--- Indexes for table `tbl_goesoft_carers_account`
---
-ALTER TABLE `tbl_goesoft_carers_account`
-  ADD PRIMARY KEY (`userId`);
-
---
--- Indexes for table `tbl_goesoft_users`
---
-ALTER TABLE `tbl_goesoft_users`
-  ADD PRIMARY KEY (`userId`);
-
---
 -- Indexes for table `tbl_group_list`
 --
 ALTER TABLE `tbl_group_list`
-  ADD PRIMARY KEY (`group_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_holiday`
@@ -1612,31 +2059,7 @@ ALTER TABLE `tbl_manage_runs`
 -- Indexes for table `tbl_medication_list`
 --
 ALTER TABLE `tbl_medication_list`
-  ADD PRIMARY KEY (`med_Id`);
-
---
--- Indexes for table `tbl_mental_health_assessment_tool`
---
-ALTER TABLE `tbl_mental_health_assessment_tool`
-  ADD PRIMARY KEY (`userId`);
-
---
--- Indexes for table `tbl_moving_and_handling`
---
-ALTER TABLE `tbl_moving_and_handling`
-  ADD PRIMARY KEY (`userId`);
-
---
--- Indexes for table `tbl_needs_assessment`
---
-ALTER TABLE `tbl_needs_assessment`
-  ADD PRIMARY KEY (`userId`);
-
---
--- Indexes for table `tbl_outcome_of_assessment`
---
-ALTER TABLE `tbl_outcome_of_assessment`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_payer`
@@ -1657,16 +2080,10 @@ ALTER TABLE `tbl_pay_run`
   ADD PRIMARY KEY (`userId`);
 
 --
--- Indexes for table `tbl_personalised_risk_assessment`
---
-ALTER TABLE `tbl_personalised_risk_assessment`
-  ADD PRIMARY KEY (`userId`);
-
---
 -- Indexes for table `tbl_position`
 --
 ALTER TABLE `tbl_position`
-  ADD PRIMARY KEY (`position_Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_post_updates`
@@ -1693,12 +2110,6 @@ ALTER TABLE `tbl_ratings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_recent_search`
---
-ALTER TABLE `tbl_recent_search`
-  ADD PRIMARY KEY (`search_id`);
-
---
 -- Indexes for table `tbl_report_issues`
 --
 ALTER TABLE `tbl_report_issues`
@@ -1711,16 +2122,16 @@ ALTER TABLE `tbl_schedule_calls`
   ADD PRIMARY KEY (`userId`);
 
 --
--- Indexes for table `tbl_sensory_impairment_plan`
---
-ALTER TABLE `tbl_sensory_impairment_plan`
-  ADD PRIMARY KEY (`userId`);
-
---
 -- Indexes for table `tbl_task_list`
 --
 ALTER TABLE `tbl_task_list`
-  ADD PRIMARY KEY (`task_id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_team_account`
+--
+ALTER TABLE `tbl_team_account`
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- Indexes for table `tbl_team_certificates`
@@ -1771,12 +2182,6 @@ ALTER TABLE `tbl_update_notice`
   ADD PRIMARY KEY (`userId`);
 
 --
--- Indexes for table `tbl_users`
---
-ALTER TABLE `tbl_users`
-  ADD PRIMARY KEY (`userId`);
-
---
 -- Indexes for table `tbl_visit_tasks_plan`
 --
 ALTER TABLE `tbl_visit_tasks_plan`
@@ -1785,6 +2190,12 @@ ALTER TABLE `tbl_visit_tasks_plan`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_assessment_entries`
@@ -1826,19 +2237,19 @@ ALTER TABLE `tbl_chat_system`
 -- AUTO_INCREMENT for table `tbl_clients_medication_records`
 --
 ALTER TABLE `tbl_clients_medication_records`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_clients_task_records`
 --
 ALTER TABLE `tbl_clients_task_records`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_clienttime_calls`
 --
 ALTER TABLE `tbl_clienttime_calls`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_client_invoice`
@@ -1862,7 +2273,7 @@ ALTER TABLE `tbl_client_nok`
 -- AUTO_INCREMENT for table `tbl_client_notes`
 --
 ALTER TABLE `tbl_client_notes`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_client_runs`
@@ -1895,28 +2306,16 @@ ALTER TABLE `tbl_documents`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_equipment_risk_assessment`
---
-ALTER TABLE `tbl_equipment_risk_assessment`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_finished_meds`
 --
 ALTER TABLE `tbl_finished_meds`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_finished_tasks`
 --
 ALTER TABLE `tbl_finished_tasks`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_fire_action_plan`
---
-ALTER TABLE `tbl_fire_action_plan`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_funding`
@@ -1934,7 +2333,7 @@ ALTER TABLE `tbl_future_planning`
 -- AUTO_INCREMENT for table `tbl_general_client_form`
 --
 ALTER TABLE `tbl_general_client_form`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_general_team_form`
@@ -1943,22 +2342,10 @@ ALTER TABLE `tbl_general_team_form`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_goesoft_carers_account`
---
-ALTER TABLE `tbl_goesoft_carers_account`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_goesoft_users`
---
-ALTER TABLE `tbl_goesoft_users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_group_list`
 --
 ALTER TABLE `tbl_group_list`
-  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
 -- AUTO_INCREMENT for table `tbl_holiday`
@@ -1988,31 +2375,7 @@ ALTER TABLE `tbl_manage_runs`
 -- AUTO_INCREMENT for table `tbl_medication_list`
 --
 ALTER TABLE `tbl_medication_list`
-  MODIFY `med_Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_mental_health_assessment_tool`
---
-ALTER TABLE `tbl_mental_health_assessment_tool`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_moving_and_handling`
---
-ALTER TABLE `tbl_moving_and_handling`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_needs_assessment`
---
-ALTER TABLE `tbl_needs_assessment`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_outcome_of_assessment`
---
-ALTER TABLE `tbl_outcome_of_assessment`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `tbl_payer`
@@ -2033,16 +2396,10 @@ ALTER TABLE `tbl_pay_run`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_personalised_risk_assessment`
---
-ALTER TABLE `tbl_personalised_risk_assessment`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_position`
 --
 ALTER TABLE `tbl_position`
-  MODIFY `position_Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `tbl_post_updates`
@@ -2069,12 +2426,6 @@ ALTER TABLE `tbl_ratings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_recent_search`
---
-ALTER TABLE `tbl_recent_search`
-  MODIFY `search_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_report_issues`
 --
 ALTER TABLE `tbl_report_issues`
@@ -2087,16 +2438,16 @@ ALTER TABLE `tbl_schedule_calls`
   MODIFY `userId` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_sensory_impairment_plan`
---
-ALTER TABLE `tbl_sensory_impairment_plan`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_task_list`
 --
 ALTER TABLE `tbl_task_list`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
+
+--
+-- AUTO_INCREMENT for table `tbl_team_account`
+--
+ALTER TABLE `tbl_team_account`
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_team_certificates`
@@ -2144,12 +2495,6 @@ ALTER TABLE `tbl_travel_rate`
 -- AUTO_INCREMENT for table `tbl_update_notice`
 --
 ALTER TABLE `tbl_update_notice`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_users`
---
-ALTER TABLE `tbl_users`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --

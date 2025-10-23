@@ -890,6 +890,4 @@ include('processing-add-client-form.php');
     </div>
 </div>
 
-
-
 <?php include('footer-contents.php'); ?>

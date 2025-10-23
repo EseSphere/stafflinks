@@ -1,8 +1,8 @@
 <?php
 
 include('client-header-contents.php');
-if (isset($_GET['client_Id'])) {
-    $taskId = $_GET['client_Id'];
+if (isset($_GET['id'])) {
+    $taskId = $_GET['id'];
 }
 $select_client_carecalls = mysqli_query($conn, "SELECT * FROM tbl_clienttime_calls 
 WHERE uryyToeSS4='" . $uryyToeSS4 . "' AND col_company_Id='" . $_SESSION['usr_compId'] . "'");
@@ -13,12 +13,12 @@ $careCallMap = [
     'ET tea call'     => ['name' => 'txtET', 'label' => 'ET'],
     'EB bed call'     => ['name' => 'txtEB', 'label' => 'EB'],
 ];
-$sql = "SELECT * FROM tbl_clients_task_records WHERE client_Id = '$taskId' 
+$sql = "SELECT * FROM tbl_clients_task_records WHERE id = '$taskId' 
 AND col_company_Id = '" . $_SESSION['usr_compId'] . "'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $client_Id = $row['client_Id'];
+        $id = $row['id'];
         $uryyToeSS4 = $row['uryyToeSS4'];
         $client_taskName = $row['client_taskName'];
         $client_task_details = $row['client_task_details'];
