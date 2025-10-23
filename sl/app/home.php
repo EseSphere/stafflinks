@@ -286,7 +286,7 @@
             const node = document.importNode(tpl.content, true);
             const card = node.querySelector('.card');
             card.style.cursor = 'pointer';
-            card.addEventListener('click', () => location.href = `care-plan?userId=${vis.userId}`);
+            card.addEventListener('click', () => location.href = `care-plan?id=${vis.id}`);
 
             const initials = getInitials(vis.client_name);
             const color = getColorForName(vis.client_name);

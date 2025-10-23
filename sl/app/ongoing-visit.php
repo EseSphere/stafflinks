@@ -38,14 +38,14 @@
     const clientId = urlParams.get('uryyToeSS4');
     const clientshift_date = urlParams.get('Clientshift_Date'); // Updated
     const careCall = urlParams.get('care_calls');
-    const userId = urlParams.get('userId');
+    const id = urlParams.get('id');
     const carerId = urlParams.get('carerId');
 
     const continueBtn = document.getElementById('continueCallBtn');
 
     continueBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const url = `activities.php?uryyToeSS4=${clientId}&Clientshift_Date=${clientshift_date}&care_calls=${careCall}&userId=${userId}&carerId=${carerId}`;
+        const url = `activities.php?uryyToeSS4=${clientId}&Clientshift_Date=${clientshift_date}&care_calls=${careCall}&id=${id}&carerId=${carerId}`;
         window.location.href = url;
     });
 </script>

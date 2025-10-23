@@ -53,14 +53,9 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script type="text/javascript" src="./assets/js/scripts.js"></script>
-    <?php include('processing-add-task-form.php'); ?>
-    <?php include('processing-add-client-form.php'); ?>
     <?php include('processing-client-task.php'); ?>
     <?php include('processing-client-medicine.php'); ?>
-    <?php include('processing-add-group-form.php'); ?>
     <?php include('processing-add-team-form.php'); ?>
-    <?php include('processing-add-position.php'); ?>
-    <?php include('processing-new-medication-form.php'); ?>
     <?php include('processing-edit-medication.php'); ?>
     <?php include('processing-schedule-roster.php'); ?>
     <?php include('processing-add-new-run.php'); ?>

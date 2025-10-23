@@ -1,36 +1,49 @@
 <?php
-
+include('dbconnections.php');
 
 if (isset($_POST['btnSubmitTask'])) {
+    $taskTitle = trim($_POST['txtTaskTitle'] ?? '');
+    $taskCategory = trim($_POST['txtTaskCategories'] ?? '');
 
-    include('dbconnections.php');
-
-    $txtTaskTitle = mysqli_real_escape_string($conn, $_REQUEST['txtTaskTitle']);
-    $txtTaskCategories = mysqli_real_escape_string($conn, $_REQUEST['txtTaskCategories']);
-
-    $myCheck = "SELECT * FROM tbl_task_list WHERE task_title = '" . $txtTaskTitle . "' ";
-    $myCheckres = mysqli_query($conn, $myCheck);
-    $countRes = mysqli_num_rows($myCheckres);
-
-    if ($countRes != 0) {
-
-        echo "
-      <script type='text/javascript'>
-      $(document).ready(function() {
-        $('#popupAlert').show();
-      });
-    </script>";
-
-        unset($txtTaskTitle);
-        unset($txtTaskCategories);
-    } else {
-
-        $queryIns = mysqli_query($conn, "INSERT INTO tbl_task_list (task_title, task_category) VALUES('" . $txtTaskTitle . "', '" . $txtTaskCategories . "') ");
-
-        if ($queryIns) {
-            header("Location: ./auth-client-task");
-        } else {
-            echo "ERROR: Could not able to execute $con. " . mysqli_error($conn);
-        }
+    if (empty($taskTitle) || empty($taskCategory)) {
+        echo "<script>
+                $(document).ready(function() {
+                    $('#popupAlert').text('Please fill in all required fields.').show();
+                });
+              </script>";
+        exit;
     }
+
+    $stmtCheck = $conn->prepare("SELECT 1 FROM tbl_task_list WHERE task_title = ?");
+    $stmtCheck->bind_param("s", $taskTitle);
+    $stmtCheck->execute();
+    $stmtCheck->store_result();
+
+    if ($stmtCheck->num_rows > 0) {
+        echo "<script>
+                $(document).ready(function() {
+                    $('#popupAlert').text('A task with this title already exists.').show();
+                });
+              </script>";
+        $stmtCheck->close();
+        exit;
+    }
+    $stmtCheck->close();
+
+    $stmtInsert = $conn->prepare("INSERT INTO tbl_task_list (task_title, task_category) VALUES (?, ?)");
+    $stmtInsert->bind_param("ss", $taskTitle, $taskCategory);
+
+    if ($stmtInsert->execute()) {
+        header("Location: ./auth-client-task");
+        exit;
+    } else {
+        error_log("Database Error: " . $stmtInsert->error);
+        echo "<script>
+                $(document).ready(function() {
+                    $('#popupAlert').text('An error occurred while saving the task. Please try again.').show();
+                });
+              </script>";
+    }
+
+    $stmtInsert->close();
 }

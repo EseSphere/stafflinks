@@ -96,7 +96,7 @@
         }
 
         // Get shift records for user on selected date
-        function getShiftRecords(db, userId, date) {
+        function getShiftRecords(db, id, date) {
             return new Promise((resolve, reject) => {
                 const tx = db.transaction('tbl_daily_shift_records', 'readonly');
                 const store = tx.objectStore('tbl_daily_shift_records');
@@ -107,7 +107,7 @@
                     if (cursor) {
                         const record = cursor.value;
                         // Match col_carer_Id and shift_date
-                        if (record.col_carer_Id === userId && record.shift_date === date) {
+                        if (record.col_carer_Id === id && record.shift_date === date) {
                             records.push(record);
                         }
                         cursor.continue();
@@ -158,14 +158,14 @@
             loadingIndicator.style.display = 'block';
 
             openDB()
-                .then(db => getUserSpecialId(db).then(userId => ({
+                .then(db => getUserSpecialId(db).then(id => ({
                     db,
-                    userId
+                    id
                 })))
                 .then(({
                     db,
-                    userId
-                }) => getShiftRecords(db, userId, selectedDate))
+                    id
+                }) => getShiftRecords(db, id, selectedDate))
                 .then(records => {
                     populateTable(records, selectedDate);
                     loadingIndicator.style.display = 'none';

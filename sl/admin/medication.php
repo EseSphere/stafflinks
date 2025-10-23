@@ -1,4 +1,7 @@
-<?php include('header-contents.php'); ?>
+<?php
+include('header-contents.php');
+include('processing-add-medication.php');
+?>
 
 <style>
     .pagination .page-link {
@@ -59,7 +62,9 @@
                             <div class="table-responsive">
                                 <div class="client-form-body" style="width:100%; height:auto; padding:22px;">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div style="box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;" class="col-md-4">
+                                            <h5>Medication Form</h5>
+                                            <hr>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Medicine name</label>
                                                 <input style="height: 45px;" name="txtMedName" required type="text" class="form-control"
@@ -99,8 +104,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-8">
-                                            <h4>Medication</h4>
-                                            <br>
+                                            <h5>Medication</h5>
                                             <div class="card table-card">
                                                 <div class="card-header">
                                                     <h5>Recent meds</h5>
@@ -118,11 +122,10 @@
                                                             </thead>
                                                             <tbody>
                                                                 <?php
-                                                                include('dbconnect.php');
                                                                 $limit = 10;
                                                                 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] : 1;
                                                                 $offset = ($page - 1) * $limit;
-                                                                $result = mysqli_query($myConnection, "SELECT * FROM tbl_medication_list ORDER BY med_Id DESC LIMIT $limit OFFSET $offset");
+                                                                $result = mysqli_query($conn, "SELECT * FROM tbl_medication_list ORDER BY id DESC LIMIT $limit OFFSET $offset");
                                                                 while ($row = mysqli_fetch_array($result)) {
                                                                     echo "<tr>
                                                                         <td><h6>{$row['med_name']}</h6></td>
@@ -145,7 +148,7 @@
                                                             </li>
 
                                                             <?php
-                                                            $resultTotal = mysqli_query($myConnection, "SELECT COUNT(*) AS total FROM tbl_medication_list");
+                                                            $resultTotal = mysqli_query($conn, "SELECT COUNT(*) AS total FROM tbl_medication_list");
                                                             $totalRows = mysqli_fetch_assoc($resultTotal)['total'];
                                                             $totalPages = ceil($totalRows / $limit);
                                                             $range = 5;
@@ -186,7 +189,6 @@
                     </form>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>

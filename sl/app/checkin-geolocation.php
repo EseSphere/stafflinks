@@ -7,7 +7,7 @@
                 const db = e.target.result;
                 if (!db.objectStoreNames.contains('tbl_daily_shift_records')) {
                     const store = db.createObjectStore('tbl_daily_shift_records', {
-                        keyPath: 'userId'
+                        keyPath: 'id'
                     });
                     const columns = [
                         'shift_status', 'shift_date', 'planned_timeIn', 'planned_timeOut', 'shift_start_time',
@@ -47,7 +47,7 @@
             const req = store.getAll();
             req.onsuccess = e => {
                 const record = e.target.result.find(r =>
-                    r.userId == key || r.uryyToeSS4 == key || r.uryyTteamoeSS4 == key
+                    r.id == key || r.uryyToeSS4 == key || r.uryyTteamoeSS4 == key
                 );
                 resolve(record || null);
             };
@@ -55,7 +55,7 @@
         });
     }
 
-    async function updateCallStatus(userId, status) {
+    async function updateCallStatus(id, status) {
         const db = await openDB();
         return new Promise((resolve, reject) => {
             const tx = db.transaction('tbl_schedule_calls', 'readwrite');
@@ -64,7 +64,7 @@
             getAllReq.onsuccess = e => {
                 const all = e.target.result || [];
                 const rec = all.find(r =>
-                    r.userId == userId || r.userId == Number(userId) || r.uryyToeSS4 == userId || r.uryyTteamoeSS4 == userId
+                    r.id == id || r.id == Number(id) || r.uryyToeSS4 == id || r.uryyTteamoeSS4 == id
                 );
                 if (rec) {
                     rec.call_status = status;
@@ -85,8 +85,8 @@
         return Math.max((endDate - startDate) / (1000 * 60 * 60), 0);
     }
 
-    async function copyShiftRecord(userId) {
-        const visit = await getRecordById('tbl_schedule_calls', userId);
+    async function copyShiftRecord(id) {
+        const visit = await getRecordById('tbl_schedule_calls', id);
         if (!visit) throw new Error('Visit not found.');
         const client = await getRecordById('tbl_general_client_form', visit.uryyToeSS4);
         if (!client) throw new Error('Client info not found.');
@@ -114,7 +114,7 @@
         const clientRate = Math.round(workedHours * (parseFloat(visit.client_rate) || 0) * 100) / 100;
 
         const shiftRecord = {
-            userId: visit.userId,
+            id: visit.id,
             shift_status: 'Checked in',
             shift_date: visit.Clientshift_Date,
             planned_timeIn: visit.dateTime_in,
@@ -138,7 +138,7 @@
             col_client_rate: clientRate.toFixed(2),
             col_visit_status: 'True',
             col_visit_confirmation: 'Unconfirmed',
-            col_care_call_Id: visit.userId,
+            col_care_call_Id: visit.id,
             col_postcode: client.client_poster_code,
             dateTime: new Date().toISOString()
         };
@@ -151,7 +151,7 @@
         return new Promise((resolve, reject) => {
             tx.oncomplete = async () => {
                 try {
-                    await updateCallStatus(userId, 'in-progress');
+                    await updateCallStatus(id, 'in-progress');
                 } catch (upErr) {
                     console.error('Failed to update call_status:', upErr);
                 }
@@ -178,19 +178,19 @@
     }
 
     async function startShift() {
-        const userId = getQueryParam('userId');
-        if (!userId) return console.error('No userId provided.');
+        const id = getQueryParam('id');
+        if (!id) return console.error('No id provided.');
 
         try {
             const ongoingCall = await checkOngoingCall();
 
             if (ongoingCall) {
-                if (ongoingCall.userId == userId || ongoingCall.col_care_call_Id == userId) {
+                if (ongoingCall.id == id || ongoingCall.col_care_call_Id == id) {
                     // Same call, redirect to activities.php
                     window.location.href = 'activities.php?uryyToeSS4=' + encodeURIComponent(ongoingCall.uryyToeSS4) +
                         '&Clientshift_Date=' + encodeURIComponent(ongoingCall.shift_date) +
                         '&care_calls=' + encodeURIComponent(ongoingCall.col_care_call) +
-                        '&userId=' + encodeURIComponent(ongoingCall.userId) +
+                        '&id=' + encodeURIComponent(ongoingCall.id) +
                         '&carerId=' + encodeURIComponent(ongoingCall.col_carer_Id);
                     return;
                 } else {
@@ -198,18 +198,18 @@
                     window.location.href = 'ongoing-visit.php?uryyToeSS4=' + encodeURIComponent(ongoingCall.uryyToeSS4) +
                         '&Clientshift_Date=' + encodeURIComponent(ongoingCall.shift_date) +
                         '&care_calls=' + encodeURIComponent(ongoingCall.col_care_call) +
-                        '&userId=' + encodeURIComponent(ongoingCall.userId) +
+                        '&id=' + encodeURIComponent(ongoingCall.id) +
                         '&carerId=' + encodeURIComponent(ongoingCall.col_carer_Id);
                     return;
                 }
             }
 
             // No ongoing call, start new shift
-            const record = await copyShiftRecord(userId);
+            const record = await copyShiftRecord(id);
             window.location.href = 'activities.php?uryyToeSS4=' + encodeURIComponent(record.uryyToeSS4) +
                 '&Clientshift_Date=' + encodeURIComponent(record.shift_date) +
                 '&care_calls=' + encodeURIComponent(record.col_care_call) +
-                '&userId=' + encodeURIComponent(record.userId) +
+                '&id=' + encodeURIComponent(record.id) +
                 '&carerId=' + encodeURIComponent(record.col_carer_Id);
 
         } catch (err) {

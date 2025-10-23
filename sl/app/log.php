@@ -15,7 +15,7 @@
             if (!db.objectStoreNames.contains(storeName)) {
                 console.log(`Creating object store: ${storeName}`);
                 db.createObjectStore(storeName, {
-                    keyPath: "userId"
+                    keyPath: "id"
                 });
             } else {
                 console.log(`Object store already exists: ${storeName}`);
@@ -50,7 +50,7 @@
                     const email = user.user_email_address || "N/A";
                     const status = (user.status2 || "").toString().trim().toLowerCase();
 
-                    console.log(`Found record: userId=${user.userId}, email=${email}, status2=${status}`);
+                    console.log(`Found record: id=${user.id}, email=${email}, status2=${status}`);
 
                     // Save first user's email for fallback
                     if (!firstUserEmail && user.user_email_address) {

@@ -1,4 +1,5 @@
 <?php require_once('client_task_backend.php'); ?>
+
 <div class="pcoded-main-container">
     <div class="pcoded-content">
         <div class="page-header">
@@ -297,7 +298,6 @@
                     </div>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>
@@ -311,8 +311,7 @@
     /**/
     let names = [
         <?php
-        include('dbconnect.php');
-        $result = mysqli_query($myConnection, "SELECT * FROM tbl_task_list ");
+        $result = mysqli_query($conn, "SELECT * FROM tbl_task_list ");
         while ($trans = mysqli_fetch_array($result)) {
             echo "
                 '" . $trans['task_title'] . "',

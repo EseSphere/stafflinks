@@ -30,7 +30,7 @@
                 const db = event.target.result;
                 if (!db.objectStoreNames.contains(storeName)) {
                     const store = db.createObjectStore(storeName, {
-                        keyPath: "userId"
+                        keyPath: "id"
                     });
                     store.createIndex("user_email_address", "user_email_address", {
                         unique: false

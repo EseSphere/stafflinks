@@ -100,19 +100,19 @@
             const serverData = await response.json();
 
             const keyPaths = {
-                'tbl_cancelled_call': 'userId',
-                'tbl_clients_medication_records': 'userId',
-                'tbl_client_status_records': 'userId',
-                'tbl_clients_task_records': 'userId',
-                'tbl_daily_shift_records': 'userId',
-                'tbl_finished_meds': 'userId',
-                'tbl_finished_tasks': 'userId',
-                'tbl_general_client_form': 'userId',
-                'tbl_manage_runs': 'userId',
-                'tbl_client_medical': 'userId',
-                'tbl_future_planning': 'userId',
-                'tbl_general_team_form': 'userId',
-                'tbl_schedule_calls': 'userId'
+                'tbl_cancelled_call': 'id',
+                'tbl_clients_medication_records': 'id',
+                'tbl_client_status_records': 'id',
+                'tbl_clients_task_records': 'id',
+                'tbl_daily_shift_records': 'id',
+                'tbl_finished_meds': 'id',
+                'tbl_finished_tasks': 'id',
+                'tbl_general_client_form': 'id',
+                'tbl_manage_runs': 'id',
+                'tbl_client_medical': 'id',
+                'tbl_future_planning': 'id',
+                'tbl_general_team_form': 'id',
+                'tbl_schedule_calls': 'id'
             };
 
             const tableNames = Object.keys(serverData);
@@ -126,7 +126,7 @@
                     const upgradeDb = e.target.result;
                     for (const tableName of tableNames) {
                         if (!upgradeDb.objectStoreNames.contains(tableName)) {
-                            const keyPath = keyPaths[tableName] || 'userId';
+                            const keyPath = keyPaths[tableName] || 'id';
                             upgradeDb.createObjectStore(tableName, {
                                 keyPath
                             });

@@ -1,5 +1,7 @@
-<?php include('header-contents.php'); ?>
-
+<?php
+include('header-contents.php');
+include('processing-add-position.php');
+?>
 
 <style>
     .pagination .page-link {
@@ -50,8 +52,7 @@
                     <div class="card-header">
                         <h5>Add Position</h5>
                     </div>
-                    <div id="popupAlert"
-                        style="display:none; width:100%; margin-bottom:5px; padding:22px; background-color:#c0392b; color:white;">
+                    <div id="popupAlert" style="display:none; width:100%; margin-bottom:5px; padding:22px; background-color:#c0392b; color:white;">
                         Position already exists
                     </div>
                     <form method="POST" action="./auth-position" enctype="multipart/form-data" autocomplete="off">
@@ -59,7 +60,8 @@
                             <div class="table-responsive">
                                 <div class="client-form-body p-3">
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div style="box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;" class="col-md-5">
+                                            <h5>Positions Form</h5>
                                             <div class="form-group">
                                                 <label for="positionName">Position</label>
                                                 <select style="height: 45px;" name="txtPositionName" required class="form-control"
@@ -80,13 +82,10 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="positionDetails">Position Description</label>
-                                                <textarea name="txtPositionDetails" required id="positionDetails"
-                                                    class="form-control" rows="5"
-                                                    placeholder="Add description..."></textarea>
+                                                <textarea name="txtPositionDetails" required id="positionDetails" class="form-control" rows="5" placeholder="Add description..."></textarea>
                                             </div>
                                             <div class="form-group pl-2">
-                                                <button type="submit" name="btnSubmitPosition"
-                                                    class="btn btn-primary">Add Position</button>
+                                                <button type="submit" name="btnSubmitPosition" class="btn btn-primary">Add Position</button>
                                             </div>
                                         </div>
 
@@ -95,15 +94,14 @@
                                             <div class="card table-card">
                                                 <div class="card-body p-0">
                                                     <?php
-                                                    include('dbconnect.php');
                                                     $limit = 5;
                                                     $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] : 1;
                                                     $offset = ($page - 1) * $limit;
-                                                    $countQuery = mysqli_query($myConnection, "SELECT COUNT(*) AS total FROM tbl_position");
+                                                    $countQuery = mysqli_query($conn, "SELECT COUNT(*) AS total FROM tbl_position");
                                                     $countRow = mysqli_fetch_assoc($countQuery);
                                                     $total = $countRow['total'];
                                                     $totalPages = ceil($total / $limit);
-                                                    $result = mysqli_query($myConnection, "SELECT * FROM tbl_position ORDER BY position_Id DESC LIMIT $limit OFFSET $offset");
+                                                    $result = mysqli_query($conn, "SELECT * FROM tbl_position ORDER BY id DESC LIMIT $limit OFFSET $offset");
 
                                                     while ($row = mysqli_fetch_array($result)) {
                                                         echo "<div class='p-3 border-bottom'>
@@ -112,14 +110,10 @@
                                                     </div>";
                                                     }
                                                     ?>
-
-
                                                     <nav aria-label="Pagination" class="mt-3 mb-3 text-start px-3">
                                                         <ul class="pagination">
                                                             <li class="page-item <?= ($page <= 1) ? 'disabled' : '' ?>">
-                                                                <a class="page-link"
-                                                                    href="?page=<?= max(1, $page - 1) ?>">
-                                                                    Previous</a>
+                                                                <a class="page-link" href="?page=<?= max(1, $page - 1) ?>"> Previous</a>
                                                             </li>
 
                                                             <?php
@@ -143,8 +137,7 @@
                                                             }
                                                             ?>
 
-                                                            <li
-                                                                class="page-item <?= ($page >= $totalPages) ? 'disabled' : '' ?>">
+                                                            <li class="page-item <?= ($page >= $totalPages) ? 'disabled' : '' ?>">
                                                                 <a class="page-link"
                                                                     href="?page=<?= min($totalPages, $page + 1) ?>">Next
                                                                 </a>
@@ -161,8 +154,6 @@
                     </form>
                 </div>
             </div>
-
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>

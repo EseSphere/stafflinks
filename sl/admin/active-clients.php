@@ -1,69 +1,4 @@
 <?php include('header-contents.php'); ?>
-<style>
-    ul {
-        list-style: none;
-    }
-
-    .list {
-        width: 100%;
-        background-color: #ffffff;
-        border-radius: 0 0 5px 5px;
-    }
-
-    .list-items {
-        padding: 10px 5px;
-    }
-
-    .list-items:hover {
-        background-color: #dddddd;
-    }
-
-    .multipleSelection {
-        width: 200px;
-        background-color: rgba(189, 195, 199, 1.0);
-        font-size: 16px;
-        position: absolute;
-        z-index: 1000;
-    }
-
-    .selectBox {
-        position: relative;
-    }
-
-    .selectBox select {
-        width: 100%;
-        padding: 5px;
-        font-weight: bold;
-        font-size: 16px;
-    }
-
-    .overSelect {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
-
-    #checkBoxes {
-        display: none;
-        border: 1px #8DF5E4 solid;
-        height: auto;
-        padding: 8px;
-    }
-
-    #checkBoxes label {
-        display: block;
-        padding: 5px;
-    }
-
-    #checkBoxes label:hover {
-        background-color: #4F615E;
-        color: white;
-
-        /* Added text color for better visibility */
-    }
-</style>
 
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
@@ -71,7 +6,7 @@
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="page-header-title">
                             <h5 class="m-b-10"><strong>Active clients</strong></h5>
                         </div>
@@ -80,11 +15,15 @@
                             <li class="breadcrumb-item"><a href="#!">Clients board</a></li>
                         </ul>
                     </div>
+                    <div class="col-md-6">
+                        <div class="flex text-end items-end justify-end">
+                            <a href="./add-new-client" type="button" class="btn btn-info"><i class="feather mr-2 icon-plus"></i>Add client</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <?php require_once('client-sub-header.php'); ?>
             <div class="col-xl-12 col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
@@ -102,14 +41,11 @@
                             </div>
                         </div>
 
-                        <div style="margin-top: 60px;" class="row">
-                            <br>
-                            <div class="col-sm-4 col-4">
-                                <div>
-                                    <input type="search" class="form-control" name="search_text" id="search_text" placeholder="Search client here..." />
-                                </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="search" class="form-control" name="search_text" id="search_text" placeholder="Search client here..." />
                             </div>
-                            <div class="col-sm-2 col-4">
+                            <div class="col-md-2">
                                 <form action="./cookie-cities" method="POST" enctype="multipart/form-data" autocomplete="off">
                                     <select onchange="this.form.submit()" name="clientView" id="select_page" style="width:200px; height:50px;" class="form-control">
                                         <option style="height: 40px; padding:12px; background-color:rgba(39, 174, 96,1.0); color:white;" value="">
@@ -132,10 +68,9 @@
                                     </select>
                                 </form>
                             </div>
-                            <div style="text-align: right;" class="col-sm-5 col-4">
-                                <a href="./add-new-client" style="text-decoration:none;">
-                                    <button style="height: 48px;" type="button" class="btn btn-outline-info"><i class="feather mr-2 icon-plus"></i>Add client</button>
-                                </a>
+                            <div style="text-align: right;" class="col-md-2"></div>
+                            <div style="text-align: right;" class="col-md-4">
+                                <?php require_once('client-sub-header.php'); ?>
                             </div>
                         </div>
                     </div>
@@ -148,14 +83,8 @@
                     </div>
                 </div>
             </div>
-
-
-            <?php include('bottom-panel-block.php'); ?>
-
-
         </div>
     </div>
-</div>
 </div>
 <script type="text/javascript">
     /**/

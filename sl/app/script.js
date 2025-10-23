@@ -7,7 +7,7 @@ if ('serviceWorker' in navigator) {
 
 // 2️⃣ Optional: define possible values for dynamic URL variables
 const dynamicValues = {
-    userId: [1, 2, 3],   // Example: cache userId=1,2,3
+    id: [1, 2, 3],   // Example: cache id=1,2,3
     token: ['abc', 'xyz'] // Example: cache token=abc,xyz
 };
 
@@ -51,7 +51,7 @@ function collectAllLinks() {
         const matches = [...text.matchAll(/window\.location(?:\.href)?\s*=\s*['"`]([^'"`]*\.php[^'"`]*)['"`]/gi)];
         matches.forEach(m => urls.add(new URL(m[1], location.href).href));
 
-        // Concatenated variables: "./page.php?id=" + userId
+        // Concatenated variables: "./page.php?id=" + id
         const varMatches = [...text.matchAll(/window\.location(?:\.href)?\s*=\s*['"`]([^'"`]*\.php[^\n'"`]*)['"`]\s*\+\s*(\w+)/gi)];
         varMatches.forEach(m => {
             const base = m[1];
@@ -61,7 +61,7 @@ function collectAllLinks() {
             } else urls.add(new URL(base, location.href).href);
         });
 
-        // Template literals: `./page.php?id=${userId}`
+        // Template literals: `./page.php?id=${id}`
         const tplMatches = [...text.matchAll(/window\.location(?:\.href)?\s*=\s*`([^`]*\.php[^`]*\${(\w+)}[^`]*)`/gi)];
         tplMatches.forEach(m => {
             const base = m[1];

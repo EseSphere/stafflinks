@@ -1,6 +1,7 @@
-<?php include('header-contents.php'); ?>
-<?php include('dbconnect.php'); ?>
-
+<?php
+include('header-contents.php');
+include('processing-add-group.php');
+?>
 
 <style>
     .pagination .page-link {
@@ -36,8 +37,7 @@
                             <h5 class="m-b-10">Add new group</h5>
                         </div>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="./dashboard.php"><i class="feather icon-home"></i></a>
-                            </li>
+                            <li class="breadcrumb-item"><a href="./dashboard.php"><i class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Group</a></li>
                         </ul>
                     </div>
@@ -48,30 +48,26 @@
             <div class="col-xl-12 col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
-                        <h5>Add more group</h5>
+                        <h5>Add Group</h5>
                     </div>
-                    <div id="popupAlert"
-                        style="width: 100%; height:auto; margin-bottom:5px; padding:22px; background-color:rgba(192, 57, 43,1.0); color:white;">
+                    <div id="popupAlert" style="width: 100%; height:auto; margin-bottom:5px; padding:22px; background-color:rgba(192, 57, 43,1.0); color:white;">
                         Group already exist
                     </div>
-                    <form method="POST" action="./auth-client-group" enctype="multipart/form-data" name="addClient-form"
-                        autocomplete="off">
+                    <form method="POST" action="./group" enctype="multipart/form-data" name="addClient-form" autocomplete="off">
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <div class="client-form-body" style="width:100%; height:auto; padding:22px;">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div style="box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;" class="col-md-4">
+                                            <h5>Group Form</h5>
+                                            <hr>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Group area - (example Pattingham,
-                                                    Codsall)</label>
-                                                <input style="height: 45px;" name="txtGroupArea" required type="text" class="form-control"
-                                                    id="exampleInputPassword1" placeholder="Group area">
+                                                <label for="exampleInputPassword1">Group area - (example Pattingham, Codsall)</label>
+                                                <input style="height: 45px;" name="txtGroupArea" required type="text" class="form-control" id="exampleInputPassword1" placeholder="Group area">
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Group city - (example Wolverhampton,
-                                                    Walsall)</label>
-                                                <select style="height: 45px;" name="txtGroupCity" required type="text" class="form-control"
-                                                    id="exampleFormControlSelect1" placeholder="City">
+                                                <label for="exampleInputPassword1">Group city - (example Wolverhampton, Walsall)</label>
+                                                <select style="height: 45px;" name="txtGroupCity" required type="text" class="form-control" id="exampleFormControlSelect1" placeholder="City">
                                                     <optgroup label="England">England
                                                         <option value="Bath">Bath</option>
                                                         <option value="Birmingham">Birmingham</option>
@@ -139,7 +135,6 @@
                                                         <option value="Newry">Newry</option>
                                                     </optgroup>
 
-
                                                     <optgroup label="Scotland">Scotland
                                                         <option value="Aberdeen">Aberdeen</option>
                                                         <option value="Dundee">Dundee</option>
@@ -163,13 +158,12 @@
                                                 </select>
                                             </div>
                                             <div style="padding: 0px 0px 0px 15px;" class="form-group">
-                                                <button type="submit" name="btnSubmitGroup" class="btn  btn-primary">Add
-                                                    more group</button>
+                                                <button type="submit" name="btnSubmitGroup" class="btn  btn-primary">Add more group</button>
                                             </div>
                                         </div>
 
                                         <div class="col-md-8">
-                                            <h4>Group/Areas</h4>
+                                            <h5>Group/Areas</h5>
                                             <div class="card table-card">
                                                 <div class="card-header">
                                                     <h5>Recent group</h5>
@@ -194,7 +188,7 @@
                                                                 $total_result = mysqli_fetch_assoc($total_query);
                                                                 $total_groups = $total_result['total'];
                                                                 $total_pages = ceil($total_groups / $limit);
-                                                                $result = mysqli_query($conn, "SELECT * FROM tbl_group_list ORDER BY group_id DESC LIMIT $limit OFFSET $offset");
+                                                                $result = mysqli_query($conn, "SELECT * FROM tbl_group_list ORDER BY id DESC LIMIT $limit OFFSET $offset");
                                                                 while ($row = mysqli_fetch_array($result)) {
                                                                     echo "
                                                                         <tr>
@@ -261,6 +255,7 @@
                     </form>
                 </div>
             </div>
-
-            <?php include('bottom-panel-block.php'); ?>
-            <?php include('footer-contents.php'); ?>
+        </div>
+    </div>
+</div>
+<?php include('footer-contents.php'); ?>

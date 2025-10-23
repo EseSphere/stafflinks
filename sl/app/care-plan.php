@@ -129,8 +129,8 @@
     }
 
     // ✅ FIXED: clean, efficient, and returns both visit + carer unique ID
-    async function getVisitById(userId) {
-        if (!userId) return null;
+    async function getVisitById(id) {
+        if (!id) return null;
 
         const db = await openDB();
         const tx = db.transaction('tbl_schedule_calls', 'readonly');
@@ -140,7 +140,7 @@
             const req = store.getAll();
             req.onsuccess = e => {
                 const visits = e.target.result;
-                const visit = visits.find(v => v.userId == userId);
+                const visit = visits.find(v => v.id == id);
 
                 if (visit) {
                     // ✅ Use the correct field name for carer unique ID
@@ -212,13 +212,13 @@
     }
 
     async function renderCarePlan() {
-        const userId = getQueryParam('userId');
-        if (!userId) {
+        const id = getQueryParam('id');
+        if (!id) {
             document.body.innerHTML = '<div class="text-center p-5">No visit selected.</div>';
             return;
         }
 
-        const visitData = await getVisitById(userId);
+        const visitData = await getVisitById(id);
         if (!visitData) {
             document.body.innerHTML = '<div class="text-center p-5">Visit not found.</div>';
             return;
@@ -307,9 +307,9 @@
             // ✅ FIXED: correct href generation using both IDs
             const startBtn = document.getElementById('startShiftBtn');
             if (visit.checkin_type === 'qrcode') {
-                startBtn.href = `checkin-qrcode.php?userId=${visit.userId}&carerId=${first_carer_Id}`;
+                startBtn.href = `checkin-qrcode.php?id=${visit.id}&carerId=${first_carer_Id}`;
             } else if (visit.checkin_type === 'geolocation') {
-                startBtn.href = `checkin-geolocation.php?userId=${visit.userId}&carerId=${first_carer_Id}`;
+                startBtn.href = `checkin-geolocation.php?id=${visit.id}&carerId=${first_carer_Id}`;
             } else {
                 startBtn.href = '#';
                 startBtn.classList.add('disabled');

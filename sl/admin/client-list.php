@@ -146,10 +146,8 @@
                     </div>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
-</div>
 </div>
 <script type="text/javascript">
     /**/

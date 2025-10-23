@@ -1,9 +1,7 @@
 <?php
-
+include('dbconnections.php');
 
 if (isset($_POST['btnSubmitNewMed'])) {
-
-    include('dbconnections.php');
 
     $txtMedName = mysqli_real_escape_string($conn, $_REQUEST['txtMedName']);
     $txtMedDosage = mysqli_real_escape_string($conn, $_REQUEST['txtMedDosage']);
@@ -12,16 +10,13 @@ if (isset($_POST['btnSubmitNewMed'])) {
     $myCheck = "SELECT * FROM tbl_task_list WHERE task_title = '" . $txtMedName . "' ";
     $myCheckres = mysqli_query($conn, $myCheck);
     $countRes = mysqli_num_rows($myCheckres);
-
     if ($countRes != 0) {
-
         echo "
       <script type='text/javascript'>
       $(document).ready(function() {
         $('#popupAlert').show();
       });
     </script>";
-
         unset($txtMedName);
         unset($txtMedDosage);
         unset($txtMedType);

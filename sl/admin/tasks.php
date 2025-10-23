@@ -1,4 +1,7 @@
-<?php include('header-contents.php'); ?>
+<?php
+include('header-contents.php');
+include('processing-add-task-form.php');
+?>
 
 <style>
     .pagination .page-link {
@@ -53,17 +56,18 @@
                         style="width: 100%; height:auto; margin-bottom:5px; padding:22px; background-color:rgba(192, 57, 43,1.0); color:white;">
                         Task already exist
                     </div>
-                    <form method="POST" action="./auth-client-task" enctype="multipart/form-data" name="addClient-form"
+                    <form method="POST" action="./tasks" enctype="multipart/form-data" name="addClient-form"
                         autocomplete="off">
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <div class="client-form-body" style="width:100%; height:auto; padding:22px;">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div style="box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;" class="col-md-4">
+                                            <h5>Task Form</h5>
+                                            <hr>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Task title</label>
-                                                <input style="height: 45px;" name="txtTaskTitle" required type="text" class="form-control"
-                                                    id="exampleInputPassword1" placeholder="Add task">
+                                                <input style="height: 45px;" name="txtTaskTitle" required type="text" class="form-control" id="exampleInputPassword1" placeholder="Add task">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Task categories</label>
@@ -82,15 +86,13 @@
                                                     <option value="Other">Other</option>
                                                 </select>
                                             </div>
-                                            <div style="padding: 0px 0px 0px 15px;" class="form-group">
-                                                <button type="submit" name="btnSubmitTask" class="btn btn-primary">Add
-                                                    more task</button>
+                                            <div class="form-group">
+                                                <button type="submit" name="btnSubmitTask" class="btn btn-primary">Save Task</button>
                                             </div>
                                         </div>
 
                                         <div class="col-md-8">
-                                            <h4>Tasks</h4>
-                                            <br>
+                                            <h5>Tasks</h5>
                                             <div class="card table-card">
                                                 <div class="card-header">
                                                     <h5>Recent task</h5>
@@ -111,17 +113,15 @@
                                                                 <tr>
                                                                     <th>Tasks title</th>
                                                                     <th>Category</th>
-                                                                    <th>Date uploaded</th>
                                                                     <th class="text-left">Decision</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <?php
-                                                                include('dbconnect.php');
                                                                 $limit = 10;
                                                                 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] : 1;
                                                                 $offset = ($page - 1) * $limit;
-                                                                $result = mysqli_query($myConnection, "SELECT * FROM tbl_task_list ORDER BY task_id DESC LIMIT $limit OFFSET $offset");
+                                                                $result = mysqli_query($conn, "SELECT * FROM tbl_task_list ORDER BY id DESC LIMIT $limit OFFSET $offset");
                                                                 while ($row = mysqli_fetch_array($result)) {
                                                                     echo "
                                                                         <tr>
@@ -133,7 +133,6 @@
                                                                                 </div>
                                                                             </td>
                                                                             <td>" . $row['task_category'] . "</td>
-                                                                            <td>" . $row['dateTime'] . "</td>
                                                                             <td class='text-right'>
                                                                                 <a href=''><button type='button' class='btn btn-danger btn-sm'>Delete</button></a>
                                                                             </td>
@@ -146,7 +145,7 @@
                                                     </div>
                                                 </div>
                                                 <?php
-                                                $total_result = mysqli_query($myConnection, "SELECT COUNT(*) as total FROM tbl_task_list");
+                                                $total_result = mysqli_query($conn, "SELECT COUNT(*) as total FROM tbl_task_list");
                                                 $row = mysqli_fetch_assoc($total_result);
                                                 $total_pages = ceil($row['total'] / $limit);
                                                 if ($total_pages > 1) {
@@ -195,11 +194,8 @@
                     </form>
                 </div>
             </div>
-
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
-</div>
 </div>
 
 <?php include('footer-contents.php'); ?>

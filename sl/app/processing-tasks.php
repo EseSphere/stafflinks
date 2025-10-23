@@ -88,7 +88,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const clientId = urlParams.get('uryyToeSS4');
         const careCall = urlParams.get('care_calls');
-        const clientUserId = urlParams.get('userId');
+        const clientid = urlParams.get('id');
         const carerId = urlParams.get('carerId');
 
         let currentDate = urlParams.get('Clientshift_Date') || urlParams.get('date');
@@ -174,7 +174,7 @@
 
                 if (medsComplete && tasksComplete) {
                     // All activities finished
-                    window.location.href = `observation.php?userId=${clientUserId}&uryyToeSS4=${clientId}&Clientshift_Date=${currentDate}&care_calls=${careCall}&carerId=${carerId}`;
+                    window.location.href = `observation.php?id=${clientid}&uryyToeSS4=${clientId}&Clientshift_Date=${currentDate}&care_calls=${careCall}&carerId=${carerId}`;
                 } else {
                     // Show modal with pending items
                     showPendingModal(meds, tasks, finishedMeds, finishedTasks);
