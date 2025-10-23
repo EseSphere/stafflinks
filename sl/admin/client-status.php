@@ -86,7 +86,7 @@ $stmt->close();
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-info" name="btnStatusTemporary" type="submit">Continue</button>
+                                        <button class="btn btn-info text-white" name="btnStatusTemporary" type="submit">Continue</button>
                                     </div>
                                 </form>
                             </div>
@@ -145,7 +145,7 @@ $stmt->close();
                                         <div class="col-md-6 col-xl-6 col-sm-6"></div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-info" name="btnStatusPermanent" type="submit">Continue</button>
+                                        <button class="btn btn-info text-white" name="btnStatusPermanent" type="submit">Continue</button>
                                     </div>
                                 </form>
                             </div>
@@ -153,7 +153,6 @@ $stmt->close();
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xl-3"></div>
         </div>
     </div>
 </div>

@@ -64,16 +64,12 @@ $stmt->close();
                 </div>
             </div>
         </div>
-        <div class="row">
-            <?php include('bottom-panel-block.php'); ?>
-        </div>
     </div>
 </div>
 
 <?php include('footer-contents.php'); ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
     $(document).ready(function() {
 

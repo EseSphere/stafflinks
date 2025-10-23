@@ -5,7 +5,7 @@
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
-                    <div class="col-md-12">
+                    <div class="col-md-9">
                         <div class="page-header-title">
                             <h5 class="m-b-10">Active Team</h5>
                         </div>
@@ -13,6 +13,11 @@
                             <li class="breadcrumb-item"><a href="./dashboard"><i class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Team board</a></li>
                         </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="text-align: right;">
+                            <a href="./add-new-team" type="button" class="btn btn-info"><i class="feather mr-2 icon-plus"></i>Add team</button></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,15 +39,14 @@
                                 </ul>
                             </div>
                         </div>
-                        <div style="margin-top: 60px;" class="row">
-                            <div class="col-sm-4 col-4">
-                                <div>
-                                    <input type="search" class="form-control" name="search_text" id="search_text" placeholder="Search team here..." />
-                                </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="search" class="form-control" name="search_text" id="search_text" placeholder="Search team..." />
                             </div>
-                            <div class="col-sm-2 col-4">
+                            <div class="col-md-2">
                                 <form action="./cookie-cities" method="POST" enctype="multipart/form-data" autocomplete="off">
-                                    <select onchange="this.form.submit()" name="teamView" id="select_page" style="width:200px; height:50px;" class="form-control">
+                                    <select onchange="this.form.submit()" name="clientView" id="select_page" style="width:200px; height:50px;" class="form-control">
                                         <option style="height: 40px; padding:12px; background-color:rgba(39, 174, 96,1.0); color:white;" value="">
                                             <?php
                                             if (isset($_COOKIE['companyCity'])) {
@@ -53,20 +57,19 @@
                                         </option>
                                         <option value="Select all">Select all</option>
                                         <?php
-                                        $sql_get_client_cities = mysqli_query($conn, "SELECT * FROM tbl_general_team_form WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY col_company_city");
+                                        $sql_get_client_cities = mysqli_query($conn, "SELECT * FROM tbl_general_team_form WHERE (col_company_Id = '" . $_SESSION['usr_compId'] . "') GROUP BY team_city");
                                         while ($row_get_client_cities = mysqli_fetch_array($sql_get_client_cities)) {
                                             echo "
-                                            <option value='" . $row_get_client_cities['col_company_city'] . "'>" . $row_get_client_cities['col_company_city'] . "</option>
+                                            <option value='" . $row_get_client_cities['col_Office_Incharge'] . "'>" . $row_get_client_cities['col_Office_Incharge'] . "</option>
                                             ";
                                         } ?>
                                         ?>
                                     </select>
                                 </form>
                             </div>
-                            <div style="text-align: right;" class="col-sm-5 col-4">
-                                <a href="./add-new-team" style="text-decoration:none;">
-                                    <button style="height: 48px;" type="button" class="btn btn-outline-info"><i class="feather mr-2 icon-plus"></i>Add team</button>
-                                </a>
+                            <div style="text-align: right;" class="col-md-2"></div>
+                            <div style="text-align: right;" class="col-md-4">
+                                <?php require_once('team-sub-header.php'); ?>
                             </div>
                         </div>
                     </div>

@@ -80,10 +80,7 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                             <div class="card mb-4 mb-lg-0">
                                 <div class="card-body p-0" style="font-size: 18px;">
                                     <h5 style="padding: 22px;">Care calls</h5>
-                                    <a href="./setup-visits<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>"
-                                        style="text-decoration: none;">
-                                        <button class="btn btn-xs btn-info">Plan visits</button>
-                                    </a>
+                                    <a href="./setup-visits<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>" class="btn btn-xs text-white text-decoration-none btn-info">Plan visits</a>
                                     <?php
                                     function fetchCareCalls($conn, $uryyToeSS4, $careCall, $compId, $limit = null)
                                     {
@@ -125,8 +122,7 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                                             <tr>
                                                 <td style="font-size:15px; font-weight:600;">Care call</td>
                                                 <td style="font-size:15px; font-weight:600;">Time</td>
-                                                <td style="font-size:15px; font-weight:600;"><i
-                                                        class="feather icon-edit"></i> Extra call</td>
+                                                <td style="font-size:15px; font-weight:600;"><i class="feather icon-edit"></i> Extra call</td>
                                             </tr>
                                             <?php foreach ($careCalls as $call):
                                                 $limit = $call['limit'] ?? null;
@@ -181,10 +177,7 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                         <div class="col-lg-8">
                             <div class="card mb-4">
                                 <div style="width: 100%; height:auto; text-align:right;">
-                                    <a href="./edit-client-details-220059-958847-488950<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>"
-                                        style="text-decoration: none;">
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                    </a>
+                                    <a href="./edit-client-details-220059-958847-488950<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>" class="btn btn-sm text-white text-decoration-none btn-info"><i class="fas fa-edit"></i></button></a>
                                 </div>
                                 <div class="card-body" style="font-size: 16px;">
                                     <div class="row">
@@ -236,9 +229,8 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                                             <p style="font-size: 16px;" class="mb-0">Address</p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <a href="https://www.google.com/maps?q=<?php echo urlencode($row['client_address_line_1'] . ' ' . $row['client_address_line_2'] . ', ' . $row['client_city'] . ', ' . $row['client_county'] . ', ' . $row['client_poster_code']); ?>"
-                                                target="_blank">
-                                                <p style="font-size: 16px;" class="text-muted mb-0">
+                                            <a class="text-decoration-none" href="https://www.google.com/maps?q=<?php echo urlencode($row['client_address_line_1'] . ' ' . $row['client_address_line_2'] . ', ' . $row['client_city'] . ', ' . $row['client_county'] . ', ' . $row['client_poster_code']); ?>" target="_blank">
+                                                <p style="font-size: 16px;" class="text-muted mb-0 text-decoration-none">
                                                     <?php echo $row['client_address_line_1'] . " " . $row['client_address_line_2'] . ", " . $row['client_city'] . ", " . $row['client_county'] . ", " . $row['client_poster_code']; ?>
                                                 </p>
                                             </a>
@@ -250,10 +242,7 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                                 <div class="col-md-6">
                                     <div class="card mb-4">
                                         <div style="width: 100%; height:auto; text-align:right;">
-                                            <a href="./edit-client-details-220059-958847-4854550<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>"
-                                                style="text-decoration: none;">
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                            </a>
+                                            <a href="./edit-client-details-220059-958847-4854550<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>" class="btn btn-sm text-white text-decoration-none btn-info"><i class="fas fa-edit"></i></a>
                                         </div>
                                         <div class="card-body" style="font-size: 16px;">
                                             <div class="row">
@@ -299,10 +288,7 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                                 <div class="col-md-6">
                                     <div class="card mb-4">
                                         <div style="width: 100%; height:auto; text-align:right;">
-                                            <a href="./edit-client-details-220059-958847-4854550<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>"
-                                                style="text-decoration: none;">
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                            </a>
+                                            <a href="./edit-client-details-220059-958847-4854550<?php echo "?uryyToeSS4=$uryyToeSS4"; ?>" class="btn btn-sm text-white text-decoration-none btn-info"><i class="fas fa-edit"></i></a>
                                         </div>
                                         <div class="card-body" style="font-size: 16px;">
                                             <div class="row">
@@ -350,7 +336,6 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                     </div>
                 </div>
             </section>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>

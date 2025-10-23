@@ -19,7 +19,7 @@ if ($debug) {
 }
 
 if (empty($_SESSION['usr_email'])) {
-    header("Location: https://stafflinks.co.uk/sl/admin/");
+    header("Location: https://admin.stafflinks.co.uk");
     exit();
 }
 

@@ -64,7 +64,6 @@ if ($result->num_rows > 0) {
     <table class="table table-striped table-hover mb-0">
     <thead>
     <tr>
-    <th><input type="checkbox" id="selectAllCheckbox"></th>
     <th>Name</th>
     <th>Date of birth</th>
     <th>Nationality</th>
@@ -80,11 +79,9 @@ if ($result->num_rows > 0) {
 
         $output .= '
         <tr>
-        <td><input type="checkbox" class="checkboxes" name="txtSelectedId[]" value="' . intval($row["userId"]) . '"></td>
         <td>
             <a href="./team-details?uryyTteamoeSS4=' . urlencode($row["uryyTteamoeSS4"]) . '" class="text-dark text-decoration-none">
                 <div class="d-inline-block align-middle">
-                    <img src="assets/images/profile/profile-icon.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
                     <div class="d-inline-block">
                         <h6>' . htmlspecialchars($row["team_first_name"]) . ' ' . htmlspecialchars($row["team_last_name"]) . '</h6>
                     </div>

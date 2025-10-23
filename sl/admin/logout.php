@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 
-$redirectUrl = './index';
+$redirectUrl = 'https://admin.stafflinks.co.uk';
 if (isset($_SESSION['usr_email'])) {
 	unset($_SESSION['usr_compId'], $_SESSION['usr_email']);
 }

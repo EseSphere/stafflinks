@@ -25222,7 +25222,7 @@ body.box-layout .pcoded-navbar.theme-horizontal~.pcoded-header {
 }
 
 .widget-purple-card.flat-card {
-    background-color: #C0392B;
+    background-color: #1abc9c;
 }
 
 .widget-purple-card.flat-card .row-table:first-child {
@@ -25230,7 +25230,7 @@ body.box-layout .pcoded-navbar.theme-horizontal~.pcoded-header {
 }
 
 .widget-purple-card.flat-card .row-table>[class*=col-]:first-child {
-    background-color: #A72218;
+    background-color: #16a085;
 }
 
 .latest-activity-card .card-body {

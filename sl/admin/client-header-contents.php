@@ -42,16 +42,14 @@ if (isset($_GET['id'], $_GET['spec'])) {
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./css/task-medication.css" />
     <link rel="stylesheet" href="./css/emarchart.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./assets/js/scripts.js"></script>
 </head>
 
-<body class="">
+<body class="text-decoration-none">
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
@@ -70,10 +68,10 @@ if (isset($_GET['id'], $_GET['spec'])) {
                     </div>
                     <div class="collapse" id="nav-user-link">
                         <ul class="list-unstyled">
-                            <li class="list-group-item"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
-                            <li class="list-group-item"><a href="./share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
-                            <li class="list-group-item"><a href="./qrcodes" style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR Codes</a></li>
-                            <li class="list-group-item"><a href="./logout?logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./qrcodes" style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR Codes</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./logout?logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -143,19 +141,19 @@ if (isset($_GET['id'], $_GET['spec'])) {
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="dropdown-toggle h-drop" href="./roster/index?txtDate==<?php echo $today; ?>">
+                        <a class="dropdown-toggle h-drop text-decoration-none" href="./roster/index?txtDate==<?php echo $today; ?>">
                             <i class="feather icon-layout"></i> Rota
                         </a>
                         &nbsp;&nbsp;
-                        <a class="dropdown-toggle h-drop" href="./manage-runs">
+                        <a class="dropdown-toggle h-drop text-decoration-none" href="./manage-runs">
                             <i class="feather icon-map"></i> Run
                         </a>
                         &nbsp;&nbsp;
-                        <a class="dropdown-toggle h-drop" href="./active-clients">
+                        <a class="dropdown-toggle h-drop text-decoration-none" href="./active-clients">
                             <i class="feather icon-user"></i> Client
                         </a>
                         &nbsp;&nbsp;
-                        <a class="dropdown-toggle h-drop" href="./team-list">
+                        <a class="dropdown-toggle h-drop text-decoration-none" href="./team-list">
                             <i class="feather icon-user-plus"></i> Team
                         </a>
                     </div>
@@ -199,7 +197,7 @@ if (isset($_GET['id'], $_GET['spec'])) {
                             <ul class="pro-body">
                                 <li><a href="./checking-administrator-access" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
                                 <li><a href="#" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                                <li><a href="./auth-normal-logout" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                                <li><a href="./logout" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
                             </ul>
                         </div>
                     </div>

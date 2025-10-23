@@ -48,10 +48,10 @@ if (isset($_POST['btnAccessurlform'])) {
       $mail = new PHPMailer(true);
       try {
         $mail->isSMTP();
-        $mail->Host = 'premium231.web-hosting.com';
+        $mail->Host = 'premium156.web-hosting.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'it@geosoftcare.co.uk';
-        $mail->Password = 'Geosoftcare@121!';
+        $mail->Username = 'it@stafflinks.co.uk';
+        $mail->Password = 'StaffLinks@121!';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
