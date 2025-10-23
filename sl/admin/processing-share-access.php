@@ -37,11 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnshareAccessCode'])
     }
 
     // Prepare email headers
-    $fromEmail = 'geosoftcare@geosoftcare.co.uk';
-    $subject = 'Access Care Plan';
+    $fromEmail = 'it@stafflinks.co.uk';
+    $subject = 'Access activities';
 
     $headers = [];
-    $headers[] = "From: Geosoft Care <{$fromEmail}>";
+    $headers[] = "From: StaffLinks <{$fromEmail}>";
     $headers[] = "Reply-To: {$fromEmail}";
     $headers[] = "MIME-Version: 1.0";
     $headers[] = "Content-Type: text/html; charset=UTF-8";
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnshareAccessCode'])
         <a href="{$shareUrl}" class="link" target="_blank" rel="noopener noreferrer">View Care Details</a>
     </div>
     <div class="footer">
-        Care Access &copy; {$currentYear} Geosoft Care LTD. All rights reserved.
+        Care Access &copy; {$currentYear} StaffLinks LTD. All rights reserved.
     </div>
 </body>
 </html>

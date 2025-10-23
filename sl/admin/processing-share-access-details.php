@@ -64,7 +64,7 @@ if (isset($_POST['btnSubmitform'])) {
       $email_to = "" . $email;
       $subject = "Verify your email";
 
-      $headers = "From: it@geosoftcare.co.uk";
+      $headers = "From: it@stafflinks.co.uk";
       $headers = "MIME-Version: 1.0\r\n";
       $headers = "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
@@ -80,7 +80,7 @@ if (isset($_POST['btnSubmitform'])) {
         </div>
           <div style='width:100%; height:auto; padding:22px; font-size: 20px;'>
             <h1>" . $myId . "</h1>
-            https://geosoftcare.co.uk/page/geosoft/files/admin-control-panel/control-panel/verify-your-email
+            https://admin.stafflinks.co.uk/verify-your-email
           </div>
         </div>
     

@@ -55,15 +55,15 @@ if (isset($_POST['btnAccessurlform'])) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
-        $mail->setFrom('it@geosoftcare.co.uk', 'Geosoft');
+        $mail->setFrom('it@stafflinks.co.uk', 'StaffLinks');
         $mail->addAddress($email);
-        $mail->addReplyTo('it@geosoftcare.co.uk');
+        $mail->addReplyTo('it@stafflinks.co.uk');
 
         $mail->addCustomHeader('Precedence', 'bulk');
         $mail->addCustomHeader('X-Mailer', 'PHPMailer');
-        $mail->addCustomHeader('List-Unsubscribe', '<mailto:unsubscribe@geosoftcare.co.uk>');
+        $mail->addCustomHeader('List-Unsubscribe', '<mailto:unsubscribe@stafflinks.co.uk>');
 
-        $mail->Subject = 'Geosoft Verification Code';
+        $mail->Subject = 'StaffLinks Verification Code';
         $mail->isHTML(true);
         $mail->Body = "
                 <!DOCTYPE html>
@@ -77,6 +77,7 @@ if (isset($_POST['btnAccessurlform'])) {
                       background-color: #f9f9f9;
                       color: #333333;
                       padding: 20px;
+                      text-align: left;
                     }
                     .container {
                       max-width: 600px;
@@ -85,6 +86,7 @@ if (isset($_POST['btnAccessurlform'])) {
                       border-radius: 8px;
                       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                       padding: 30px;
+                      text-align: left;
                     }
                     .button {
                       display: inline-block;
@@ -107,14 +109,14 @@ if (isset($_POST['btnAccessurlform'])) {
                     <h2>Welcome to the Team!</h2>
                     <p>Dear User,</p>
                     <p>Thank you for registering with us. We’re excited to have you on board and look forward to supporting your operations with smooth and efficient service.</p>
-                    <p><a href='https://admin.geosoftcare.co.uk/54655-476564-99iu955-4h4657/signup' class='button'>Login to Control Panel</a></p>
+                    <p><a href='https://admin.stafflinks.co.uk/signup' class='button'>Login to Control Panel</a></p>
                     <p>If you did not request this link or registration, please disregard this message.</p>              
-                    <p class='footer'>Best regards,<br>Geosoft Team</p>
+                    <p class='footer'>Best regards,<br>StaffLinks Team</p>
                   </div>
                 </body>
                 </html>
                 ";
-        $mail->AltBody = "Geosoft Care Limited";
+        $mail->AltBody = "StaffLinks Limited";
         if ($mail->send()) {
           header("Location: ./index");
           exit();
