@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <p class="mb-0">&copy; <?= date('Y'); ?> Geosoft Care. All Rights Reserved.</p>
+                <p class="mb-0">&copy; <?= date('Y'); ?> StaffLinks. All Rights Reserved.</p>
             </div>
         </div>
     </div>

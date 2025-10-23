@@ -158,15 +158,6 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
-                    <div class="search-bar">
-                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </li>
-                <li class="nav-item">
                     <div class="dropdown">
                         <a class="dropdown-toggle h-drop"
                             href="./finance/">

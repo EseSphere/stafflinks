@@ -21,6 +21,58 @@
 
         <div class="row">
             <?php require_once 'statistics.php'; ?>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div style="height: 325px;" class="card">
+                    <div style="height: 100%;" class="card-body">
+                        <h5 class="mb-5">Power</h5>
+                        <h2>2789<span class="text-muted m-l-5 f-14 mb-5">kw</span></h2>
+                        <div id="power-card-chart1"></div>
+                        <div class="row">
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">2876 <span> kw</span></h6>
+                                    <p class="text-muted m-0">month</p>
+                                </div>
+                            </div>
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">234 <span> kw</span></h6>
+                                    <p class="text-muted m-0">Today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="mb-3">Total Leads</h5>
+                        <p class="text-c-green f-w-500"><i class="fa fa-caret-up m-r-15"></i> 18% High than last month</p>
+                        <div class="row">
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Overall</p>
+                                <h5>76.12%</h5>
+                            </div>
+                            <div class="col-4 b-r-default">
+                                <p class="text-muted m-b-5">Monthly</p>
+                                <h5>16.40%</h5>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-muted m-b-5">Day</p>
+                                <h5>4.56%</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tot-lead" style="height:150px"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
             <!-- Clients ,team member start -->
             <div class="col-xl-6 col-md-6">
                 <div class="card table-card">
@@ -95,7 +147,6 @@
                     </div>
                 </div>
             </div>
-
 
             <!-- Team ,team member start -->
             <div class="col-xl-6 col-md-6">
@@ -175,170 +226,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-3 col-sm-3 col-lg-3">
-                <div class="calendar">
-                    <div class="calendar-header">
-                        <button id="prev-month">&#8592;</button>
-                        <div id="month-year"></div>
-                        <button id="next-month">&#8594;</button>
-                    </div>
-                    <div class="calendar-body">
-                        <div class="calendar-weekdays">
-                            <div>Sun</div>
-                            <div>Mon</div>
-                            <div>Tue</div>
-                            <div>Wed</div>
-                            <div>Thu</div>
-                            <div>Fri</div>
-                            <div>Sat</div>
-                        </div>
-                        <div class="calendar-days" id="calendar-days">
-                            <!-- Days will be generated here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-9 col-md-9 col-sm-9 col-lg-9">
-                <?php
-                // Fetch client data
-                $sql = "SELECT client_first_name, client_last_name, client_address_line_1, client_address_line_2, client_city, client_county, client_poster_code, client_country FROM tbl_general_client_form";
-                $result = $conn->query($sql);
-                $clients = [];
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        // Combine full address
-                        $row['full_address'] = trim($row['client_address_line_1'] . ', ' . $row['client_address_line_2'] . ', ' . $row['client_city'] . ', ' . $row['client_county'] . ', ' . $row['client_poster_code'] . ', ' . $row['client_country']);
-                        $clients[] = $row;
-                    }
-                }
-                $conn->close();
-                ?>
-                <div style="height: 100%;" class="card table-card">
-                    <div class="card-header">
-                        <h5>Client Location</h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <div id="map"></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTWuN9VC9BLvvy2dLJTSlW_AijYf5DIN4"></script>
-<script>
-    const monthYear = document.getElementById('month-year');
-    const calendarDays = document.getElementById('calendar-days');
-    const prevMonthBtn = document.getElementById('prev-month');
-    const nextMonthBtn = document.getElementById('next-month');
-
-    let today = new Date();
-    let currentMonth = today.getMonth();
-    let currentYear = today.getFullYear();
-
-    const months = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-
-    function renderCalendar(month, year) {
-        calendarDays.innerHTML = "";
-        monthYear.textContent = `${months[month]} ${year}`;
-
-        const firstDay = new Date(year, month, 1).getDay();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-        // Add empty cells for days before first day
-        for (let i = 0; i < firstDay; i++) {
-            const emptyCell = document.createElement('div');
-            emptyCell.classList.add('calendar-day', 'empty');
-            calendarDays.appendChild(emptyCell);
-        }
-
-        // Add days of the month
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dayCell = document.createElement('div');
-            dayCell.classList.add('calendar-day');
-            dayCell.textContent = day;
-
-            // Highlight today
-            if (
-                day === today.getDate() &&
-                month === today.getMonth() &&
-                year === today.getFullYear()
-            ) {
-                dayCell.classList.add('today');
-            }
-
-            calendarDays.appendChild(dayCell);
-        }
-    }
-
-    prevMonthBtn.addEventListener('click', () => {
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        renderCalendar(currentMonth, currentYear);
-    });
-
-    nextMonthBtn.addEventListener('click', () => {
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-        renderCalendar(currentMonth, currentYear);
-    });
-
-    // Initial render
-    renderCalendar(currentMonth, currentYear);
-
-    const clients = <?php echo json_encode($clients); ?>;
-
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 6,
-            center: {
-                lat: 54.0,
-                lng: -2.0
-            } // default center
-        });
-
-        const geocoder = new google.maps.Geocoder();
-        const bounds = new google.maps.LatLngBounds();
-
-        clients.forEach(client => {
-            if (client.full_address) {
-                geocoder.geocode({
-                    'address': client.full_address
-                }, function(results, status) {
-                    if (status === 'OK' && results[0]) {
-                        const position = results[0].geometry.location;
-                        bounds.extend(position);
-
-                        const marker = new google.maps.Marker({
-                            map: map,
-                            position: position,
-                            title: client.client_first_name + " " + client.client_last_name
-                        });
-
-                        const infoWindow = new google.maps.InfoWindow({
-                            content: `<b>${client.client_first_name} ${client.client_last_name}</b><br>${client.full_address}`
-                        });
-
-                        marker.addListener("click", () => infoWindow.open(map, marker));
-                        map.fitBounds(bounds);
-                    } else {
-                        console.warn('Geocode failed for ' + client.full_address + ': ' + status);
-                    }
-                });
-            }
-        });
-    }
-
-    window.onload = initMap;
-</script>
 <?php include('footer-contents.php'); ?>

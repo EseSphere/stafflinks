@@ -1,5 +1,5 @@
-<div class="col-md-12 col-xl-6">
-    <div class="card flat-card">
+<div class="col-md-12 col-xl-4">
+    <div style="border-top: 3px solid rgba(230, 126, 34,1.0);" class="card flat-card">
         <div class="row-table">
             <div class="col-sm-6 card-body br">
                 <div class="row">
@@ -102,8 +102,8 @@
     </div>
 </div>
 
-<div class="col-md-12 col-xl-6">
-    <div class="card flat-card">
+<div class="col-md-12 col-xl-4">
+    <div style="border-top: 3px solid rgba(230, 126, 34,1.0);" class="card flat-card">
         <div class="row-table">
             <div class="col-sm-6 card-body br">
                 <div class="row">
@@ -216,4 +216,27 @@
         </div>
     </div>
 </div>
-<!-- Widget primary-success card end -->
+
+<div class="col-md-12 col-xl-4">
+    <div style="border-top: 3px solid rgba(230, 126, 34,1.0); height:280px;" class="card flat-card">
+        <div class="card-body">
+            <h5 class="mb-3">Temperature</h5>
+            <h2>7.3<span class="text-muted m-l-10 f-14">deg</span></h2>
+            <div id="power-card-chart3"></div>
+            <div class="row">
+                <div class="col col-auto">
+                    <div class="map-area">
+                        <h6 class="m-0">4.5 <span> deg</span></h6>
+                        <p class="text-muted m-0">month</p>
+                    </div>
+                </div>
+                <div class="col col-auto">
+                    <div class="map-area">
+                        <h6 class="m-0">0.5 <span> deg</span></h6>
+                        <p class="text-muted m-0">Today</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -25222,7 +25222,7 @@ body.box-layout .pcoded-navbar.theme-horizontal~.pcoded-header {
 }
 
 .widget-purple-card.flat-card {
-    background-color: #A72218;
+    background-color: #C0392B;
 }
 
 .widget-purple-card.flat-card .row-table:first-child {
@@ -25230,7 +25230,7 @@ body.box-layout .pcoded-navbar.theme-horizontal~.pcoded-header {
 }
 
 .widget-purple-card.flat-card .row-table>[class*=col-]:first-child {
-    background-color: #C0392B;
+    background-color: #A72218;
 }
 
 .latest-activity-card .card-body {
@@ -30756,3 +30756,63 @@ new-task label input[type=checkbox] {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    .date-widget {
+        color: rgba(45, 52, 54,.8);
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        height: 280px;
+        text-align: center;
+        overflow: hidden;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .header {
+        background: #EB6F46;
+        padding: 1.2rem;
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .content {
+        padding: 1.8rem 1rem;
+    }
+
+    .day {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+    }
+
+    .date {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 1rem;
+    }
+
+    .time {
+        background: rgba(255, 255, 255, 0.15);
+        display: inline-block;
+        padding: 0.5rem 1.2rem;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
