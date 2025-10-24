@@ -1,5 +1,8 @@
-<?php require_once "./header.php"; ?>
-<?php include('processing-signup.php'); ?>
+<?php
+require_once "./header.php";
+include('processing-signup.php');
+$email = $_GET['email'];
+?>
 
 <div class="auth-wrapper">
 	<div class="auth-content text-center">
@@ -19,21 +22,73 @@
 							</div>
 
 							<div class="form-group mb-3">
-								<input type="email" name="myEmail" class="form-control" placeholder="Email address" required />
+								<input type="email" name="myEmail" class="form-control" readonly value="<?= $email ?>" required />
 							</div>
-
 							<hr>
-
 							<div class="form-group mb-3">
-								<label for="exampleFormControlInput1" style="float:left;">What city does your company located?</label>
-								<input list="cityDataset" name="txtSelectCurrentCity" required type="text" class="form-control" placeholder="City">
+								<label for="txtSelectCurrentCity" style="float:left;">What city is your company located?</label>
+								<select name="txtSelectCurrentCity" id="txtSelectCurrentCity" class="form-control" required>
+									<option value="">-- Select City --</option>
+									<option value="London">London</option>
+									<option value="Birmingham">Birmingham</option>
+									<option value="Manchester">Manchester</option>
+									<option value="Leeds">Leeds</option>
+									<option value="Liverpool">Liverpool</option>
+									<option value="Sheffield">Sheffield</option>
+									<option value="Bristol">Bristol</option>
+									<option value="Leicester">Leicester</option>
+									<option value="Coventry">Coventry</option>
+									<option value="Bradford">Bradford</option>
+									<option value="Cardiff">Cardiff</option>
+									<option value="Nottingham">Nottingham</option>
+									<option value="Newcastle upon Tyne">Newcastle upon Tyne</option>
+									<option value="Sunderland">Sunderland</option>
+									<option value="Hull">Hull</option>
+									<option value="Stoke-on-Trent">Stoke-on-Trent</option>
+									<option value="Derby">Derby</option>
+									<option value="Southampton">Southampton</option>
+									<option value="Portsmouth">Portsmouth</option>
+									<option value="Plymouth">Plymouth</option>
+									<option value="Wolverhampton">Wolverhampton</option>
+									<option value="Milton Keynes">Milton Keynes</option>
+									<option value="Aberdeen">Aberdeen</option>
+									<option value="Edinburgh">Edinburgh</option>
+									<option value="Glasgow">Glasgow</option>
+									<option value="Dundee">Dundee</option>
+									<option value="Swansea">Swansea</option>
+									<option value="Belfast">Belfast</option>
+									<option value="Luton">Luton</option>
+									<option value="York">York</option>
+									<option value="Peterborough">Peterborough</option>
+									<option value="Oxford">Oxford</option>
+									<option value="Cambridge">Cambridge</option>
+									<option value="Exeter">Exeter</option>
+									<option value="Norwich">Norwich</option>
+									<option value="Chelmsford">Chelmsford</option>
+									<option value="Canterbury">Canterbury</option>
+									<option value="Chester">Chester</option>
+									<option value="Lincoln">Lincoln</option>
+									<option value="Lancaster">Lancaster</option>
+									<option value="Bath">Bath</option>
+									<option value="Hereford">Hereford</option>
+									<option value="Worcester">Worcester</option>
+									<option value="Salisbury">Salisbury</option>
+									<option value="Winchester">Winchester</option>
+									<option value="Durham">Durham</option>
+									<option value="Carlisle">Carlisle</option>
+									<option value="Inverness">Inverness</option>
+									<option value="Stirling">Stirling</option>
+									<option value="Perth">Perth</option>
+									<option value="Lisburn">Lisburn</option>
+									<option value="Derry">Derry</option>
+									<option value="Newport">Newport</option>
+								</select>
 							</div>
 
 							<!-- Password Field with Toggle -->
 							<div class="form-group mb-3 password-wrapper">
 								<input type="password" minlength="8" name="myPassword" class="form-control" id="Password" placeholder="Password" required />
 								<span class="toggle-password" id="togglePassword">&#128065;</span>
-
 								<div id="passwordHelp">
 									<span id="length" class="invalid">• At least 8 characters</span>
 									<span id="upper" class="invalid">• At least one uppercase letter</span>
@@ -51,7 +106,6 @@
 							<button type="submit" id="save-btn" name="btnSignUp" class="btn btn-primary btn-block mb-4" disabled>Create account</button>
 							<hr>
 							<p class="mb-2">Already have an account? <a href="./index" class="f-w-400">Sign in</a></p>
-
 						</div>
 					</div>
 				</div>

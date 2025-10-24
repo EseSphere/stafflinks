@@ -12,7 +12,7 @@
                 <div class="card mb-4 mb-lg-0">
                     <div class="card-body p-4">
                         <div class="alert alert-info">
-                            <h6>Current visit settings</h6>
+                            <h6>Visit settings</h6>
                         </div>
                         <?php
                         // Prepare and execute query

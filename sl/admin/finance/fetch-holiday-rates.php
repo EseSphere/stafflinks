@@ -35,8 +35,8 @@ if (mysqli_num_rows($result) > 0) {
                                                         </div>
                                                     </td>
                                                     <td>' . $varHolidayDate . '</td>
-                                                    <td>' . $trans["col_pay_multiplier"] . '</td>
-                                                    <td>' . $trans["col_charge_multiplier"] . '</td>
+                                                    <td>£' . $trans["col_pay_multiplier"] . '</td>
+                                                    <td>£' . $trans["col_charge_multiplier"] . '</td>
                                                     <td>
                                                     <a style="text-decoration:none;" href="./edit-holiday?col_special_Id=' . $trans["col_special_Id"] . '"> 
                                                         <button title="Edit holiday rate" type="button" class="btn btn-primary btn-sm"><i class="feather mr-2 icon-edit"></i></button>

@@ -1,8 +1,6 @@
 <?php
 include('dbconnections.php');
-
 $output = '';
-
 if (!isset($_SESSION['usr_compId'])) {
     echo 'Unauthorized access.';
     exit;
@@ -35,6 +33,7 @@ if ($stmt->execute()) {
             <thead>
                 <tr>
                     <th>Rate name</th>
+                    <th>Rate</th>
                     <th>Last updated at</th>
                     <th>Edit</th>
                 </tr>
@@ -43,6 +42,7 @@ if ($stmt->execute()) {
 
         while ($trans = $result->fetch_assoc()) {
             $rateName = htmlspecialchars($trans["col_name"], ENT_QUOTES, 'UTF-8');
+            $payRate = htmlspecialchars($trans["col_rates"], ENT_QUOTES, 'UTF-8');
             $lastUpdated = htmlspecialchars($trans["col_date"], ENT_QUOTES, 'UTF-8');
             $specialId = urlencode($trans["col_special_Id"]);
 
@@ -56,6 +56,7 @@ if ($stmt->execute()) {
                             </div>
                         </div>
                     </td>
+                    <td>£{$payRate}</td>
                     <td>{$lastUpdated}</td>
                     <td>
                         <a href='./edit-pay-rate?col_special_Id={$specialId}' style='text-decoration: none;'>

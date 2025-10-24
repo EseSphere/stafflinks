@@ -5,7 +5,6 @@
     <div class="pcoded-content">
         <div class="row">
             <div class="col-md-4 col-xl-2"></div>
-
             <div style="border: 1px solid rgba(44, 62, 80,.2); text-align:center; padding:32px; margin-top:150px;" class="col-md-4 col-xl-7">
                 <h3>No access granted</h3>
                 If you wish to continue kindly contact your admin to grant you access.
@@ -17,7 +16,6 @@
         </div>
         <div class="col-md-4 col-xl-3"></div>
     </div>
-</div>
 </div>
 
 

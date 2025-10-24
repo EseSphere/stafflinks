@@ -7,10 +7,12 @@ $limit = 10;
 $page = isset($_POST['page']) && is_numeric($_POST['page']) ? (int)$_POST['page'] : 1;
 $offset = ($page - 1) * $limit;
 
+// ✅ Base query (filter by company)
 $baseQuery = "SELECT * FROM tbl_invoice_rate WHERE col_company_Id = ?";
 $params = [$_SESSION['usr_compId']];
 $paramTypes = 'i';
 
+// ✅ Optional search filter
 if (!empty($_POST["query"])) {
     $search = "%" . $_POST["query"] . "%";
     $baseQuery .= " AND col_name LIKE ?";
@@ -18,6 +20,7 @@ if (!empty($_POST["query"])) {
     $paramTypes .= 's';
 }
 
+// ✅ Count query for pagination
 $countQuery = "SELECT COUNT(*) FROM tbl_invoice_rate WHERE col_company_Id = ?";
 $countParams = [$_SESSION['usr_compId']];
 $countParamTypes = 'i';
@@ -37,6 +40,7 @@ $stmtCount->close();
 
 $totalPages = ceil($totalRecords / $limit);
 
+// ✅ Add pagination to main query
 $baseQuery .= " ORDER BY col_name ASC LIMIT ? OFFSET ?";
 $params[] = $limit;
 $params[] = $offset;
@@ -53,14 +57,25 @@ if ($result->num_rows > 0) {
         <thead>
             <tr>
                 <th>Rate name</th>
+                <th>Invoice rate</th>
                 <th>Last updated at</th>
                 <th>View</th>
             </tr>
         </thead>
         <tbody>
     ';
+
     while ($trans = $result->fetch_assoc()) {
-        $date = DateTime::createFromFormat('Y-m-d', $trans['col_date']);
+        // ✅ Safely handle missing date or rate values
+        $date = !empty($trans['col_date'])
+            ? DateTime::createFromFormat('Y-m-d', $trans['col_date'])
+            : null;
+
+        // ✅ Fix: Handle missing or differently named rate column
+        // (try col_rate, then col_invoice_rate, then fallback)
+        $InvoiceRate = htmlspecialchars($trans['col_rate'] ?? $trans['col_rates'] ?? '0.00');
+
+        // ✅ Format date safely
         $varInvoiceDate = $date ? $date->format('d M, Y') : 'N/A';
 
         $output .= '
@@ -68,13 +83,14 @@ if ($result->num_rows > 0) {
             <td>
                 <div class="d-inline-block align-middle">
                     <div class="d-inline-block">
-                        <h6>' . htmlspecialchars($trans["col_name"]) . '</h6>
+                        <h6>' . htmlspecialchars($trans["col_name"] ?? 'N/A') . '</h6>
                     </div>
                 </div>
             </td>
+            <td>' . $InvoiceRate . '</td>
             <td>' . $varInvoiceDate . '</td>
             <td>
-                <a style="text-decoration:none;" href="./invoicing-rate?col_special_Id=' . urlencode($trans["col_special_Id"]) . '">
+                <a style="text-decoration:none;" href="./invoicing-rate?col_special_Id=' . urlencode($trans["col_special_Id"] ?? '') . '">
                     <button title="View invoice rate" type="button" class="btn btn-primary btn-sm">
                         <i class="feather mr-2 icon-eye"></i>
                     </button>
@@ -82,8 +98,10 @@ if ($result->num_rows > 0) {
             </td>
         </tr>';
     }
+
     $output .= '</tbody></table>';
 
+    // ✅ Pagination
     $output .= '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center mt-3">';
     for ($i = 1; $i <= $totalPages; $i++) {
         $activeClass = ($i === $page) ? ' active' : '';
@@ -98,5 +116,6 @@ if ($result->num_rows > 0) {
     echo '<div class="alert alert-warning">Data Not Found</div>';
 }
 
+// ✅ Close resources
 $stmt->close();
 $conn->close();

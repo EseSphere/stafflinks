@@ -1,9 +1,7 @@
 <?php include('header-contents.php'); ?>
 
-<!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
@@ -16,16 +14,12 @@
                 </div>
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
-        <!-- [ Main Content ] start -->
+
         <div class="row">
-            <!-- prject ,team member start -->
             <div class="col-xl-12 col-md-12">
                 <a href="./new-holiday" style="text-decoration: none;">
                     <button class="btn btn-outline-secondary">Add new holiday</button>
                 </a>
-                <br><br>
-                <!--First table contents-->
                 <div class="card table-card tab-pane active" id="justified-tabpanel-0" role="tabpanel" aria-labelledby="justified-tab-1">
                     <div class="card-header">
                         <div class="row">
@@ -52,10 +46,7 @@
                 </div>
             </div>
         </div>
-        <!-- Latest Customers end -->
     </div>
-    <!-- [ Main Content ] end -->
-</div>
 </div>
 <script type="text/javascript">
     /**/

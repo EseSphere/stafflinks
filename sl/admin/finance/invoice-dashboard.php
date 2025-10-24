@@ -2,7 +2,7 @@
 
 include('dbconnections.php');
 
-$SelectQuery = mysqli_query($conn, "SELECT * FROM tbl_goesoft_users WHERE user_email_address = '" . $_SESSION['usr_email'] . "' ");
+$SelectQuery = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE user_email_address = '" . $_SESSION['usr_email'] . "' ");
 while ($rowSelect_now = mysqli_fetch_array($SelectQuery)) {
     $getDatafromTable = $rowSelect_now['finance_access2'];
 

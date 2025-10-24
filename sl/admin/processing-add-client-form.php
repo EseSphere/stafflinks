@@ -19,7 +19,7 @@ if (isset($_POST['btnSubmitClient'])) {
     $txtAddressLine2 = mysqli_real_escape_string($conn, $_REQUEST['txtAddressLine2']);
     $txtCity = mysqli_real_escape_string($conn, $_REQUEST['txtCity']);
     $txtCounty = mysqli_real_escape_string($conn, $_REQUEST['txtCounty']);
-    $txtPosterCode = mysqli_real_escape_string($conn, $_REQUEST['txtPosterCode']);
+    $txtPostalCode = mysqli_real_escape_string($conn, $_REQUEST['txtPostalCode']);
     $txtCountry = mysqli_real_escape_string($conn, $_REQUEST['txtCountry']);
     $txtAccessDetails = mysqli_real_escape_string($conn, $_REQUEST['txtAccessDetails']);
     $txtHighlights = mysqli_real_escape_string($conn, $_REQUEST['txtHighlights']);
@@ -49,7 +49,7 @@ if (isset($_POST['btnSubmitClient'])) {
     $today = date('Y-m-d');
 
     $myCheck = "SELECT * FROM tbl_general_client_form WHERE client_first_name = '$txtFirstName' 
-    AND client_last_name = '$txtLastName' AND client_poster_code = '$txtPosterCode' AND col_company_Id = '$txtCompanyId'";
+    AND client_last_name = '$txtLastName' AND client_poster_code = '$txtPostalCode' AND col_company_Id = '$txtCompanyId'";
     $myCheckres = mysqli_query($conn, $myCheck);
     if (mysqli_num_rows($myCheckres) != 0) {
         echo "<script>$(document).ready(function(){ $('#popupAlert').show(); });</script>";
@@ -61,7 +61,7 @@ if (isset($_POST['btnSubmitClient'])) {
         $insertClient = "INSERT INTO tbl_general_client_form 
             (client_title, client_first_name, client_last_name, client_middle_name, client_preferred_name, client_email_address, client_referred_to, client_date_of_birth, client_ailment, client_primary_phone, client_culture_religion, client_sexuality, client_area, client_address_line_1, client_address_line_2, client_city, client_county, client_poster_code, client_country, client_access_details, client_highlights, col_Office_Incharge, clientStart_date, clientEnd_date, uryyToeSS4, client_latitude, client_longitude, col_company_Id) 
             VALUES 
-            ('$txtTitle','$txtFirstName','$txtLastName','$txtMiddleName','$txtPreferredName','$txtEmailAddress','$txtGenderBased','$txtDateofBirth','$txtClientailment','$txtPrimaryPhoneNumber','$txtCultureReligion','$txtSexuality','$txtclientArea','$txtAddressLine1','$txtAddressLine2','$txtCity','$txtCounty','$txtPosterCode','$txtCountry','$txtAccessDetails','$txtHighlights','$txtOfficeIncharge','$txtStartDate','$txtEndDate','$myIdentity','$latitude','$longitude','$txtCompanyId')";
+            ('$txtTitle','$txtFirstName','$txtLastName','$txtMiddleName','$txtPreferredName','$txtEmailAddress','$txtGenderBased','$txtDateofBirth','$txtClientailment','$txtPrimaryPhoneNumber','$txtCultureReligion','$txtSexuality','$txtclientArea','$txtAddressLine1','$txtAddressLine2','$txtCity','$txtCounty','$txtPostalCode','$txtCountry','$txtAccessDetails','$txtHighlights','$txtOfficeIncharge','$txtStartDate','$txtEndDate','$myIdentity','$latitude','$longitude','$txtCompanyId')";
 
         if (mysqli_query($conn, $insertClient)) {
             $service = $txtCareServices ?: $txtSupportCare;

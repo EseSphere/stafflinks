@@ -18,7 +18,6 @@
                 <a href="./new-pay-rates" style="text-decoration: none;">
                     <button class="btn btn-outline-secondary">New pay rate</button>
                 </a>
-                <br><br>
                 <div class="card table-card tab-pane active" id="justified-tabpanel-0" role="tabpanel" aria-labelledby="justified-tab-1">
                     <div class="card-header">
                         <div class="row">
@@ -45,10 +44,7 @@
                 </div>
             </div>
         </div>
-        <!-- Latest Customers end -->
     </div>
-    <!-- [ Main Content ] end -->
-</div>
 </div>
 <script type="text/javascript">
     /**/

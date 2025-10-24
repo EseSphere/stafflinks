@@ -278,9 +278,6 @@ $result = $stmt->get_result();
                 <?php include('client-details-leftpanel.php'); ?>
             </div>
         </div>
-        <div class="row mt-5">
-            <?php include('bottom-panel-block.php'); ?>
-        </div>
     </div>
 </div>
 

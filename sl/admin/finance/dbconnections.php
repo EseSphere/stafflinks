@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 if (!isset($_SESSION['usr_email'])) {
-    header('Location: https://admin.geosoftcare.co.uk/54655-476564-99iu955-4h4657/');
+    header('Location: https://admin.stafflinks.co.uk/');
     exit();
 }
 
@@ -10,14 +10,14 @@ define('INACTIVITY_LIMIT', 900); // 15 minutes
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > INACTIVITY_LIMIT)) {
     session_unset();
     session_destroy();
-    header("Location: ../index");
+    header("Location: https://admin.stafflinks.co.uk/");
     exit();
 }
 $_SESSION['LAST_ACTIVITY'] = time();
 
 date_default_timezone_set("Europe/London");
 
-$CompanyName = 'WorkSphere | Simplify. Organize. Thrive.';
+$CompanyName = 'StaffLinks | Simplify. Organize. Thrive.';
 $today = date("Y-m-d");
 $tomorrow = (new DateTime('tomorrow'))->format('Y-m-d');
 $currentDate = date('F j, Y');
@@ -25,7 +25,7 @@ $currentDate = date('F j, Y');
 $host = getenv('DB_HOST') ?: 'localhost';
 $user = getenv('DB_USER') ?: 'root';
 $password = getenv('DB_PASS') ?: '';
-$database = getenv('DB_NAME') ?: 'worksphere';
+$database = getenv('DB_NAME') ?: 'stafflinks';
 
 $conn = new mysqli($host, $user, $password, $database);
 if ($conn->connect_error) {

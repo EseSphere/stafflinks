@@ -1,4 +1,6 @@
 <?php include('header-contents.php'); ?>
+<?php include('processing-new-purchase-order.php'); ?>
+
 <style>
     ul {
         list-style: none;
@@ -60,15 +62,11 @@
     #checkBoxes label:hover {
         background-color: #4F615E;
         color: white;
-
-        /* Added text color for better visibility */
     }
 </style>
 
-<!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
@@ -83,17 +81,9 @@
                 </div>
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
         <hr>
-        <!-- [ Main Content ] start -->
         <div class="row">
-            <!-- table card-1 start -->
-
-            <!-- table card-1 end -->
-
-            <!-- prject ,team member start -->
             <div class="col-xl-12 col-md-12">
-
                 <div class="col-md-12">
                     <form action="./processing-new-purchase-order" method="post" enctype="multipart/form-data" autocomplete="off" name="formData">
                         <div class="row">
@@ -160,10 +150,8 @@
                             </div>
                         </div>
                         <br>
-
                         <?php
                         require_once('dbconnections.php');
-
                         for ($a = 1; $a <= 50; $a++) {
                             $usdd = "0";
                             $rand1 = rand(0000, 9999);
@@ -174,11 +162,8 @@
                         }
 
                         ?> <input type="hidden" value="<?php echo $id; ?>" name="mySpecialId" />
-
                         <input type="hidden" value="<?php echo "" . $_SESSION['usr_compId'] . "" ?>" name="myCompanyId" />
-
                         <input type="hidden" value="<?php echo date("Y-m-d"); ?>" name="txtCurrentDate">
-
                         <div class="form-group">
                             <input style="float: right;" type="submit" name="btnAddNewPurchaseData" class="btn btn-small btn-info" value="Save data" />
                         </div>
@@ -186,14 +171,10 @@
                 </div>
                 <br>
                 <hr>
-
-
-
                 <div class="card tab-pane" id="justified-tabpanel-3" role="tabpanel" aria-labelledby="justified-tab-3">
                     <div class="card-header">
                         <h5>Contract</h5>
                         <div class="card-header-right">
-
                             <div class="btn-group card-option">
                                 <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                     <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
@@ -203,7 +184,6 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -221,7 +201,6 @@
                                     <?php
                                     $SelectQuery = mysqli_query($conn, "SELECT * FROM tbl_purchase_order WHERE col_company_Id = '" . $_SESSION['usr_compId'] . "'");
                                     while ($getholdof_rows = mysqli_fetch_array($SelectQuery)) {
-
                                         echo "
                                                     <tr>
                                                         <td>" . $getholdof_rows['col_client_name'] . "</td>
@@ -250,16 +229,7 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
     </div>
-    <!-- Latest Customers end -->
-</div>
-<!-- [ Main Content ] end -->
-</div>
 </div>
 
 <?php include('footer-contents.php'); ?>

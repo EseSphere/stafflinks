@@ -30,7 +30,7 @@ if (
     $success &= setcookie('CompanyId', $txtCompanyId, $expiry, '/');
     $success &= setcookie('Contract', $txtContract, $expiry, '/');
     if ($success) {
-        $stmt = $conn->prepare("SELECT finance_access FROM tbl_goesoft_users 
+        $stmt = $conn->prepare("SELECT finance_access FROM tbl_admin 
         WHERE user_email_address = ?");
         $stmt->bind_param("s", $_SESSION['usr_email']);
         $stmt->execute();

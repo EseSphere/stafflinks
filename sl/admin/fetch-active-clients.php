@@ -122,7 +122,7 @@ if ($result->num_rows > 0) {
                         </div>
                     </a>
                 </td>
-                <td>0' . htmlspecialchars($trans["client_primary_phone"]) . '</td>
+                <td>' . htmlspecialchars($trans["client_primary_phone"]) . '</td>
                 <td>' . htmlspecialchars($trans["client_area"]) . '</td>
                 <td>' . $clientDOB . '</td>
                 <td>' . htmlspecialchars($trans["client_poster_code"]) . '</td>

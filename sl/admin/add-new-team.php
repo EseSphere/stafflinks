@@ -358,7 +358,7 @@
                                                             <img src="assets/images/icons/united-kingdom-flag-png-xl.png" style="width: 20px; height:20px;" alt="">
                                                         </span>
                                                     </div>
-                                                    <input type="tel" class="form-control" name="txtPrimaryPhoneNumber" placeholder="000 000 0000" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" minlength="10" title="Ten digits code" required />
+                                                    <input type="tel" class="form-control" name="txtPrimaryPhoneNumber" placeholder="000********" maxlength="12" minlength="11" title="11 digits" required />
                                                     <div class="invalid-tooltip"></div>
                                                 </div>
                                             </div>
@@ -654,7 +654,7 @@
                                                 <div class="row">
                                                     <div class="col-md-4 col-6">
                                                         <label for="exampleInputCity">Postal Code<span style="color: red;">*</span></label>
-                                                        <input name="txtPosterCode" required type="text" class="form-control" id="exampleInputCity" placeholder="Postal Code">
+                                                        <input name="txtPosterCode" required type="text" class="form-control" id="exampleInputCity" placeholder="Postal Code" title="Enter a valid UK postal code (e.g. SW1A 1AA)" style="text-transform: uppercase;">
                                                     </div>
                                                     <div class="col-md-8 col-6">
                                                         <label for="exampleInputCoounty1">Country<span style="color: red;">*</span></label>

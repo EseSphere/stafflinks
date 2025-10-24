@@ -1,16 +1,17 @@
 <?php
 include('header-contents.php');
+include('processing-edit-holiday-rate.php');
 if (isset($_GET['col_special_Id'])) {
     $varHolidayId = $_GET['col_special_Id'];
 }
-$sql_holiday_rate = mysqli_query($conn, "SELECT * FROM `tbl_holiday` WHERE (col_special_Id = '$varHolidayId' AND `col_company_Id` = '" . $_SESSION['usr_compId'] . "') ");
+$sql_holiday_rate = mysqli_query($conn, "SELECT * FROM `tbl_holiday` 
+WHERE (col_special_Id = '$varHolidayId' AND `col_company_Id` = '" . $_SESSION['usr_compId'] . "') ");
 $row_holiday_rate = mysqli_fetch_array($sql_holiday_rate, MYSQLI_ASSOC);
 ?>
 
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
@@ -25,9 +26,7 @@ $row_holiday_rate = mysqli_fetch_array($sql_holiday_rate, MYSQLI_ASSOC);
                 </div>
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
         <hr>
-        <!-- [ Main Content ] start -->
         <div class="row">
             <div class="col-xl-1 col-md-1"></div>
             <div class="col-xl-4 col-md-4">
@@ -83,12 +82,7 @@ $row_holiday_rate = mysqli_fetch_array($sql_holiday_rate, MYSQLI_ASSOC);
             <div class="col-xl-3 col-md-3"></div>
             <div class="col-xl-4 col-md-4"></div>
         </div>
-
-
-
         <div style="margin-top: 200px;"></div>
-
-
     </div>
 </div>
 

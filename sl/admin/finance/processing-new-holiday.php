@@ -6,11 +6,8 @@ if (isset($_POST['btnAddNewHolidayData'])) {
     $txtthree = mysqli_real_escape_string($conn, $_REQUEST['txtthree']);
     $txtfour = mysqli_real_escape_string($conn, $_REQUEST['txtfour']);
 
-    $mySpecialId = mysqli_real_escape_string($conn, $_REQUEST['mySpecialId']);
     $myCompanyId = mysqli_real_escape_string($conn, $_REQUEST['myCompanyId']);
     $txtCurrentDate = mysqli_real_escape_string($conn, $_REQUEST['txtCurrentDate']);
-
-    $myRateId = hash('sha256', $mySpecialId);
 
     $myCheck = "SELECT * FROM tbl_holiday WHERE col_description = '" . $txtone . "' ";
     $myCheckres = mysqli_query($conn, $myCheck);
@@ -31,7 +28,7 @@ if (isset($_POST['btnAddNewHolidayData'])) {
             $queryIns = mysqli_query($conn, "INSERT INTO tbl_holiday (col_description, col_holiday_date, col_pay_multiplier, col_charge_multiplier, col_special_Id, col_date, col_company_Id) 
             VALUES('" . $txtone . "', '" . $txttwo . "', '" . $txtthree . "', '" . $txtfour . "', '" . $myRateId . "', '" . $txtCurrentDate . "', '" . $myCompanyId . "') ");
             if ($queryIns) {
-                header("Location: ./new-holiday");
+                //header("Location: ./new-holiday");
             } else {
                 echo "ERROR: Could not able to execute $conn. " . mysqli_error($conn);
             }
@@ -40,7 +37,7 @@ if (isset($_POST['btnAddNewHolidayData'])) {
             $queryIns = mysqli_query($conn, "INSERT INTO tbl_holiday (col_description, col_holiday_date, col_pay_multiplier, col_charge_multiplier, col_special_Id, col_date, col_company_Id)
             VALUES('" . $txtone . "', '" . $txttwo . "', '" . $txtthree . "', '" . $txtfour . "', '" . $myRateId . "', '" . $txtCurrentDate . "', '" . $myCompanyId . "') ");
             if ($queryIns) {
-                header("Location: ./new-holiday");
+                //header("Location: ./new-holiday");
             } else {
                 echo "ERROR: Could not able to execute $conn. " . mysqli_error($conn);
             }

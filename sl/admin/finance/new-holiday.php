@@ -1,9 +1,9 @@
 <?php include('header-contents.php'); ?>
+<?php include('processing-new-holiday.php'); ?>
 
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
@@ -18,9 +18,7 @@
                 </div>
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
         <hr>
-        <!-- [ Main Content ] start -->
         <div class="row">
             <div class="col-xl-4 col-md-4">
                 <div class="form-cover" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding:25px 15px 25px 15px; border-radius:12px;">
@@ -45,6 +43,7 @@
                                         <option value="Early May Bank Holiday">Early May Bank Holiday</option>
                                         <option value="Spring Bank Holiday">Spring Bank Holiday</option>
                                         <option value="Summer Bank Holiday">Summer Bank Holiday</option>
+                                        <option value="Winter Bank Holiday">Winter Bank Holiday</option>
                                         <option value="Easter Day">Easter Day</option>
                                         <option value="Others">Others</option>
                                     </select>
@@ -133,7 +132,6 @@
                                                         <button title='View client task' type='button' class='btn  btn-primary btn-sm'><i class='feather mr-2 icon-edit'></i></button>
                                                     </a></td>
                                                 </tr>
-                                            
                                                 ";
                                     }
                                     ?>
@@ -153,12 +151,7 @@
                 </div>
             </div>
         </div>
-
-
-
         <div style="margin-top: 200px;"></div>
-
-
     </div>
 </div>
 

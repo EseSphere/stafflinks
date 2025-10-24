@@ -3,7 +3,6 @@ include('db-connect.php');
 
 // Check if form is submitted
 if (isset($_POST['btnSignUp'])) {
-
   // Sanitize and validate inputs
   $fullName = htmlspecialchars(strip_tags(mysqli_real_escape_string($conn, $_POST['fullName'])));
   $email = htmlspecialchars(strip_tags(mysqli_real_escape_string($conn, $_POST['myEmail'])));
@@ -77,7 +76,7 @@ if (isset($_POST['btnSignUp'])) {
   }
 
   $status = 'Not Verified';
-  $finance_access2 = 'Denied';
+  $finance_access2 = 'Granted';
   $lastLogin = date("Y-m-d H:i:s");
 
   $checkUser = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE user_email_address = '$email'");
@@ -101,8 +100,8 @@ if (isset($_POST['btnSignUp'])) {
     ");
 
     if ($updateUser) {
-      $subject = "Verify your updated WorkSphere Account";
-      $headers = "From: it@worksphere.co.uk\r\n";
+      $subject = "Verify your Account";
+      $headers = "From: it@stafflinks.co.uk\r\n";
       $headers .= "MIME-Version: 1.0\r\n";
       $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
@@ -113,9 +112,9 @@ if (isset($_POST['btnSignUp'])) {
             <div style='padding: 20px; background-color: #4CAF50; color: white; text-align:center;'>
               <h2>Hello $fullName,</h2>
               <p>Your account details have been updated successfully.</p>
-              <p>Please verify your email again using the code below:</p>
+              <p>Please verify your email using the code below:</p>
               <h1>$verificationCode</h1>
-              <p>Visit <a href='https://www.worksphere.co.uk/verify-your-email' style='color:#fff;'>this link</a> to verify.</p>
+              <p>Visit <a href='https://admin.stafflinks.co.uk/verify-your-email' style='color:#fff;'>this link</a> to verify.</p>
             </div>
           </div>
         </body>
@@ -123,17 +122,7 @@ if (isset($_POST['btnSignUp'])) {
 
       mail($email, $subject, $message, $headers);
 
-      echo "<script>
-        document.addEventListener('DOMContentLoaded', function() {
-          let popup = document.getElementById('popupAlert');
-          popup.style.display = 'block';
-          popup.style.backgroundColor = 'rgba(52, 152, 219,1.0)';
-          popup.innerText = 'Account updated successfully! Redirecting...';
-          setTimeout(function() {
-            window.location.href = './verify-your-email';
-          }, 3000);
-        });
-      </script>";
+      header("Location: ./verify-your-email");
       exit();
     } else {
       echo "<script>
@@ -174,8 +163,8 @@ if (isset($_POST['btnSignUp'])) {
 
     if ($insertUser) {
       // Send verification email for new user
-      $subject = "Verify your WorkSphere Account";
-      $headers = "From: it@worksphere.co.uk\r\n";
+      $subject = "Verify your stafflinks Account";
+      $headers = "From: it@stafflinks.co.uk\r\n";
       $headers .= "MIME-Version: 1.0\r\n";
       $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
@@ -184,11 +173,11 @@ if (isset($_POST['btnSignUp'])) {
         <body>
           <div style='width: 100%; max-width: 700px; margin: 0 auto;'>
             <div style='padding: 20px; background-color: #4CAF50; color: white; text-align:center;'>
-              <h2>Welcome to WorkSphere, $fullName!</h2>
+              <h2>Welcome to stafflinks, $fullName!</h2>
               <p>Your account has been created successfully.</p>
               <p>Please verify your email using the code below:</p>
               <h1>$verificationCode</h1>
-              <p>Visit <a href='https://www.worksphere.co.uk/verify-your-email' style='color:#fff;'>this link</a> to verify.</p>
+              <p>Visit <a href='https://admin.stafflinks.co.uk/verify-your-email' style='color:#fff;'>this link</a> to verify.</p>
             </div>
           </div>
         </body>
@@ -196,17 +185,7 @@ if (isset($_POST['btnSignUp'])) {
 
       mail($email, $subject, $message, $headers);
 
-      echo "<script>
-        document.addEventListener('DOMContentLoaded', function() {
-          let popup = document.getElementById('popupAlert');
-          popup.style.display = 'block';
-          popup.style.backgroundColor = 'rgba(46, 204, 113,1.0)';
-          popup.innerText = 'Account created successfully! Redirecting...';
-          setTimeout(function() {
-            window.location.href = './verify-your-email';
-          }, 3000);
-        });
-      </script>";
+      header("Location: ./verify-your-email");
       exit();
     } else {
       echo "<script>

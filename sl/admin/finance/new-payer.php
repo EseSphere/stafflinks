@@ -1,9 +1,8 @@
 <?php include('header-contents.php'); ?>
+<?php include('processing-new-payer.php'); ?>
 
-<!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
@@ -18,9 +17,7 @@
                 </div>
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
         <hr>
-        <!-- [ Main Content ] start -->
         <div class="row">
             <div class="col-xl-4 col-md-4">
                 <div class="form-cover" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding:25px 15px 25px 15px; border-radius:12px;">
@@ -78,8 +75,8 @@
                         <input type="hidden" value="<?php echo $id; ?>" name="mySpecialId" />
                         <input type="hidden" value="<?php echo "" . $_SESSION['usr_compId'] . "" ?>" name="myCompanyId" />
                         <input type="hidden" value="<?php echo date("Y-m-d"); ?>" name="txtCurrentDate">
-                        <div class="form-group">
-                            <input style="float: right;" type="submit" name="btnAddNewPayerData" class="btn btn-small btn-info" value="Save data" />
+                        <div class="form-group mb-3">
+                            <input style="float: left;" type="submit" name="btnAddNewPayerData" class="btn btn-small btn-info" value="Save data" />
                         </div>
                     </form>
                 </div>
@@ -131,7 +128,6 @@
                                                             </a>
                                                         </td>
                                                         </tr>
-                                                
                                                 ";
                                     }
                                     ?>
@@ -152,14 +148,8 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <div style="margin-top: 200px;"></div>
     </div>
-    <!-- Latest Customers end -->
 </div>
-<!-- [ Main Content ] end -->
 
 <?php include('footer-contents.php'); ?>

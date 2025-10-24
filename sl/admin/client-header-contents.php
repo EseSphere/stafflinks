@@ -121,7 +121,7 @@ if (isset($_GET['id'], $_GET['spec'])) {
                     <div class="card-block">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <i class="feather icon-sunset f-40"></i>
-                        <h6 class="mt-3">Hello, Geosoft!</h6>
+                        <h6 class="mt-3">Hello, StaffLinks!</h6>
                         <p>Complete the following steps to learn how Geosoft works and hit the ground running.</p>
                         <a href="https://stafflinks.co.uk/page/help-center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
                     </div>

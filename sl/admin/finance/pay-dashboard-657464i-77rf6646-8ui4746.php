@@ -1,4 +1,7 @@
-<?php include('header-contents.php'); ?>
+<?php
+include('header-contents.php');
+include('fetching-pay-dashboard-data.php');
+?>
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">

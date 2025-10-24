@@ -5,7 +5,6 @@ include('header-contents.php');
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
-        <!-- [ breadcrumb ] start -->
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
@@ -22,9 +21,7 @@ include('header-contents.php');
                 </div>
             </div>
         </div>
-        <!-- [ breadcrumb ] end -->
         <hr>
-        <!-- [ Main Content ] start -->
         <div class="row">
             <div style="padding: 0;" class="col-md-3">
                 <div class="form-cover" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; padding:25px 15px 25px 15px; border-radius:12px;">
@@ -75,27 +72,6 @@ include('header-contents.php');
                                 </select>
                                 <input type="hidden" name="txtCompanyId" value="<?php print $_SESSION['usr_compId']; ?>">
                             </div>
-                            <!--<div class="col-md-4">
-                                <label for="exampleInputPassword1">Visit completed<span style="color: red;"></span></label>
-                                <select name="txtVisitCompleted" class="form-control" id="exampleFormControlSelect1">
-                                    <option value="" selected="selected" disabled="disabled">Select...</option>
-                                    <option value="Null">No options</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="exampleInputPassword1">Timings edited<span style="color: red;"></span></label>
-                                <select name="txtTimingEdited" class="form-control" id="exampleFormControlSelect1">
-                                    <option value="" selected="selected" disabled="disabled">Select...</option>
-                                    <option value="Null">No options</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="exampleInputPassword1">Discrepancy<span style="color: red;"></span></label>
-                                <select name="txtDiscrepancy" class="form-control" id="exampleFormControlSelect1">
-                                    <option value="" selected="selected" disabled="disabled">Select...</option>
-                                    <option value="Null">No options</option>
-                                </select>
-                            </div>-->
                         </div>
                         <br>
                         <div class="col-md-12">
@@ -106,7 +82,6 @@ include('header-contents.php');
                     </form>
                 </div>
             </div>
-
 
             <div class="col-md-9">
                 <div class="card-header">
@@ -147,13 +122,13 @@ include('header-contents.php');
                                 $next_page = $page_no + 1;
                                 $adjacents = "2";
 
-                                $result_count = mysqli_query($conn, "SELECT COUNT(*) As total_records FROM tbl_schedule_calls WHERE ((Clientshift_Date >= '$txtStartDate' AND Clientshift_Date <= '$txtEndDate') AND (uryyToeSS4 = '$txtCareRecipient') AND (first_carer_Id = '$txtCareGiver') AND col_invoice_status = 'True' AND `col_company_Id` = '" . $_SESSION['usr_compId'] . "') ");
+                                $result_count = mysqli_query($conn, "SELECT COUNT(*) As total_records FROM tbl_schedule_calls WHERE ((Clientshift_Date >= '$txtStartDate' AND Clientshift_Date <= '$txtEndDate') AND (uryyToeSS4 = '$txtCareRecipient') AND (first_carer_Id = '$txtCareGiver') AND `col_company_Id` = '" . $_SESSION['usr_compId'] . "') ");
                                 $total_records = mysqli_fetch_array($result_count);
                                 $total_records = $total_records['total_records'];
                                 $total_no_of_pages = ceil($total_records / $total_records_per_page);
                                 $second_last = $total_no_of_pages - 1; // total page minus 1
 
-                                $result = mysqli_query($conn, "SELECT * FROM tbl_schedule_calls WHERE ((Clientshift_Date >= '$txtStartDate') AND (Clientshift_Date <= '$txtEndDate') AND (uryyToeSS4 = '$txtCareRecipient') AND (first_carer_Id = '$txtCareGiver') AND col_invoice_status = 'True' AND `col_company_Id` = '" . $_SESSION['usr_compId'] . "') GROUP BY client_name LIMIT $offset, $total_records_per_page");
+                                $result = mysqli_query($conn, "SELECT * FROM tbl_schedule_calls WHERE ((Clientshift_Date >= '$txtStartDate') AND (Clientshift_Date <= '$txtEndDate') AND (uryyToeSS4 = '$txtCareRecipient') AND (first_carer_Id = '$txtCareGiver') AND `col_company_Id` = '" . $_SESSION['usr_compId'] . "') GROUP BY client_name LIMIT $offset, $total_records_per_page");
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>
                                     <td>" . $row['Clientshift_Date'] . "</td>
@@ -168,9 +143,7 @@ include('header-contents.php');
                         </table>
                     </div>
                 </div>
-
                 <br>
-
                 <div style='padding: 10px 20px 0px; border-top: dotted 1px #CCC;'>
                     <strong>Page <?php echo $page_no . " of " . $total_no_of_pages; ?></strong>
                 </div>
@@ -248,16 +221,8 @@ include('header-contents.php');
                     } ?>
                 </ul>
             </div>
-
-
-
-
-
         </div>
-        <!-- Latest Customers end -->
     </div>
-    <!-- [ Main Content ] end -->
-</div>
 </div>
 
 <?php include('footer-contents.php'); ?>
