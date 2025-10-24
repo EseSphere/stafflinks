@@ -111,15 +111,15 @@ if ($display_row_result_calls) {
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="page-header-title">
                             <h5 class="m-b-10">Assign run</h5>
                             <p style="margin-top:-12px; font-size:16px;">
-                                You can easily assign the <?= $get_run_name ?> run to carers, or unassign it when required
+                                You can efficiently assign the <?= $get_run_name ?> to carers, and unassign it as needed
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="d-flex justify-content-end">
                             <a href="./unallocate-run?uryyToeSS4=<?= $uryyToeSS4 ?>&run=<?= $get_run_nameid ?>&date=<?= $_SESSION['currentDateRota'] ?>&carer=<?= $get_curCarer_Id ?>"
                                 class="btn btn-info text-white text-decoration-none">

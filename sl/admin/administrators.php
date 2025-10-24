@@ -7,7 +7,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Admin</h5>
+                            <h5 class="m-b-10">Administrators</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="./dashboard.php"><i class="feather icon-home"></i></a></li>
@@ -21,7 +21,7 @@
             <div class="col-xl-12 col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
-                        <h5>Admin</h5>
+                        <h5>administrators</h5>
                         <div class="card-header-right">
                             <div class="btn-group card-option">
                                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,9 +50,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $stmt = $conn->prepare("SELECT user_fullname, verification_code, user_email_address, 
-                                    date_registered, time_registered, user_special_Id, status1, status2 FROM tbl_goesoft_users 
-                                    WHERE col_company_Id = ? ORDER BY userId DESC");
+                                    $stmt = $conn->prepare("SELECT `user_fullname`, `verification_code`, `user_email_address`, 
+                                    user_special_Id, `status` FROM tbl_admin WHERE col_company_Id = ? ORDER BY userId DESC");
                                     $stmt->bind_param("s", $_SESSION['usr_compId']);
                                     $stmt->execute();
                                     $result = $stmt->get_result();
@@ -90,14 +89,12 @@
                                     }
                                     $stmt->close();
                                     ?>
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>
