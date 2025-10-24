@@ -331,6 +331,10 @@ function renderTimelineRows(filteredStaff) {
       filterStaff(); // Re-render timeline
     });
 
+
+
+
+
     for (let i = 0; i < eventEls.length - 1; i++) {
       const current = eventEls[i];
       const next = eventEls[i + 1];
@@ -382,6 +386,8 @@ function renderTimelineRows(filteredStaff) {
   verticalGridLinesEl.style.height = totalHeight + "px";
   currentTimeLineEl.style.height = totalHeight + "px";
 }
+
+
 
 let filteredStaff = [];
 
@@ -438,73 +444,56 @@ document.getElementById("update-event").addEventListener("click", () => {
 });
 
 
+
+
 function showPopup(event, member, eventEl) {
-  // Hide popup initially
-  popup.style.display = "none";
-
-  // Calculate time difference
-  const start = Math.round(event.start * 100) / 100;
-  const end = Math.round(event.end * 100) / 100;
-  const duration = end - start;
-
-  // Convert decimal hours to HH:mm format
-  const totalMinutes = Math.round(duration * 60);
-  const diffHours = Math.floor(totalMinutes / 60);
-  const diffMinutes = totalMinutes % 60;
-  const formattedDiff = `${diffHours}h ${diffMinutes}m`;
-
-  // Set the popup HTML while hidden
+  popup.style.display = "block";
   popup.innerHTML = `
     <div class="popup-header">${event.title} &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href='../event-details?userId=${event.id}' style='width:100px; font-size:13px; height:50px; border:none; text-decoration:none;
-      padding:7px; cursor:pointer; border-radius:5px; background-color:rgba(192, 57, 43,1.0); color:#fff;' id="event-details-btn">
+    <a href='../event-details?userId=${event.id}' style='width:100px; font-size:13px; height:50px; border:none; text-decoration:none;
+    padding:7px; cursor:pointer; border-radius:5px; background-color:rgba(192, 57, 43,1.0); color:#fff;' id="event-details-btn">
         Modify
-      </a>
+    </a>
     </div>
     <hr />
     <div class="popup-row"><strong>Status:</strong> ${event.description}</div>
     <hr />
     <div class="popup-row"><strong>Transportation:</strong> ${member.department}</div>
     <hr />
-    <div class="popup-row">
-      <strong>Time:</strong> ${formatDecimalTime(start)} - ${formatDecimalTime(end)} 
-      <strong><span id="timedifference">(${formattedDiff})</span></strong>
-    </div>
+    <div class="popup-row"><strong>Time:</strong> ${formatDecimalTime(Math.round(event.start * 100) / 100)} - ${formatDecimalTime(Math.round(event.end * 100) / 100)}</div>
     <hr />
     <div class="popup-row"><strong>Run:</strong> ${event.run}</div>
     <div class="popup-row">
-      <hr>
+    <hr>
     </div>
   `;
 
-  // Force immediate rendering using requestAnimationFrame
-  requestAnimationFrame(() => {
-    // Position the popup
-    const rect = eventEl.getBoundingClientRect();
-    const popupRect = popup.getBoundingClientRect();
-    let left = rect.left + rect.width / 2 - popupRect.width / 2;
-    if (left < 10) left = 10;
-    if (left + popupRect.width > window.innerWidth - 10)
-      left = window.innerWidth - popupRect.width - 10;
+  const rect = eventEl.getBoundingClientRect();
+  const popupRect = popup.getBoundingClientRect();
+  let left = rect.left + rect.width / 2 - popupRect.width / 2;
+  if (left < 10) left = 10;
+  if (left + popupRect.width > window.innerWidth - 10)
+    left = window.innerWidth - popupRect.width - 10;
 
-    let top = rect.top - popupRect.height - 10;
-    if (top < 10) top = rect.bottom + 10;
+  let top = rect.top - popupRect.height - 10;
+  if (top < 10) top = rect.bottom + 10;
 
-    popup.style.left = `${left}px`;
-    popup.style.top = `${top}px`;
+  popup.style.left = `${left}px`;
+  popup.style.top = `${top}px`;
 
-    // Show the popup after positioning
-    popup.style.display = "block";
-  });
+  //const button = popup.querySelector("#event-details-btn");
+  //if (button) {
+  //button.addEventListener("click", () => {
+  //   alert("Modify event ID: " + button.dataset.eventId);
+  // });
+  // }
 
-  // Close popup on outside click
   document.addEventListener("click", (e) => {
     if (!popup.contains(e.target) && e.target !== eventEl) {
       popup.style.display = "none";
     }
   }, { once: true });
 }
-
 
 function centerCurrentTimeLine() {
   const now = new Date();

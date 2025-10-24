@@ -42,11 +42,9 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
     <script src="./js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="./css/style2.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -89,37 +87,37 @@ $display_admin_data_row = mysqli_fetch_array($sel_admin_data_result);
                         <a href="./dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./rota/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Roster</span></a>
+                        <a href="./rota/" class="nav-link"><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Staff Rota</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./manage-runs" class="nav-link"><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Runs</span></a>
+                        <a href="./manage-runs" class="nav-link"><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Service Runs</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./active-clients" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Clients</span></a>
+                        <a href="./active-clients" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Active Clients</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./active-team" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span><span class="pcoded-mtext">Team</span></a>
+                        <a href="./active-team" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user-plus"></i></span><span class="pcoded-mtext">Team Members</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./reports" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Reports</span></a>
+                        <a href="./reports" class="nav-link"><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Reports & Analytics</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./ratings" class="nav-link "><span class="pcoded-micon"><i class="feather icon-star"></i></span><span class="pcoded-mtext">Ratings</span></a>
+                        <a href="./ratings" class="nav-link"><span class="pcoded-micon"><i class="feather icon-star"></i></span><span class="pcoded-mtext">Client Ratings</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./tasks" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Tasks</span></a>
+                        <a href="./tasks" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Task Management</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./medication" class="nav-link "><span class="pcoded-micon"><i class="feather icon-heart"></i></span><span class="pcoded-mtext">Medication</span></a>
+                        <a href="./medication" class="nav-link"><span class="pcoded-micon"><i class="feather icon-heart"></i></span><span class="pcoded-mtext">Medication Tracker</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./group" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Groups</span></a>
+                        <a href="./group" class="nav-link"><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Client Groups</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./position" class="nav-link "><span class="pcoded-micon"><i class="feather icon-briefcase"></i></span><span class="pcoded-mtext">Position</span></a>
+                        <a href="./position" class="nav-link"><span class="pcoded-micon"><i class="feather icon-briefcase"></i></span><span class="pcoded-mtext">Team Positions</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./logout" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
+                        <a href="./logout" class="nav-link"><span class="pcoded-micon"><i class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
                     </li>
                 </ul>
                 <div class="card text-center">

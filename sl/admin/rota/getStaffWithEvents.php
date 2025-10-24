@@ -55,7 +55,7 @@ try {
     $groupedEvents = [];
     foreach ($events as $event) {
         $groupedEvents[$event['first_carer_Id']][] = [
-            'id' => '' . $event['userId'],
+            'id' => '' . $event['id'],
             'start' => timeToDecimal($event['dateTime_in']),
             'end' => timeToDecimal($event['dateTime_out']),
             'type' => $event['care_calls'] ?? null,

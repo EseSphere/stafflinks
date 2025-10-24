@@ -25,29 +25,6 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <div style="height: 325px;" class="card">
-                    <div style="height: 100%;" class="card-body">
-                        <h5 class="mb-5">Power</h5>
-                        <h2>2789<span class="text-muted m-l-5 f-14 mb-5">kw</span></h2>
-                        <div id="power-card-chart1"></div>
-                        <div class="row">
-                            <div class="col col-auto">
-                                <div class="map-area">
-                                    <h6 class="m-0">2876 <span> kw</span></h6>
-                                    <p class="text-muted m-0">month</p>
-                                </div>
-                            </div>
-                            <div class="col col-auto">
-                                <div class="map-area">
-                                    <h6 class="m-0">234 <span> kw</span></h6>
-                                    <p class="text-muted m-0">Today</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="mb-3">Total Leads</h5>
@@ -68,6 +45,29 @@
                         </div>
                     </div>
                     <div id="tot-lead" style="height:150px"></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div style="height: 325px;" class="card">
+                    <div style="height: 100%;" class="card-body">
+                        <h5 class="mb-5">Power</h5>
+                        <h2>2789<span class="text-muted m-l-5 f-14 mb-5">kw</span></h2>
+                        <div id="power-card-chart1"></div>
+                        <div class="row">
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">2876 <span> kw</span></h6>
+                                    <p class="text-muted m-0">month</p>
+                                </div>
+                            </div>
+                            <div class="col col-auto">
+                                <div class="map-area">
+                                    <h6 class="m-0">234 <span> kw</span></h6>
+                                    <p class="text-muted m-0">Today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
