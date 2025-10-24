@@ -1,4 +1,5 @@
-<?php require_once('client_task_backend.php'); ?>
+<?php require_once('client_task_backend.php');
+include('processing-client-task.php'); ?>
 
 <div class="pcoded-main-container">
     <div class="pcoded-content">
@@ -353,4 +354,5 @@
         });
     }
 </script>
+
 <?php include('footer-contents.php'); ?>

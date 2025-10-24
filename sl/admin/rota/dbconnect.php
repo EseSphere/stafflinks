@@ -6,7 +6,7 @@ if ((empty($_SESSION['usr_email']))) {
     header("Location: ../index");
 }
 $myConnection = mysqli_connect("localhost", "root", "") or die("could not connect to mysql");
-mysqli_select_db($myConnection, "geosoft") or die("no database");
+mysqli_select_db($myConnection, "stafflinks") or die("no database");
 
 
 $CompanyName = 'Geosoft Care | For home and community care';

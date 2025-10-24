@@ -141,7 +141,7 @@ if (isset($_GET['id'], $_GET['spec'])) {
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="dropdown-toggle h-drop text-decoration-none" href="./roster/index?txtDate==<?php echo $today; ?>">
+                        <a class="dropdown-toggle h-drop text-decoration-none" href="./rota">
                             <i class="feather icon-layout"></i> Rota
                         </a>
                         &nbsp;&nbsp;

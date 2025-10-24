@@ -1,4 +1,6 @@
-<?php include('header-contents.php'); ?>
+<?php include('header-contents.php');
+include('processing-add-new-run.php'); ?>
+
 <div class="pcoded-main-container">
     <div class="pcoded-content">
         <div class="row">
@@ -52,4 +54,7 @@
                 After all visits are added, the run will be fully prepared for scheduling and assignment. This ensures smooth operations and accurate allocation for your team.
             </div>
         </div>
-        <?php include('footer-contents.php'); ?>
+    </div>
+</div>
+
+<?php include('footer-contents.php'); ?>

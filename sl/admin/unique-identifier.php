@@ -37,7 +37,7 @@
                             <div class="col-lg-8 col-8">
                                 <div class="form-group">
                                     <label for="uniqueClientId">Unique identifier</label>
-                                    <input type="text" id="uniqueClientId" name="txtSecondBox" class="form-control" placeholder="e.g 388576" value="<?php echo htmlspecialchars($get_team_row['col_swn_number'] ?? ''); ?>" />
+                                    <input type="number" minlength="6" id="uniqueClientId" name="txtSecondBox" class="form-control" placeholder="e.g 388576" value="<?php echo htmlspecialchars($get_team_row['col_swn_number'] ?? ''); ?>" />
                                 </div>
                                 <div class="form-group">
                                     <label for="clientPhone">Other phone number</label>

@@ -5,7 +5,7 @@ if (isset($_POST['btnEditClientMedicine'])) {
 	include('dbconnections.php');
 
 	// Collect inputs
-	$txtMed_Id          = $_POST['txtMed_Id']          ?? '';
+	$txtid          = $_POST['txtid']          ?? '';
 	$txturyyToeSS4      = $_POST['uryyToeSS4']         ?? '';
 	$txtMedName         = $_POST['txtMedName']         ?? '';
 	$txtMedDosage       = $_POST['txtMedDosage']       ?? '';
@@ -67,7 +67,7 @@ if (isset($_POST['btnEditClientMedicine'])) {
             extra_call1 = ?, extra_call2 = ?, extra_call3 = ?, extra_call4 = ?,
             monday = ?, tuesday = ?, wednesday = ?, thursday = ?, friday = ?, saturday = ?, sunday = ?,
             client_startMed = ?, client_endMed = ?, col_occurence = ?, col_period_one = ?, col_period_two = ?
-        WHERE med_Id = ?
+        WHERE id = ?
     ");
 
 	$stmt->bind_param(
@@ -98,7 +98,7 @@ if (isset($_POST['btnEditClientMedicine'])) {
 		$client_endMed,
 		$col_period_one,
 		$col_period_two,
-		$txtMed_Id
+		$txtid
 	);
 
 	if ($stmt->execute()) {

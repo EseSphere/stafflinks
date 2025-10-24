@@ -45,9 +45,11 @@ $_SESSION['currentRotaDay'] = $currentRotaDay;
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xl-4 col-lg-4">
-                <a href="../dashboard" style="text-decoration: none;" class="btn btn-md btn-success"><i class="fa-solid fa-house"></i> Dashboard</a>
-                <a href="./schedule-visits?txtDate=<?php echo date('Y-m-d'); ?>" style="text-decoration: none;" class="btn btn-md btn-primary"><i class="fa-solid fa-users"></i> Plan roster</a>
-                <a href="./" style="text-decoration: none;" style="color: white;" class="btn btn-md btn-info"><i class="fa-solid fa-clipboard-list"></i> View rota</a>
+                <div class="btn-group flex justify-end items-end bg-dark w-100" role="group" aria-label="Group of buttons">
+                    <a href="./" style="text-decoration: none; color: white; background-color:#E3C5B2; border:none; width:70px;" type="button" class="btn btn-info"><i class="fa-solid fa-clipboard-list"></i> View rota</a>
+                    <a href="../dashboard" style="text-decoration: none; background-color:#EB6F46; border:none; width:70px;" type="button" class="btn btn-success"><i class="fa-solid fa-house"></i> Dashboard</a>
+                    <a href="./schedule-visits?txtDate=<?php echo date('Y-m-d'); ?>" style="text-decoration: none; background-color:#A72218; border:none; width:70px;" type="button" class="btn btn-primary"><i class="fa-solid fa-users"></i> Plan roster</a>
+                </div>
             </div>
         </div>
     </div>

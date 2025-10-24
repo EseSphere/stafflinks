@@ -194,7 +194,6 @@ if ($display_row_result_calls) {
                     </div>
                 </div>
             </div>
-            <?php include('bottom-panel-block.php'); ?>
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 <?php
 // Load environment variables (optional: use dotenv in production)
 $host = getenv('DB_HOST') ?: 'localhost';
-$db   = getenv('DB_NAME') ?: 'geosoft';
+$db   = getenv('DB_NAME') ?: 'stafflinks';
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: '';
 

@@ -1,6 +1,10 @@
 <?php
+include('dbconnections.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_POST['btnEditClientTask'])) {
-    include('dbconnections.php');
 
     // Collect inputs
     $txtTaskId         = $_POST['txtTaskId']        ?? '';
@@ -62,7 +66,7 @@ if (isset($_POST['btnEditClientTask'])) {
             extra_call1 = ?, extra_call2 = ?, extra_call3 = ?, extra_call4 = ?,
             monday = ?, tuesday = ?, wednesday = ?, thursday = ?, friday = ?, saturday = ?, sunday = ?,
             task_startDate = ?, task_endDate = ?, col_occurence = ?, col_period_one = ?, col_period_two = ?
-        WHERE client_Id = ?
+        WHERE id = ?
     ");
 
     $stmt->bind_param(

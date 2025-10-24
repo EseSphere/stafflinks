@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'geosoft';
+$db   = 'stafflinks';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';

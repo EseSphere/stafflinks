@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2025 at 05:12 PM
+-- Generation Time: Oct 24, 2025 at 02:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,7 +52,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`userId`, `user_fullname`, `user_email_address`, `company_name`, `user_password`, `user_special_Id`, `verification_code`, `status`, `my_city`, `my_ip`, `my_country`, `finance_access`, `finance_access2`, `admin_access`, `last_login`, `col_company_Id`, `dateTime`) VALUES
-(1, 'Samson Gift', 'osaretin4samson@gmail.com', 'Ese Sphere', 'a8f5dea10f7504a0305998adef3a9c8c2f769c475ad5a3baf23acf9be81cea33', 'USR-72C32DAB-A80E-454C-B1A2-6C382B5C8A1E', 'A86F00', 'Verified', 'Wolverhampton', '::1', 'Unknown', 'Granted', 'Denied', 'Granted', '2025-10-23 14:08', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 13:08:19');
+(1, 'Samson Gift', 'osaretin4samson@gmail.com', 'Ese Sphere', 'a8f5dea10f7504a0305998adef3a9c8c2f769c475ad5a3baf23acf9be81cea33', 'USR-72C32DAB-A80E-454C-B1A2-6C382B5C8A1E', 'A86F00', 'Verified', 'Wolverhampton', '::1', 'Unknown', 'Granted', 'Granted', 'Granted', '2025-10-24 11:14', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:14:40');
 
 -- --------------------------------------------------------
 
@@ -231,7 +231,35 @@ CREATE TABLE `tbl_clients_medication_records` (
 --
 
 INSERT INTO `tbl_clients_medication_records` (`id`, `uryyToeSS4`, `med_name`, `med_dosage`, `med_type`, `med_support_required`, `med_package`, `med_details`, `date_uploaded`, `time_uploaded`, `care_call1`, `care_call2`, `care_call3`, `care_call4`, `extra_call1`, `extra_call2`, `extra_call3`, `extra_call4`, `col_extra_visit`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `client_startMed`, `client_endMed`, `col_fifo`, `col_occurence`, `col_period_one`, `col_period_two`, `col_taskId`, `med_colours`, `visibility`, `col_path`, `col_company_Id`, `dateTime`) VALUES
-(1, '1023', 'Alprazolam', '20mg', 'Anxiolytic', 'Administer', 'Scheduled', 'The carer will see this note in the app each time they complete this task.', 'October 23, 2025', '03:18 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-23', '', '', '2025-10-23', '', 'Daily', '001', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 14:21:41');
+(1, '1028', 'Paracetamol', '50mcg', 'Supplement', 'Prompt', 'PRN', 'The carer will see this note in the app each time they complete this task.', 'October 24, 2025', '12:22 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '001', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:23:46'),
+(2, '1028', 'Alendronic acid', '10mg', 'Muscle Relaxant', 'Administer', 'Blister', 'The carer will see this note in the app each time they complete this task.', 'October 24, 2025', '12:24 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '002', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:24:50'),
+(3, '1037', 'Magnesium sulfate', '25mg', 'Muscle Relaxant', 'Administer', 'Blister', 'The carer will see this note in the app each time they complete this Medication', 'October 24, 2025', '12:30 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '003', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:31:50'),
+(4, '1030', 'Hydrochlorothiazide', '5mg', 'Aromatase Inhibitor', 'Administer', 'PRN', 'The carer will see this note in the app each time they complete this Medication', 'October 24, 2025', '12:32 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '004', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:32:49'),
+(5, '1030', 'Allopurinol', '100mg', 'Calcium Channel Blocker', 'Administer', 'Scheduled', 'The carer will see this note in the app each time they complete this Medication', 'October 24, 2025', '12:32 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '005', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:33:18'),
+(6, '1030', 'Aspirin', '500mg', 'Antibiotic', 'Administer', 'Scheduled', 'The carer will see this note in the app each time they complete this Medication', 'October 24, 2025', '12:33 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '006', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:33:50'),
+(7, '1030', 'Enoxaparin', '25mg', 'Muscle Relaxant', 'Administer', 'Scheduled', 'The carer will see this note in the app each time they complete this Medication', 'October 24, 2025', '12:33 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '007', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:34:17'),
+(8, '1023', 'Paracetamol', '10mg', 'Anxiolytic', 'Administer', 'PRN', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:36 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '008', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:37:26'),
+(9, '1023', 'Magnesium sulfate', '20mg', 'Muscle Relaxant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:37 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '009', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:37:54'),
+(10, '1033', 'Gabapentin', '75mg', 'Statin', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:39 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0010', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:39:42'),
+(11, '1035', 'Methadone', '20mg', 'Muscle Relaxant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:40 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0011', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:41:22'),
+(12, '1035', 'Ranitidine', '50mg', 'Immunosuppressant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:41 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0012', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:41:49'),
+(13, '1024', 'Naloxone', '50mg', 'Corticosteroid', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:42 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0013', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:43:21'),
+(14, '1024', 'Lansoprazole', '75mg', 'Muscle Relaxant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:43 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0014', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:43:49'),
+(15, '1036', 'Pantoprazole', '20mg', 'Statin', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:45 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0015', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:45:40'),
+(16, '1036', 'Gabapentin', '20mg', 'Statin', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:45 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0016', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:46:57'),
+(17, '1034', 'Paroxetine', '20mg', 'Statin', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:47 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0017', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:48:19'),
+(18, '1032', 'Paracetamol', '20mg', 'Corticosteroid', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:49 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0018', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:49:51'),
+(19, '1032', 'Latanoprost', '20mg', 'Muscle Relaxant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:49 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0019', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:50:19'),
+(20, '1032', 'Ramipril', '10mg', 'Muscle Relaxant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:50 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0020', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:50:52'),
+(21, '1032', 'Temazepam', '75mg', 'Antiplatelet', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:50 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0021', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:52:42'),
+(22, '1029', 'Olanzapine', '5mg', 'Antidepressant', 'Administer', 'Scheduled', '', 'October 24, 2025', '12:54 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0022', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:59:38'),
+(23, '1029', 'Omeprazole', '10mg', 'Antidepressant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '12:59 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0023', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:00:11'),
+(24, '1029', 'Warfarin', '500mg', 'Aromatase Inhibitor', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '01:00 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0024', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:00:26'),
+(25, '1029', 'Enoxaparin', '500mg', 'Antibiotic', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '01:00 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0025', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:00:46'),
+(26, '1029', 'Quetiapine', '25mg', 'Statin', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '01:00 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0026', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:01:05'),
+(27, '1027', 'Quetiapine', '500mg', 'Anxiolytic', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '01:16 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0027', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:16:36'),
+(28, '1026', 'Ondansetron', '0.5mg', 'Calcium Channel Blocker', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '01:17 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0028', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:17:35'),
+(29, '1026', 'Sertraline', '500mg', 'Muscle Relaxant', 'Administer', 'Scheduled', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'October 24, 2025', '01:17 pm', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '0029', '#000', 'Not updated', 'medication-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:17:53');
 
 -- --------------------------------------------------------
 
@@ -282,7 +310,35 @@ CREATE TABLE `tbl_clients_task_records` (
 --
 
 INSERT INTO `tbl_clients_task_records` (`id`, `uryyToeSS4`, `client_taskName`, `client_task_details`, `care_call1`, `care_call2`, `care_call3`, `care_call4`, `extra_call1`, `extra_call2`, `extra_call3`, `extra_call4`, `col_extra_visit`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `tast_anytimeSession`, `task_startDate`, `task_endDate`, `col_fifo`, `col_occurence`, `col_period_one`, `col_period_two`, `date_uploaded`, `time_uploaded`, `col_taskId`, `task_colours`, `visibility`, `col_path`, `col_company_Id`, `dateTime`) VALUES
-(1, '1023', 'Assist with admin tasks', 'The carer will see this note in the app each time they complete this task.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-23', '', '', '2025-10-23', '', 'Daily', '', '', '001', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 12:28:23');
+(1, '1028', 'Assist with adaptive equipment', 'The carer will see this note in the app each time they complete this task.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '001', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:21:40'),
+(2, '1028', 'Assist with admin tasks', 'The carer will see this note in the app each time they complete this task.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '002', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:21:57'),
+(3, '1028', 'Assist with awareness campaigns', 'The carer will see this note in the app each time they complete this task.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '003', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:22:16'),
+(4, '1037', 'Assist with balance exercises', 'The carer will see this note in the app each time they complete this task.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '004', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:29:30'),
+(5, '1037', 'Assist with bathing', 'The carer will see this note in the app each time they complete this task.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '005', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:29:53'),
+(6, '1030', 'Assist with change of pad', 'The carer will see this note in the app each time they complete this task', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '006', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:34:39'),
+(7, '1023', 'Maintenance and repairs', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '007', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:36:41'),
+(8, '1033', 'Assist with daily routine', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '008', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:38:58'),
+(9, '1033', 'Assist with assisted living tasks', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '009', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:39:10'),
+(10, '1035', 'Occupational therapy', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0010', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:40:20'),
+(11, '1035', 'Physiotherapy session', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0011', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:40:38'),
+(12, '1035', 'Wellbeing programs', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0012', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:40:53'),
+(13, '1024', 'Assist with adaptive equipment', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0013', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:42:22'),
+(14, '1024', 'Assist with feeding tube', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0014', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:42:37'),
+(15, '1024', 'Assist with daily therapy tasks', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0015', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:42:52'),
+(16, '1025', 'Assist with admin tasks', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0016', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:44:30'),
+(17, '1025', 'Sanitize surfaces', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0017', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:44:44'),
+(18, '1025', 'Window cleaning', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0018', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:44:57'),
+(19, '1034', 'Inspect safety equipment', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0019', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:47:33'),
+(20, '1034', 'Assist with adaptive equipment', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0020', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:47:51'),
+(21, '1032', 'Sit-in care', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0021', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:49:23'),
+(22, '1031', 'Assist with outings', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0022', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:53:18'),
+(23, '1029', 'Assist with daily therapy tasks', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0023', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:01:26'),
+(24, '1027', 'Assist with social campaigns', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0024', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:11:38'),
+(25, '1027', 'Assist with adaptive equipment', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0025', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:11:48'),
+(26, '1027', 'Assist with daily routine', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0026', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:11:59'),
+(27, '1027', 'Emergency response', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0027', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:15:41'),
+(28, '1026', 'Assist with change of pad', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0028', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:17:01'),
+(29, '1026', 'Assist with bathing', 'Follow the care plan for all tasks and activities, including personal care and meals.\r\nAdminister medications as prescribed and record the time.\r\nObserve and report any changes in health, mood, or behavior.', 'Morning', 'Lunch', 'Tea', 'Bed', '', '', '', '', '', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Anytime/Session', '2025-10-24', '', '', '2025-10-24', '', 'Daily', '', '', '0029', '#000', 'Not updated', 'task-report-form', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 12:17:12');
 
 -- --------------------------------------------------------
 
@@ -325,10 +381,66 @@ CREATE TABLE `tbl_clienttime_calls` (
 --
 
 INSERT INTO `tbl_clienttime_calls` (`userId`, `client_name`, `client_area`, `client_city`, `uryyToeSS4`, `care_calls`, `dateTime_in`, `dateTime_out`, `col_monday`, `col_tuesday`, `col_wednesday`, `col_thursday`, `col_friday`, `col_saturday`, `col_sunday`, `col_client_funding`, `col_funding_rate`, `col_required_carers`, `col_startDate`, `col_endDate`, `col_occurence`, `col_period_one`, `col_period_two`, `col_right_to_display`, `col_val_Id`, `col_company_Id`, `dateTime`) VALUES
-(1, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Morning', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54'),
-(2, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Lunch', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54'),
-(3, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Tea', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54'),
-(4, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Bed', 'Null', 'Null', '', '', '', '', '', '', '', '', '', '', '', '', '2025-10-23', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54');
+(1, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Morning', '06:50', '07:51', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(2, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Lunch', '11:55', '13:20', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(3, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Tea', '16:35', '17:48', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(4, 'Curran Dante', 'Cannock', 'Wolverhampton', '1023', 'Bed', '20:25', '21:53', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(5, 'Gloria Kyle', 'Codsall', 'Wolverhampton', '1024', 'Morning', '07:55', '09:14', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(6, 'Gloria Kyle', 'Codsall', 'Wolverhampton', '1024', 'Lunch', '12:25', '13:35', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(7, 'Gloria Kyle', 'Codsall', 'Wolverhampton', '1024', 'Tea', '16:20', '17:25', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(8, 'Gloria Kyle', 'Codsall', 'Wolverhampton', '1024', 'Bed', '20:50', '21:38', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(9, 'Kamal Kenneth', 'Codsall', 'Wolverhampton', '1025', 'Morning', '06:10', '07:27', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(10, 'Kamal Kenneth', 'Codsall', 'Wolverhampton', '1025', 'Lunch', '12:30', '14:00', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(11, 'Kamal Kenneth', 'Codsall', 'Wolverhampton', '1025', 'Tea', '17:40', '18:56', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(12, 'Kamal Kenneth', 'Codsall', 'Wolverhampton', '1025', 'Bed', '20:30', '21:37', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(13, 'Taylor Carla', 'Codsall', 'Wolverhampton', '1026', 'Morning', '07:00', '08:22', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(14, 'Taylor Carla', 'Codsall', 'Wolverhampton', '1026', 'Lunch', '11:25', '12:43', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(15, 'Taylor Carla', 'Codsall', 'Wolverhampton', '1026', 'Tea', '16:50', '17:56', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(16, 'Taylor Carla', 'Codsall', 'Wolverhampton', '1026', 'Bed', '20:35', '22:05', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(17, 'Summer Declan', 'Codsall', 'Wolverhampton', '1027', 'Morning', '07:10', '08:40', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(18, 'Summer Declan', 'Codsall', 'Wolverhampton', '1027', 'Lunch', '11:10', '11:55', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(19, 'Summer Declan', 'Codsall', 'Wolverhampton', '1027', 'Tea', '17:00', '18:09', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(20, 'Summer Declan', 'Codsall', 'Wolverhampton', '1027', 'Bed', '20:35', '21:28', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(21, 'Caldwell Isaiah', 'Codsall', 'Wolverhampton', '1028', 'Morning', '07:25', '08:48', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(22, 'Caldwell Isaiah', 'Codsall', 'Wolverhampton', '1028', 'Lunch', '12:35', '13:33', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(23, 'Caldwell Isaiah', 'Codsall', 'Wolverhampton', '1028', 'Tea', '16:15', '17:31', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(24, 'Caldwell Isaiah', 'Codsall', 'Wolverhampton', '1028', 'Bed', '20:40', '21:38', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(25, 'Rhona Chastity', 'Cannock', 'Wolverhampton', '1029', 'Morning', '07:15', '08:28', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(26, 'Rhona Chastity', 'Cannock', 'Wolverhampton', '1029', 'Lunch', '12:15', '13:30', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(27, 'Rhona Chastity', 'Cannock', 'Wolverhampton', '1029', 'Tea', '16:30', '17:20', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(28, 'Rhona Chastity', 'Cannock', 'Wolverhampton', '1029', 'Bed', '20:40', '21:38', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(29, 'Autumn Fletcher', 'Cannock', 'Wolverhampton', '1030', 'Morning', '06:15', '07:13', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(30, 'Autumn Fletcher', 'Cannock', 'Wolverhampton', '1030', 'Lunch', '11:55', '12:51', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(31, 'Autumn Fletcher', 'Cannock', 'Wolverhampton', '1030', 'Tea', '16:10', '17:32', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(32, 'Autumn Fletcher', 'Cannock', 'Wolverhampton', '1030', 'Bed', '20:55', '21:59', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(33, 'Peter Ori', 'Cannock', 'Wolverhampton', '1031', 'Morning', '07:50', '09:00', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(34, 'Peter Ori', 'Cannock', 'Wolverhampton', '1031', 'Lunch', '11:15', '12:20', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(35, 'Peter Ori', 'Cannock', 'Wolverhampton', '1031', 'Tea', '16:50', '17:46', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(36, 'Peter Ori', 'Cannock', 'Wolverhampton', '1031', 'Bed', '20:50', '21:37', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(37, 'Kylan Tamekah', 'Cannock', 'Wolverhampton', '1032', 'Morning', '07:15', '08:42', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(38, 'Kylan Tamekah', 'Cannock', 'Wolverhampton', '1032', 'Lunch', '12:50', '13:56', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(39, 'Kylan Tamekah', 'Cannock', 'Wolverhampton', '1032', 'Tea', '17:40', '18:50', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(40, 'Kylan Tamekah', 'Cannock', 'Wolverhampton', '1032', 'Bed', '20:40', '22:10', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(41, 'Destiny Russell', 'Kidderminster', 'Wolverhampton', '1033', 'Morning', '07:55', '08:55', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(42, 'Destiny Russell', 'Kidderminster', 'Wolverhampton', '1033', 'Lunch', '11:45', '12:54', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(43, 'Destiny Russell', 'Kidderminster', 'Wolverhampton', '1033', 'Tea', '17:35', '18:21', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(44, 'Destiny Russell', 'Kidderminster', 'Wolverhampton', '1033', 'Bed', '20:20', '21:28', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(45, 'Kerry Kessie', 'Kidderminster', 'Wolverhampton', '1034', 'Morning', '06:55', '07:41', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(46, 'Kerry Kessie', 'Kidderminster', 'Wolverhampton', '1034', 'Lunch', '11:05', '12:10', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(47, 'Kerry Kessie', 'Kidderminster', 'Wolverhampton', '1034', 'Tea', '17:15', '18:39', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(48, 'Kerry Kessie', 'Kidderminster', 'Wolverhampton', '1034', 'Bed', '20:05', '21:06', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(49, 'Galvin Janna', 'Kidderminster', 'Wolverhampton', '1035', 'Morning', '06:15', '07:03', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(50, 'Galvin Janna', 'Kidderminster', 'Wolverhampton', '1035', 'Lunch', '11:15', '12:04', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(51, 'Galvin Janna', 'Kidderminster', 'Wolverhampton', '1035', 'Tea', '17:55', '18:56', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(52, 'Galvin Janna', 'Kidderminster', 'Wolverhampton', '1035', 'Bed', '20:15', '21:04', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(53, 'Katell Todd', 'Kidderminster', 'Wolverhampton', '1036', 'Morning', '07:55', '08:59', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(54, 'Katell Todd', 'Kidderminster', 'Wolverhampton', '1036', 'Lunch', '11:20', '12:18', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(55, 'Katell Todd', 'Kidderminster', 'Wolverhampton', '1036', 'Tea', '16:30', '17:57', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(56, 'Katell Todd', 'Kidderminster', 'Wolverhampton', '1036', 'Bed', '20:35', '21:24', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(57, 'Armand Forrest', 'Kidderminster', 'Wolverhampton', '1037', 'Morning', '07:45', '09:06', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(58, 'Armand Forrest', 'Kidderminster', 'Wolverhampton', '1037', 'Lunch', '11:35', '12:50', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(59, 'Armand Forrest', 'Kidderminster', 'Wolverhampton', '1037', 'Tea', '17:45', '18:51', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04'),
+(60, 'Armand Forrest', 'Kidderminster', 'Wolverhampton', '1037', 'Bed', '20:20', '21:09', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Staffordshire dom care', '24.95', '2', '2025-10-24', '', '2025-10-24', '', 'Daily', 'True', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:47:04');
 
 -- --------------------------------------------------------
 
@@ -421,7 +533,21 @@ CREATE TABLE `tbl_client_notes` (
 --
 
 INSERT INTO `tbl_client_notes` (`userId`, `team_name`, `uryyToeSS4`, `client_note`, `dateof_note`, `timeof_note`, `col_company_Id`, `date`) VALUES
-(1, '', '1023', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54');
+(1, '', '1023', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 11:11:54'),
+(2, '', '1024', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 08:43:42'),
+(3, '', '1025', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 08:45:34'),
+(4, '', '1026', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 08:45:50'),
+(5, '', '1027', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 08:46:09'),
+(6, '', '1028', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 08:46:22'),
+(7, '', '1029', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:20:15'),
+(8, '', '1030', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:20:47'),
+(9, '', '1031', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:20:59'),
+(10, '', '1032', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:21:17'),
+(11, '', '1033', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:26:02'),
+(12, '', '1034', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:26:11'),
+(13, '', '1035', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:26:23'),
+(14, '', '1036', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:26:33'),
+(15, '', '1037', 'Upload client latest update.', '', '', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:26:48');
 
 -- --------------------------------------------------------
 
@@ -620,6 +746,13 @@ CREATE TABLE `tbl_future_planning` (
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_future_planning`
+--
+
+INSERT INTO `tbl_future_planning` (`userId`, `col_first_box`, `col_second_box`, `col_third_box`, `col_fourt_box`, `col_fift_box`, `col_sixth_box`, `col_seventh_box`, `uryyToeSS4`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Est consequatur sit', 'Cupidatat ex itaque ', 'Aut ea accusamus dol', 'Do Not', 'Provident neque nul', 'Enim perspiciatis d', 'Fugit fugiat volupt', '1028', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:12:12');
+
 -- --------------------------------------------------------
 
 --
@@ -679,7 +812,21 @@ CREATE TABLE `tbl_general_client_form` (
 --
 
 INSERT INTO `tbl_general_client_form` (`userId`, `client_title`, `client_first_name`, `client_last_name`, `client_middle_name`, `client_preferred_name`, `client_email_address`, `client_referred_to`, `client_date_of_birth`, `client_ailment`, `client_primary_phone`, `col_second_phone`, `client_culture_religion`, `client_sexuality`, `client_area`, `client_address_line_1`, `client_address_line_2`, `client_city`, `client_county`, `client_poster_code`, `client_country`, `client_access_details`, `client_highlights`, `col_Office_Incharge`, `clientStart_date`, `clientEnd_date`, `uryyToeSS4`, `client_service`, `what_is_important_to_me`, `my_likes_and_dislikes`, `my_current_condition`, `my_medical_history`, `my_physical_health`, `my_mental_health`, `how_i_communicate`, `assistive_equipment_i_use`, `client_latitude`, `client_longitude`, `col_pay_rate`, `col_swn_number`, `col_qrcode_path`, `geolocation`, `qrcode`, `col_company_Id`, `dateTime`) VALUES
-(1, 'Mr.', 'Curran', 'Dante', 'Slade', 'Moses', 'hycexab@mailinator.com', 'She/Her', '1971-12-17', 'Thane', '08977665447', '', 'Christianity', 'Male', 'Cannock', '1', 'Culwell Street', 'Wolverhampton', 'West Midlands', 'WV10 0JT', 'United Kingdom', 'None', 'can refer to a personal introduction, a self-reflection essay, or the premise of a game. In a personal introduction, you describe yourself with facts like your name, age, and location, along with your interests and goals. A self-reflection can delve deeper into your character, beliefs, and journey, while the game involves other people guessing your identity based on clues. ', 'Wolverhampton', '1992-09-26T23:40', '', '1023', 'Child care', '', '', '', '', '', '', '', '', '52.589199', '-2.1207331', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 14:54:33');
+(1, 'Mr.', 'Curran', 'Dante', 'Slade', 'Moses', 'hycexab@mailinator.com', 'She/Her', '1971-12-17', 'Thane', '+44 (113) 341-5558', '', 'Christianity', 'Male', 'Cannock', '1', 'Culwell Street', 'Wolverhampton', 'West Midlands', 'WV10 0JT', 'United Kingdom', 'None', 'can refer to a personal introduction, a self-reflection essay, or the premise of a game. In a personal introduction, you describe yourself with facts like your name, age, and location, along with your interests and goals. A self-reflection can delve deeper into your character, beliefs, and journey, while the game involves other people guessing your identity based on clues. ', 'Wolverhampton', '1992-09-26T23:40', '', '1023', 'Child care', '', '', '', '', '', '', '', '', '52.589199', '-2.1207331', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:27:47'),
+(2, 'Mr.', 'Gloria', 'Kyle', 'Ginger', 'Ezra', 'gemahydaw@mailinator.com', 'She/Her', '1985-02-25', 'Neil', '+44 (113) 341-3828', '', 'Nonreligious', 'Female', 'Codsall', '10', '10 Carter Ave', 'Wolverhampton', 'West Midlands', 'WV8 1HH', 'United Kingdom', 'Omnis autem omnis ve', 'Occaecat est dolor a', 'Wolverhampton', '1979-11-02T00:54', '', '1024', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.6257088', '-2.184189', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:27:54'),
+(3, 'Miss.', 'Kamal', 'Kenneth', 'Grace', 'Isaac', 'paras@mailinator.com', 'They/Them', '2001-07-19', 'Blossom', '+44 (486) 205-9395', '', 'Judaism', 'Other', 'Codsall', '10', '10 Carter Ave', 'Wolverhampton', 'West Midlands', 'WV8 1HH', 'United Kingdom', 'Quia suscipit evenie', 'Aut dolor nihil eius', 'Wolverhampton', '2005-01-10T07:21', '', '1025', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.6257088', '-2.184189', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:28:02'),
+(4, 'Mrs.', 'Taylor', 'Carla', 'Hiram', 'Amelia', 'wyxizefyx@mailinator.com', 'She/Her', '1990-03-14', 'Ginger', '+44 (998) 171-2491', '', 'Buddhism', 'Other', 'Codsall', '10', '10 Carter Ave', 'Wolverhampton', 'West Midlands', 'WV8 1HH', 'United Kingdom', 'Ut qui irure non qui', 'Modi magna voluptas ', 'Wolverhampton', '1972-12-19T21:02', '', '1026', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.6257088', '-2.184189', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:28:34'),
+(5, 'Sir.', 'Summer', 'Declan', 'Kalia', 'Xaviera', 'furewigec@mailinator.com', 'They/Them', '1935-05-22', 'Seth', '+44 (269) 156-1655', '', 'Hinduism', 'Male', 'Codsall', '10', '10 Carter Ave', 'Wolverhampton', 'West Midlands', 'WV8 1HH', 'United Kingdom', 'Ut voluptatem elit ', 'Qui eos facere cum v', 'Wolverhampton', '2000-02-12T21:44', '', '1027', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.6257088', '-2.184189', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:28:10'),
+(6, 'Mrs.', 'Caldwell', 'Isaiah', 'Althea', 'Elmo', 'wemadas@mailinator.com', 'He/Him', '1975-07-22', 'Gavin', '+44 (956) 317-6224', '+1 (972) 874-9982', 'Tenrikyo', 'Male', 'Codsall', '10', '10 Carter Ave', 'Wolverhampton', 'West Midlands', 'WV8 1HH', 'United Kingdom', 'Illum nulla duis en', 'In sit porro repelle', 'Wolverhampton', '2002-11-15T11:59', '', '1028', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.6257088', '-2.184189', '', '916788', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 11:11:20'),
+(7, 'Mr.', 'Rhona', 'Chastity', 'Charissa', 'Angelica', 'nafexehe@mailinator.com', 'They/Them', '1971-03-08', 'Gary', '+44 (404) 327-2086', '', 'Juche', 'Male', 'Cannock', '153', 'Ground Floor, Avon Rd', 'Wolverhampton', 'West Midlands', 'WS11 1LF', 'United Kingdom', 'Cumque facilis offic', 'Maxime suscipit sit ', 'Wolverhampton', '2006-01-20T08:08', '', '1029', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5868159', '-2.1256587', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:28:38'),
+(8, 'Mrs.', 'Autumn', 'Fletcher', 'Finn', 'Scarlett', 'tufyc@mailinator.com', 'She/Her', '1933-02-14', 'Simon', '+44 (932) 123-7104', '', 'Rastafarianism', 'Female', 'Cannock', '153', 'Ground Floor, Avon Rd', 'Wolverhampton', 'West Midlands', 'WS11 1LF', 'United Kingdom', 'Maiores voluptatem ', 'Ducimus qui tempor ', 'Wolverhampton', '1989-10-07T20:26', '', '1030', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5868159', '-2.1256587', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:28:42'),
+(9, 'Ms.', 'Peter', 'Ori', 'Fritz', 'Dahlia', 'jafucy@mailinator.com', 'He/Him', '1940-10-27', 'Sybil', '+44 (976) 346-1094', '', 'Zoroastrianism', 'Other', 'Cannock', '153', 'Ground Floor, Avon Rd', 'Wolverhampton', 'West Midlands', 'WS11 1LF', 'United Kingdom', 'Commodi quia dolorem', 'Facilis veniam qui ', 'Wolverhampton', '2012-11-20T17:48', '', '1031', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5868159', '-2.1256587', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:28:47'),
+(10, 'Prof.', 'Kylan', 'Tamekah', 'Amy', 'Noah', 'kejyzytoh@mailinator.com', 'He/Him', '1945-11-04', 'Scott', '+44 (304) 915-3414', '', 'Islam', 'Male', 'Cannock', '153', 'Ground Floor, Avon Rd', 'Wolverhampton', 'West Midlands', 'WS11 1LF', 'United Kingdom', 'Nihil quis omnis qui', 'Adipisci fuga Reici', 'Wolverhampton', '2012-09-10T08:53', '', '1032', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5868159', '-2.1256587', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:28:52'),
+(11, 'Lord.', 'Destiny', 'Russell', 'Wanda', 'Chanda', 'tibyqo@mailinator.com', 'She/Her', '1939-09-23', 'Inga', '+44 (353) 418-5273', '', 'Nonreligious', 'Female', 'Kidderminster', '111', 'Sutton Rd', 'Wolverhampton', 'West Midlands', 'DY11 7BB', 'United Kingdom', 'Recusandae Qui ex s', 'Pariatur Excepturi ', 'Wolverhampton', '1998-12-04T16:40', '', '1033', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5499177', '-2.1142209', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:29:00'),
+(12, 'Miss.', 'Kerry', 'Kessie', 'Fredericka', 'Samantha', 'juhipetyz@mailinator.com', 'He/Him', '1946-01-11', 'Barclay', '+44 (432) 444-3804', '', 'Baha\'i', 'Male', 'Kidderminster', '111', 'Sutton Rd', 'Wolverhampton', 'West Midlands', 'DY11 7BB', 'United Kingdom', 'Enim incidunt ad ne', 'Commodo molestiae in', 'Wolverhampton', '1987-02-16T11:53', '', '1034', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5499177', '-2.1142209', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:29:04'),
+(13, 'Prof.', 'Galvin', 'Janna', 'Quin', 'Ila', 'cawu@mailinator.com', 'They/Them', '1937-12-23', 'Avye', '+44 (602) 447-4252', '', 'primal-indigenous', 'Male', 'Kidderminster', '111', 'Sutton Rd', 'Wolverhampton', 'West Midlands', 'DY11 7BB', 'United Kingdom', 'Perferendis dignissi', 'Quo quibusdam maxime', 'Wolverhampton', '1975-07-16T13:25', '', '1035', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5499177', '-2.1142209', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:29:08'),
+(14, 'Lord.', 'Katell', 'Todd', 'Cassandra', 'Carolyn', 'mewexuledu@mailinator.com', 'She/Her', '1946-08-15', 'Eleanor', '+44 (155) 705-4017', '', 'Secular', 'Female', 'Kidderminster', '111', 'Sutton Rd', 'Wolverhampton', 'West Midlands', 'DY11 7BB', 'United Kingdom', 'Proident quia imped', 'Excepteur ut et alia', 'Wolverhampton', '1994-10-04T03:14', '', '1036', 'Domiciliary care', '', '', '', '', '', '', '', '', '52.5499177', '-2.1142209', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:29:12'),
+(15, 'Lord.', 'Armand', 'Forrest', 'Dillon', 'Avye', 'watyfapoj@mailinator.com', 'She/Her', '1944-05-10', 'Regan', '+44 (176) 947-8837', '', 'Secular', 'Male', 'Kidderminster', '111', 'Sutton Rd', 'Wolverhampton', 'West Midlands', 'DY11 7BB', 'United Kingdom', 'Id error reprehender', 'Quia eum placeat re', 'Wolverhampton', '2021-12-06T16:34', '', '1037', 'Domiciliary care', 'Dolore ea esse dolor', '', '', '', '', '', '', '', '52.5499177', '-2.1142209', '', '', '', NULL, NULL, 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:30:48');
 
 -- --------------------------------------------------------
 
@@ -710,8 +857,6 @@ CREATE TABLE `tbl_general_team_form` (
   `team_poster_code` varchar(500) NOT NULL,
   `team_country` varchar(500) NOT NULL,
   `uryyTteamoeSS4` varchar(500) NOT NULL,
-  `privilege` varchar(500) NOT NULL,
-  `team_info` text NOT NULL,
   `transportation` varchar(500) NOT NULL,
   `col_pay_rate` varchar(500) NOT NULL,
   `col_rate_type` varchar(500) NOT NULL,
@@ -720,9 +865,17 @@ CREATE TABLE `tbl_general_team_form` (
   `col_company_city` varchar(500) NOT NULL,
   `col_start_date` varchar(500) NOT NULL,
   `col_company_Id` varchar(500) NOT NULL,
-  `col_team_resource` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_general_team_form`
+--
+
+INSERT INTO `tbl_general_team_form` (`userId`, `team_title`, `team_first_name`, `team_last_name`, `team_middle_name`, `team_preferred_name`, `team_email_address`, `team_referred_to`, `team_date_of_birth`, `team_nationality`, `team_primary_phone`, `team_culture_religion`, `team_sexuality`, `team_dbs`, `team_nin`, `team_address_line_1`, `team_address_line_2`, `team_city`, `team_county`, `team_poster_code`, `team_country`, `uryyTteamoeSS4`, `transportation`, `col_pay_rate`, `col_rate_type`, `col_mileage`, `employment_type`, `col_company_city`, `col_start_date`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Mr.', 'Osaretin', 'Samson', 'Gift', 'Ese', 'samsonosaretin@yahoo.com', 'He/Him', '1992-07-27', 'Nigeria', '07448222483', 'Christianity', 'Male', 'E657564645338', 'T58847463', '1', 'Culwell Street', 'Wolverhampton', 'West Midlands', 'wv10 0jt', 'United Kingdom', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Car', '0.00', '14.30', '0.00', 'Full-time employment', 'Wolverhampton', '2025-10-23', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:42:57'),
+(2, 'Ms.', 'Lucy', 'Cooper', 'Dacey', 'Aladdin', 'bufo@mailinator.com', 'They/Them', '1925-12-15', 'Falkland Islands (Malvinas)', '07889000980', 'Christianity', 'Female', 'T3885756464557', 'U8849475', '29', 'Waterloo Road', 'Wolverhampton', 'West Midlands', 'wv1 4dj', 'United Kingdom', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Car', '0.00', '13.21', '0.30', 'Full-time employment', 'Wolverhampton', '2025-10-23', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:42:46'),
+(3, 'Mr.', 'John', 'Phillip', 'Anthony', 'Hillary', 'kored@mailinator.com', 'They/Them', '2010-10-31', 'Germany', '07889555786', 'Sikhism', 'Male', 'GH599586867443', 'TL885948', '29', 'Waterloo Road', 'Wolverhampton', 'West Midlands', 'wv1 4dj', 'United Kingdom', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Car', '0.00', '13.21', '0.30', 'Full-time employment', 'Wolverhampton', '2025-10-23', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 09:42:42');
 
 -- --------------------------------------------------------
 
@@ -951,6 +1104,14 @@ CREATE TABLE `tbl_holiday` (
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_holiday`
+--
+
+INSERT INTO `tbl_holiday` (`userId`, `col_description`, `col_holiday_date`, `col_pay_multiplier`, `col_charge_multiplier`, `col_special_Id`, `col_date`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Winter Bank Holiday', '2025-10-24', '15.00', '5.00', '1024', '2025-10-24', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:04:56'),
+(2, 'Good Friday', '2025-04-20', '14.92', '5.00', '1024', '2025-10-24', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24 10:06:51');
+
 -- --------------------------------------------------------
 
 --
@@ -996,6 +1157,13 @@ CREATE TABLE `tbl_invoice_rate` (
   `col_date` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_invoice_rate`
+--
+
+INSERT INTO `tbl_invoice_rate` (`userId`, `col_name`, `col_days`, `col_applies`, `col_type`, `col_rates`, `col_service_type`, `col_fee_name`, `col_fee_rate`, `col_special_Id`, `col_company_Id`, `col_date`, `dateTime`) VALUES
+(1, 'Staffordshire dom care', 'All', 'Always', 'Fixed', '24.95', 'Domiciliary care', 'NON', '0.00', '1', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24', '2025-10-24 09:46:18');
 
 -- --------------------------------------------------------
 
@@ -1229,6 +1397,15 @@ CREATE TABLE `tbl_pay_rate` (
   `col_date` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_pay_rate`
+--
+
+INSERT INTO `tbl_pay_rate` (`userId`, `col_name`, `col_days`, `col_applies`, `col_type`, `col_rates`, `col_service_type`, `col_special_Id`, `col_company_Id`, `col_date`, `dateTime`) VALUES
+(1, 'Senior Carer', 'All', 'Always', 'Fixed', '14.30', 'Personal Care', '1021', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24', '2025-10-24 09:29:30'),
+(2, 'Assistant Carer', 'All', 'Always', 'Fixed', '13.21', 'Personal Care', '1022', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24', '2025-10-24 09:30:36'),
+(3, 'Nurce', 'All', 'Always', 'Fixed', '20.52', 'Personal Care', '1023', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24', '2025-10-24 09:31:20');
 
 -- --------------------------------------------------------
 
@@ -1754,6 +1931,13 @@ CREATE TABLE `tbl_team_documents` (
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Date updated'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_team_documents`
+--
+
+INSERT INTO `tbl_team_documents` (`userId`, `col_Id_image`, `col_drivers_licence_image`, `col_bank_statement_image`, `col_utility_bill_image`, `col_references_image`, `col_dbs_records_image`, `uryyTteamoeSS4`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Null', 'Null', 'Null', 'Null', 'Null', 'Null', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 20:59:55');
+
 -- --------------------------------------------------------
 
 --
@@ -1774,6 +1958,13 @@ CREATE TABLE `tbl_team_employment` (
   `col_company_Id` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'Date data was updated'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_team_employment`
+--
+
+INSERT INTO `tbl_team_employment` (`userId`, `col_first_name`, `col_last_name`, `col_employee_no`, `col_team_role`, `col_contract_type`, `col_contract`, `col_weekly_contract_hour`, `col_covid_vacin`, `uryyTteamoeSS4`, `col_company_Id`, `dateTime`) VALUES
+(1, 'Osaretin', 'Samson', 'Null', 'Null', 'Null', 'Null', 'Null', 'Null', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-23 20:59:55');
 
 -- --------------------------------------------------------
 
@@ -1845,6 +2036,13 @@ CREATE TABLE `tbl_travel_rate` (
   `col_date` varchar(500) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_travel_rate`
+--
+
+INSERT INTO `tbl_travel_rate` (`userId`, `col_name`, `col_hourly_rate`, `col_mileage_rate`, `col_break`, `col_pay_waiting_time`, `col_special_Id`, `col_company_Id`, `col_date`, `dateTime`) VALUES
+(1, 'Mileage', '14.30', '0.30', '60', 'No', '1021', 'GE761375-gZb83800-68f8a8e2f3cfb', '2025-10-24', '2025-10-24 09:33:30');
 
 -- --------------------------------------------------------
 
@@ -2244,19 +2442,19 @@ ALTER TABLE `tbl_chat_system`
 -- AUTO_INCREMENT for table `tbl_clients_medication_records`
 --
 ALTER TABLE `tbl_clients_medication_records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_clients_task_records`
 --
 ALTER TABLE `tbl_clients_task_records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_clienttime_calls`
 --
 ALTER TABLE `tbl_clienttime_calls`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `tbl_client_invoice`
@@ -2280,7 +2478,7 @@ ALTER TABLE `tbl_client_nok`
 -- AUTO_INCREMENT for table `tbl_client_notes`
 --
 ALTER TABLE `tbl_client_notes`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_client_runs`
@@ -2334,19 +2532,19 @@ ALTER TABLE `tbl_funding`
 -- AUTO_INCREMENT for table `tbl_future_planning`
 --
 ALTER TABLE `tbl_future_planning`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_general_client_form`
 --
 ALTER TABLE `tbl_general_client_form`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_general_team_form`
 --
 ALTER TABLE `tbl_general_team_form`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_group_list`
@@ -2358,7 +2556,7 @@ ALTER TABLE `tbl_group_list`
 -- AUTO_INCREMENT for table `tbl_holiday`
 --
 ALTER TABLE `tbl_holiday`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoices`
@@ -2370,7 +2568,7 @@ ALTER TABLE `tbl_invoices`
 -- AUTO_INCREMENT for table `tbl_invoice_rate`
 --
 ALTER TABLE `tbl_invoice_rate`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_manage_runs`
@@ -2394,7 +2592,7 @@ ALTER TABLE `tbl_payer`
 -- AUTO_INCREMENT for table `tbl_pay_rate`
 --
 ALTER TABLE `tbl_pay_rate`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_pay_run`
@@ -2466,13 +2664,13 @@ ALTER TABLE `tbl_team_certificates`
 -- AUTO_INCREMENT for table `tbl_team_documents`
 --
 ALTER TABLE `tbl_team_documents`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id number for team';
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id number for team', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_team_employment`
 --
 ALTER TABLE `tbl_team_employment`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id number for all team';
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id number for all team', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_team_highlight`
@@ -2496,7 +2694,7 @@ ALTER TABLE `tbl_team_status`
 -- AUTO_INCREMENT for table `tbl_travel_rate`
 --
 ALTER TABLE `tbl_travel_rate`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_update_notice`

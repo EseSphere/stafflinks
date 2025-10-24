@@ -50,7 +50,7 @@ if (isset($_POST['btnScheduleRuns'])) {
               AND col_company_Id = '" . $_SESSION['usr_compId'] . "'
         ";
         if (mysqli_query($conn, $sqlUpdate)) {
-            header("Location: ./roster/schedule-visits?txtDate=$txtShiftDate");
+            header("Location: ./rota/schedule-visits?txtDate=$txtShiftDate");
             exit();
         } else {
             echo "Error updating record: " . mysqli_error($conn);
@@ -144,7 +144,7 @@ if (isset($_POST['btnScheduleRuns'])) {
                 }
             }
             // Redirect after loop
-            header("Location: ./roster/schedule-visits?txtDate=$txtShiftDate");
+            header("Location: ./rota/schedule-visits?txtDate=$txtShiftDate");
             exit();
         } else {
             echo "<p>No visits found for this run today.</p>";
