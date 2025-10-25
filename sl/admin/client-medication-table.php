@@ -27,7 +27,8 @@
                         <th>Medicine</th>
                         <th>When</th>
                         <th>Frequency</th>
-                        <th>Occurrence</th>
+                        <th>Package</th>
+                        <th>Case</th>
                         <th class="text-right">Option</th>
                     </tr>
                 </thead>
@@ -35,7 +36,7 @@
                     <?php
                     $query = "SELECT 
             med_name, med_dosage, med_type, id, col_period_two, col_period_one, col_extra_visit, 
-            client_startMed, client_endMed, col_occurence, 
+            client_startMed, client_endMed, med_package, 
             LEFT(monday, 1) AS MDay, LEFT(tuesday, 1) AS TDay, LEFT(wednesday, 1) AS WDay, 
             LEFT(thursday, 1) AS THDay, LEFT(friday, 1) AS FDay, LEFT(saturday, 1) AS SDay, 
             LEFT(sunday, 1) AS SATDay, LEFT(care_call1, 1) AS BCall, LEFT(care_call2, 1) AS LCall, 
@@ -86,6 +87,9 @@
                                 <ul class='justify-content-center'>
                                     <li style='padding:2px; margin-right:3px; border-radius:3px; font-weight:600; width:23px; text-align:center; background-color:inherit; color:#000; font-size:12px;'>{$row['col_extra_visit']}</li>
                                 </ul>
+                            </td>
+                            <td>
+                                <span style='height:20px; width:20px; border-radius:50px; padding:3px; font-size:14px; font-weight:600;'>{$row['med_package']}</span>
                             </td>
                             <td>
                                 <span style='height:20px; width:20px; border-radius:50px; padding:3px; font-size:14px; font-weight:600;'>{$row['col_period_one']}</span>

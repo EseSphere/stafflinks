@@ -36,13 +36,13 @@
 
     <!-- Care Activities -->
     <div class="card p-3">
-        <h5 class="w-100">
-            Visit Activities
-            <button class="btn btn-warning prn-btn text-end" data-bs-toggle="modal" data-bs-target="#prnModal" style="display:inline-block;">
+        <div class="d-flex justify-content-between align-items-center mb-2 gap-y-px-2">
+            <h4 class="fs-4">Activities</h4>
+            <button class="btn btn-warning prn-btn text-end" data-bs-toggle="modal" data-bs-target="#prnModal" style="display:inline-block; width:120px;">
                 <i class="bi bi-bandaid"></i> PRN
                 <span class="prn-badge" id="prnCount" style="display:none;">0</span>
             </button>
-        </h5>
+        </div>
         <hr>
         <div id="careActivitiesContainer">
             <!-- Activities will be injected here dynamically -->
@@ -55,15 +55,7 @@
     </div>
 
     <!-- Highlight -->
-    <div class="col-md-12 mt-3">
-        <div class="card p-3">
-            <div class="row">
-                <div class="col-sm-4 mb-3 fs-5 fw-bold">Highlight:</div>
-                <hr>
-                <div class="col-sm-8 fs-6" id="highlight">Loading...</div>
-            </div>
-        </div>
-    </div>
+    <?php require_once 'highlight-extention.php'; ?>
 
 </div>
 
@@ -90,20 +82,17 @@
     // Get URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const clientId = urlParams.get('uryyToeSS4');
-    const clientshift_date = urlParams.get('Clientshift_Date'); // Updated
+    const clientshift_date = urlParams.get('Clientshift_Date');
     const careCall = urlParams.get('care_calls');
     const id = urlParams.get('id');
     const carerId = urlParams.get('carerId');
 
     const continueBtn = document.getElementById('continueBtn');
-
     continueBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent default <a> behavior
-        // Use clientshift_date from URL
+        e.preventDefault();
         const url = `processing-tasks.php?uryyToeSS4=${clientId}&Clientshift_Date=${clientshift_date}&care_calls=${careCall}&id=${id}&carerId=${carerId}`;
         window.location.href = url;
     });
-
 
     function calculateAge(dob) {
         if (!dob) return '--';
@@ -259,16 +248,16 @@
             const meds = await fetchRecords('tbl_clients_medication_records', clientId, careCall);
             const tasks = await fetchRecords('tbl_clients_task_records', clientId, careCall);
 
-            const finishedMeds = await fetchFinishedRecords('tbl_finished_meds', clientId, clientshift_date, careCall); // Updated
-            const finishedTasks = await fetchFinishedRecords('tbl_finished_tasks', clientId, clientshift_date, careCall); // Updated
+            const finishedMeds = await fetchFinishedRecords('tbl_finished_meds', clientId, clientshift_date, careCall);
+            const finishedTasks = await fetchFinishedRecords('tbl_finished_tasks', clientId, clientshift_date, careCall);
 
             const prnMeds = [];
 
-            const activities = [
+            let activities = [
                 ...tasks.map(t => ({
                     type: 'task',
                     title: t.client_taskName,
-                    status: getStatus({
+                    col_status: getStatus({
                         ...t,
                         type: 'task'
                     }, finishedTasks, finishedMeds),
@@ -286,7 +275,7 @@
                     return {
                         type: 'medication',
                         title: `${m.med_name} (${m.med_dosage})`,
-                        status: getStatus({
+                        col_status: getStatus({
                             ...m,
                             type: 'medication'
                         }, finishedTasks, finishedMeds),
@@ -297,9 +286,25 @@
                 })
             ];
 
+            // Replace Updated/Completed/Given statuses with "Pending" and move to bottom
+            activities = activities.map(a => {
+                if (['Updated', 'Completed', 'Given'].includes(a.col_status)) {
+                    return {
+                        ...a,
+                        col_status: 'Pending',
+                        completed: true
+                    };
+                }
+                return {
+                    ...a,
+                    completed: false
+                };
+            });
+
+            // Sort so real pending on top, faked ones at bottom
             activities.sort((a, b) => {
-                if (a.status === 'Pending' && b.status !== 'Pending') return -1;
-                if (a.status !== 'Pending' && b.status === 'Pending') return 1;
+                if (!a.completed && b.completed) return -1;
+                if (a.completed && !b.completed) return 1;
                 return 0;
             });
 
@@ -307,7 +312,7 @@
             activities.forEach(c => {
                 const icon = c.type === 'task' ? 'bi-list-task' : 'bi-capsule';
                 const color = c.type === 'task' ? '#0d6efd' : '#fd7e14';
-                const statusClass = c.status === 'Updated' || c.status === 'Completed' || c.status === 'Given' ? 'status-updated' : 'status-not-updated';
+                const statusClass = 'status-not-updated';
                 const recordId = c.recordId;
 
                 const div = document.createElement('div');
@@ -315,10 +320,14 @@
                 div.style.background = `${color}20`;
                 div.style.cursor = 'pointer';
                 div.onclick = () => {
-                    if (recordId) window.location.href = `activity-report.php?col_taskId=${recordId}&clientId=${clientId}&care_calls=${careCall}&date=${clientshift_date}&id=${id}&carerId=${carerId}`; // Updated
+                    if (recordId) {
+                        const titleEncoded = encodeURIComponent(c.title || '');
+                        const detailsEncoded = encodeURIComponent(c.details || '');
+                        window.location.href = `activity-report.php?col_taskId=${recordId}&clientId=${clientId}&care_calls=${careCall}&date=${clientshift_date}&id=${id}&carerId=${carerId}&type=${c.type}&title=${titleEncoded}&details=${detailsEncoded}`;
+                    }
                 };
                 div.innerHTML = `<div><i class="bi ${icon} care-icon" style="color:${color}"></i> ${c.title}</div>
-                             <span class="${statusClass}">${c.status}</span>`;
+                                 <span class="${statusClass}">${c.col_status}</span>`;
                 container.appendChild(div);
             });
 
@@ -330,7 +339,8 @@
                 prnCountSpan.style.display = 'inline-block';
                 const firstPRN = prnMeds[0];
                 if (firstPRN.recordId) {
-                    logPRNBtn.setAttribute('href', `activity-report.php?col_taskId=${firstPRN.recordId}&clientId=${clientId}&care_calls=${careCall}&date=${clientshift_date}&id=${id}&carerId=${carerId}`); // Updated
+                    const prnTitleEncoded = encodeURIComponent(firstPRN.display || '');
+                    logPRNBtn.setAttribute('href', `activity-report.php?col_taskId=${firstPRN.recordId}&clientId=${clientId}&care_calls=${careCall}&date=${clientshift_date}&id=${id}&carerId=${carerId}&type=medication&title=${prnTitleEncoded}`);
                 } else logPRNBtn.removeAttribute('href');
             } else {
                 prnModalBody.innerHTML = 'No PRN medications for today.';
@@ -361,5 +371,6 @@
         }
     });
 </script>
+
 
 <?php include_once 'footer.php'; ?>

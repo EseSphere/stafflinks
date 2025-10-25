@@ -3,66 +3,33 @@
 <div class="main-wrapper container">
 
     <!-- Client Profile Horizontal Layout -->
-    <div class="col-md-12 mb-3">
-        <div class="card p-2 d-flex flex-row align-items-center">
-            <div style="flex:0 0 100px; text-align:center;">
-                <div id="clientInitials" style="width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:bold;margin:auto;color:white;">
-                    --
-                </div>
-            </div>
-            <div style="flex:1; padding-left:15px;">
-                <h4 id="clientName">Loading...</h4>
-                <p id="clientAge" class="mb-1">Age: --</p>
-                <div class="d-flex gap-2">
-                    <a class="btn btn-sm btn-danger" id="dnacprBtn">Health</a>
-                    <a class="btn btn-sm btn-info" id="allergiesBtn">Emergency</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php require_once 'client-profile-extension.php'; ?>
 
     <!-- Submit Activity Report -->
     <div class="card p-3 mb-3">
-        <h5>Submit Activity Report</h5>
+        <h4>Submit Report</h4>
         <hr>
-        <form method="post" action="./activities" id="activityReportForm">
+        <form style="font-size: 18px;" method="post" action="./activities" id="activityReportForm">
 
             <!-- Task / Medication -->
             <div class="mb-3">
-                <label class="form-label">Task / Medication</label>
-                <p class="fw-bold fs-5" id="selectedActivity">
-                    Loading...
-                </p>
-                <p style="margin-top: -15px;" class="fw-semibold fs-6" id="activityDescription">
-                    Loading...
-                </p>
+                <label class="form-label fs-5">Task / Medication</label>
+                <p class="fw-bold fs-4" id="selectedActivity">Loading...</p>
+                <p style="margin-top: -15px;" class="fw-semibold fs-5" id="activityDescription">Loading...</p>
             </div>
 
             <!-- Status Options -->
             <div class="mb-3">
-                <label class="form-label">Status</label>
+                <label class="form-label fs-5">Status</label>
                 <div class="d-flex flex-wrap gap-2" id="statusContainer">
-                    <?php
-                    $statusOptions = [
-                        'Completed' => 'success',
-                        'Not Completed' => 'danger',
-                        'Refused' => 'warning',
-                        'Not Available' => 'secondary',
-                        'Not Necessary' => 'info',
-                        'Given' => 'primary',      // New status
-                        'Not Given' => 'dark'      // New status
-                    ];
-                    foreach ($statusOptions as $status => $color) {
-                        echo "<button type='button' class='btn btn-outline-$color flex-fill status-btn'>$status</button>";
-                    }
-                    ?>
+                    <!-- Buttons dynamically rendered via JS -->
                 </div>
             </div>
 
             <!-- Report / Notes -->
             <div class="mb-3">
-                <label for="reportText" class="form-label">Report / Notes</label>
-                <textarea class="form-control" id="reportText" rows="5" placeholder="Enter details here"></textarea>
+                <label for="reportText" class="form-label fs-5">Report / Notes</label>
+                <textarea class="form-control fs-5" id="reportText" rows="5" placeholder="Enter details here"></textarea>
             </div>
 
             <a style="width: 100px; border-radius:3px;" href="./activities" id="continueBtn" class="btn btn-info text-decoration-none">Copy</a>
@@ -74,27 +41,44 @@
     <div id="previousReportsContainer" class="mb-3"></div>
 
     <!-- Highlight -->
-    <div class="card p-3">
-        <div class="row">
-            <div class="col-sm-4 fs-5 fw-bold">Highlight:</div>
-            <hr>
-            <div class="col-sm-8 fs-6" id="highlight">Loading...</div>
-        </div>
-    </div>
+    <?php require_once 'highlight-extention.php'; ?>
 </div>
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const clientId = urlParams.get('clientId'); // client ID from URL
-    const taskId = urlParams.get('col_taskId'); // task/med unique ID from URL
+    const clientId = urlParams.get('clientId');
+    const taskId = urlParams.get('col_taskId');
     const id = urlParams.get('id');
     const carerId = urlParams.get('carerId');
     const careCallFromURL = urlParams.get('care_calls') || 'Morning';
     const urlDate = urlParams.get('task_date') || urlParams.get('med_date') || new Date().toISOString().split('T')[0];
 
+    // Get activity type from URL ('task' or 'medication')
+    const activityType = urlParams.get('type') || 'task';
+    const activityTitle = decodeURIComponent(urlParams.get('title') || '--');
+    const activityDetails = decodeURIComponent(urlParams.get('details') || '--');
+
     let statusSelected = '';
 
-    // Open IndexedDB
+    // Status options based on type
+    const allStatusOptions = {
+        task: {
+            'Completed': 'success',
+            'Not Completed': 'danger',
+            'Refused': 'warning',
+            'Not Available': 'secondary',
+            'Not Necessary': 'info'
+        },
+        medication: {
+            'Refused': 'warning',
+            'Not Available': 'secondary',
+            'Not Necessary': 'info',
+            'Prompt': 'success',
+            'Given': 'primary',
+            'Not Given': 'dark'
+        }
+    };
+
     async function openDB() {
         return new Promise((resolve, reject) => {
             const request = indexedDB.open('stafflinks');
@@ -112,7 +96,6 @@
         });
     }
 
-    // Get client details
     async function getClientDetails(clientId) {
         if (!clientId) return null;
         const db = await openDB();
@@ -164,7 +147,6 @@
         return div;
     }
 
-    // Render client profile and highlights
     async function renderClientProfileAndHighlight() {
         if (!clientId) return;
         const client = await getClientDetails(clientId);
@@ -172,7 +154,6 @@
 
         const firstName = client.client_first_name || '';
         const lastName = client.client_last_name || '';
-
         const initialsDiv = document.getElementById('clientInitials');
         const clientInitialsCircle = createInitialsCircle(`${firstName} ${lastName}`, 2, 100);
         initialsDiv.replaceWith(clientInitialsCircle);
@@ -192,91 +173,47 @@
         }
     }
 
-    // Get selected activity
-    async function getSelectedActivity(taskId, clientId) {
-        if (!taskId || !clientId) return null;
-        const db = await openDB();
-        const stores = ['tbl_clients_task_records', 'tbl_clients_medication_records'];
-        for (let storeName of stores) {
-            if (!db.objectStoreNames.contains(storeName)) continue;
-            const tx = db.transaction(storeName, 'readonly');
-            const store = tx.objectStore(storeName);
-            const req = store.getAll();
-            const result = await new Promise((resolve, reject) => {
-                req.onsuccess = e => resolve(e.target.result);
-                req.onerror = e => reject(e.target.error);
+    function renderStatusButtons(type, selected = '') {
+        const container = document.getElementById('statusContainer');
+        container.innerHTML = '';
+        const statuses = allStatusOptions[type] || {};
+        for (let status in statuses) {
+            const color = statuses[status];
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = `btn btn-outline-${color} flex-fill status-btn`;
+            btn.textContent = status;
+            if (status === selected) btn.classList.add('active', `btn-${color}`);
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.status-btn').forEach(b => {
+                    const col = b.className.match(/btn-outline-(\w+)/)[1];
+                    b.className = `btn btn-outline-${col} flex-fill status-btn`;
+                });
+                btn.classList.add('active', `btn-${color}`);
+                statusSelected = status;
             });
-            const record = result.find(r => (r.col_taskId === taskId || r.uniqueId === taskId) && r.uryyToeSS4 === clientId);
-            if (record) return {
-                ...record,
-                type: storeName.includes('task') ? 'task' : 'medication'
-            };
+            container.appendChild(btn);
         }
-        return null;
     }
 
-    // Status toggle
-    const statusButtons = document.querySelectorAll('.status-btn');
-    statusButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            statusButtons.forEach(b => {
-                b.classList.remove('active', 'btn-success', 'btn-danger', 'btn-warning', 'btn-secondary', 'btn-info', 'btn-primary', 'btn-dark');
-                const color = b.className.match(/btn-outline-(\w+)/)[1];
-                b.classList.add('btn-outline-' + color);
-            });
-            btn.classList.add('active');
-            const text = btn.textContent.trim();
-            switch (text) {
-                case 'Completed':
-                    btn.classList.add('btn-success');
-                    break;
-                case 'Not Completed':
-                    btn.classList.add('btn-danger');
-                    break;
-                case 'Refused':
-                    btn.classList.add('btn-warning');
-                    break;
-                case 'Not Available':
-                    btn.classList.add('btn-secondary');
-                    break;
-                case 'Not Necessary':
-                    btn.classList.add('btn-info');
-                    break;
-                case 'Given':
-                    btn.classList.add('btn-primary');
-                    break;
-                case 'Not Given':
-                    btn.classList.add('btn-dark');
-                    break;
-            }
-            statusSelected = text;
-        });
-    });
-
-    // Render activity and pre-fill by date
     async function renderSelectedActivity() {
         const activityEl = document.getElementById('selectedActivity');
         const descriptionEl = document.getElementById('activityDescription');
-        const activity = await getSelectedActivity(taskId, clientId);
-        if (!activity) {
-            activityEl.textContent = '--';
-            descriptionEl.textContent = '--';
-            document.getElementById('reportText').value = '';
-            statusSelected = '';
-            statusButtons.forEach(btn => btn.classList.remove('active', 'btn-success', 'btn-danger', 'btn-warning', 'btn-secondary', 'btn-info', 'btn-primary', 'btn-dark'));
+
+        // Use URL params for name & description
+        activityEl.innerHTML = activityTitle + (activityType === 'task' ?
+            ' <span class="badge bg-info ms-2">Task</span>' :
+            ' <span class="badge bg-warning ms-2">Medication</span>');
+        descriptionEl.textContent = activityDetails;
+
+        // Check for previous submission from IndexedDB
+        const db = await openDB();
+        const storeName = activityType === 'task' ? 'tbl_finished_tasks' : 'tbl_finished_meds';
+        if (!db.objectStoreNames.contains(storeName)) {
+            renderStatusButtons(activityType);
             return;
         }
 
-        if (activity.type === 'task') {
-            activityEl.innerHTML = `${activity.client_taskName || '--'} <span class="badge bg-info ms-2">Task</span>`;
-            descriptionEl.textContent = activity.client_task_details || 'No details available.';
-        } else {
-            activityEl.innerHTML = `${activity.med_name || '--'} (${activity.med_dosage || '--'}) <span class="badge bg-warning ms-2">Medication</span>`;
-            descriptionEl.textContent = activity.med_details || 'No details available.';
-        }
-
-        const db = await openDB();
-        const storeName = activity.type === 'task' ? 'tbl_finished_tasks' : 'tbl_finished_meds';
         const tx = db.transaction(storeName, 'readonly');
         const store = tx.objectStore(storeName);
         const allRecords = await new Promise((resolve, reject) => {
@@ -288,62 +225,28 @@
         const prevSubmission = allRecords.find(r =>
             r.uniqueId === taskId &&
             r.uryyToeSS4 === clientId &&
-            ((activity.type === 'task' && r.task_date === urlDate) ||
-                (activity.type === 'medication' && r.med_date === urlDate))
+            ((activityType === 'task' && r.task_date === urlDate) ||
+                (activityType === 'medication' && r.med_date === urlDate))
         );
 
         if (prevSubmission) {
             document.getElementById('reportText').value = prevSubmission.note || '';
             statusSelected = prevSubmission.col_status || '';
-            statusButtons.forEach(btn => {
-                btn.classList.remove('active', 'btn-success', 'btn-danger', 'btn-warning', 'btn-secondary', 'btn-info', 'btn-primary', 'btn-dark');
-                const color = btn.className.match(/btn-outline-(\w+)/)[1];
-                btn.classList.add('btn-outline-' + color);
-                if (btn.textContent.trim() === statusSelected) {
-                    btn.classList.add('active');
-                    switch (statusSelected) {
-                        case 'Completed':
-                            btn.classList.add('btn-success');
-                            break;
-                        case 'Not Completed':
-                            btn.classList.add('btn-danger');
-                            break;
-                        case 'Refused':
-                            btn.classList.add('btn-warning');
-                            break;
-
-                        case 'Not Available':
-                            btn.classList.add('btn-secondary');
-                            break;
-                        case 'Not Necessary':
-                            btn.classList.add('btn-info');
-                            break;
-                        case 'Given':
-                            btn.classList.add('btn-primary');
-                            break;
-                        case 'Not Given':
-                            btn.classList.add('btn-dark');
-                            break;
-                    }
-                }
-            });
         } else {
             document.getElementById('reportText').value = '';
             statusSelected = '';
-            statusButtons.forEach(btn => btn.classList.remove('active', 'btn-success', 'btn-danger', 'btn-warning', 'btn-secondary', 'btn-info', 'btn-primary', 'btn-dark'));
         }
+
+        renderStatusButtons(activityType, statusSelected);
     }
 
-    // Handle form submission
     document.getElementById('activityReportForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const notes = document.getElementById('reportText').value;
-        const activity = await getSelectedActivity(taskId, clientId);
-        if (!activity) return;
 
         const db = await openDB();
         const now = new Date();
-        const storeName = activity.type === 'task' ? 'tbl_finished_tasks' : 'tbl_finished_meds';
+        const storeName = activityType === 'task' ? 'tbl_finished_tasks' : 'tbl_finished_meds';
         const tx = db.transaction(storeName, 'readwrite');
         const store = tx.objectStore(storeName);
         const allRecords = await new Promise((resolve, reject) => {
@@ -352,23 +255,20 @@
             req.onerror = e => reject(e.target.error);
         });
 
-        // Check existing record by uniqueId + clientId + date
         let record = allRecords.find(r =>
             r.uniqueId === taskId &&
             r.uryyToeSS4 === clientId &&
-            ((activity.type === 'task' && r.task_date === urlDate) ||
-                (activity.type === 'medication' && r.med_date === urlDate))
+            ((activityType === 'task' && r.task_date === urlDate) ||
+                (activityType === 'medication' && r.med_date === urlDate))
         );
 
         if (record) {
-            // Update existing record
             record.note = notes;
             record.col_status = statusSelected || 'Not selected';
             record.dateTime = now.toISOString();
             record.timeIn = now.toLocaleTimeString();
             store.put(record);
         } else {
-            // Add new record
             const lastId = allRecords.length ? Math.max(...allRecords.map(r => Number(r.id))) : 0;
             record = {
                 id: lastId + 1,
@@ -383,21 +283,19 @@
                 timeIn: now.toLocaleTimeString(),
                 note: notes
             };
-            if (activity.type === 'task') {
-                record.task = activity.client_taskName || '--';
+            if (activityType === 'task') {
+                record.task = activityTitle || '--';
                 record.task_date = urlDate;
             } else {
-                record.meds = activity.med_name || '--';
+                record.meds = activityTitle || '--';
                 record.med_date = urlDate;
             }
             store.add(record);
         }
 
-        // Redirect back to activities page
         window.location.href = `activities.php?uryyToeSS4=${clientId}&Clientshift_Date=${urlDate}&care_calls=${careCallFromURL}&id=${id}&carerId=${carerId}`;
     });
 
-    // Handle 'Copy' button
     document.getElementById('continueBtn').addEventListener('click', (e) => {
         e.preventDefault();
         const text = document.getElementById('reportText').value;
@@ -406,7 +304,6 @@
         });
     });
 
-    // Initialize
     renderClientProfileAndHighlight();
     renderSelectedActivity();
 </script>

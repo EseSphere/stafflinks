@@ -3,15 +3,15 @@
 <div class="main-wrapper container mt-3">
 
     <!-- Advanced Pay Rate Calculator -->
-    <div class="card p-3 timesheet-card">
+    <div class="card p-3 timesheet-card fs-5">
         <div class="timesheet-header mb-3">
-            <h5>Advanced Pay Calculator</h5>
+            <h4>Advanced Pay Calculator</h4>
             <hr>
         </div>
         <div class="table-responsive">
             <div class="calculator">
                 <h4>Calculate staff pay</h4>
-                <p>Use this calculator to estimate pay per shift, weekly or monthly. You can also include overtime, tax deductions, and multiple staff members.</p>
+                <p class="fs-5">Use this calculator to estimate pay per shift, weekly or monthly. You can also include overtime, tax deductions, and multiple staff members.</p>
 
                 <!-- Hourly rate and minutes -->
                 <input class="form-control mb-3 mt-2" type="number" id="rate" placeholder="Enter hourly pay (£)" value="20">
@@ -26,29 +26,29 @@
                 </div>
 
                 <!-- Overtime and shifts -->
-                <div class="form-group mb-3">
+                <div class="form-group mb-3 fs-5">
                     <label for="overtime">Overtime minutes (optional)</label>
-                    <input class="form-control" type="number" id="overtime" placeholder="Enter overtime minutes">
+                    <input class="form-control fs-5" type="number" id="overtime" placeholder="Enter overtime minutes">
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-3 fs-5">
                     <label for="days">Number of shifts</label>
-                    <input class="form-control" type="number" id="days" placeholder="Enter number of shifts" value="1">
+                    <input class="form-control fs-5" type="number" id="days" placeholder="Enter number of shifts" value="1">
                 </div>
 
                 <!-- Tax deduction -->
-                <div class="form-group mb-3">
+                <div class="form-group mb-3 fs-5">
                     <label for="tax">Tax/Deductions (%) (optional)</label>
-                    <input class="form-control" type="number" id="tax" placeholder="Enter tax percentage" value="0">
+                    <input class="form-control fs-5" type="number" id="tax" placeholder="Enter tax percentage" value="0">
                 </div>
 
                 <!-- Multiple staff -->
-                <div class="form-group mb-3">
+                <div class="form-group mb-3 fs-5">
                     <label for="staff">Number of staff members</label>
-                    <input class="form-control" type="number" id="staff" placeholder="Enter number of staff" value="1">
+                    <input class="form-control fs-5" type="number" id="staff" placeholder="Enter number of staff" value="1">
                 </div>
 
-                <div class="result" id="result">Total Pay is £0.00</div>
+                <div class="result fs-5" id="result">Total Pay is £0.00</div>
             </div>
         </div>
     </div>

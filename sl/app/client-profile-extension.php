@@ -1,5 +1,5 @@
  <div class="col-md-12 mb-3">
-     <div class="card p-2 d-flex flex-row align-items-center">
+     <div class="card p-2 d-flex flex-row align-items-center fs-5">
          <div style="flex:0 0 100px; text-align:center;">
              <div id="clientInitials" style="width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:bold;margin:auto;color:white;">
                  --

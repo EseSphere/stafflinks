@@ -1,13 +1,13 @@
 <?php include_once 'header.php'; ?>
 
-<div class="main-wrapper container mt-3">
+<div class="main-wrapper container mt-3 fs-5">
 
     <!-- Search & Filter Bar -->
     <div class="row search-filter-row">
-        <div class="col-md-6">
-            <input type="text" id="clientSearch" class="form-control" placeholder="Search by name or group...">
+        <div class="col-md-6 fs-5">
+            <input type="text" id="clientSearch" class="form-control fs-5" placeholder="Search by name or group...">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 fs-5">
             <select id="statusFilter" class="form-select">
                 <option value="">All Status</option>
                 <option value="Scheduled">Scheduled</option>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Client List -->
-    <div class="row" id="clientList"></div>
+    <div class="row fs-5" id="clientList"></div>
 </div>
 
 <script>
@@ -111,7 +111,7 @@
             card.dataset.status = c.col_call_status;
 
             card.innerHTML = `
-            <div class="card p-3 client-card card-hover d-flex flex-column" 
+            <div class="card p-3 client-card card-hover d-flex flex-column fs-5" 
                  onclick="window.location='visits.php?uryyToeSS4=${c.uryyToeSS4}'"
                  style="transition:0.3s;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);cursor:pointer;">
                 <div class="d-flex align-items-center mb-2">
@@ -119,13 +119,13 @@
                         ${initials}
                     </div>
                     <div style="flex:1;">
-                        <h6 class="mb-0" style="font-weight:600;">${c.client_name}</h6>
+                        <h6 class="mb-0 fs-5" style="font-weight:600;">${c.client_name}</h6>
                         <small class="text-muted">${c.client_group}</small>
                         <div><span class="badge bg-${statusColor} mt-1">${c.col_call_status}</span></div>
                     </div>
                     <i class="bi bi-arrow-right-circle fs-4 text-info"></i>
                 </div>
-                <div class="d-flex justify-content-between mt-2">
+                <div class="d-flex justify-content-between mt-2" fs-5>
                     <span class="text-muted" style="font-size:.8rem;">Last updated: ${formatDate(c.dateTime)}</span>
                 </div>
             </div>

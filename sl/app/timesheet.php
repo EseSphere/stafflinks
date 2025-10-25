@@ -2,7 +2,7 @@
 
 <div class="main-wrapper container mt-4">
     <!-- Page Introduction -->
-    <div class="mb-4">
+    <div class="mb-4 fs-5">
         <h3 class="mb-1">Your Timesheet</h3>
         <p class="text-muted">
             Here you can view all your scheduled shifts for the selected date.
@@ -80,8 +80,8 @@
         // Get user_special_Id
         function getUserSpecialId(db) {
             return new Promise((resolve, reject) => {
-                const tx = db.transaction('tbl_goesoft_carers_account', 'readonly');
-                const store = tx.objectStore('tbl_goesoft_carers_account');
+                const tx = db.transaction('tbl_team_account', 'readonly');
+                const store = tx.objectStore('tbl_team_account');
                 const getRequest = store.getAll();
 
                 getRequest.onsuccess = () => {

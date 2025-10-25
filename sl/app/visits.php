@@ -7,10 +7,10 @@
     <!-- Search & Filter Bar -->
     <div class="row search-filter-row">
         <div class="col-md-6">
-            <input type="text" id="clientSearch" class="form-control" placeholder="Search by carer">
+            <input type="text" id="clientSearch" class="form-control fs-5" placeholder="Search by carer">
         </div>
         <div class="col-md-3">
-            <select id="statusFilter" class="form-select">
+            <select id="statusFilter" class="form-select fs-5">
                 <option value="">All Status</option>
                 <option value="Scheduled">Scheduled</option>
                 <option value="In-progress">In-progress</option>
@@ -21,7 +21,7 @@
 
     <!-- Visits List -->
     <h5>Visit History</h5>
-    <div class="row g-3" id="visitsContainer"></div>
+    <div class="row g-3 fs-5" id="visitsContainer"></div>
 
     <hr>
     <!-- Client Highlights -->
@@ -104,7 +104,7 @@
         `).join('');
 
             container.innerHTML += `
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 fs-5">
                 <div class="card p-3 visit-card card-hover h-100">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="badge bg-${careCallColors[v.col_care_call] || 'info'}">${v.col_care_call}</span>
@@ -117,18 +117,18 @@
                     </div>
                     <div class="mb-2">
                         <strong>Carers:</strong>
-                        <div class="d-flex flex-wrap align-items-center mt-1">
+                        <div class="d-flex flex-wrap align-items-center mt-1 fs-5">
                             ${carerAvatars}
                         </div>
                     </div>
                     <div class="mb-2">
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center fs-5">
                             <strong>Note</strong>
                             <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#noteCollapse${index}" aria-expanded="false" aria-controls="noteCollapse${index}">
                                 <i class="bi bi-chevron-down rotate-icon collapsed"></i>
                             </button>
                         </div>
-                        <div class="collapse mt-2" id="noteCollapse${index}">
+                        <div class="collapse mt-2 fs-5" id="noteCollapse${index}">
                             <div class="border rounded p-2">${v.note || ''}</div>
                         </div>
                     </div>
