@@ -46,7 +46,7 @@ if (isset($_POST["query"])) {
             AND s.col_end_date = 'TFN'
             AND s.col_company_Id = c.col_company_Id
       )
-    ORDER BY c.userId ASC
+    ORDER BY c.id ASC
 ";
 
     $stmt = $conn->prepare($sql);
@@ -85,7 +85,7 @@ if ($result->num_rows > 0) {
                         <td>' . htmlspecialchars($trans["dateTime_out"]) . '</td>
                         <td>
                             <form method="post" action="./processing-attach-client-run" enctype="multipart/form-data" autocomplete="off">
-                                <input type="hidden" name="txtReturnDefault" value="' . htmlspecialchars($trans["userId"]) . '" />
+                                <input type="hidden" name="txtReturnDefault" value="' . htmlspecialchars($trans["id"]) . '" />
                                 <input type="hidden" name="txtrunName" value="' . htmlspecialchars($_SESSION['run_name']) . '" />
                                 <input type="hidden" name="txtAllClientIds" value="' . htmlspecialchars($trans["uryyToeSS4"]) . '" />
                                 <input type="hidden" name="txtAllClientCalls" value="' . htmlspecialchars($trans["care_calls"]) . '" />

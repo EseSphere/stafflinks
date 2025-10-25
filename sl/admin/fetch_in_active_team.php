@@ -17,7 +17,7 @@ if (isset($_POST["query"])) {
 
 if ($allDataView) {
     if ($search) {
-        $stmt = $conn->prepare("SELECT t1.userId, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
+        $stmt = $conn->prepare("SELECT t1.id, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
         FROM tbl_general_team_form t1
         LEFT JOIN tbl_team_status t2 
             ON t1.uryyTteamoeSS4 = t2.uryyTteamoeSS4 
@@ -26,7 +26,7 @@ if ($allDataView) {
         WHERE (t1.team_first_name LIKE ? OR t1.team_last_name LIKE ?)");
         $stmt->bind_param('sss', $today, $search, $search);
     } else {
-        $stmt = $conn->prepare("SELECT t1.userId, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
+        $stmt = $conn->prepare("SELECT t1.id, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
         FROM tbl_general_team_form t1
         LEFT JOIN tbl_team_status t2 
             ON t1.uryyTteamoeSS4 = t2.uryyTteamoeSS4 
@@ -37,7 +37,7 @@ if ($allDataView) {
     }
 } else {
     if ($search) {
-        $stmt = $conn->prepare("SELECT t1.userId, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
+        $stmt = $conn->prepare("SELECT t1.id, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
         FROM tbl_general_team_form t1
         LEFT JOIN tbl_team_status t2 
             ON t1.uryyTteamoeSS4 = t2.uryyTteamoeSS4 
@@ -46,7 +46,7 @@ if ($allDataView) {
         WHERE t1.col_company_city = ? AND (t1.team_first_name LIKE ? OR t1.team_last_name LIKE ?)");
         $stmt->bind_param('ssss', $today, $companyCity, $search, $search);
     } else {
-        $stmt = $conn->prepare("SELECT t1.userId, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
+        $stmt = $conn->prepare("SELECT t1.id, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id, t2.col_team_condition, t2.col_color_code, t2.col_startDate, t2.col_endDate
         FROM tbl_general_team_form t1
         LEFT JOIN tbl_team_status t2 
             ON t1.uryyTteamoeSS4 = t2.uryyTteamoeSS4 
@@ -109,7 +109,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>' . $teamDOB . '</td>
             <td>' . htmlspecialchars($row["team_nationality"]) . '</td>
-            <td>0' . htmlspecialchars($row["team_primary_phone"]) . '</td>
+            <td>' . htmlspecialchars($row["team_primary_phone"]) . '</td>
             <td>' . htmlspecialchars($row["team_sexuality"]) . '</td>
             <td>' . htmlspecialchars($row["team_city"]) . '</td>
             <td>

@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Title<span style="color: red;">*</span></label>
+                                                <label for="exampleFormControlSelect1">Title<sup style="color: red;">*</sup></label>
                                                 <select style="height: 50px;" name="txtTitle" required class="form-control" id="exampleFormControlSelect1">
                                                     <option value="" selected="selected" disabled="disabled">--Select Option--</option>
                                                     <option value="Mr.">Mr.</option>
@@ -54,11 +54,11 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-6 col-6">
-                                                        <label for="exampleInputPassword1">First name<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputPassword1">First name<sup style="color: red;">*</sup></label>
                                                         <input name="txtFirstName" required type="text" class="form-control" id="exampleInputPassword1" placeholder="First name">
                                                     </div>
                                                     <div class="col-md-6 col-6">
-                                                        <label for="exampleInputPassword1">Last name<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputPassword1">Last name<sup style="color: red;">*</sup></label>
                                                         <input name="txtLastName" required type="text" class="form-control" id="exampleInputPassword1" placeholder="Last name">
                                                     </div>
                                                 </div>
@@ -76,13 +76,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Email Address<span style="color: red;">*</span></label>
+                                                <label for="exampleInputPassword1">Email Address<sup style="color: red;">*</sup></label>
                                                 <input name="txtEmailAddress" required type="email" class="form-control" id="exampleInputPassword1" placeholder="Email address">
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-7 col-7">
-                                                        <label for="exampleFormControlSelect1">Prefers to be referred to as<span style="color: red;">*</span></label>
+                                                        <label for="exampleFormControlSelect1">Prefers to be referred to as<sup style="color: red;">*</sup></label>
                                                         <select style="height: 50px;" name="txtGenderBased" required class="form-control" id="exampleFormControlSelect1">
                                                             <option value="" selected="selected" disabled="disabled">--Select Option--</option>
                                                             <option value="He/Him">He/Him</option>
@@ -91,13 +91,13 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-5 col-5">
-                                                        <label for="exampleforbirthday">Date of birth<span style="color: red;">*</span></label>
+                                                        <label for="exampleforbirthday">Date of birth<sup style="color: red;">*</sup></label>
                                                         <input name="txtDateofBirth" min="1925-01-01" max="2030-12-31" required type="date" class="form-control" id="exampleInputPassword1" placeholder="Date of birth">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputCoounty1">Nationality<span style="color: red;">*</span></label>
+                                                <label for="exampleInputCoounty1">Nationality<sup style="color: red;">*</sup></label>
                                                 <select style="height: 50px;" name="txtNationality" required id="exampleFormControlSelect1" class="form-control">
                                                     <option value="" selected="selected" disabled="disabled">--Select Option--</option>
                                                     <option value="Afghanistan">Afghanistan</option>
@@ -351,7 +351,7 @@
                                             <h4>Contact details</h4>
                                             <br>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Phone number<span style="color: red;">*</span></label>
+                                                <label for="exampleInputPassword1">Phone number<sup style="color: red;">*</sup></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="validationTooltipUsernamePrepend">
@@ -398,7 +398,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6 col-6">
-                                                        <label for="exampleInputPassword1">Gender<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputPassword1">Gender<sup style="color: red;">*</sup></label>
                                                         <select style="height: 50px;" name="txtSexuality" required class="form-control" id="exampleFormControlSelect1">
                                                             <option value="" selected="selected" disabled="disabled">--Select Option--</option>
                                                             <option value="Male">Male</option>
@@ -414,30 +414,30 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-5 col-6">
-                                                        <label for="exampleInputCity">DBS<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputCity">DBS<sup style="color: red;">*</sup></label>
                                                         <input name="txtDBS" required type="text" class="form-control" id="exampleInputCity" placeholder="DBS">
                                                     </div>
                                                     <div class="col-md-7 col-6">
-                                                        <label for="exampleInputCoounty1">NI<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputCoounty1">NI<sup style="color: red;">*</sup></label>
                                                         <input name="txtNIN" required type="text" class="form-control" id="exampleInputCounty" placeholder="NI">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Address line 1(Door no)<span style="color: red;">*</span></label>
+                                                <label for="exampleInputPassword1">Address line 1(Door no)<sup style="color: red;">*</sup></label>
                                                 <input name="txtAddressLine1" required type="text" class="form-control" id="exampleInputAddressLine1" placeholder="Address line 1">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Address line 2(Street name)<span style="color: red;">*</span></label>
+                                                <label for="exampleInputPassword1">Address line 2(Street name)<sup style="color: red;">*</sup></label>
                                                 <input name="txtAddressLine2" required type="text" class="form-control" id="exampleInputAddressLine2" placeholder="Address line 2">
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-5 col-6">
-                                                        <label for="exampleInputCity">City<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputCity">City<sup style="color: red;">*</sup></label>
                                                         <select style="height: 50px;" name="txtCity" required type="text" class="form-control" id="exampleFormControlSelect1" placeholder="City">
                                                             <optgroup label="England">England
                                                                 <option value="Bath">Bath</option>
@@ -532,7 +532,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-7 col-6">
-                                                        <label for="exampleInputCoounty1">County<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputCoounty1">County<sup style="color: red;">*</sup></label>
                                                         <select style="height: 50px;" name="txtCounty" required type="text" class="form-control" id="exampleFormControlSelect1" placeholder="County">
                                                             <optgroup label="England">
                                                                 <option value="Bedfordshire">Bedfordshire</option>
@@ -653,11 +653,11 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-4 col-6">
-                                                        <label for="exampleInputCity">Postal Code<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputCity">Postal Code<sup style="color: red;">*</sup></label>
                                                         <input name="txtPosterCode" required type="text" class="form-control" id="exampleInputCity" placeholder="Postal Code" title="Enter a valid UK postal code (e.g. SW1A 1AA)" style="text-transform: uppercase;">
                                                     </div>
                                                     <div class="col-md-8 col-6">
-                                                        <label for="exampleInputCoounty1">Country<span style="color: red;">*</span></label>
+                                                        <label for="exampleInputCoounty1">Country<sup style="color: red;">*</sup></label>
                                                         <select style="height: 50px;" name="txtCountry" required id="exampleFormControlSelect1" class="form-control">
                                                             <option style="background-color:rgba(52, 152, 219,1.0); color:white;" value="United Kingdom" selected="selected">--United Kingdom--</option>
                                                             <option value="Afghanistan">Afghanistan</option>
@@ -905,24 +905,28 @@
                                                             <option value="Zimbabwe">Zimbabwe</option>
                                                         </select>
                                                     </div>
-
                                                     <br>
-
                                                     <div style="margin-top: 22px;" class="form-group">
                                                         <div class="row">
                                                             <h4>Transport</h4>
-                                                            <div class="col-md-7 col-6">
-                                                                <label for="exampleFormControlSelect1">Carer transportation means? <span style="color: red;">*</span></label>
+                                                            <div class="col-md-4 col-6">
+                                                                <label for="exampleFormControlSelect1">Transportation<sup style="color: red;">*</sup></label>
                                                                 <select style="height: 50px;" name="txtTransportMeans" required class="form-control" id="exampleFormControlSelect1">
                                                                     <option value="Null" selected="selected" disabled="disabled">--Select Option--</option>
-                                                                    <option value="Car">Car</option>
-                                                                    <option value="Motorcycles">Motorcycles</option>
-                                                                    <option value="Bycycle">Bycycle</option>
-                                                                    <option value="Other">Other</option>
+                                                                    <option value="car">Car</option>
+                                                                    <option value="bus">Bus</option>
+                                                                    <option value="train">Train</option>
+                                                                    <option value="bicycle">Bicycle</option>
+                                                                    <option value="motorcycle">Motorcycle</option>
+                                                                    <option value="airplane">Airplane</option>
+                                                                    <option value="boat">Boat</option>
+                                                                    <option value="subway">Subway</option>
+                                                                    <option value="tram">Tram</option>
+                                                                    <option value="walking">Walking</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-md-5 col-6">
-                                                                <label for="Employment type">Employment type? <span style="color: red;">*</span></label>
+                                                            <div class="col-md-4 col-6">
+                                                                <label for="Employment type">Employment type<sup style="color: red;">*</sup></label>
                                                                 <select style="height: 50px;" style="height: 50px; font-size:19px;" type="text" placeholder="Employment type" required name="txtEmploymentType" class="form-control">
                                                                     <option value="Null">--Select Option--</option>
                                                                     <option value='N/A'>N/A</option>
@@ -936,14 +940,31 @@
                                                                     <option value='Other'>Other</option>
                                                                 </select>
                                                             </div>
+                                                            <div class="col-md-4 col-6">
+                                                                <label for="Employment type">Job Role<sup style="color: red;">*</sup></label>
+                                                                <select style="height: 50px;" style="height: 50px; font-size:19px;" type="text" required name="txtJobRole" class="form-control">
+                                                                    <option value="Null">--Select Option--</option>
+                                                                    <?php
+                                                                    $sql = "SELECT * FROM tbl_pay_rate WHERE col_company_Id='" . $_SESSION['usr_compId'] . "'";
+                                                                    $result = $conn->query($sql);
+                                                                    if ($result->num_rows > 0) {
+                                                                        while ($row = $result->fetch_assoc()) { ?>
+                                                                            <option value="<?php echo $row["col_special_Id"]; ?>"><?php echo $row["col_name"]; ?></option>
+                                                                    <?php
+                                                                        }
+                                                                    } else {
+                                                                        echo "<option value='N/A'>No records found.</option>";
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <hr>
-
                                                     <div style=" margin-top: 12px;" class="col-md-12 col-12">
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <label for="Select Care location">Carer service location<span style="color: red;">*</span></label>
+                                                                <label for="Select Care location">Carer service location<sup style="color: red;">*</sup></label>
                                                                 <select style="height: 50px;" name="txtCompanyCity" required type="text" class="form-control" id="exampleFormControlSelect1" placeholder="Select Care location">
                                                                     <optgroup label="England">England
                                                                         <option value="Bath">Bath</option>
@@ -1038,7 +1059,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="exampleforstartdate">Start date<span style="color: red;">*</span></label>
+                                                                <label for="exampleforstartdate">Start date<sup style="color: red;">*</sup></label>
                                                                 <input name="txtStartDate" min="1925-01-01" max="2031-12-31" required type="date" class="form-control" id="exampleInputPassword1" placeholder="Start Date">
                                                             </div>
                                                         </div>
@@ -1046,9 +1067,8 @@
                                                 </div>
                                             </div>
                                             <hr>
-                                            <input type="hidden" name="txtCompanyId" value="<?php echo "" . $_SESSION['usr_compId']; ?>">
                                             <div class="form-group">
-                                                <button type="submit" id="exampleFormControlSelect1" name="btnSubmitAddNewTeam" class="btn btn-primary">Add new team</button>
+                                                <button type="submit" name="btnSubmitAddNewTeam" class="btn btn-info btn-lg">Add Team</button>
                                             </div>
                                         </div>
                                     </div>

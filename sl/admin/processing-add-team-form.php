@@ -1,132 +1,139 @@
 <?php
 include('dbconnections.php');
-// Enable full error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST['btnSubmitAddNewTeam'])) {
 
-    if (!$conn) {
-        die("❌ Database connection failed: " . mysqli_connect_error());
-    }
-
-    // Safe input helper
-    function safe_input($conn, $key)
+    function safe_input($field_name)
     {
-        return isset($_REQUEST[$key]) ? mysqli_real_escape_string($conn, $_REQUEST[$key]) : '';
+        return trim($_POST[$field_name] ?? '');
     }
 
-    // Collect form inputs safely
-    $txtTitle = safe_input($conn, 'txtTitle');
-    $txtFirstName = safe_input($conn, 'txtFirstName');
-    $txtLastName = safe_input($conn, 'txtLastName');
-    $txtMiddleName = safe_input($conn, 'txtMiddleName');
-    $txtPreferredName = safe_input($conn, 'txtPreferredName');
-    $txtEmailAddress = safe_input($conn, 'txtEmailAddress');
-    $txtGenderBased = safe_input($conn, 'txtGenderBased');
-    $txtDateofBirth = safe_input($conn, 'txtDateofBirth');
-    $txtNationality = safe_input($conn, 'txtNationality');
-    $txtPrimaryPhoneNumber = safe_input($conn, 'txtPrimaryPhoneNumber');
-    $txtCultureReligion = safe_input($conn, 'txtCultureReligion');
-    $txtSexuality = safe_input($conn, 'txtSexuality');
-    $txtDBS = safe_input($conn, 'txtDBS');
-    $txtNIN = safe_input($conn, 'txtNIN');
-    $txtAddressLine1 = safe_input($conn, 'txtAddressLine1');
-    $txtAddressLine2 = safe_input($conn, 'txtAddressLine2');
-    $txtCity = safe_input($conn, 'txtCity');
-    $txtCounty = safe_input($conn, 'txtCounty');
-    $txtPosterCode = safe_input($conn, 'txtPosterCode');
-    $txtCountry = safe_input($conn, 'txtCountry');
-    $txtTransportMeans = safe_input($conn, 'txtTransportMeans');
-    $txtEmploymentType = safe_input($conn, 'txtEmploymentType');
-    $txtCompanyCity = safe_input($conn, 'txtCompanyCity');
-    $txtStartDate = safe_input($conn, 'txtStartDate');
-    $txtCompanyId = safe_input($conn, 'txtCompanyId');
-    $mysocialId = safe_input($conn, 'mysocialId');
-    $mysocialIdEncrypt = safe_input($conn, 'mysocialIdEncrypt');
-
-    $txtTeamPayRate = "0.00";
+    $txtTitle = safe_input('txtTitle');
+    $txtFirstName = safe_input('txtFirstName');
+    $txtLastName = safe_input('txtLastName');
+    $txtMiddleName = safe_input('txtMiddleName');
+    $txtPreferredName = safe_input('txtPreferredName');
+    $txtEmailAddress = safe_input('txtEmailAddress');
+    $txtGenderBased = safe_input('txtGenderBased');
+    $txtDateofBirth = safe_input('txtDateofBirth');
+    $txtNationality = safe_input('txtNationality');
+    $txtPrimaryPhoneNumber = safe_input('txtPrimaryPhoneNumber');
+    $txtCultureReligion = safe_input('txtCultureReligion');
+    $txtSexuality = safe_input('txtSexuality');
+    $txtDBS = safe_input('txtDBS');
+    $txtNIN = safe_input('txtNIN');
+    $txtAddressLine1 = safe_input('txtAddressLine1');
+    $txtAddressLine2 = safe_input('txtAddressLine2');
+    $txtCity = safe_input('txtCity');
+    $txtCounty = safe_input('txtCounty');
+    $txtPosterCode = safe_input('txtPosterCode');
+    $txtCountry = safe_input('txtCountry');
+    $txtTransportMeans = safe_input('txtTransportMeans');
+    $txtEmploymentType = safe_input('txtEmploymentType');
+    $txtJobRoleId = safe_input('txtJobRole');
+    $txtCompanyCity = safe_input('txtCompanyCity');
+    $txtStartDate = safe_input('txtStartDate');
+    $mysocialId = safe_input('mysocialId');
+    $mysocialIdEncrypt = safe_input('mysocialIdEncrypt');
     $compId = $_SESSION['usr_compId'] ?? '';
 
-    // Generate a unique hash ID
-    $myIdentity001 = hash('sha256', $mysocialId);
+    $check_email_query = "SELECT team_email_address FROM tbl_general_team_form WHERE team_email_address = ?";
+    $stmt = $conn->prepare($check_email_query);
+    $stmt->bind_param("s", $txtEmailAddress);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    // ✅ Check if email already exists
-    $checkEmailSQL = "SELECT * FROM tbl_general_team_form WHERE team_email_address = '$txtEmailAddress'";
-    $resEmail = mysqli_query($conn, $checkEmailSQL);
-    if (!$resEmail) die("❌ Email check failed: " . mysqli_error($conn));
-
-    if (mysqli_num_rows($resEmail) > 0) {
-        echo "<script>alert('Email already exists!');</script>";
-        exit;
+    if ($result && $result->num_rows > 0) {
+        header("Location: ./team-email-exists");
+    } else {
+        echo "Email is available.";
     }
 
-    // ✅ Check if social ID already exists for this company
-    $checkSocialSQL = "SELECT * FROM tbl_general_team_form WHERE uryyTteamoeSS4 = '$myIdentity001' AND col_company_Id = '$compId'";
-    $resSocial = mysqli_query($conn, $checkSocialSQL);
-    if (!$resSocial) die("❌ Social ID check failed: " . mysqli_error($conn));
+    $stmt->close();
 
-    $identityToUse = $myIdentity001;
-    if (mysqli_num_rows($resSocial) > 0) {
-        $identityToUse = $myIdentity001 . $mysocialIdEncrypt;
+    $sql = "SELECT * FROM tbl_pay_rate WHERE col_special_Id = ? AND col_company_Id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $txtJobRoleId, $compId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $teamPayRate = $row["col_rates"];
+        $teamJobRole = $row["col_name"];
+    }
+    $select_last_row_query = "SELECT * FROM tbl_general_team_form ORDER BY userId DESC LIMIT 1";
+    $select_last_row_result = $conn->query($select_last_row_query);
+
+    if ($select_last_row_result && $select_last_row_result->num_rows > 0) {
+        $output_row = $select_last_row_result->fetch_assoc();
+        $recentTeamId = $output_row["uryyTteamoeSS4"];
+        $teamId = $recentTeamId + 1;
+    } else {
+        $teamId = 20001;
     }
 
-    // ✅ Insert into main team table (privilege, team_info, col_team_resource removed)
-    $sqlInsertTeam = "
+    $sqlInsertTeam = mysqli_query($conn, "
         INSERT INTO tbl_general_team_form (
             team_title, team_first_name, team_last_name, team_middle_name, team_preferred_name,
             team_email_address, team_referred_to, team_date_of_birth, team_nationality, team_primary_phone,
             team_culture_religion, team_sexuality, team_dbs, team_nin, team_address_line_1,
             team_address_line_2, team_city, team_county, team_poster_code, team_country,
-            uryyTteamoeSS4, transportation, employment_type, col_company_city, col_start_date,
-            col_company_Id, col_pay_rate
+            uryyTteamoeSS4, transportation, col_pay_rate, col_rate_type, col_mileage, employment_type, 
+            col_company_city, col_start_date, col_company_Id
         ) VALUES (
             '$txtTitle', '$txtFirstName', '$txtLastName', '$txtMiddleName', '$txtPreferredName',
             '$txtEmailAddress', '$txtGenderBased', '$txtDateofBirth', '$txtNationality', '$txtPrimaryPhoneNumber',
             '$txtCultureReligion', '$txtSexuality', '$txtDBS', '$txtNIN', '$txtAddressLine1',
             '$txtAddressLine2', '$txtCity', '$txtCounty', '$txtPosterCode', '$txtCountry',
-            '$identityToUse', '$txtTransportMeans', '$txtEmploymentType', '$txtCompanyCity', '$txtStartDate',
-            '$txtCompanyId', '$txtTeamPayRate'
+            '$teamId', '$txtTransportMeans', '$teamPayRate', '$teamJobRole', '0.00', '$txtEmploymentType', 
+            '$txtCompanyCity', '$txtStartDate', '$compId'
         )
-    ";
+    ");
 
-    if (!mysqli_query($conn, $sqlInsertTeam)) {
-        header("Location: ./add-new-team");
+    if ($sqlInsertTeam == true) {
+        // Insert into tbl_team_account
+        $user_fullname = trim("$txtFirstName $txtLastName");
+        $user_email_address = $txtEmailAddress;
+        $user_phone_number = $txtPrimaryPhoneNumber;
+        $user_password = 'NULL';
+        $col_cookies_identifier = 'NULL';
+        $user_special_Id = $teamId;
+        $status = 'active';
+        $carer_deviceId = 'NULL';
+        $col_company_Id = $compId;
+
+        $sql = "INSERT INTO tbl_team_account (
+    user_fullname, user_email_address, user_phone_number, user_password, 
+    col_cookies_identifier, user_special_Id, status, carer_deviceId, col_company_Id
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param(
+            "sssssssss",
+            $user_fullname,
+            $user_email_address,
+            $user_phone_number,
+            $user_password,
+            $col_cookies_identifier,
+            $user_special_Id,
+            $status,
+            $carer_deviceId,
+            $col_company_Id
+        );
+
+        if ($stmt->execute()) {
+            header("Location: team-list");
+            exit();
+        } else {
+            die("❌ Error inserting team account: " . $stmt->error);
+        }
+    } else {
+        header("Location: ./team-list");
     }
 
-    // ✅ Insert into employment table (col_team_role removed)
-    $sqlInsertEmployment = "
-        INSERT INTO tbl_team_employment (
-            col_first_name, col_last_name,
-            col_contract_type, col_contract, col_weekly_contract_hour, col_covid_vacin,
-            uryyTteamoeSS4, col_company_Id
-        ) VALUES (
-            '$txtFirstName', '$txtLastName',
-            NULL, NULL, NULL, NULL,
-            '$identityToUse', '$txtCompanyId'
-        )
-    ";
-
-    if (!mysqli_query($conn, $sqlInsertEmployment)) {
-        header("Location: ./add-new-team");
-    }
-
-    // ✅ Insert into documents table
-    $sqlInsertDocs = "
-        INSERT INTO tbl_team_documents (
-            col_Id_image, col_drivers_licence_image, col_bank_statement_image, col_utility_bill_image,
-            col_references_image, col_dbs_records_image, uryyTteamoeSS4, col_company_Id
-        ) VALUES (
-            NULL, NULL, NULL, NULL,
-            NULL, NULL, '$identityToUse', '$txtCompanyId'
-        )
-    ";
-
-    if (!mysqli_query($conn, $sqlInsertDocs)) {
-        header("Location: ./add-new-team");
-    }
-
-    // ✅ Redirect after success
-    header("Location: ./team-list");
-    exit;
+    $stmt->close();
+    $conn->close();
 }

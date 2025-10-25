@@ -27,7 +27,7 @@
                 <h6 class="mb-0 text-white fw-bold">
                     <?php
                     $query = "
-                    SELECT t1.userId, t1.uryyTteamoeSS4, t1.col_company_Id 
+                    SELECT t1.id, t1.uryyTteamoeSS4, t1.col_company_Id 
                     FROM tbl_general_team_form t1
                     LEFT JOIN tbl_team_status t2 
                     ON t1.uryyTteamoeSS4 = t2.uryyTteamoeSS4 
@@ -52,7 +52,7 @@
                 <h6 class="mb-0 text-white fw-bold">
                     <?php
                     $query = "
-                    SELECT t1.userId, t1.uryyTteamoeSS4, t1.col_company_Id 
+                    SELECT t1.id, t1.uryyTteamoeSS4, t1.col_company_Id 
                     FROM tbl_general_team_form t1
                     LEFT JOIN tbl_team_status t2 
                     ON t1.uryyTteamoeSS4 = t2.uryyTteamoeSS4 

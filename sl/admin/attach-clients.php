@@ -7,7 +7,7 @@ if (isset($_GET['city'], $_GET['specId'], $_GET['u7ye'])) {
     $usr_compId = $_SESSION['usr_compId'] ?? '';
 
     $stmt = $conn->prepare("SELECT * FROM tbl_client_runs WHERE col_run_city = ? 
-    AND run_ids = ? AND col_company_Id = ? ORDER BY userId DESC");
+    AND run_ids = ? AND col_company_Id = ? ORDER BY id DESC");
     if ($stmt) {
         $stmt->bind_param("sis", $runCity, $runSpecialId, $usr_compId);
         $stmt->execute();

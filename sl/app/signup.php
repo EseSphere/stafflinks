@@ -21,7 +21,6 @@
     const dbName = "stafflinks";
     const storeName = "tbl_team_account";
 
-    // Open or create IndexedDB
     function openIndexedDB() {
         return new Promise((resolve, reject) => {
             const request = indexedDB.open(dbName, 1);
@@ -30,10 +29,11 @@
                 const db = event.target.result;
                 if (!db.objectStoreNames.contains(storeName)) {
                     const store = db.createObjectStore(storeName, {
-                        keyPath: "id"
+                        keyPath: "id",
+                        autoIncrement: true
                     });
                     store.createIndex("user_email_address", "user_email_address", {
-                        unique: false
+                        unique: true
                     });
                 }
             };
@@ -48,23 +48,41 @@
         });
     }
 
-    // Save or replace user in IndexedDB
-    function saveOrUpdateUserInIndexedDB(user) {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const db = await openIndexedDB();
-                const transaction = db.transaction(storeName, "readwrite");
-                const store = transaction.objectStore(storeName);
-                const request = store.put(user); // put = add or replace
-                request.onsuccess = () => resolve();
-                request.onerror = () => reject("Failed to save/update user in IndexedDB");
-            } catch (err) {
-                reject(err);
+    async function saveOrUpdateUserInIndexedDB(user) {
+        if (!user || typeof user !== "object") {
+            console.error("Invalid user object:", user);
+            throw new Error("Cannot save null or invalid user in IndexedDB.");
+        }
+
+        try {
+            const db = await openIndexedDB();
+            const transaction = db.transaction(storeName, "readwrite");
+            const store = transaction.objectStore(storeName);
+
+            const userToSave = {
+                ...user
+            };
+
+            if (userToSave.userId != null) {
+                userToSave.id = userToSave.userId;
+                delete userToSave.userId;
             }
-        });
+
+            if (!userToSave.id) {
+                userToSave.id = crypto.randomUUID();
+            }
+
+            return new Promise((resolve, reject) => {
+                const request = store.put(userToSave);
+                request.onsuccess = () => resolve();
+                request.onerror = (e) => reject("Failed to save/update user in IndexedDB: " + e.target.error);
+            });
+        } catch (err) {
+            console.error("IndexedDB error:", err);
+            throw err;
+        }
     }
 
-    // Handle form submission
     document.getElementById("emailForm").addEventListener("submit", async function(e) {
         e.preventDefault();
         const email = document.getElementById("email").value.trim();
@@ -83,7 +101,7 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: email
+                    email
                 })
             });
 
@@ -97,7 +115,8 @@
             }
 
             if (data.exists && data.user) {
-                await saveOrUpdateUserInIndexedDB(data.user); // Save or replace in IndexedDB
+                console.log("User from server:", data.user);
+                await saveOrUpdateUserInIndexedDB(data.user);
                 window.location.href = "create-pin.php?email=" + encodeURIComponent(email);
             } else {
                 alert(data.message || "Email not found. Please sign up first.");
@@ -111,5 +130,6 @@
         }
     });
 </script>
+
 
 <?php require_once('footer-log.php'); ?>

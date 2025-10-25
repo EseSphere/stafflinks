@@ -43,7 +43,7 @@
                     $varCookieCity = $_COOKIE['companyCity'] ?? null;
                     if ($varCookieCity == 'Select all') {
                         $query = "
-                        SELECT t1.userId
+                        SELECT t1.id
                         FROM tbl_general_client_form t1
                         LEFT JOIN tbl_client_status_records t2 
                         ON t1.uryyToeSS4 = t2.col_client_Id 
@@ -60,7 +60,7 @@
                         printf($sql_count_result1);
                     } else {
                         $query = "
-                        SELECT t1.userId
+                        SELECT t1.id
                         FROM tbl_general_client_form t1
                         LEFT JOIN tbl_client_status_records t2 
                         ON t1.uryyToeSS4 = t2.col_client_Id 

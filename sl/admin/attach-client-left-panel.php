@@ -31,7 +31,7 @@
                         $sql = "
                         SELECT r.* FROM tbl_manage_runs r WHERE r.run_area_nameId = ? AND r.col_company_Id = ? 
                         AND NOT EXISTS (SELECT 1 FROM tbl_client_status_records s WHERE s.col_client_Id = r.uryyToeSS4 
-                        AND s.col_end_date = 'TFN' AND s.col_company_Id = r.col_company_Id) ORDER BY r.userId ASC
+                        AND s.col_end_date = 'TFN' AND s.col_company_Id = r.col_company_Id) ORDER BY r.id ASC
                         ";
 
                         $stmt = $conn->prepare($sql);
@@ -53,7 +53,7 @@
                                                             <td>" . $trans['care_calls'] . "</td>
                                                             <td>
                                                                 <form action='./processing-delete-client-from-run' method='post'>
-                                                                    <input type='hidden' name='txtUserId' value='" . $trans['userId'] . "'>
+                                                                    <input type='hidden' name='txtid' value='" . $trans['id'] . "'>
                                                                     <input type='hidden' name='txtClientSpecialId' value='" . $trans['uryyToeSS4'] . "'>
                                                                     <input type='hidden' name='txtcare_calls' value='" . $trans['care_calls'] . "'>
                                                                     <input type='hidden' name='txtRunSpecialId' value='" . $trans['run_area_nameId'] . "'>

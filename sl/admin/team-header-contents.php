@@ -12,28 +12,36 @@ if (isset($_GET['userId'], $_GET['logs'])) {
 <html lang="en">
 
 <head>
-    <title><?php echo $CompanyName; ?></title>
-    <meta charset="utf-8" />
-    <meta name="description" content="Geosoft care - Software for care settings is a dynamic nursing, 
-    domiciliary, support and agency App based in the UK. It is built on solid partnership and experience 
-    spanning almost two decades within its management team." />
-    <meta name="keywords" content="HTML, CSS, JavaScript, AJAX, PHP mySQL" />
-    <meta name="author" content="Ese Sphere IT Solution" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="assets/images/gsLogo.png" />
-    <meta name="twitter:image" content="assets/images/gsLogo.png" />
-    <link rel="icon" href="assets/images/gsLogo.png" />
-    <link rel="icon" href="assets/images/gsLogo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>StaffLinks | Simplify. Organize. Thrive.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta property="og:description" content="Manage staff, clients, schedules, and finances in one unified platform. StaffLinks makes team and operations management simple and efficient." />
+    <meta property="og:image" content="./assets/images/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.stafflinks.co.uk" />
+    <meta name="twitter:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta name="twitter:description" content="StaffLinks centralizes staff, client, schedule, and finance management in one platform for maximum efficiency." />
+    <meta name="twitter:image" content="./assets/images/favicon.png" />
+    <meta name="twitter:card" content="./assets/images/favicon.png" />
+    <meta name="theme-color" content="#4CAF50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="rating" content="General" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+    <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./fullcalendar/lib/main.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
@@ -114,24 +122,17 @@ if (isset($_GET['userId'], $_GET['logs'])) {
             <div class="navbar-content scroll-div ">
                 <div class="">
                     <div class="main-menu-header">
-                        <img class="img-radius" src="assets/images/gsLogo.png" alt="User-Profile-Image">
                         <div class="user-details">
-                            <span>Geosoft</span>
+                            <span>StaffLinks</span>
                             <div id="more-details">Admin panel<i class="fa fa-chevron-down m-l-5"></i></div>
                         </div>
                     </div>
                     <div class="collapse" id="nav-user-link">
                         <ul class="list-unstyled">
-                            <li class="list-group-item"><a href="./checking-administrator-access"
-                                    style="text-decoration: none; color:#fff;"><i
-                                        class="feather icon-user m-r-5"></i>View admin</a></li>
-                            <li class="list-group-item"><a
-                                    href="./share-access-code?col_company_Id=<?php echo "" . $_SESSION['usr_compId'] . ""; ?>"
-                                    style="text-decoration: none; color:#fff;"><i
-                                        class="feather icon-share-2 m-r-5"></i>Share access</a></li>
-                            <li class="list-group-item"><a href="./auth-normal-logout?auth-normal-logout"
-                                    style="text-decoration: none; color:#fff;"><i
-                                        class="feather icon-log-out m-r-5"></i>Logout</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./checking-administrator-access" style="text-decoration: none; color:#fff;"><i class="feather icon-user m-r-5"></i>View admin</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./share-access-code?col_company_Id=<?php echo "" . $display_admin_data_row['col_company_Id'] . ""; ?>" style="text-decoration: none; color:#fff;"><i class="feather icon-share-2 m-r-5"></i>Share access</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./qrcodes" style="text-decoration: none; color:#fff;"><i class="fas fa-qrcode m-r-5"></i>QR Codes</a></li>
+                            <li class="list-group-item text-decoration-none"><a href="./logout?logout" style="text-decoration: none; color:#fff;"><i class="feather icon-log-out m-r-5"></i>Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -140,19 +141,14 @@ if (isset($_GET['userId'], $_GET['logs'])) {
                         <label>Navigation</label>
                     </li>
                     <li class="nav-item">
-                        <a href="./dashboard" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                        <a href="./dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./team-details<?php echo "?uryyTteamoeSS4=" . $uryyTteamoeSS4 . "" ?>"
-                            class="nav-link"><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span
-                                class="pcoded-mtext">About me</span></a>
+                        <a href="./team-details<?php echo "?uryyTteamoeSS4=" . $uryyTteamoeSS4 . "" ?>" class="nav-link"><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">About me</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="./team-note<?php echo "?uryyTteamoeSS4=" . $uryyTteamoeSS4 . "" ?>"
-                            class="nav-link"><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span
-                                class="pcoded-mtext">Notes</span></a>
+                        <a href="./team-note<?php echo "?uryyTteamoeSS4=" . $uryyTteamoeSS4 . "" ?>" class="nav-link"><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Notes</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="./team-visits<?php echo "?uryyTteamoeSS4=" . $uryyTteamoeSS4 . "" ?>"
@@ -176,26 +172,20 @@ if (isset($_GET['userId'], $_GET['logs'])) {
                                 class="pcoded-mtext">Skills</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./carer-availability<?php echo "?uryyTteamoeSS4=" . $uryyTteamoeSS4 . "" ?>"
-                            class="nav-link"><span class="pcoded-micon"><i
-                                    class="feather icon-activity"></i></span><span
-                                class="pcoded-mtext">Availability</span></a>
+                        <a href="./carer-availability<?php echo "?uryyTteamoeSS4=" . $uryyTteamoeSS4 . "" ?>" class="nav-link"><span class="pcoded-micon"><i class="feather icon-activity"></i></span><span class="pcoded-mtext">Availability</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./auth-normal-logout" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
+                        <a href="./auth-normal-logout" class="nav-link "><span class="pcoded-micon"><i class="feather icon-log-out"></i></span><span class="pcoded-mtext">Logout</span></a>
                     </li>
                 </ul>
-
 
                 <div class="card text-center">
                     <div class="card-block">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <i class="feather icon-sunset f-40"></i>
-                        <h6 class="mt-3">Hello, Geosoft!</h6>
+                        <h6 class="mt-3">Hello, StaffLinks!</h6>
                         <p>Complete the following steps to learn how Geosoft works and hit the ground running.</p>
-                        <a href="Help center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help
-                            center</a>
+                        <a href="Help center" target="_blank" class="btn btn-primary btn-sm text-white m-0">Help center</a>
                     </div>
                 </div>
             </div>
@@ -206,12 +196,9 @@ if (isset($_GET['userId'], $_GET['logs'])) {
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
             <a href="#!" class="b-brand">
-                <!-- ========   change your logo hear   ============ -->
-                <h3 style="color: rgba(189, 195, 199,1.0);">Geosoft</h3>
+                <img src="./assets/images/logo.png" style="width: 200px; height:60px; margin-left:-50px;" alt="stafflinks logo" class="logo images">
             </a>
-            <a href="#!" class="mob-toggler">
-                <i class="feather icon-more-vertical"></i>
-            </a>
+            <a href="#!" class="mob-toggler"><i class="feather icon-more-vertical"></i></a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">

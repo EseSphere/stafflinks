@@ -18,7 +18,7 @@ if ($varGetAllData === $varCookieCity) {
     if ($search) {
         $searchParam = "%{$search}%";
         $stmt = $conn->prepare("
-     SELECT t1.userId, t1.client_first_name, t1.client_last_name, 
+     SELECT t1.id, t1.client_first_name, t1.client_last_name, 
             t1.client_primary_phone, t1.client_poster_code, t1.client_sexuality, 
             t1.client_preferred_name, t1.client_date_of_birth, t1.client_area, 
             t1.uryyToeSS4, t1.col_company_Id
@@ -43,7 +43,7 @@ if ($varGetAllData === $varCookieCity) {
         $stmt->bind_param("sss", $searchParam, $searchParam, $today);
     } else {
         $stmt = $conn->prepare("
-    SELECT t1.userId, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
+    SELECT t1.id, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
            t1.client_poster_code, t1.client_sexuality, t1.client_preferred_name, t1.client_date_of_birth, 
            t1.client_area, t1.uryyToeSS4, t1.col_company_Id, t2.col_reason, t2.col_status_color, t2.col_end_date 
     FROM tbl_general_client_form t1
@@ -64,7 +64,7 @@ if ($varGetAllData === $varCookieCity) {
     if ($search) {
         $searchParam = "%{$search}%";
         $stmt = $conn->prepare("
-            SELECT t1.userId, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, t1.client_poster_code, 
+            SELECT t1.id, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, t1.client_poster_code, 
                    t1.client_city, t1.client_sexuality, t1.client_preferred_name, t1.client_date_of_birth, 
                    t1.client_area, t1.col_Office_Incharge, t1.uryyToeSS4, t1.col_company_Id, t2.col_reason, t2.col_status_color 
             FROM tbl_general_client_form t1
@@ -77,7 +77,7 @@ if ($varGetAllData === $varCookieCity) {
         $stmt->bind_param("ssss", $today, $varCookieCity, $searchParam, $searchParam);
     } else {
         $stmt = $conn->prepare("
-            SELECT t1.userId, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
+            SELECT t1.id, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
                    t1.client_poster_code, t1.client_sexuality, t1.client_preferred_name, t1.client_date_of_birth, 
                    t1.client_area, t1.col_Office_Incharge, t1.uryyToeSS4, t1.col_company_Id, t2.col_reason, t2.col_status_color, t2.col_end_date 
             FROM tbl_general_client_form t1

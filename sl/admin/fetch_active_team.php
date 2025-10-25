@@ -12,7 +12,7 @@ $search = isset($_POST["query"]) ? '%' . $_POST["query"] . '%' : null;
 
 // Base SQL with NOT EXISTS to hide approved teams within the date range
 $baseSql = "
-SELECT t1.userId, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, 
+SELECT t1.id, t1.team_first_name, t1.team_last_name, t1.team_primary_phone, 
        t1.team_poster_code, t1.team_sexuality, t1.team_nationality, t1.team_date_of_birth, 
        t1.team_city, t1.uryyTteamoeSS4, t1.col_company_Id
 FROM tbl_general_team_form t1
@@ -90,7 +90,7 @@ if ($result->num_rows > 0) {
         </td>
         <td>' . $teamDOB . '</td>
         <td>' . htmlspecialchars($row["team_nationality"]) . '</td>
-        <td>0' . htmlspecialchars($row["team_primary_phone"]) . '</td>
+        <td>' . htmlspecialchars($row["team_primary_phone"]) . '</td>
         <td>' . htmlspecialchars($row["team_sexuality"]) . '</td>
         <td>' . htmlspecialchars($row["team_city"]) . '</td>
         <td>

@@ -110,7 +110,7 @@ if ($result->num_rows > 0) {
                     <input type="hidden" name="txtCareCalls" value="' . $_SESSION['get_care_calls'] . '" />
                     <input type="hidden" name="txtRunName" value="' . $_SESSION['get_run_name'] . '" />
                     <input type="hidden" name="txtClientSpecId" value="' . $_SESSION['get_client_Spec_Id'] . '" />
-                    <input type="hidden" name="txtClientGroup" value="' . $_SESSION['userId'] . '" />
+                    <input type="hidden" name="txtClientGroup" value="' . $_SESSION['id'] . '" />
                     <button style="height:40px;" title="View carer profile" name="btnScheduleRuns" type="submit" class="btn btn-info btn-sm">
                         <i class="feather mr-2 icon-briefcase"></i> Assign run
                     </button>

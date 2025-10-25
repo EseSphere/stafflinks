@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="manifest" href="./manifest.json">
     <style>
         body,

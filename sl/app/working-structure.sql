@@ -1,5 +1,5 @@
 CREATE TABLE `tbl_general_client_form` (
-    `userId` VARCHAR(255), -- unique user ID
+    `id` VARCHAR(255), -- unique user ID
     `client_title` VARCHAR(255), -- title e.g. Mr, Mrs, etc.
     `client_first_name` VARCHAR(255), -- first name
     `client_last_name` VARCHAR(255), -- last name
@@ -34,21 +34,20 @@ CREATE TABLE `tbl_general_client_form` (
     `qrcode` VARCHAR(255), -- QR code content
     `col_company_Id` VARCHAR(255), -- company ID
     `dateTime` VARCHAR(255), -- creation or update time
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `tbl_general_client_form` (
-    `userId` VARCHAR(255), -- unique user ID
+    `id` VARCHAR(255), -- unique user ID
     `client_first_name` VARCHAR(255), -- first name
     `client_last_name` VARCHAR(255), -- last name
     `client_date_of_birth` VARCHAR(255), -- date of birth
     `uryyToeSS4` VARCHAR(255), -- unique ID
-    `client_highlights` VARCHAR(255)
-        PRIMARY KEY (`userId`)
+    `client_highlights` VARCHAR(255) PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `tbl_goesoft_carers_account` (
-    `userId` VARCHAR(255), -- ID
+CREATE TABLE `tbl_team_account` (
+    `id` VARCHAR(255), -- ID
     `user_fullname` VARCHAR(255), -- Full Name
     `user_email_address` VARCHAR(255), -- Email
     `user_phone_number` VARCHAR(255), -- Phone
@@ -56,11 +55,11 @@ CREATE TABLE `tbl_goesoft_carers_account` (
     `col_cookies_identifier` VARCHAR(255), -- Cookie Identifier
     `user_special_Id` VARCHAR(255), -- Unique ID
     `col_company_Id` VARCHAR(255), -- Company ID
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `tbl_future_planning` (
-    `userId` VARCHAR(255), -- ID
+    `id` VARCHAR(255), -- ID
     `col_first_box` VARCHAR(255), -- Does he/she have capacity to make decisions related to their health and wellbeing?
     `col_second_box` VARCHAR(255), -- Health and Welfare LPA
     `col_third_box` VARCHAR(255), -- Property and Financial Affairs LPA
@@ -69,11 +68,11 @@ CREATE TABLE `tbl_future_planning` (
     `col_sixth_box` VARCHAR(255), -- Recommended Summary Plan for Emergency Care and Treatment (ReSPECT)
     `col_seventh_box` VARCHAR(255), -- Where is it kept?
     `uryyToeSS4` VARCHAR(255), -- Client Special ID
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `tbl_client_medical` (
-    `userId` int(255),
+    `id` int(255),
     `col_nhs_number` varchar(255),
     `col_medical_support` varchar(255),
     `col_dnar` varchar(255),
@@ -92,14 +91,14 @@ CREATE TABLE `tbl_client_medical` (
     `uryyToeSS4` varchar(255),
     `col_company_Id` varchar(255),
     `dateTime` varchar(255),
-    sPRIMARY KEY (`userId`)
+    sPRIMARY KEY (`id`)
 );
 
 -- Use `uryyToeSS4` VARCHAR(255) in tbl_schedule_calls to Select the client_poster_code, client_latitude, client_longitude from tbl_general_client_form where uryyToeSS4 is equal to uryyToeSS4 in tbl_general_client_form.
 -- Get the miles between the client and the carer using the Haversine formula or any other method.
 -- Use `first_carer_Id` VARCHAR(255) in tbl_schedule_calls to get the carer's col_pay_rate, col_rate_type and col_mileage from tbl_general_team_form e.g where first_carer_Id.tbl_schedule_calls = uryyTteamoeSS4.tbl_general_team_form.
 CREATE TABLE `tbl_schedule_calls` (
-    `userId` VARCHAR(255), -- User ID
+    `id` VARCHAR(255), -- User ID
     `client_name` VARCHAR(255), -- Client Name
     `col_area_Id` VARCHAR(255), -- Client area ID
     `uryyToeSS4` VARCHAR(255), -- unique ID
@@ -114,12 +113,12 @@ CREATE TABLE `tbl_schedule_calls` (
     `Clientshift_Date` VARCHAR(255), -- Shift Date (e.g. visits for the day)
     `call_status` VARCHAR(255), -- Call Status (e.g. Scheduled, Not completed, or Completed)
     `col_company_Id` VARCHAR(255), -- Company ID(this is not an integer it's a string)
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 -- This columns will update when the user checks in
 CREATE TABLE `tbl_daily_shift_records` (
-    `userId` VARCHAR(255), -- User ID
+    `id` VARCHAR(255), -- User ID
     `shift_status` VARCHAR(255), -- Checked in(it's a static string)
     `shift_date` VARCHAR(255), -- Shift Date (e.g. visits for the day)
     `planned_timeIn` VARCHAR(255), -- Time In
@@ -141,12 +140,12 @@ CREATE TABLE `tbl_daily_shift_records` (
     `col_care_call_Id` VARCHAR(255), -- User ID(tbl_schedule_calls)
     `col_postcode` VARCHAR(255), -- client postal code
     `dateTime` VARCHAR(255), -- creation or update time
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 -- This columns will update when the user checks out
 
--- Get userid from url tab. Use it to select pay_rate(column) and client_rate(column) from tbl_schedule_calls where userid(tbl_schedule_calls) = userid(from url tab).
+-- Get id from url tab. Use it to select pay_rate(column) and client_rate(column) from tbl_schedule_calls where id(tbl_schedule_calls) = id(from url tab).
 -- Calculate the worked time by calculating the time difference between shift_start_time(column) and shift_end_time(column).
 -- Calculate the col_client_payer by multiplying the worked_time(column) and client_rate(column).
 -- Calculate the col_carecall_rate by multiplying the worked_time(column) and pay_rate(column).
@@ -155,15 +154,15 @@ CREATE TABLE `tbl_daily_shift_records` (
     `shift_end_time` VARCHAR(255), -- Insert the current time when the user checks out
     `task_note` VARCHAR(255), -- Insert the form note into this column when the user checks out
     `timesheet_date` VARCHAR(255), -- Insert the current date when the user checks out
-    `col_carecall_rate` VARCHAR(255), -- Get userid from url tab
+    `col_carecall_rate` VARCHAR(255), -- Get id from url tab
     `col_worked_time` VARCHAR(255), -- Insert total work time from time difference between shift_start_time and shift_end_time
-    `col_client_rate` VARCHAR(255), -- Insert client_rate(column) from tbl_schedule_calls where userid(tbl_schedule_calls) = userid(from url tab)
+    `col_client_rate` VARCHAR(255), -- Insert client_rate(column) from tbl_schedule_calls where id(tbl_schedule_calls) = id(from url tab)
     `col_client_payer` VARCHAR(255), -- Null(this will be updated when the user checks out)
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `tbl_daily_shift_records` (
-    `userId` VARCHAR(255), -- User ID
+    `id` VARCHAR(255), -- User ID
     `shift_status` VARCHAR(255), -- Checked in (static string)
     `shift_date` VARCHAR(255), -- Shift Date (e.g. visits for the day)
     `planned_timeIn` VARCHAR(255), -- Planned Time In
@@ -192,7 +191,7 @@ CREATE TABLE `tbl_daily_shift_records` (
     `col_care_call_Id` VARCHAR(255), -- Care Call ID (from tbl_schedule_calls)
     `col_postcode` VARCHAR(255), -- Client postal code
     `dateTime` VARCHAR(255), -- Record creation or update timestamp
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 --Client medication records
@@ -229,7 +228,7 @@ CREATE TABLE `tbl_clients_medication_records` (
 
 --Client task records
 CREATE TABLE `tbl_clients_task_records` (
-    `userId` VARCHAR(255), -- User ID
+    `id` VARCHAR(255), -- User ID
     `uryyToeSS4` VARCHAR(255), -- unique ID
     `client_taskName` VARCHAR(255), -- Task Name
     `client_task_details` VARCHAR(255), -- Task Details
@@ -257,7 +256,7 @@ CREATE TABLE `tbl_clients_task_records` (
 );
 
 CREATE TABLE `tbl_finished_meds` (
-    `userId` VARCHAR(255), -- User ID
+    `id` VARCHAR(255), -- User ID
     `meds` VARCHAR(255), -- Medication Name
     `med_date` VARCHAR(255), -- Date
     `timeIn` VARCHAR(255), -- Time In
@@ -270,11 +269,11 @@ CREATE TABLE `tbl_finished_meds` (
     `col_status` VARCHAR(255), -- Status (e.g. Completed, Refused, Not available or Not Completed)
     `col_company_Id` VARCHAR(255), -- Company ID(this is not an integer it's a string)
     `dateTime` VARCHAR(255), -- creation or update time
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `tbl_finished_tasks` (
-    `userId` VARCHAR(255), -- User ID
+    `id` VARCHAR(255), -- User ID
     `task` VARCHAR(255), -- Task Name
     `task_date` VARCHAR(255), -- Date
     `timeIn` VARCHAR(255), -- Time In
@@ -287,7 +286,7 @@ CREATE TABLE `tbl_finished_tasks` (
     `col_status` VARCHAR(255), -- Status (e.g. Completed, Refused, Not available or Not Completed)
     `col_company_Id` VARCHAR(255), -- Company ID(this is not an integer it's a string)
     `dateTime` VARCHAR(255), -- creation or update time
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 --In all of them the date format is yyyy-mm-dd
@@ -306,21 +305,18 @@ CREATE TABLE `tbl_finished_tasks` (
     'tbl_general_team_form' => ['col_company_Id'],  -- select all rows
     'tbl_manage_runs' => ['col_company_Id'] -- select all rows
 
-
-
-
-    CREATE TABLE `tbl_cancelled_call` (
-    `userId` VARCHAR(255),
+CREATE TABLE `tbl_cancelled_call` (
+    `id` VARCHAR(255),
     `col_care_call` VARCHAR(255), -- Care Calls (e.g. morning, lunch, tea, bed, extra morning, extra lunch, extra tea, extra bed)
     `col_client_Id` VARCHAR(255), -- client unique ID(which is uryyToeSS4 in tbl_schedule_calls)
     `col_date` VARCHAR(255), -- Date of cancellation
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `tbl_client_status_records` (
-    `userId` VARCHAR(255),
+    `id` VARCHAR(255),
     `col_start_date` VARCHAR(255), -- Start date of the status
     `col_end_date` VARCHAR(255), -- End date of the status
     `col_client_Id` VARCHAR(255), -- client unique ID(which is uryyToeSS4 in tbl_schedule_calls)
-    PRIMARY KEY (`userId`)
+    PRIMARY KEY (`id`)
 );

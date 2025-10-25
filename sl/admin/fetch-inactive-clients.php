@@ -50,7 +50,7 @@ $latestReasonSubquery = "
 if ($varCookieCity === $varGetAllData || !$varCookieCity) {
     $sql = "
         SELECT 
-            t1.userId, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
+            t1.id, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
             t1.client_poster_code, t1.client_sexuality, t1.client_preferred_name, 
             t1.client_date_of_birth, t1.client_area, t1.uryyToeSS4, t1.col_company_Id, 
             t2.col_reason, t2.col_status_color
@@ -65,7 +65,7 @@ if ($varCookieCity === $varGetAllData || !$varCookieCity) {
 } else {
     $sql = "
         SELECT 
-            t1.userId, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
+            t1.id, t1.client_first_name, t1.client_last_name, t1.client_primary_phone, 
             t1.client_poster_code, t1.client_sexuality, t1.client_preferred_name, 
             t1.client_date_of_birth, t1.client_area, t1.col_Office_Incharge,
             t1.uryyToeSS4, t1.col_company_Id, 

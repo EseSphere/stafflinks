@@ -132,7 +132,7 @@ $_SESSION['currentRotaDay'] = $currentRotaDay;
 
                 $links = [];
                 while ($att_cor_rw = mysqli_fetch_assoc($sel_dist_attr)) {
-                    $userId = $att_cor_rw["userId"];
+                    $id = $att_cor_rw["id"];
                     $clientFullName = htmlspecialchars($att_cor_rw["client_name"]);
                     $myuryyToeSS4 = htmlspecialchars($att_cor_rw["uryyToeSS4"]);
                     $mycare_calls = htmlspecialchars($att_cor_rw["care_calls"]);
@@ -154,7 +154,7 @@ $_SESSION['currentRotaDay'] = $currentRotaDay;
                     $links[] = "
 <li style='white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
            width: 150px; text-align:center; $visitStyle'>
-    <a href='../change-client-run-567483-59956-847754?userId=" . urlencode($userId) . "&name=$clientFullName&spec=$myuryyToeSS4&visit=$mycare_calls&date=$currentDateRota&u7ye=$crackEncryptedbinary' " . $tooltipOnA . " 
+    <a href='../change-client-run-567483-59956-847754?id=" . urlencode($id) . "&name=$clientFullName&spec=$myuryyToeSS4&visit=$mycare_calls&date=$currentDateRota&u7ye=$crackEncryptedbinary' " . $tooltipOnA . " 
     style='padding:5px 10px 9px 8px; text-decoration:none; color:#000; display:block;'>
         {$cancelDot}{$clientFullName}<br>
         <span>{$dateTime}</span> &nbsp; <span>{$requiredCarers}</span>

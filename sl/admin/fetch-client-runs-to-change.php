@@ -1,7 +1,7 @@
 <?php
 include('dbconnections.php');
 
-$myUserId = $_GET['userId'] ?? null;
+$myid = $_GET['id'] ?? null;
 $output   = '';
 
 if (!isset($_SESSION['usr_compId'])) {
@@ -16,7 +16,7 @@ if (!empty($_POST['query'])) {
         FROM tbl_manage_runs 
         WHERE (col_run_name LIKE ? OR client_area LIKE ?)
         GROUP BY col_run_name 
-        ORDER BY userId ASC
+        ORDER BY id ASC
     ";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $search, $search);
@@ -27,7 +27,7 @@ if (!empty($_POST['query'])) {
         FROM tbl_manage_runs 
         WHERE col_company_Id = ?
         GROUP BY col_run_name 
-        ORDER BY userId ASC
+        ORDER BY id ASC
     ";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_SESSION['usr_compId']);

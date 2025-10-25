@@ -96,7 +96,7 @@
                                     <?php
                                     $query = "
                                             SELECT 
-                                                t1.userId, 
+                                                t1.id, 
                                                 t1.client_first_name, 
                                                 t1.client_last_name, 
                                                 t1.client_primary_phone, 
@@ -112,7 +112,7 @@
                                                     OR (t2.col_start_date <= '$today' AND t2.col_end_date = 'TFN')
                                                 ) 
                                             WHERE t1.col_company_Id = '" . $_SESSION['usr_compId'] . "' 
-                                            ORDER BY t1.userId DESC 
+                                            ORDER BY t1.id DESC 
                                             LIMIT 5;
                                         ";
 
@@ -132,7 +132,7 @@
                                                 <td>" . $trans['client_primary_phone'] . "</td>
                                                 <td>
                                                     <a href='./client-details?uryyToeSS4=" . $trans['uryyToeSS4'] . "'>
-                                                        <button title='View client details' type='button' class='btn btn-primary btn-sm'>
+                                                        <button title='View client details' type='button' class='btn btn-info btn-sm'>
                                                             <i class='feather mr-2 icon-eye'></i>View
                                                         </button>
                                                     </a>
@@ -171,7 +171,7 @@
                                     <?php
                                     $query = "
                                             SELECT 
-                                                t1.userId, 
+                                                t1.id, 
                                                 t1.team_first_name, 
                                                 t1.team_last_name, 
                                                 t1.team_primary_phone, 
@@ -188,7 +188,7 @@
                                                     OR (t2.col_startDate <= '$today' AND t2.col_endDate = 'TFN' AND t2.col_approval = 'Approved')
                                                 )
                                             WHERE t1.col_company_Id = '" . $_SESSION['usr_compId'] . "' 
-                                            ORDER BY t1.userId DESC 
+                                            ORDER BY t1.id DESC 
                                             LIMIT 5;
                                         ";
 
@@ -211,7 +211,7 @@
                                                 <td>" . $trans['team_primary_phone'] . "</td>
                                                 <td>
                                                     <a href='./team-details?uryyTteamoeSS4=" . $trans['uryyTteamoeSS4'] . "'>
-                                                        <button type='button' class='btn btn-primary btn-sm'>
+                                                        <button type='button' class='btn btn-info btn-sm'>
                                                             <i class='feather mr-2 icon-eye'></i>View
                                                         </button>
                                                     </a>

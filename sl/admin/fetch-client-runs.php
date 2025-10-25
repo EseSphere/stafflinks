@@ -49,7 +49,7 @@ if (!empty($searchQuery)) {
 }
 
 if ($varGetAllData === $companyCity) {
-    $query = "SELECT * FROM tbl_client_runs WHERE col_company_Id = ? $searchCondition GROUP BY run_name ORDER BY userId ASC LIMIT ? OFFSET ?";
+    $query = "SELECT * FROM tbl_client_runs WHERE col_company_Id = ? $searchCondition GROUP BY run_name ORDER BY id ASC LIMIT ? OFFSET ?";
     $params = array_merge([$compId], $params);
     $paramTypes = 's' . $paramTypes . 'ii';
     $params[] = $limit;
@@ -59,7 +59,7 @@ if ($varGetAllData === $companyCity) {
     $countParams = array_merge([$compId], array_slice($params, 1, -2));
     $countTypes = substr($paramTypes, 0, -2);
 } else {
-    $query = "SELECT * FROM tbl_client_runs WHERE col_run_city = ? AND col_company_Id = ? $searchCondition GROUP BY run_name ORDER BY userId ASC LIMIT ? OFFSET ?";
+    $query = "SELECT * FROM tbl_client_runs WHERE col_run_city = ? AND col_company_Id = ? $searchCondition GROUP BY run_name ORDER BY id ASC LIMIT ? OFFSET ?";
     $params = array_merge([$companyCity, $compId], $params);
     $paramTypes = 'ss' . $paramTypes . 'ii';
     $params[] = $limit;
