@@ -1,7 +1,7 @@
 <?php
 include('client-header-contents.php');
 $stmt = $conn->prepare("SELECT * FROM tbl_general_client_form WHERE uryyToeSS4 = ? 
-AND col_company_Id = ? ORDER BY userId DESC LIMIT 1");
+AND col_company_Id = ? ORDER BY id DESC LIMIT 1");
 $stmt->bind_param("ss", $uryyToeSS4, $_SESSION['usr_compId']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -67,7 +67,7 @@ if (isset($_POST['btnSaveNoK'])) {
 
 if (!empty($uryyToeSS4)) {
     $stmt = $conn->prepare("SELECT * FROM tbl_general_client_form 
-    WHERE uryyToeSS4 = ? ORDER BY userId DESC LIMIT 1");
+    WHERE uryyToeSS4 = ? ORDER BY id DESC LIMIT 1");
 
     if ($stmt) {
         $stmt->bind_param("s", $uryyToeSS4);

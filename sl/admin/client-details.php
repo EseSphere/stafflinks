@@ -87,7 +87,7 @@ $clientStartDate = date('d M, Y', strtotime("" . $row['clientStart_date'] . ""))
                                         $sql = "SELECT dateTime_in, dateTime_out, uryyToeSS4 FROM tbl_clienttime_calls 
                                         WHERE uryyToeSS4 = ? AND care_calls = ? AND col_company_Id = ?";
                                         if ($limit !== null) {
-                                            $sql .= " ORDER BY userId DESC LIMIT ?";
+                                            $sql .= " ORDER BY id DESC LIMIT ?";
                                         }
 
                                         if ($limit !== null) {

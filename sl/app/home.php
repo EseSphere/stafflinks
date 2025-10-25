@@ -5,7 +5,7 @@
 <div class="topbar mb-3 p-2">
     <div class="d-flex align-items-center justify-content-between mb-2">
         <button class="menu-btn fs-1" id="menuBtn"><i class="bi bi-list"></i></button>
-        <h4 class="mb-0">Care App</h4>
+        <h4 class="mb-0">StaffLinks</h4>
         <div class="d-flex align-items-center gap-2">
             <div class="chip"><span id="today-clock">--:--</span></div>
             <button class="btn btn-sm btn-light" id="refreshBtn" title="Refresh"><i class="bi bi-arrow-clockwise"></i></button>
@@ -162,8 +162,8 @@
     // --- Load userSpecialId ---
     async function loadUserSpecialId() {
         const db = await openDB();
-        const tx = db.transaction('tbl_goesoft_carers_account', 'readonly');
-        const store = tx.objectStore('tbl_goesoft_carers_account');
+        const tx = db.transaction('tbl_team_account', 'readonly');
+        const store = tx.objectStore('tbl_team_account');
         const req = store.getAll();
         return new Promise((res, rej) => {
             req.onsuccess = e => {

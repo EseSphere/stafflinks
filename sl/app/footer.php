@@ -82,7 +82,7 @@
         $("a[href]").each(function() {
             var linkPath = $(this).attr("href").split("/").pop();
             if (linkPath === currentPath) {
-                $(this).css("background", "#22a6b3");
+                $(this).css("background", "#E3C5B2");
             }
         });
 
@@ -143,7 +143,7 @@
     }
 
     #sideNav ul li a:hover {
-        background: #22a6b3;
+        background: #E3C5B2;
         color: #fff;
     }
 

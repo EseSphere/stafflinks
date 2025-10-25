@@ -3,33 +3,37 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Geosoft Care is an app designed for care settings to manage schedules, staff, and care plans efficiently.">
-    <meta name="keywords" content="Care App, Geosoft Care, Staff Management, Schedule, Healthcare App">
-    <meta name="author" content="Geosoft Care">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0d6efd">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Geosoft Care">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Geosoft Care | App for care settings">
-    <meta property="og:description" content="Geosoft Care is an app designed for care settings to manage schedules, staff, and care plans efficiently.">
-    <meta property="og:image" content="./images/favicon.png">
-    <meta property="og:url" content="https://app.geosoftcare.co.uk">
-    <meta name="twitter:card" content="./images/favicon.png">
-    <meta name="twitter:title" content="Geosoft Care | App for care settings">
-    <meta name="twitter:description" content="Geosoft Care is an app designed for care settings to manage schedules, staff, and care plans efficiently.">
-    <meta name="twitter:image" content="./images/favicon.png">
-    <title>Geosoft Care | App for care settings</title>
+    <title>StaffLinks | Simplify. Organize. Thrive.</title>
+    <meta name="description" content="StaffLinks is an all-in-one platform to manage staff, clients, schedules, and finances efficiently. Streamline operations and empower your team with a centralized web app." />
+    <meta name="keywords" content="StaffLinks, staff management, client management, scheduling, finance portal, web app, team management, productivity, operations" />
+    <meta name="author" content="StaffLinks Team" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta property="og:description" content="Manage staff, clients, schedules, and finances in one unified platform. StaffLinks makes team and operations management simple and efficient." />
+    <meta property="og:image" content="./logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.stafflinks.co.uk" />
+    <meta name="twitter:title" content="StaffLinks | Simplify. Organize. Thrive." />
+    <meta name="twitter:description" content="StaffLinks centralizes staff, client, schedule, and finance management in one platform for maximum efficiency." />
+    <meta name="twitter:image" content="./logo.png" />
+    <meta name="twitter:card" content="./logo.png" />
+    <meta name="theme-color" content="#4CAF50" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="rating" content="General" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./css/style2.css">
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="icon" href="./images/favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./images/favicon.png">
 </head>
 
 <body>
@@ -62,7 +66,7 @@
             <hr>
 
             <div class="navbar-content bg-light p-2" style="font-family: Arial, sans-serif;">
-                <span class="app-title" style="font-weight:bold; font-size:18px;">Geosoft</span>
+                <span class="app-title" style="font-weight:bold; font-size:18px;">StaffLinks</span>
                 <span class="app-version" style="font-size:14px; margin-left:15px;">v3.0.6</span><br>
                 <span class="app-status" style="font-size:15px; color:#555;">Mobile App | Beta Release</span><br>
                 <span class="app-environment" style="font-size:15px; color:#777;">Environment: Development</span>
@@ -77,7 +81,7 @@
         <!-- Topbar -->
         <div class="topbar">
             <button class="menu-btn fs-1" id="menuBtn"><i class="bi bi-list"></i></button>
-            <h4>Geosoft</h4>
+            <h4>StaffLinks</h4>
             <div class="d-flex align-items-center gap-3">
                 <span id="topClock"></span>
                 <i class="bi bi-bell-fill fs-5" title="Notifications"></i>

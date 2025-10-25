@@ -9,7 +9,7 @@ $sql = "
         )
         AND col_client_Id = '" . $conn->real_escape_string($uryyToeSS4) . "'
         AND col_company_Id = '" . $conn->real_escape_string($_SESSION['usr_compId']) . "'
-ORDER BY userId DESC LIMIT 1";
+ORDER BY id DESC LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {

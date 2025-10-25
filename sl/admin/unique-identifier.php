@@ -22,7 +22,7 @@
                         $companyId = $_SESSION['usr_compId'];
                         $clientId = $uryyToeSS4;
                         $query = "SELECT * FROM tbl_general_client_form 
-                        WHERE uryyToeSS4 = ? AND col_company_Id = ? ORDER BY userId DESC LIMIT 1";
+                        WHERE uryyToeSS4 = ? AND col_company_Id = ? ORDER BY id DESC LIMIT 1";
                         if ($stmt = $conn->prepare($query)) {
                             $stmt->bind_param("ss", $clientId, $companyId);
                             $stmt->execute();

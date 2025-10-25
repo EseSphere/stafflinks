@@ -2,9 +2,9 @@
 
 <div class="container-fluid" id="splash-screen" style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
     <div id="splash-logo" class="img-logo">
-        <img id="geosoft-logo" src="./images/logo.png" alt="Geosoft Care Logo" style="width: 185px; height: 70px; opacity: 0; transition: opacity 1s ease;">
+        <img id="stafflinks-logo" src="./images/logo.png" alt="StaffLinks Care Logo" style="width: 280px; height: 80px; opacity: 1; transition: opacity 1s ease;">
     </div>
-    <div style="width: 80%; margin-top: 20px;">
+    <div style="width: 80%;">
         <div style="margin:0% auto; display: flex; justify-content: center; align-items: center; text-align: left; 
             width: 60%; background-color: #ddd; border-radius: 10px; overflow: hidden; height: auto;">
             <div id="progress-bar" style="width: 15%; height: auto; background-color: #273c75; text-align: left; line-height: 15px; color: white; font-weight: bold; font-size:12px; border-radius: 10px; padding:2px 2px 2px 5px; transition: width 0.5s ease-in-out;">
@@ -18,7 +18,7 @@
 <script>
     // Fade-in logo
     document.addEventListener("DOMContentLoaded", () => {
-        const logo = document.getElementById("geosoft-logo");
+        const logo = document.getElementById("stafflinks-logo");
         setTimeout(() => {
             logo.style.opacity = 1;
         }, 300); // small delay before fade-in

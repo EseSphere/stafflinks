@@ -47,7 +47,7 @@
                         $lastUpdate = $row ? date('d M, Y', strtotime($row['dateTime'])) : null; ?>
                         <h5 class="w-100">Emergency contact
                             <a class="btn btn-sm btn-secondary text-right text-decoration-none"
-                                href="./edit-next-of-kin?<?php echo "userId=" . $row['userId'] . "" ?>"><i
+                                href="./edit-next-of-kin?<?php echo "id=" . $row['id'] . "" ?>"><i
                                     class="feather icon-edit"></i></a>
                         </h5>
                         <div class="card mb-4">
